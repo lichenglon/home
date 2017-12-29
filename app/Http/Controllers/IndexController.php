@@ -12,6 +12,6 @@ class IndexController extends Controller {
 	 *前台首台
 	 */
 	public function index() {
-		return '123';
+		return view('index');
 	}
 }
