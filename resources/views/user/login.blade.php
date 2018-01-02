@@ -13,7 +13,11 @@
  @endif
  <div id="h">
    <div>
+
    <form action="{{url('user/loginFind')}}" method="post">
+
+   <form action="{{url('user/display')}}" method="post">
+
    <table></table>
 		<h3>登录</h3>
 	<ul type="none">

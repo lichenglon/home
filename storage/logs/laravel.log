@@ -1193,6 +1193,7 @@ Stack trace:
 #46 D:\www\erp\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #47 D:\www\erp\laravel\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #48 {main}  
+<<<<<<< HEAD
 [2018-01-02 02:14:53] local.ERROR: ErrorException: Undefined variable: request in D:\www\erp\laravel\app\Http\Controllers\User\UserController.php:19
 Stack trace:
 #0 D:\www\erp\laravel\app\Http\Controllers\User\UserController.php(19): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'D:\\www\\erp\\lara...', 19, Array)
@@ -2808,3 +2809,8 @@ Stack trace:
 #30 D:\www\erp\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #31 D:\www\erp\laravel\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #32 {main}  
+=======
+[2018-01-01 13:19:32] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Maximum execution time of 30 seconds exceeded in F:\WWW\erp\laravel\vendor\laravel\framework\src\Illuminate\Routing\Controller.php:8
+Stack trace:
+#0 {main}  
+>>>>>>> 2c8df4c601c1bfdb8590ab37a5f99bdc8afc8b00
