@@ -5,15 +5,6 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\Session\Session;
-<<<<<<< HEAD
-use App\Http\Controllers\User;
-=======
-<<<<<<< HEAD
-use App\Http\Controllers\User;
-=======
->>>>>>> 2c8df4c601c1bfdb8590ab37a5f99bdc8afc8b00
->>>>>>> 5de401220611d976745e6a38255a862c9c4b2bc0
-
 class UserController extends Controller {
 	/**
 	 *登陆页
@@ -21,10 +12,7 @@ class UserController extends Controller {
 	public function login() {
 		return view('user.login');
 	}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5de401220611d976745e6a38255a862c9c4b2bc0
+
 	//登录页面检测
 	public function loginFind(Request $request){
 		if($request->isMethod('post')){
@@ -53,9 +41,7 @@ class UserController extends Controller {
 			}
 		}
 
-<<<<<<< HEAD
-=======
-=======
+
 
 	public function display(){
 		if(!empty($_POST)){
@@ -68,8 +54,6 @@ class UserController extends Controller {
 				return redirect(url('/'));
 			}
 		}
->>>>>>> 2c8df4c601c1bfdb8590ab37a5f99bdc8afc8b00
->>>>>>> 5de401220611d976745e6a38255a862c9c4b2bc0
 	}
 	/**
 	 *注册页
