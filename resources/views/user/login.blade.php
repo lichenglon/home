@@ -13,11 +13,23 @@
  @endif
  <div id="h">
    <div>
+<<<<<<< HEAD
 
    <form action="{{url('user/loginFind')}}" method="post">
 
    <form action="{{url('user/display')}}" method="post">
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+   <form action="{{url('user/loginFind')}}" method="post">
+=======
+   <form action="{{url('user/display')}}" method="post">
+>>>>>>> 2c8df4c601c1bfdb8590ab37a5f99bdc8afc8b00
+=======
+   <form action="{{url('user/display')}}" method="post">
+>>>>>>> 2c8df4c601c1bfdb8590ab37a5f99bdc8afc8b00
+>>>>>>> 5de401220611d976745e6a38255a862c9c4b2bc0
    <table></table>
 		<h3>登录</h3>
 	<ul type="none">
