@@ -21,8 +21,8 @@ class UserController extends Controller {
 			$uname = $request->input('uname');
 
 			$upwd = $request->input('upwd');
-			$userInfo = DB::table('tb_register')->where('uname',$uname)->first(); //从数据库中获取一条数据进行比对
-			$userInfoPwd= DB::table('tb_register')->where('upwd',$upwd)->first();
+			$userInfo = DB::table('tb_register')->where('uname', $uname)->first(); //从数据库中获取一条数据进行比对
+			$userInfoPwd = DB::table('tb_register')->where('upwd', $upwd)->first();
 
 			if(!empty($userInfo && $userInfoPwd)){
 
@@ -31,16 +31,17 @@ class UserController extends Controller {
 					if(isset($userInfoPwd)){
 
 						return redirect('/')->with('message', '登录成功');
-					}else{
+					} else{
 						return redirect('user/login')->with('message', '登录失败');
 					}
-				}else{
+				} else{
 					return redirect('user/login')->with('message', '登录失败');
 				}
-			}else{
+			} else{
 				return redirect('user/login')->with('message', '登录失败');
 			}
 		}
+	}
 
 
 
