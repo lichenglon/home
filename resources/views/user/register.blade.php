@@ -6,10 +6,17 @@
 		<link rel="stylesheet" href="{{asset('home/user/css_style/enter.css')}}">
 
 	</head>
-	
+	@if (session('message'))
+		<div class="alert alert-success">
+			{{ session('message') }}           {{--默认存储一次，刷新完之后就没有了要对应控制台的message--}}
+			<a href="{{url('user/login')}}">点击前往登录</a>
+		</div>
+	@endif
 	<body>
 		<div>
 		<div>
+			<form action="{{url('user/save')}}" method="post">
+
 			<table>
 			<th>新用户注册</th>
 			<th id="entera"><a href="{{url('user/login')}}">直接登录</a></th>
@@ -45,9 +52,13 @@
 				</tr>
 				<tr>
 				<td></td>
-					<td colspan="2"><input type="button" value="注册" id="tjbtn"></td>
+					<td colspan="2">
+						{{csrf_field()}}
+						<input type="submit" value="注册" id="tjbtn">
+					</td>
 				</tr>
 			</table>
+			</form>
 		</div>
 		</div>
 	</body>

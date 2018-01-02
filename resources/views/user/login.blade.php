@@ -6,10 +6,15 @@
   <link rel="stylesheet" href="{{asset('home/user/css_style/enroll.css')}}">
  </head>
  <body>
+ @if (session('message'))
+     <div class="alert alert-success">
+         {{ session('message') }}
+     </div>
+ @endif
  <div id="h">
    <div>
-   <form>
-   <table></table>	
+   <form action="{{url('user/loginFind')}}" method="post">
+   <table></table>
 		<h3>登录</h3>
 	<ul type="none">
 		<li>
@@ -23,7 +28,8 @@
 		<div class="inputImg mm"></div>
 		</li>
 		<li>
-		<input type="button" value="登录" id="tjbtn">
+        {{csrf_field()}}
+		<input type="submit" value="登录" id="tjbtn">
 		</li>
 	</ul>
    </form>	

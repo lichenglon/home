@@ -4,10 +4,14 @@ a{
 		float:right;
 	}
 	.inputImg.txt{
+
 		background: url("../img/enroll/aaa.png") no-repeat center;
+
 	}
 	.inputImg.mm{
+
 		background: url("../img/enroll/mmm.png") no-repeat center;
+
 	}
 	.inputImg{
 		width:30px;
@@ -43,8 +47,11 @@ a{
 	li{
 		margin-top:20px;
 	}
+	body {
+		background-image: url("../img/enroll/img.jpg") ;
+	}
+
 	#h{
-		background-image: url("../img/enroll/4041.jpg");
 		height:580px;
 		background-position: 0 50%;
 	}
