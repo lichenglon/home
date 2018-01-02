@@ -19,5 +19,10 @@ Route::group(['prefix'=>'user'],function() {
 	Route::get('login',$controller.'login');
 	#注册页
 	Route::get('register',$controller.'register');
+	#注册保存
+	Route::post('save',$controller.'save');
+
+	//登录检测
+	Route::post('display',$controller.'display');
 
 });
