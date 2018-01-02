@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\Session\Session;
-use App\Http\Controllers\User;
+
 class UserController extends Controller {
 	/**
 	 *登陆页
