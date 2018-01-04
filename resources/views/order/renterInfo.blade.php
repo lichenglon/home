@@ -109,7 +109,6 @@
                     {{ csrf_field() }}
 
                     <input type="hidden" name="house_no" value="{{ $result->serial_number }}"/>
-                    <input type="hidden" name="uid" value="{{ $uid }}">
                     <input type="hidden" name="house_id" value="{{ $result->msgid }}"/>
 
                     <div class="row cl">

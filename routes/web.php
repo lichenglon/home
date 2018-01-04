@@ -54,9 +54,12 @@ Route::group(['prefix'=>'house'],function() {
 Route::group(['prefix' => 'order'],function(){
     $controller = 'Order\OrderController@';
     #订单信息填写页面
-    Route::any('renterInfo/{house_no?}/{uid?}',$controller.'renterInfo');
+    Route::any('renterInfo/{house_no?}',$controller.'renterInfo');
     #
     Route::any('saveRenterInfo',$controller.'saveRenterInfo');
 	#QR code
 	Route::any('qrcode/{order_id?}',$controller,'qrcode');
 });
+
+//二维码
+

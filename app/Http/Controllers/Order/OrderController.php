@@ -11,11 +11,11 @@ use App\Models\Order;
 class OrderController extends Controller
 {
     //用户填写租户信息页面展示
-    public function renterInfo($house_no='AU022311111111',$uid=1)
+    public function renterInfo($house_no='AU022311111111')
     {
         $houseInfo = DB::table('house_message')->where('serial_number',$house_no)->first();
 
-        return view("Order/renterInfo",['result'=>$houseInfo,'uid'=>$uid]);
+        return view("Order/renterInfo",['result'=>$houseInfo]);
     }
 
     //用户提交租户信息
@@ -27,7 +27,7 @@ class OrderController extends Controller
 
         $order_no = 'zhongjie'.$time.$data['house_no'];
         $order_data = [
-            'uid' => $data['uid'],
+            'uid' => '1',
             'order_no' => $order_no,
             'creat_time' => $time,
             'house_id' => $data['house_id'],
@@ -43,14 +43,11 @@ class OrderController extends Controller
             'sign_time' => strtotime($data['sign_time']),
         ];
 
-
         $result = DB::table('order')->insert($order_data);
 
         if($result)
         {
-            $order_id = DB::table('order')->where('order_no',$order_no)->value('order_id');
-            echo $order_id;
-            //return view('order/qrcode/');
+           return view('order.qrcode');
         }
 
     }
