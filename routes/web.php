@@ -45,6 +45,8 @@ Route::group(['prefix'=>'house'],function() {
 	Route::get('listing',$controller.'listing');
 	#详情页
 	Route::get('detail/{id?}',$controller.'detail');
+	#高级搜索
+	Route::any('advanced_search',$controller.'advanced_search');
 
 });
 

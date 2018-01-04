@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers\House;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Models\House_message;
 use App\Models\House_image;
 use DB;
-class HouseController extends Controller {
+use Illuminate\Support\Facades\Input;
+class HouseController extends BaseController {
 	/**
 	 *房源列表
 	 */
@@ -26,5 +27,13 @@ class HouseController extends Controller {
 		$houseImg = new House_image();
 		$imagesObj = $houseImg->where('house_msg_id', $id)->get();
 		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj]);
+	}
+
+	/**
+	 *高级搜索
+	 */
+	public function advanced_search() {
+		echo '<pre>';
+		var_dump(Input::all());
 	}
 }

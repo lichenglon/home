@@ -6,6 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <title>Listing</title>
   @include('public.publicHouseCss')
+  <style>
+    .content-width {MARGIN: auto;WIDTH: 358px;}
+    .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
+    .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
+    .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
+  </style>
 </head>
 <body>
 
@@ -73,13 +79,16 @@
             </form>
           </div>
         </div>
+
         <div class="row">
           @foreach($objData as $houseVal)
           <div class="col-sm-6">
             <div class="property_item heading_space">
-              <div class="image">
-                <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="http://www.admin.com/uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
-                <div class="price clearfix"> 
+              <div class="image" >
+
+                <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img class="content-width" src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
+
+                  <div class="price clearfix">
                   <span class="tag pull-right">每月 ${{$houseVal->house_price}}</span>
                 </div>
                 <span class="tag_t">{{$houseVal->house_status}}</span>
@@ -118,7 +127,8 @@
                 <div class="favroute clearfix">
                   <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                   <ul class="pull-right">
-                    <li><a href="#."><i class="icon-like"></i></a></li>
+                    <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
+                    <li><a href="#" title="去下单"><i class="icon-document-play"></i></a></li>
                   </ul>
                 </div>
               </div>
@@ -127,7 +137,7 @@
           @endforeach
 
         </div>
-        
+
         <div class="padding_bottom text-center">
           <ul class="pager">
             @if (!empty($objData))
@@ -485,6 +495,7 @@
 </div>
 {{--引入公共js文件--}}
 @include('public.publicHouseJs')
+
 </body>
 </html>
 
