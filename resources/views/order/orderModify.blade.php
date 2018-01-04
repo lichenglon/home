@@ -86,167 +86,157 @@
 <body>
 
 
-<!--Loader-->
-{{--程序载人动画效果--}}
-@include('public.publicLoaderCartoon')
-<!--Loader-->
-
-
-
 <!--Header-->
 {{--头部--}}
 @include('house.listingPublic.header')
-<!--Header Ends-->
+        <!--Header Ends-->
 
 
 
 <div class="box">
-        <div class="box-body" style="padding-left: 400px; padding-bottom: 60px;">
+    <div class="box-body" style="padding-left: 400px; padding-bottom: 60px;">
 
 
-            <div class="page-container">
-                <form action="{{url('order/saveRenterInfo')}}" method="post" id="SUBMIT" class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+        <div class="page-container">
+            <form action="{{url('order/orderSaveMod')}}" method="post" id="SUBMIT" class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
+                {{ csrf_field() }}
 
-                    <input type="hidden" name="house_no" value="{{ $result->serial_number }}"/>
-                    <input type="hidden" name="uid" value="{{ $uid }}">
-                    <input type="hidden" name="house_id" value="{{ $result->msgid }}"/>
-
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">房源名称：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_name }}" id="" style="border:none"/>
-                        </div>
+                <input type="hidden" name="order_id" value="{{ $result->order_id }}"/>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">房源名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
+                        <input type="text" class="input-text" value="{{ $result->house_name }}" name="house_name" style="border:none"/>
                     </div>
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">房源位置：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_location }}" id="order_location" style="border:none" />
-                        </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">房源位置：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
+                        <input type="text" class="input-text" value="{{ $result->house_location }}" name="house_location" style="border:none" />
                     </div>
+                </div>
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">价格：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            $<input type="text" value="{{ $result->house_price }}" class="input-text" style="width:5%; border:none">
-                        </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">价格：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
+                        $<input type="text" value="{{ $result->house_price }}" name="house_price" class="input-text" style="width:5%; border:none">
                     </div>
+                </div>
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客姓名：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" class="input-text" value="" placeholder="请填写租客姓名" id="order_location" name="name"/>
-                        </div>
-                        <span id="order_locationMsg"></span>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客姓名：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
+                        <input type="text" class="input-text" value="{{ $result->name }}"  id="order_location" name="name"/>
                     </div>
+                    <span id="order_locationMsg"></span>
+                </div>
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客手机号码：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" class="input-text" value="" placeholder="请填写租客手机号码" maxlength="255" id="order_location" name="tel"/>
-                        </div>
-                        <span id="order_locationMsg"></span>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客手机号码：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
+                        <input type="text" class="input-text" value="{{ $result->tel }}"  maxlength="255" id="order_location" name="tel"/>
                     </div>
+                    <span id="order_locationMsg"></span>
+                </div>
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客身份证正反照：</label>
-                        <div class="formControls col-xs-8 col-sm-9">
-                            <a href="javascript:;" class="a-upload" style="width:15%;height:30px;">
-                                <input type="file" name="renter_idcard[]" id="renter_idcard" multiple="multiple"/>
-                                <span>点击这里上传照片</span>
-                            </a>
-                            <div class="img_div"></div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客身份证正反照：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <a href="javascript:;" class="a-upload" style="width:15%;height:30px;">
+                            <input type="file" name="renter_idcard[]" id="renter_idcard" multiple="multiple"/>
+                            <span>点击这里上传照片</span>
+                        </a>
+                        <div class="img_div"></div>
 
-                            <div class="shade" onclick="javascript:closeShade()">
-                                <div class="">
-                                    <span class="text_span"></span>
-                                </div>
+                        <div class="shade" onclick="javascript:closeShade()">
+                            <div class="">
+                                <span class="text_span"></span>
                             </div>
-
-                            <div class="shadeImg" onclick="javascript:closeShadeImg()">
-                                <div class="">
-                                    <img class="showImg" src=""/>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div class="shadeImg" onclick="javascript:closeShadeImg()">
+                            <div class="">
+                                <img class="showImg" src=""/>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
 
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客护照：</label>
-                        <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
-                            <div class="">图片预览</div>
-                            <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
-                                <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
-                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                                <div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客护照：</label>
+                    <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
+                        <div class="">图片预览</div>
+                        <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
+                            <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
+                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">选择文件</span>
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                        <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
-                                </div>
+                                <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客学生证：</label>
-                        <div class="formControls col-xs-8 col-sm-9">
-                            <a href="javascript:;" class="a-upload" style="width:15%;height:30px;">
-                                <input type="file" name="stu_idcard[]" class="myFile" multiple="multiple"/>
-                                <span>点击这里上传照片</span>
-                            </a>
-                            <div class="img_div"></div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客学生证：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <a href="javascript:;" class="a-upload" style="width:15%;height:30px;">
+                            <input type="file" name="stu_idcard[]" class="myFile" multiple="multiple"/>
+                            <span>点击这里上传照片</span>
+                        </a>
+                        <div class="img_div"></div>
 
-                            <div class="shade" onclick="javascript:closeShade()">
-                                <div class="">
-                                    <span class="text_span"></span>
-                                </div>
+                        <div class="shade" onclick="javascript:closeShade()">
+                            <div class="">
+                                <span class="text_span"></span>
                             </div>
+                        </div>
 
-                            <div class="shadeImg" onclick="javascript:closeShadeImg()">
-                                <div class="">
-                                    <img class="showImg" src=""/>
-                                </div>
+                        <div class="shadeImg" onclick="javascript:closeShadeImg()">
+                            <div class="">
+                                <img class="showImg" src=""/>
                             </div>
+                        </div>
 
-                        </div>
                     </div>
+                </div>
 
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租期：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" name="rent_time" id="rent_time" placeholder="" value=""  min="1" class="input-text" style="width:10%;"> 周
-                        </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租期：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
+                        <input type="text" name="rent_time" id="rent_time" placeholder="" value="{{ $result->rent_time }}"  min="1" class="input-text" style="width:10%;"> 周
                     </div>
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>签约时间：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" name="sign_time" id="sign_time" class="input-text Wdate"/>
-                        </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>签约时间：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
+                        <input type="text" name="sign_time" id="sign_time" value="{{date('Y-m-d', $result->sign_time)}}" class="input-text Wdate"/>
                     </div>
-                    <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>备注：</label>
-                        <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <textarea name="order_remark" class="input-text" style="width:30%; height:300%;"></textarea>
-                        </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>备注：</label>
+                    <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
+                        <textarea name="order_remark" class="input-text" value="{{ $result->order_remark }}" style="width:30%; height:300%;"></textarea>
                     </div>
-                    <div class="row cl">
-                        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                            <button class="btn btn-primary radius" type="submit" id="verification">下一步</button>
-                            <a href="javascript:window.history.go(-1);"><button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button></a>
-                        </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="submit" id="verification">保存</button>
+                        <a href="javascript:window.history.go(-1);"><button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button></a>
                     </div>
-                </form>
-            </div>
-
+                </div>
+            </form>
         </div>
+
     </div>
+</div>
 
 
 

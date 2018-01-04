@@ -53,10 +53,20 @@ Route::group(['prefix'=>'house'],function() {
 //用户提交订单，返给用户填写租户信息表
 Route::group(['prefix' => 'order'],function(){
     $controller = 'Order\OrderController@';
-    #订单信息填写页面
-    Route::any('renterInfo/{house_no?}/{uid?}',$controller.'renterInfo');
-    #
-    Route::any('saveRenterInfo',$controller.'saveRenterInfo');
+    #添加订单
+    Route::any('orderAdd/{house_no?}/{uid?}',$controller.'orderAdd');
+    #提交租户信息到数据库
+    Route::any('orderSave',$controller.'orderSave');
 	#QR code
-	Route::any('qrcode/{order_id?}',$controller,'qrcode');
+	Route::any('qrcode/{order_id?}',$controller.'qrcode');
+	#订单列表
+	Route::any('orderList',$controller.'orderList');
+	#订单详情
+	Route::any('orderDetail/{order_id?}',$controller.'orderDetail');
+	#修改订单页面
+	Route::any('orderModify/{order_id?}',$controller.'orderModify');
+	#修改订单保存
+	Route::any('orderSaveMod',$controller.'orderSaveMod');
+	#删除订单
+	Route::any('orderDelete/{order_id?}',$controller.'orderDelete');
 });
