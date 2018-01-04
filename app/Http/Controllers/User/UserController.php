@@ -4,43 +4,53 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Input;
-use Symfony\Component\HttpFoundation\Session\Session;
+//use Symfony\Component\HttpFoundation\Session\Session;
 use App\Http\Controllers\User;
+use Illuminate\Support\Facades\Session;
+
 
 class UserController extends Controller {
 	/**
 	 *登陆页
 	 */
+
 	public function login() {
 		return view('user.login');
 	}
 	//登录页面检测
 	public function loginFind(Request $request){
-		if($request->isMethod('post')){
+		$code = $request->code;
+		$aaa = Session::get('milkcaptcha');
+		if ($aaa == $code) {
 
-			$uname = $request->input('uname');
+			if($request->isMethod('post')){
 
-			$upwd = $request->input('upwd');
-			$userInfo = DB::table('tb_register')->where('uname',$uname)->first(); //从数据库中获取一条数据进行比对
-			$userInfoPwd= DB::table('tb_register')->where('upwd',$upwd)->first();
+				$uname = $request->input('uname');
 
-			if(!empty($userInfo && $userInfoPwd)){
+				$upwd = $request->input('upwd');
+				$userInfo = DB::table('tb_register')->where('uname', $uname)->first(); //从数据库中获取一条数据进行比对
+				$userInfoPwd = DB::table('tb_register')->where('upwd',$upwd)->first();
 
 				if(!empty($userInfo && $userInfoPwd)){
 
 					if(isset($userInfoPwd)){
-
+						Session::put('userId',$userInfoPwd->id);
 						return redirect('/')->with('message', '登录成功');
-					}else{
+					} else{
 						return redirect('user/login')->with('message', '登录失败');
 					}
-				}else{
+				} else{
 					return redirect('user/login')->with('message', '登录失败');
 				}
-			}else{
-				return redirect('user/login')->with('message', '登录失败');
+
 			}
+		}else{
+
+			return redirect('user/login')->with('message', '验证码错误');
 		}
+		//$userInput = Request::get('captcha');
+
+
 
 	}
 	/**
@@ -52,11 +62,20 @@ class UserController extends Controller {
 	}
 
 	//注册入库
-	public function save (Request $r) {
+	public function save (Request $request) {
 
 		$arr = Input::all();
 		unset($arr['_token']);
-		$re = DB::table('tb_register')->insert($arr);
+		$data = [
+				'uname' => $request->uname,
+				'upwd' => md5($request->upwd),
+				'email' => $request->email,
+				'phone' => $request->phone,
+				'user' => $request->user,
+				'status' => $request->status,
+		];
+
+		$re = DB::table('tb_register')->insert($data);
 		if($re)
 		{
 			return redirect('user/register')->with('message','添加成功');

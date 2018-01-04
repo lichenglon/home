@@ -10,9 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//首页
 Route::get('/','IndexController@index');
 
+//用户
 Route::group(['prefix'=>'user'],function() {
 	$controller = 'User\UserController@';
 	#登陆页
@@ -24,5 +25,22 @@ Route::group(['prefix'=>'user'],function() {
 
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
+
+
+});
+Route::group(['prefix'=>'KitController'],function() {
+	$controller = 'KitController\KitController@';
+	//验证码
+	Route::get('captcha/{tmp}',$controller.'captcha');
+
+});
+
+//房源
+Route::group(['prefix'=>'house'],function() {
+	$controller = 'House\HouseController@';
+	#列表页
+	Route::get('listing',$controller.'listing');
+	#详情页
+	Route::get('detail/{id?}',$controller.'detail');
 
 });
