@@ -20,6 +20,21 @@ Route::group(['prefix'=>'user'],function() {
 	Route::get('login',$controller.'login');
 	#注册页
 	Route::get('register',$controller.'register');
+	#注册保存
+	Route::post('save',$controller.'save');
+
+	//登录检测
+	Route::post('loginFind',$controller.'loginFind');
+
+});
+
+//房源
+Route::group(['prefix'=>'house'],function() {
+	$controller = 'House\HouseController@';
+	#列表页
+	Route::get('listing',$controller.'listing');
+	#详情页
+	Route::get('detail/{id?}',$controller.'detail');
 
 });
 
