@@ -20,22 +20,16 @@ class OrderController extends Controller
 
     //用户提交租户信息
     public function saveRenterInfo(Request $request){
-        //接收图片
-//        $files = $request->file('upload');
-//        foreach ($files as $file) {
-//            //保存
-//            $imagename = $file->store('','uploads');
-//            var_dump($imagename);
-//        }
 
         $data = Input::all();
 
-        $n = strtotime(date('Y-m-d H:i:s'));
-        $order_no = 'zhongjie'.$n.$data['house_no'];
+        $time = time();
+
+        $order_no = 'zhongjie'.$time.$data['house_no'];
         $order_data = [
             'uid' => $data['uid'],
             'order_no' => $order_no,
-            'creat_time' => $n,
+            'creat_time' => $time,
             'house_id' => $data['house_id'],
             'tel' => $data['tel'],
             'name' => $data['name'],
@@ -49,11 +43,9 @@ class OrderController extends Controller
             'sign_time' => strtotime($data['sign_time']),
         ];
 
-        $order = new Order();
-        $re = $order->save($order_data);
-        //$result = DB::table('order')->save($order_data);
 
-        exit();
+        $result = DB::table('order')->insert($order_data);
+
         if($result)
         {
             $order_id = DB::table('order')->where('order_no',$order_no)->value('order_id');
