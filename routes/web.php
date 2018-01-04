@@ -44,3 +44,29 @@ Route::group(['prefix'=>'house'],function() {
 	Route::get('detail/{id?}',$controller.'detail');
 
 });
+
+//房源
+Route::group(['prefix'=>'house'],function() {
+	$controller = 'House\HouseController@';
+	#列表页
+	Route::get('listing',$controller.'listing');
+	#详情页
+	Route::get('detail/{id?}',$controller.'detail');
+	#高级搜索
+	Route::any('advanced_search',$controller.'advanced_search');
+
+});
+
+//用户提交订单，返给用户填写租户信息表
+Route::group(['prefix' => 'order'],function(){
+    $controller = 'Order\OrderController@';
+    #订单信息填写页面
+    Route::any('renterInfo/{house_no?}',$controller.'renterInfo');
+    #
+    Route::any('saveRenterInfo',$controller.'saveRenterInfo');
+	#QR code
+	Route::any('qrcode/{order_id?}',$controller,'qrcode');
+});
+
+//二维码
+

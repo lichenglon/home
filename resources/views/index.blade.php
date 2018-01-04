@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/font-awesome.min.css">
@@ -17,6 +16,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/range-Slider.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/search.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/style.css">
+    <style>
+        .content-width {MARGIN: auto;WIDTH: 358px;}
+        .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
+        .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
+        .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
+    </style>
 </head>
 <body>
 
@@ -29,7 +34,6 @@
     </div>
 </div>
 <!--Loader-->
-
 
 <!--Slider-->
 {{--轮播图--}}
@@ -140,74 +144,62 @@
 
 
 <button type="button" class="form_opener"><i class="fa fa-bars"></i></button>
-<div class="tp_overlay">
+<div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
         <ul class="breadcrumb_top">
             <li><a href="#"><i class="icon-icons43"></i>最爱</a></li>
-            <li><a href="#"><i class="icon-icons215"></i>提交属性</a></li>
             <li><a href="#"><i class="icon-icons215"></i>我的财产</a></li>
-            <li><a href="#"><i class="icon-icons230"></i>轮廓</a></li>
             <li><a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆 /</a><a href="{{url('user/register')}}">注册</a></li>
             <li class="last-icon"><i class="icon-icons215"></i></li>
         </ul>
     </div>
-
-    <form class="callus top30 clearfix centered">
-        <h2 class="text-uppercase t_white bottom20 text-center">高级搜索</h2>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
-                </div>
+    <form class="callus">
+        <div class="single-query form-group col-sm-12">
+            <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
+        </div>
+        <div class="single-query form-group col-sm-12">
+            <div class="intro">
+                <select>
+                    <option selected="" value="any">Location</option>
+                    <option>All areas</option>
+                    <option>Bayonne </option>
+                    <option>Greenville</option>
+                    <option>Manhattan</option>
+                    <option>Queens</option>
+                    <option>The Heights</option>
+                </select>
             </div>
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <div class="intro">
-                        <select>
-                            <option selected="" value="any">Location</option>
-                            <option>All areas</option>
-                            <option>Bayonne </option>
-                            <option>Greenville</option>
-                            <option>Manhattan</option>
-                            <option>Queens</option>
-                            <option>The Heights</option>
-                        </select>
-                    </div>
-                </div>
+        </div>
+        <div class="single-query form-group col-sm-12">
+            <div class="intro">
+                <select>
+                    <option class="active">Property Type</option>
+                    <option>All areas</option>
+                    <option>Bayonne </option>
+                    <option>Greenville</option>
+                    <option>Manhattan</option>
+                    <option>Queens</option>
+                    <option>The Heights</option>
+                </select>
             </div>
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <div class="intro">
-                        <select>
-                            <option class="active">Property Type</option>
-                            <option>All areas</option>
-                            <option>Bayonne </option>
-                            <option>Greenville</option>
-                            <option>Manhattan</option>
-                            <option>Queens</option>
-                            <option>The Heights</option>
-                        </select>
-                    </div>
-                </div>
+        </div>
+        <div class="single-query form-group col-sm-12">
+            <div class="intro">
+                <select>
+                    <option class="active">Property Status</option>
+                    <option>All areas</option>
+                    <option>Bayonne </option>
+                    <option>Greenville</option>
+                    <option>Manhattan</option>
+                    <option>Queens</option>
+                    <option>The Heights</option>
+                </select>
             </div>
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <div class="intro">
-                        <select>
-                            <option class="active">Property Status</option>
-                            <option>All areas</option>
-                            <option>Bayonne </option>
-                            <option>Greenville</option>
-                            <option>Manhattan</option>
-                            <option>Queens</option>
-                            <option>The Heights</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="search-2">
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="single-query bottom15">
+        </div>
+        <div class="search-2 col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
                         <div class="intro">
                             <select>
                                 <option class="active">Min Beds</option>
@@ -221,8 +213,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="single-query bottom15">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
                         <div class="intro">
                             <select>
                                 <option class="active">Min Baths</option>
@@ -237,102 +229,42 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="single-query bottom15">
-                    <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
+                        <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="single-query bottom15">
-                    <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
+                        <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-8 bottom15">
-                <div class="single-query-slider">
-                    <div class="clearfix top20">
-                        <label class="pull-left">Price Range:</label>
-                        <div class="price text-right">
-                            <span>$</span>
-                            <div class="leftLabel"></div>
-                            <span>to $</span>
-                            <div class="rightLabel"></div>
-                        </div>
-                    </div>
-                    <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
-                        <div class="bar"></div>
-                        <div class="leftGrip"></div>
-                        <div class="rightGrip"></div>
-                    </div>
+        <div class="col-sm-12 bottom10">
+            <div class="single-query-slider">
+                <label><strong>Price Range:</strong></label>
+                <div class="price text-right">
+                    <span>$</span>
+                    <div class="leftLabel"></div>
+                    <span>to $</span>
+                    <div class="rightLabel"></div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4 text-right form-group top30">
-                <button type="submit" class="border_radius btn-yellow text-uppercase">Search</button>
+                <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
+                    <div class="bar"></div>
+                    <div class="leftGrip"></div>
+                    <div class="rightGrip"></div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="group-button-search">
-                    <a data-toggle="collapse" href=".search-propertie-filters" class="more-filter">
-                        <i class="fa fa-plus text-1" aria-hidden="true"></i><i class="fa fa-minus text-2 hide" aria-hidden="true"></i>
-                        <div class="text-1">Show more search options</div>
-                        <div class="text-2 hide">less more search options</div>
-                    </a>
-                </div>
-                <div class="search-propertie-filters collapse">
-                    <div class="container-2">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Features</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Balcony</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Gas Heat</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Washer, Dryer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>TV Cable</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Swimming Pool</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Home Theater</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-sm-12 form-group">
+            <button type="submit" class="btn-blue border_radius">Search</button>
         </div>
     </form>
+
 </div>
 
 
@@ -347,33 +279,41 @@
                 <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
             </div>
         </div>
-        <div class="clearfix">
-            <div id="filters-property" class="cbp-l-filters-button text-center">
-                <div data-filter=".latest" class="cbp-filter-item-active cbp-filter-item">LATEST</div>
-                <div data-filter=".sale" class="cbp-filter-item">SALE</div>
-                <div data-filter=".rent" class="cbp-filter-item">RENT</div>
-            </div>
-        </div>
+
         <div id="property-gallery" class="cbp listing1">
+            @foreach($houseObjData as $houseVal)
             <div class="cbp-item latest sale">
                 <div class="property_item">
                     <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing1.jpg" alt="latest property" class="img-responsive"></a>
+                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img class="content-width" src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
                         <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
+                            <span class="tag pull-right">每月 ${{$houseVal->house_price}}</span>
                         </div>
-                        <span class="tag_t">For Sale</span>
-                        <span class="tag_l">Featured</span>
+                        <span class="tag_t">{{$houseVal->house_status}}</span>
+                        <span class="tag_l">{{$houseVal->house_structure}}</span>
                     </div>
                     <div class="proerty_content">
                         <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
+                            <h3 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}">{{$houseVal->house_name}}</a></h3>
+                            <p>{{$houseVal->house_location}}</p>
                         </div>
                         <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
+
+                            <?php
+                            if(empty($houseVal->house_facility)){
+                                $equipment = array();
+                            }else{
+                                $equipment = explode(',',$houseVal->house_facility);
+                            }
+                            ?>
+                            @if(isset($equipment[0])) <span>洗衣机</span> @endif
+                            @if(isset($equipment[1])) <span>空调</span> @endif
+                            @if(isset($equipment[2])) <span>暖气</span> @endif
+                            @if(isset($equipment[3])) <span>床</span> @endif
+                            @if(isset($equipment[4])) <span>厨房</span> @endif
+                            @if(isset($equipment[5])) <span>衣柜</span> @endif
+                            @if(isset($equipment[6])) <span>冰箱</span> @endif
+
                         </div>
                         <div class="property_meta transparent bottom30">
                             <span><i class="icon-old-television"></i>TV Lounge</span>
@@ -381,357 +321,19 @@
                             <span></span>
                         </div>
                         <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
+                            <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#seventy" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="seventy">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
+                                <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
+                                <li><a href="{{url('order/renterInfo',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="cbp-item latest rent">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing2.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Rent</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#six" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="six">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest sale">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing3.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Sale</span>
-                        <span class="tag_l">Featured</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#three" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="three">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest rent">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing4.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Rent</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#twe" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="twe">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest sale">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing8.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="solid">Solid Out</span>
-                        </div>
-                        <span class="tag_t">For Sale</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#twomore" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="twomore">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest sale">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing6.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Sale</span>
-                        <span class="tag_l">Featured</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#one" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="one">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest rent">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing7.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Rent</span>
-                        <span class="tag_l">Featured</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#seven" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="seven">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest sale">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing5.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Sale</span>
-                        <span class="tag_l">Featured</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#onemore" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="onemore">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cbp-item latest sale">
-                <div class="property_item">
-                    <div class="image">
-                        <a href="property_detail.html"><img src="{{asset('home')}}/images/listing9.jpg" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
-                            <span class="tag pull-right">$8,600 Per Month</span>
-                        </div>
-                        <span class="tag_t">For Sale</span>
-                    </div>
-                    <div class="proerty_content">
-                        <div class="proerty_text">
-                            <h3 class="captlize"><a href="property_detail.html">Park avenue apartment</a></h3>
-                            <p>45 Regent Street, London, UK</p>
-                        </div>
-                        <div class="property_meta transparent">
-                            <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-                            <span><i class="icon-bed"></i>2 Office Rooms</span>
-                            <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-                        </div>
-                        <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
-                            <span></span>
-                        </div>
-                        <div class="favroute clearfix">
-                            <p><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                            <ul class="pull-right">
-                                <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-                                <li><a href="#sixy" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="toggle_share collapse" id="sixy">
-                            <ul>
-                                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                                <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                                <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="col-sm-12 text-center top20">
-            <a href="listing.html" class="btn-dark border_radius uppercase margin40">more listings</a>
+            <a href="{{url('house/listing')}}" class="btn-dark border_radius uppercase margin40">more listings</a>
         </div>
     </div>
 </section>
@@ -743,92 +345,39 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-10">
-                <h2 class="uppercase">Best Deal Properties</h2>
-                <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
+                <h2 class="uppercase">最好的交易属性</h2>
+                <p class="heading_space">我们在这些区域有属性查看特色属性列表</p>
             </div>
         </div>
         <div class="row">
             <div id="two-col-slider" class="owl-carousel">
+                @foreach($houseObjData as $recommend)
                 <div class="item">
                     <div class="listing_full">
                         <div class="image">
-                            <img alt="image" src="{{asset('home')}}/images/b-d-property.jpg">
-                            <span class="tag_t">For Sale</span>
+                            <img alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
+                            <span class="tag_t">{{$recommend->house_status}}</span>
                         </div>
                         <div class="listing_full_bg">
                             <div class="listing_inner_full">
                                 <span><a href="#"><i class="icon-like"></i></a></span>
                                 <a href="property_detail.html">
-                                    <h3>Park Avenue Apartment</h3>
-                                    <p>Towson London, MR 21501</p>
+                                    <h3>{{$recommend->house_name}}</h3>
+                                    <p>{{$recommend->house_location}}</p>
                                 </a>
                                 <div class="favroute clearfix">
-                                    <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span><span><i class=" icon-bed"></i>3 Bedrooms</span><span><i class="icon-safety-shower"></i>2 Bedrooms</span><span class="border-l">$38,600 / pm</span></div>
+                                    <div class="property_meta">
+                                        <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}} 平方 英尺</span>
+                                        <span><i class="icon-bed"></i>{{$recommend->house_structure}}</span>
+                                        <span><i class="icon-briefcase2"></i>{{$recommend->payment_proportion}}</span>
+                                        <span class="border-l">每月 ${{$recommend->house_price}}</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="listing_full">
-                        <div class="image">
-                            <img alt="image" src="{{asset('home')}}/images/b-d-property2.jpg">
-                            <span class="tag_t">For Sale</span>
-                        </div>
-                        <div class="listing_full_bg">
-                            <div class="listing_inner_full">
-                                <span><a href="#"><i class="icon-like"></i></a></span>
-                                <a href="property_detail.html">
-                                    <h3>Park Avenue Apartment</h3>
-                                    <p>Towson London, MR 21501</p>
-                                </a>
-                                <div class="favroute clearfix">
-                                    <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span><span><i class=" icon-bed"></i>3 Bedrooms</span><span><i class="icon-safety-shower"></i>2 Bedrooms</span><span class="border-l">$38,600 / pm</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="listing_full">
-                        <div class="image">
-                            <img alt="image" src="{{asset('home')}}/images/b-d-property3.jpg">
-                            <span class="tag_t">For Sale</span>
-                        </div>
-                        <div class="listing_full_bg">
-                            <div class="listing_inner_full">
-                                <span><a href="#"><i class="icon-like"></i></a></span>
-                                <a href="property_detail.html">
-                                    <h3>Park Avenue Apartment</h3>
-                                    <p>Towson London, MR 21501</p>
-                                </a>
-                                <div class="favroute clearfix">
-                                    <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span><span><i class=" icon-bed"></i>3 Bedrooms</span><span><i class="icon-safety-shower"></i>2 Bedrooms</span><span class="border-l">$38,600 / pm</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="listing_full">
-                        <div class="image">
-                            <img alt="image" src="{{asset('home')}}/images/b-d-property4.jpg">
-                            <span class="tag_t">For Sale</span>
-                        </div>
-                        <div class="listing_full_bg">
-                            <div class="listing_inner_full">
-                                <span><a href="#"><i class="icon-like"></i></a></span>
-                                <a href="property_detail.html">
-                                    <h3>Park Avenue Apartment</h3>
-                                    <p>Towson London, MR 21501</p>
-                                </a>
-                                <div class="favroute clearfix">
-                                    <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span><span><i class=" icon-bed"></i>3 Bedrooms</span><span><i class="icon-safety-shower"></i>2 Bedrooms</span><span class="border-l">$38,600 / pm</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -867,98 +416,6 @@
 <section id="testinomialBg" class="padding bg_light">
     <div id="agent-2" class="padding_bottom">
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <h2 class="uppercase">AGENTS YOU CAN TRUST</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra erat Aenean elit tellus.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 margin40">
-                    <div class="agent_wrap">
-                        <div class="image">
-                            <img src="{{asset('home')}}/images/agent-one.jpg" alt="Agents">
-                            <div class="img-info">
-                                <h3>Bohdan Kononets</h3>
-                                <span>sales executive</span>
-                                <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-                                <table class="agent_contact table">
-                                    <tbody>
-                                    <tr class="bottom10">
-                                        <td><strong>Phone:</strong></td>
-                                        <td class="text-right">(+01) 34 56 7890</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Email Adress:</strong></td>
-                                        <td class="text-right"><a href="#.">bohdan@castle.com</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <a class="btn-more" href="agent_#">
-                                    <i><img alt="arrow" src="{{asset('home')}}/images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="{{asset('home')}}/images/arrow-yellow.png"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 margin40">
-                    <div class="agent_wrap">
-                        <div class="image">
-                            <img src="{{asset('home')}}/images/agent-five.jpg" alt="Agents">
-                            <div class="img-info">
-                                <h3>Bohdan Kononets</h3>
-                                <span>sales executive</span>
-                                <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-                                <table class="agent_contact table">
-                                    <tbody>
-                                    <tr class="bottom10">
-                                        <td><strong>Phone:</strong></td>
-                                        <td class="text-right">(+01) 34 56 7890</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Email Adress:</strong></td>
-                                        <td class="text-right"><a href="#.">bohdan@castle.com</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <a class="btn-more" href="agent_#">
-                                    <i><img alt="arrow" src="{{asset('home')}}/images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="{{asset('home')}}/images/arrow-yellow.png"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 margin40">
-                    <div class="agent_wrap">
-                        <div class="image">
-                            <img src="{{asset('home')}}/images/agent-six.jpg" alt="Agents">
-                            <div class="img-info">
-                                <h3>Bohdan Kononets</h3>
-                                <span>sales executive</span>
-                                <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-                                <table class="agent_contact table">
-                                    <tbody>
-                                    <tr class="bottom10">
-                                        <td><strong>Phone:</strong></td>
-                                        <td class="text-right">(+01) 34 56 7890</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Email Adress:</strong></td>
-                                        <td class="text-right"><a href="#.">bohdan@castle.com</a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <a class="btn-more" href="agent_#">
-                                    <i><img alt="arrow" src="{{asset('home')}}/images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="{{asset('home')}}/images/arrow-yellow.png"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container bg_white padding">
