@@ -12,18 +12,11 @@
 
  <div id="h">
    <div>
-<<<<<<< HEAD
 
    <form action="{{url('user/loginFind')}}" method="post">
-=======
-<<<<<<< HEAD
-
-   <form action="{{url('user/loginFind')}}" method="post">
-
-   <form action="{{url('user/display')}}" method="post">
 
    <table></table>
->>>>>>> 68e5c6b6cfced25332940676ae0862123ab314b6
+
 		<h3>登录</h3>
 	<ul type="none">
 		<li>
