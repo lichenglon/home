@@ -94,11 +94,9 @@ Route::group(['prefix'=>'drop'],function(){
 	$controller = 'Drop\DropController@';
 	Route::any('drop',$controller.'drop');
 });
-<<<<<<< HEAD
-//二维码*/
-=======
 
->>>>>>> 4dbfe8735a9d5a30fe849a96b59fc7fc0a804c1c
+//二维码*/
+
 
 
 

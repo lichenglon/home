@@ -249,7 +249,7 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>备注：</label>
                     <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                        <textarea name="order_remark" class="input-text" value="{{ $result->order_remark }}" style="width:30%; height:300%;"></textarea>
+                        <textarea name="order_remark" class="input-text" value="" style="width:30%; height:300%;">{{ $result->order_remark }}</textarea>
                     </div>
                 </div>
                 <div class="row cl">
