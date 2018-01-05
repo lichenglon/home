@@ -179,10 +179,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                    <p>Copyright &copy; LEMON TEA<a target="_blank" href="http://www.17sucai.com/"></a></p>
                 </div>
                 <div class="col-md-5 text-right">
-                    <p>Designed by <a href="#.">Brighthemes</a></p>
+                    <p> by <a href="#."></a></p>
                 </div>
             </div>
         </div>

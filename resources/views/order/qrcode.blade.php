@@ -158,10 +158,10 @@
                 <div class="container">
                         <div class="row">
                                 <div class="col-md-7">
-                                        <p><a target="_blank" href="http://www.17sucai.com/"></a></p>
+                                        <p>Copyright &copy; LEMON TEA<a target="_blank" href="http://www.17sucai.com/"></a></p>
                                 </div>
                                 <div class="col-md-5 text-right">
-                                        <p> <a href="#."></a></p>
+                                        <p> by <a href="#."></a></p>
                                 </div>
                         </div>
                 </div>

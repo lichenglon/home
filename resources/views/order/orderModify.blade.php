@@ -139,26 +139,39 @@
                 </div>
 
                 <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客身份证正反照：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <a href="javascript:;" class="a-upload" style="width:15%;height:30px;">
-                            <input type="file" name="renter_idcard[]" id="renter_idcard" multiple="multiple"/>
-                            <span>点击这里上传照片</span>
-                        </a>
-                        <div class="img_div"></div>
-
-                        <div class="shade" onclick="javascript:closeShade()">
-                            <div class="">
-                                <span class="text_span"></span>
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客身份证：</label>
+                    <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
+                        <div class="">正面照</div>
+                        <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
+                            <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
+                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
+                                    <span class="btn btn-primary btn-file">
+                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-exists">换一张</span>
+                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                    </span>
+                                <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
                         </div>
 
-                        <div class="shadeImg" onclick="javascript:closeShadeImg()">
-                            <div class="">
-                                <img class="showImg" src=""/>
+                        <div class="">反面照</div>
+                        <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
+                            <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
+                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
+                                    <span class="btn btn-primary btn-file">
+                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-exists">换一张</span>
+                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                    </span>
+                                <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -186,24 +199,24 @@
 
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客学生证：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <a href="javascript:;" class="a-upload" style="width:15%;height:30px;">
-                            <input type="file" name="stu_idcard[]" class="myFile" multiple="multiple"/>
-                            <span>点击这里上传照片</span>
-                        </a>
-                        <div class="img_div"></div>
-
-                        <div class="shade" onclick="javascript:closeShade()">
-                            <div class="">
-                                <span class="text_span"></span>
+                    <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
+                        <div class="">学生证照片</div>
+                        <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
+                            <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
+                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                            <div>
+                                    <span class="btn btn-primary btn-file">
+                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-exists">换一张</span>
+                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                    </span>
+                                <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
                         </div>
 
-                        <div class="shadeImg" onclick="javascript:closeShadeImg()">
-                            <div class="">
-                                <img class="showImg" src=""/>
-                            </div>
-                        </div>
+
 
                     </div>
                 </div>
@@ -240,91 +253,15 @@
 
 
 
-
-
-
-<footer class="padding_top footer2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.png" alt="logo"></a>
-                    <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                        tempor cum consectetuer
-                        adipiscing.
-                    </p>
-                    <p class="bottom15">If you are interested in castle do not wait and <a href="#.">BUY IT NOW!</a></p>
-                    <ul class="social_share">
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i></a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i></a></li>
-                        <li><a href="#." class="google"><i class="icon-google4"></i></a></li>
-                        <li><a href="#." class="linkden"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30">Search by Area</h4>
-                    <ul class="area_search">
-                        <li><a href="#."><i class="icon-icons74"></i>Bayonne, New Jersey</a></li>
-                        <li class="active"><a href="#."><i class="icon-icons74"></i>Greenville, New Jersey</a></li>
-                        <li><a href="#."> <i class="icon-icons74"></i>The Heights, New Jersey</a></li>
-                        <li><a href="#."><i class="icon-icons74"></i>West Side, New York</a></li>
-                        <li><a href="#."><i class="icon-icons74"></i>Upper East Side, New York</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30">Latest News</h4>
-                    <div class="media">
-                        <a class="media-object"><img src="{{asset('home')}}/images/footer-news1.png" alt="news"></a>
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes your villa</a>
-                            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a class="media-object"><img src="{{asset('home')}}/images/footer-news1.png" alt="news"></a>
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes your villa</a>
-                            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a class="media-object"><img src="{{asset('home')}}/images/footer-news1.png" alt="news"></a>
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes your villa</a>
-                            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30">Get in Touch</h4>
-                    <ul class="getin_touch">
-                        <li><i class="icon-telephone114"></i>01 900 234 567 - 68</li>
-                        <li><a href="#."><i class="icon-icons142"></i>info@castle.com</a></li>
-                        <li><a href="#."><i class="icon-browser2"></i>www.castle.com</a></li>
-                        <li><i class="icon-icons74"></i>Castle Melbourne, Merrick Way,FL 12345 australia</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--CopyRight-->
 <div class="copyright index2">
     <div class="copyright_inner">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                    <p>Copyright &copy; LEMON TEA<a target="_blank" href="http://www.17sucai.com/"></a></p>
                 </div>
                 <div class="col-md-5 text-right">
-                    <p>Designed by <a href="#.">Brighthemes</a></p>
+                    <p> by <a href="#."></a></p>
                 </div>
             </div>
         </div>
