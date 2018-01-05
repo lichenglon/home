@@ -44,7 +44,7 @@
 <!--Loader-->
 
 <!--Slider-->
-{{--轮播图--}}
+{{-------------------------------------轮播开始------------------------------------------}}
 <div class="rev_slider_wrapper">
     <div id="rev_overlaped" class="rev_slider"  data-version="5.0">
         <ul>
@@ -106,6 +106,7 @@
     </div>
 </div>
 <!--Slider ends-->
+{{-------------------------------------轮播结束------------------------------------------}}
 
 {{--var_dump(\Illuminate\Support\Facades\Session::get('userId'));
 --}}
@@ -135,12 +136,12 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="news.html">News</a></li>
-                            <li><a href="listing.html">Listing</a></li>
-                            <li><a href="property_detail.html">Property Detail</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="#">Buy Now</a></li>
+                            <li><a href="{{url('/')}}">首页</a></li>
+                            <li><a href="javascript:void(0);">News</a></li>
+                            <li><a href="{{url('house/listing')}}">列表</a></li>
+                            <li><a href="javascript:void(0);">Property Detail</a></li>
+                            <li><a href="{{url('contact_us/contact')}}">联系我们</a></li>
+                            <li><a href="javascript:void(0);">Buy Now</a></li>
                         </ul>
                     </div>
                 </div>
@@ -174,13 +175,16 @@
             <li class="last-icon"><i class="icon-icons215"></i></li>
         </ul>
     </div>
-    <form class="callus">
+    {{--高级搜索--}}
+    <form class="callus" action="{{url('house/listing')}}" method="get" id="SUBMIT">
+        {{csrf_field()}}
+        <h2 class="text-uppercase t_white bottom20 text-center">advanced search</h2>
         <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
+            <input type="text" class="keyword-input" name="house_keyword" placeholder="Keyword (e.g. 'office')">
         </div>
         <div class="single-query form-group col-sm-12">
             <div class="intro">
-                <select>
+                <select name="state">
                     <option selected="" value="%">nation</option>
                     @foreach($nationObject as $nationVal)
                     <option selected="" value="{{$nationVal->chinese_n_name}}">{{$nationVal->chinese_n_name}}</option>
@@ -189,11 +193,11 @@
             </div>
         </div>
         <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" value="" placeholder="Detailed Address">
+            <input type="text" class="keyword-input" value="" name="house_location" placeholder="Detailed Address">
         </div>
         <div class="single-query form-group col-sm-12">
             <div class="intro">
-                <select>
+                <select name="house_type">
                     <option class="active" value="%">House Type</option>
                     @foreach($houseTypeObject as $houseTypeVal)
                     <option value="{{$houseTypeVal->name}}">{{$houseTypeVal->name}}</option>
@@ -208,9 +212,11 @@
                 <label><strong>Price Range:</strong></label>
                 <div class="price text-right">
                     <span>$</span>
-                    <div class="leftLabel"></div>
+                    <div class="leftLabel" id="minPriceNum"></div>
+                    <input type="hidden" value="" name="hiddenPriceMin" id="hiddenPriceMin">
                     <span>to $</span>
-                    <div class="rightLabel"></div>
+                    <div class="rightLabel" id="maxPriceNum"></div>
+                    <input type="hidden" value="" name="hiddenPriceMax" id="hiddenPriceMax">
                 </div>
                 <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
                     <div class="bar"></div>
@@ -233,46 +239,46 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Features</span>
+                                    <input type="checkbox" value="洗衣机" name="check_box[]" />
+                                    <span>洗衣机</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Balcony</span>
+                                    <input type="checkbox" value="空调" name="check_box[]" />
+                                    <span>空调</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Gas Heat</span>
+                                    <input type="checkbox" value="暖气" name="check_box[]" />
+                                    <span>暖气</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Washer, Dryer</span>
+                                    <input type="checkbox" value="床" name="check_box[]" />
+                                    <span>床</span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>TV Cable</span>
+                                    <input type="checkbox" value="厨房" name="check_box[]" />
+                                    <span>厨房</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Swimming Pool</span>
+                                    <input type="checkbox" value="衣柜" name="check_box[]" />
+                                    <span>衣柜</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
-                                    <input type="checkbox" name="check-box" />
-                                    <span>Home Theater</span>
+                                    <input type="checkbox" value="冰箱" name="check_box[]" />
+                                    <span>冰箱</span>
                                 </div>
                             </div>
                         </div>
@@ -281,12 +287,21 @@
             </div>
         </div>
         <div class="col-sm-12 form-group">
-            <button type="submit" class="btn-blue border_radius">Search</button>
+            <button type="button" onclick="javascript:priceNumber();" class="btn-blue border_radius">Search</button>
         </div>
     </form>
 
 </div>
-
+{{--获取价格提交后台搜索--}}
+<script>
+    function priceNumber(){
+        var minPriceNum = document.getElementById('minPriceNum').innerHTML;
+        var maxPriceNum = document.getElementById('maxPriceNum').innerHTML;
+        var hiddenPriceMin = document.getElementById('hiddenPriceMin').value = minPriceNum;
+        var hiddenPriceMax = document.getElementById('hiddenPriceMax').value = maxPriceNum;
+        document.getElementById('SUBMIT').submit();
+    }
+</script>
 
 
 

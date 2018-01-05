@@ -321,7 +321,7 @@ jQuery(function($) {
     _this.addClass('checkedRadio');
     _this.find('input:radio').attr('checked', true);
   });
-  $('input[name="check-box"]').wrap('<div class="check-box"><i></i></div>');
+  $('input[name="check_box[]"]').wrap('<div class="check-box"><i></i></div>');
   $.fn.toggleCheckbox = function() {
     this.attr('checked', !this.attr('checked'));
   }
