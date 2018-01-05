@@ -11,6 +11,8 @@ class HouseController extends BaseController {
 	 *房源列表
 	 */
 	public function listing(Request $request) {
+		//echo '<pre>';
+
 		$houseMsg = new House_message();
 		//接收关键字
 		$house_keyword = $request->house_keyword ? $request->house_keyword : '%';
@@ -20,6 +22,30 @@ class HouseController extends BaseController {
 		$house_type = $request->house_type ? $request->house_type : '%';
 		//详细地址
 		$house_location = $request->house_location ? $request->house_location : '%';
+		//房源价格最小值
+		$hiddenPriceMin = $request->hiddenPriceMin ? $request->hiddenPriceMin : '%';
+		//房源价格最大值
+		$hiddenPriceMax = $request->hiddenPriceMax ? $request->hiddenPriceMax : '%';
+		//房屋设备
+		//$check_box = $request->check_box ? $request->check_box : '%';
+		if($request->check_box){
+			$house_facility0 = $request->check_box[0];
+			$house_facility1 = isset($request->check_box[1]) ? $request->check_box[1] : '%';
+			$house_facility2 = isset($request->check_box[2]) ? $request->check_box[2] : '%';
+			$house_facility3 = isset($request->check_box[3]) ? $request->check_box[3] : '%';
+			$house_facility4 = isset($request->check_box[4]) ? $request->check_box[4] : '%';
+			$house_facility5 = isset($request->check_box[5]) ? $request->check_box[5] : '%';
+			$house_facility6 = isset($request->check_box[6]) ? $request->check_box[6] : '%';
+		} else {
+			$house_facility0 = '%';
+			$house_facility1 = '%';
+			$house_facility2 = '%';
+			$house_facility3 = '%';
+			$house_facility4 = '%';
+			$house_facility5 = '%';
+			$house_facility6 = '%';
+		}
+
 		//搜索按钮
 		$Search = $request->Search ? $request->Search : '%';
 		if ($Search) {
@@ -27,6 +53,9 @@ class HouseController extends BaseController {
 					->where('state','like','%'.$state.'%')
 					->where('house_type','like','%'.$house_type.'%')
 					->where('house_location','like','%'.$house_location.'%')
+					->where('house_price','>',$hiddenPriceMin)
+					->where('house_price','<',$hiddenPriceMax)
+					->where('house_facility','like','%'.$house_facility0.'%'.$house_facility1.'%'.$house_facility2.'%'.$house_facility3.'%'.$house_facility4.'%'.$house_facility5.'%'.$house_facility6.'%')
 					->paginate(6);
 		} else {
 			$objData = $houseMsg->orderBy('msgid','desc')->paginate(6);
