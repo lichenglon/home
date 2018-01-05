@@ -6,12 +6,7 @@
 		<link rel="stylesheet" href="{{asset('home/user/css_style/enter.css')}}">
 
 	</head>
-	@if (session('message'))
-		<div class="alert alert-success">
-			{{ session('message') }}           {{--默认存储一次，刷新完之后就没有了要对应控制台的message--}}
-			<a href="{{url('user/login')}}">点击前往登录</a>
-		</div>
-	@endif
+
 	<body>
 		<div>
 		<div>

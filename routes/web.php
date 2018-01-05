@@ -26,6 +26,13 @@ Route::group(['prefix'=>'user'],function() {
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
 
+
+});
+Route::group(['prefix'=>'KitController'],function() {
+	$controller = 'KitController\KitController@';
+	//验证码
+	Route::get('captcha/{tmp}',$controller.'captcha');
+
 });
 
 
