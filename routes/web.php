@@ -68,5 +68,19 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('qrcode/{order_id?}',$controller,'qrcode');
 });
 
+//个人设置中心
+Route::group(['prefix'=>'home'],function(){
+	$controller = 'Data\DataController@';
+	//显示
+	Route::any('data/{id?}',$controller.'data');
+	//更新
+	Route::any('renewal',$controller.'renewal');
+
+});
+
+Route::group(['prefix'=>'home'],function(){
+	$controller = 'Drop\DropController@';
+	Route::any('drop',$controller.'drop');
+});
 //二维码
 
