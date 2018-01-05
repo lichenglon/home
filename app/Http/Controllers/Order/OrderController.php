@@ -10,6 +10,7 @@ use DB;
 use App\Models\Order;
 class OrderController extends Controller
 {
+<<<<<<< HEAD
 
     public $orderStatus = [
         '1' => '未审核',
@@ -26,6 +27,14 @@ class OrderController extends Controller
         $houseInfo = DB::table('house_message')->where('serial_number',$house_no)->first();
 
         return view("Order/orderAdd",['result'=>$houseInfo,'uid'=>$uid]);
+=======
+    //用户填写租户信息页面展示
+    public function renterInfo($house_no='AU022311111111')
+    {
+        $houseInfo = DB::table('house_message')->where('serial_number',$house_no)->first();
+
+        return view("Order/renterInfo",['result'=>$houseInfo]);
+>>>>>>> a427da44a5270f03fe380535b516a04c31899945
     }
 
     //提交订单
@@ -37,7 +46,11 @@ class OrderController extends Controller
 
         $order_no = 'zhongjie'.$time.$data['house_no'];
         $order_data = [
+<<<<<<< HEAD
             'uid' => 1,
+=======
+            'uid' => '1',
+>>>>>>> a427da44a5270f03fe380535b516a04c31899945
             'order_no' => $order_no,
             'creat_time' => $time,
             'house_id' => $data['house_id'],
@@ -62,6 +75,7 @@ class OrderController extends Controller
 
         if($result)
         {
+<<<<<<< HEAD
             $order_id = DB::table('order')->where('order_no',$order_no)->value('order_id');
 //            return view('order/qrcode/$order_id');
         }
@@ -117,6 +131,9 @@ class OrderController extends Controller
             $req = DB::table('order')->where('uid',$uid)->get();
 
             return redirect('order.orderList',['result'=>$req, 'orderStatus'=>$this->orderStatus])->with('success','修改成功！');
+=======
+           return view('order.qrcode');
+>>>>>>> a427da44a5270f03fe380535b516a04c31899945
         }
     }
 

@@ -144,7 +144,7 @@
 
 
 <button type="button" class="form_opener"><i class="fa fa-bars"></i></button>
-<div class="tp_overlay">
+<div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
         <ul class="breadcrumb_top">
             <li><a href="#"><i class="icon-icons43"></i>最爱</a></li>
@@ -153,58 +153,53 @@
             <li class="last-icon"><i class="icon-icons215"></i></li>
         </ul>
     </div>
-
-    <form class="callus top30 clearfix centered" action="{{url('house/advanced_search')}}" method="post">
-        {{csrf_field()}}
-        <h2 class="text-uppercase t_white bottom20 text-center">高级搜索</h2>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <input type="text" name="house_keyword" class="keyword-input" value="" placeholder="Keyword (e.g. 'office')">
-                </div>
+    <form class="callus">
+        <div class="single-query form-group col-sm-12">
+            <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
+        </div>
+        <div class="single-query form-group col-sm-12">
+            <div class="intro">
+                <select>
+                    <option selected="" value="any">Location</option>
+                    <option>All areas</option>
+                    <option>Bayonne </option>
+                    <option>Greenville</option>
+                    <option>Manhattan</option>
+                    <option>Queens</option>
+                    <option>The Heights</option>
+                </select>
             </div>
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <div class="intro">
-                        <select name="state">
-                            <option selected="" value="%">Location</option>
-                            @foreach($nationObject as $nationVal)
-                                <option selected="" value="{{$nationVal->chinese_n_name}}">{{$nationVal->chinese_n_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+        </div>
+        <div class="single-query form-group col-sm-12">
+            <div class="intro">
+                <select>
+                    <option class="active">Property Type</option>
+                    <option>All areas</option>
+                    <option>Bayonne </option>
+                    <option>Greenville</option>
+                    <option>Manhattan</option>
+                    <option>Queens</option>
+                    <option>The Heights</option>
+                </select>
             </div>
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <div class="intro">
-                        <select name="house_type">
-                            <option class="active" value="%">House Type</option>
-                            @foreach($houseTypeObject as $houseTypeVal)
-                            <option class="active" value="{{$houseTypeVal->name}}">{{$houseTypeVal->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+        </div>
+        <div class="single-query form-group col-sm-12">
+            <div class="intro">
+                <select>
+                    <option class="active">Property Status</option>
+                    <option>All areas</option>
+                    <option>Bayonne </option>
+                    <option>Greenville</option>
+                    <option>Manhattan</option>
+                    <option>Queens</option>
+                    <option>The Heights</option>
+                </select>
             </div>
-            <div class="col-sm-6">
-                <div class="single-query bottom15">
-                    <div class="intro">
-                        <select>
-                            <option class="active">Property Status</option>
-                            <option>All areas</option>
-                            <option>Bayonne </option>
-                            <option>Greenville</option>
-                            <option>Manhattan</option>
-                            <option>Queens</option>
-                            <option>The Heights</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="search-2">
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="single-query bottom15">
+        </div>
+        <div class="search-2 col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
                         <div class="intro">
                             <select>
                                 <option class="active">Min Beds</option>
@@ -218,8 +213,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="single-query bottom15">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
                         <div class="intro">
                             <select>
                                 <option class="active">Min Baths</option>
@@ -234,103 +229,42 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="single-query bottom15">
-                    <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
+                        <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="single-query bottom15">
-                    <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+                <div class="col-sm-6">
+                    <div class="single-query form-group">
+                        <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-8 bottom15">
-                <div class="single-query-slider">
-                    <div class="clearfix top20">
-                        <label class="pull-left">Price Range:</label>
-                        <div class="price text-right">
-                            <span>$</span>
-                            <div class="leftLabel"></div>
-                            <span>to $</span>
-                            <div class="rightLabel"></div>
-                        </div>
-                    </div>
-                    <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
-                        <div class="bar"></div>
-                        <div class="leftGrip"></div>
-                        <div class="rightGrip"></div>
-                    </div>
+        <div class="col-sm-12 bottom10">
+            <div class="single-query-slider">
+                <label><strong>Price Range:</strong></label>
+                <div class="price text-right">
+                    <span>$</span>
+                    <div class="leftLabel"></div>
+                    <span>to $</span>
+                    <div class="rightLabel"></div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4 text-right form-group top30">
-                <button type="submit" class="border_radius btn-yellow text-uppercase">Search</button>
+                <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
+                    <div class="bar"></div>
+                    <div class="leftGrip"></div>
+                    <div class="rightGrip"></div>
+                </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="group-button-search">
-                    <a data-toggle="collapse" href=".search-propertie-filters" class="more-filter">
-                        <i class="fa fa-plus text-1" aria-hidden="true"></i><i class="fa fa-minus text-2 hide" aria-hidden="true"></i>
-                        <div class="text-1">Show more search options</div>
-                        <div class="text-2 hide">less more search options</div>
-                    </a>
-                </div>
-                <div class="search-propertie-filters collapse">
-                    <div class="container-2">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="1" name="check-box" />
-                                    <span>Features</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="2" name="check-box" />
-                                    <span>Balcony</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="3" name="check-box" />
-                                    <span>Gas Heat</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="4" name="check-box" />
-                                    <span>Washer, Dryer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="5" name="check-box" />
-                                    <span>TV Cable</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="5" name="check-box" />
-                                    <span>Swimming Pool</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="6" name="check-box" />
-                                    <span>Home Theater</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-sm-12 form-group">
+            <button type="submit" class="btn-blue border_radius">Search</button>
         </div>
     </form>
+
 </div>
 
 
@@ -390,7 +324,7 @@
                             <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
                                 <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
-                                <li><a href="#" title="去下单"><i class="icon-document-play"></i></a></li>
+                                <li><a href="{{url('order/renterInfo',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
                     </div>
