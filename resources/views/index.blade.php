@@ -19,8 +19,16 @@
     <style>
         .content-width {MARGIN: auto;WIDTH: 358px;}
         .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
+<<<<<<< HEAD
         .content-width img{MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
         .content-width img{MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
+=======
+        .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
+        .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
+        .form-group{
+            margin-top:7%;
+        }
+>>>>>>> 235a5209cf460ac81c17b489db096e5deb3f4a94
     </style>
 </head>
 <body>
@@ -173,90 +181,28 @@
         <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select>
-                    <option selected="" value="any">Location</option>
-                    <option>All areas</option>
-                    <option>Bayonne </option>
-                    <option>Greenville</option>
-                    <option>Manhattan</option>
-                    <option>Queens</option>
-                    <option>The Heights</option>
+                    <option selected="" value="%">nation</option>
+                    @foreach($nationObject as $nationVal)
+                    <option selected="" value="{{$nationVal->chinese_n_name}}">{{$nationVal->chinese_n_name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
         <div class="single-query form-group col-sm-12">
-            <div class="intro">
-                <select>
-                    <option class="active">Property Type</option>
-                    <option>All areas</option>
-                    <option>Bayonne </option>
-                    <option>Greenville</option>
-                    <option>Manhattan</option>
-                    <option>Queens</option>
-                    <option>The Heights</option>
-                </select>
-            </div>
+            <input type="text" class="keyword-input" value="" placeholder="Detailed Address">
         </div>
         <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select>
-                    <option class="active">Property Status</option>
-                    <option>All areas</option>
-                    <option>Bayonne </option>
-                    <option>Greenville</option>
-                    <option>Manhattan</option>
-                    <option>Queens</option>
-                    <option>The Heights</option>
+                    <option class="active" value="%">House Type</option>
+                    @foreach($houseTypeObject as $houseTypeVal)
+                    <option value="{{$houseTypeVal->name}}">{{$houseTypeVal->name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
-        <div class="search-2 col-sm-12">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="single-query form-group">
-                        <div class="intro">
-                            <select>
-                                <option class="active">Min Beds</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single-query form-group">
-                        <div class="intro">
-                            <select>
-                                <option class="active">Min Baths</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="single-query form-group">
-                        <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single-query form-group">
-                        <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
         <div class="col-sm-12 bottom10">
             <div class="single-query-slider">
                 <label><strong>Price Range:</strong></label>
@@ -270,6 +216,67 @@
                     <div class="bar"></div>
                     <div class="leftGrip"></div>
                     <div class="rightGrip"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="group-button-search">
+                    <a data-toggle="collapse" href=".search-propertie-filters" class="more-filter">
+                        <i class="fa fa-plus text-1" aria-hidden="true"></i><i class="fa fa-minus text-2 hide" aria-hidden="true"></i>
+                        <div class="text-1">Show more search options</div>
+                        <div class="text-2 hide">less more search options</div>
+                    </a>
+                </div>
+                <div class="search-propertie-filters collapse">
+                    <div class="container-2">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>Features</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>Balcony</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>Gas Heat</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>Washer, Dryer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>TV Cable</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>Swimming Pool</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="search-form-group white bottom10">
+                                    <input type="checkbox" name="check-box" />
+                                    <span>Home Theater</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -339,7 +346,7 @@
                             <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
                                 <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
-                                <li><a href="{{url('order/renterInfo',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
+                                <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
                     </div>
