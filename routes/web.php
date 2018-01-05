@@ -70,7 +70,7 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('qrcode/{order_id?}',$controller.'qrcode');
 });
 
-<<<<<<< HEAD
+
 //联系我们
 Route::group(['prefix' => 'contact_us'],function(){
 	$controller = 'Contact_cn\ContactController@';
@@ -78,7 +78,7 @@ Route::group(['prefix' => 'contact_us'],function(){
 	Route::any('contact',$controller.'contact');
 
 });
-=======
+
 
 //个人设置中心
 Route::group(['prefix'=>'home'],function(){
@@ -94,8 +94,7 @@ Route::group(['prefix'=>'home'],function(){
 	$controller = 'Drop\DropController@';
 	Route::any('drop',$controller.'drop');
 });
-//二维码
->>>>>>> 1eca760359e4915292d94d63848aa1759b4e9ee7
+
 
 
 
