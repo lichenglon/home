@@ -144,7 +144,11 @@
                         <div class="">正面照</div>
                         <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                             <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
-                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @if($result->renter_idcard1 != '')
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name='pic1' src="{{asset('./uploads')}}/{{$result->renter_idcard1}}" alt="" />
+                                @else
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name='pic1' src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
@@ -160,14 +164,18 @@
                         <div class="">反面照</div>
                         <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                             <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
-                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @if($result->renter_idcard2 != '')
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name="pic11" src="{{asset('./uploads')}}/{{$result->renter_idcard2}}" alt="" />
+                                @else
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name="pic11" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">选择文件</span>
                                         <span class="fileinput-exists">换一张</span>
-                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic1[]" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                 <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
@@ -182,14 +190,18 @@
                         <div class="">图片预览</div>
                         <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                             <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
-                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @if($result->renter_passport != '')
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name="pic2" src="{{asset('./uploads')}}/{{$result->renter_passport}}" alt="" />
+                                @else
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name="pic2" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">选择文件</span>
                                         <span class="fileinput-exists">换一张</span>
-                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                 <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
@@ -203,21 +215,22 @@
                         <div class="">学生证照片</div>
                         <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                             <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
-                                <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @if($result->stu_idcard != '')
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name="pic3" src="{{asset('./uploads')}}/{{$result->stu_idcard}}" alt="" />
+                                @else
+                                    <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" name="pic3" src="{{asset('order/images/noimage.png')}}" alt="" />
+                                @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">选择文件</span>
                                         <span class="fileinput-exists">换一张</span>
-                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                 <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
 
@@ -241,7 +254,7 @@
                 </div>
                 <div class="row cl">
                     <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                        <button class="btn btn-primary radius" type="submit" id="verification">保存</button>
+                        {{--<button class="btn btn-primary radius" type="submit" id="verification">保存</button>--}}
                         <a href="javascript:window.history.go(-1);"><button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button></a>
                     </div>
                 </div>
