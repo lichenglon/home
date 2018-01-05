@@ -35,8 +35,6 @@ Route::group(['prefix'=>'KitController'],function() {
 
 });
 
-
-
 //房源
 Route::group(['prefix'=>'house'],function() {
 	$controller = 'House\HouseController@';
@@ -72,7 +70,7 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('qrcode/{order_id?}',$controller.'qrcode');
 });
 
-<<<<<<< HEAD
+
 //个人设置中心
 Route::group(['prefix'=>'home'],function(){
 	$controller = 'Data\DataController@';
@@ -88,7 +86,6 @@ Route::group(['prefix'=>'home'],function(){
 	Route::any('drop',$controller.'drop');
 });
 //二维码
-=======
 
->>>>>>> 235a5209cf460ac81c17b489db096e5deb3f4a94
+
 
