@@ -60,5 +60,11 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('qrcode/{order_id?}',$controller,'qrcode');
 });
 
-//二维码
+//联系我们
+Route::group(['prefix' => 'contact_us'],function(){
+	$controller = 'Contact_cn\ContactController@';
+	#联系我们
+	Route::any('contact',$controller.'contact');
+
+});
 

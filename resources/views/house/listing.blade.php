@@ -142,7 +142,7 @@
           <ul class="pager">
             @if (!empty($objData))
               <div class="page_list">
-                {{ $objData->links() }}
+                {{$objData->appends(Request::input())->links()}}
               </div>
             @endif
           </ul>
