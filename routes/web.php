@@ -61,7 +61,7 @@ Route::group(['prefix' => 'order'],function(){
 	#修改订单
 	Route::any('orderModify/{order_id?}',$controller.'orderModify');
 	#修改保存
-	Route::any('orderSaveMod/{order_id?}',$controller.'orderSaveMod');
+	Route::any('orderSaveMod',$controller.'orderSaveMod');
 	#订单列表
 	Route::any('orderList',$controller.'orderList');
 	#订单详情
