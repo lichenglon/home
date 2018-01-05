@@ -28,15 +28,7 @@ Route::group(['prefix'=>'user'],function() {
 
 });
 
-//房源
-Route::group(['prefix'=>'house'],function() {
-	$controller = 'House\HouseController@';
-	#列表页
-	Route::get('listing',$controller.'listing');
-	#详情页
-	Route::get('detail/{id?}',$controller.'detail');
 
-});
 
 //房源
 Route::group(['prefix'=>'house'],function() {
