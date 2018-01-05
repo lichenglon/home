@@ -35,8 +35,6 @@ Route::group(['prefix'=>'KitController'],function() {
 
 });
 
-
-
 //房源
 Route::group(['prefix'=>'house'],function() {
 	$controller = 'House\HouseController@';
@@ -52,14 +50,27 @@ Route::group(['prefix'=>'house'],function() {
 //用户提交订单，返给用户填写租户信息表
 Route::group(['prefix' => 'order'],function(){
     $controller = 'Order\OrderController@';
-    #订单信息填写页面
-    Route::any('renterInfo/{house_no?}',$controller.'renterInfo');
-    #
-    Route::any('saveRenterInfo',$controller.'saveRenterInfo');
+    #添加订单
+    Route::any('orderAdd/{house_no?}',$controller.'orderAdd');
+    #添加保存
+    Route::any('orderSave',$controller.'orderSave');
+	#取消订单
+	Route::any('orderCancel/{order_id?}',$controller.'orderCancel');
+	#删除订单
+	Route::any('orderDelete/{order_id?}',$controller.'orderDelete');
+	#修改订单
+	Route::any('orderModify/{order_id?}',$controller.'orderModify');
+	#修改保存
+	Route::any('orderSaveMod/{order_id?}',$controller.'orderSaveMod');
+	#订单列表
+	Route::any('orderList',$controller.'orderList');
+	#订单详情
+	Route::any('orderDetail/{order_id?}',$controller.'orderDetail');
 	#QR code
-	Route::any('qrcode/{order_id?}',$controller,'qrcode');
+	Route::any('qrcode/{order_id?}',$controller.'qrcode');
 });
 
+<<<<<<< HEAD
 //联系我们
 Route::group(['prefix' => 'contact_us'],function(){
 	$controller = 'Contact_cn\ContactController@';
@@ -67,4 +78,24 @@ Route::group(['prefix' => 'contact_us'],function(){
 	Route::any('contact',$controller.'contact');
 
 });
+=======
+
+//个人设置中心
+Route::group(['prefix'=>'home'],function(){
+	$controller = 'Data\DataController@';
+	//显示
+	Route::any('data/{id?}',$controller.'data');
+	//更新
+	Route::any('renewal',$controller.'renewal');
+
+});
+
+Route::group(['prefix'=>'home'],function(){
+	$controller = 'Drop\DropController@';
+	Route::any('drop',$controller.'drop');
+});
+//二维码
+>>>>>>> 1eca760359e4915292d94d63848aa1759b4e9ee7
+
+
 

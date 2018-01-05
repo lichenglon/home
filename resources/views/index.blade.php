@@ -19,11 +19,16 @@
     <style>
         .content-width {MARGIN: auto;WIDTH: 358px;}
         .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
+<<<<<<< HEAD
+        .content-width img{MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
+        .content-width img{MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
+=======
         .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
         .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
         .form-group{
             margin-top:7%;
         }
+>>>>>>> 235a5209cf460ac81c17b489db096e5deb3f4a94
     </style>
 </head>
 <body>
@@ -103,9 +108,11 @@
 <!--Slider ends-->
 {{-------------------------------------轮播结束------------------------------------------}}
 
-
+{{--var_dump(\Illuminate\Support\Facades\Session::get('userId'));
+--}}
 <!--Header-->
 {{--导航--}}
+
 <div id="mainMenuBarAnchor"></div>
 <header class="white_header">
     <nav class="navbar navbar-default bootsnav">
@@ -152,8 +159,19 @@
     <div class="topbar clearfix">
         <ul class="breadcrumb_top">
             <li><a href="#"><i class="icon-icons43"></i>最爱</a></li>
-            <li><a href="#"><i class="icon-icons215"></i>我的财产</a></li>
-            <li><a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆 /</a><a href="{{url('user/register')}}">注册</a></li>
+            <li>
+
+                @if(Session::get('userId'))
+                    <a href="{{url('home/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>个人设置</a>
+                @else
+                    <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆</a>
+            </li>
+            <li>
+                @endif
+                    <a href="{{url('home/drop')}}" value="{{Session::get('userId')}}">退出</a>
+
+                <a href="{{url('user/register')}}">注册</a>
+            </li>
             <li class="last-icon"><i class="icon-icons215"></i></li>
         </ul>
     </div>
@@ -302,8 +320,10 @@
             <div class="cbp-item latest sale">
                 <div class="property_item">
                     <div class="image">
-                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img class="content-width" src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
-                        <div class="price clearfix">
+                        <div class="content-width" >
+                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
+                        </div>
+                            <div class="price clearfix">
                             <span class="tag pull-right">每月 ${{$houseVal->house_price}}</span>
                         </div>
                         <span class="tag_t">{{$houseVal->house_status}}</span>
@@ -341,7 +361,7 @@
                             <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
                                 <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
-                                <li><a href="{{url('order/renterInfo',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
+                                <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
                     </div>
