@@ -12,7 +12,7 @@ class House_message extends Base
 		$houseImg = new House_image();
 		$houseObj = $houseImg->where('house_msg_id',$imgid)->first();
 		if($houseObj) {
-			echo $houseObj->house_imagename;
+			return $houseObj->house_imagename;
 		} else {
 			return 'no.jpeg';
 		}
