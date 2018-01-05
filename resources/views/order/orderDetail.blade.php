@@ -17,7 +17,7 @@
 {{--头部--}}
 @include('house.listingPublic.header')
 
-<div class="box" style="height:700px">
+<div class="box" >
     <div class="box-body">
         <div class="Hui-article">
             <article class="cl pd-20">
@@ -50,7 +50,19 @@
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 150px;">
                                     身份证照片
                                 </th>
-                                <td>{{ $result->renter_idcard }}</td>
+                                <td>
+                                    @if($result->renter_idcard1 != '')
+                                        <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;margin-bottom:2px">
+                                            <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('./uploads')}}/{{$result->renter_idcard1}}" alt="" />
+                                        </div>
+                                    @endif
+                                    @if($result->renter_idcard2 != '')
+                                        <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;margin-bottom:2px;">
+                                            <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('./uploads')}}/{{$result->renter_idcard2}}" alt="" />
+                                        </div>
+                                    @endif
+                                </td>
+
                             </tr>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
@@ -59,14 +71,26 @@
                                     style="width: 140px;">
                                     护照照片
                                 </th>
-                                <td>{{ $result->renter_passport }}</td>
+                                <td>
+                                    @if($result->renter_passport != '')
+                                        <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;margin-bottom:2px">
+                                            <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('./uploads')}}/{{$result->renter_passport}}" alt="" />
+                                        </div>
+                                    @endif
+                                </td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Browser: activate to sort column ascending" style="width: 150px;">
                                     学生证照片
                                 </th>
-                                <td>{{ $result->stu_idcard }}</td>
+                                <td>
+                                    @if($result->stu_idcard != '')
+                                        <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;margin-bottom:2px">
+                                            <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('./uploads')}}/{{$result->stu_idcard}}" alt="" />
+                                        </div>
+                                    @endif
+                                </td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
