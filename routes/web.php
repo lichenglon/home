@@ -52,30 +52,25 @@ Route::group(['prefix'=>'house'],function() {
 //用户提交订单，返给用户填写租户信息表
 Route::group(['prefix' => 'order'],function(){
     $controller = 'Order\OrderController@';
-<<<<<<< HEAD
     #添加订单
-    Route::any('orderAdd/{house_no?}/{uid?}',$controller.'orderAdd');
-    #提交租户信息到数据库
+    Route::any('orderAdd/{house_no?}',$controller.'orderAdd');
+    #添加保存
     Route::any('orderSave',$controller.'orderSave');
-=======
-    #订单信息填写页面
-    Route::any('renterInfo/{house_no?}',$controller.'renterInfo');
-    #
-    Route::any('saveRenterInfo',$controller.'saveRenterInfo');
->>>>>>> a427da44a5270f03fe380535b516a04c31899945
-	#QR code
-	Route::any('qrcode/{order_id?}',$controller.'qrcode');
+	#取消订单
+	Route::any('orderCancel/{order_id?}',$controller.'orderCancel');
+	#删除订单
+	Route::any('orderDelete/{order_id?}',$controller.'orderDelete');
+	#修改订单
+	Route::any('orderModify/{order_id?}',$controller.'orderModify');
+	#修改保存
+	Route::any('orderSaveMod/{order_id?}',$controller.'orderSaveMod');
 	#订单列表
 	Route::any('orderList',$controller.'orderList');
 	#订单详情
 	Route::any('orderDetail/{order_id?}',$controller.'orderDetail');
-	#修改订单页面
-	Route::any('orderModify/{order_id?}',$controller.'orderModify');
-	#修改订单保存
-	Route::any('orderSaveMod',$controller.'orderSaveMod');
-	#删除订单
-	Route::any('orderDelete/{order_id?}',$controller.'orderDelete');
+	#QR code
+	Route::any('qrcode/{order_id?}',$controller.'qrcode');
 });
 
-//二维码
+
 

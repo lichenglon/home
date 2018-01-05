@@ -326,7 +326,7 @@
                             <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
                                 <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
-                                <li><a href="{{url('order/renterInfo',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
+                                <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
                     </div>

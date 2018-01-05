@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Sweety House</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="{{asset('order/css/H-ui.min.css')}}" />
     <link type="text/css" rel="stylesheet" href="{{asset('order/css/bootstrap.min.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('order/css/bootstrap-fileinput.css')}}">
@@ -155,6 +155,8 @@
                                     <td>
                                     <a href="{{ url('order/qrcode',['order_id'=>$result->order_id]) }}">点击去付款</a>
                                     </td>
+                                @elseif($result->order_status == '5')
+                                    <td><a href="{{ url('order/orderDelete',['order_id'=>$result->order_id]) }}">删除订单</a></td>
                                 @endif
                             </tr>
                             </thead>

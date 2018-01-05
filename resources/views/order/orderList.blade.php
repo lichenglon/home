@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Sweety House</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="{{asset('order/css/H-ui.min.css')}}" />
     <link type="text/css" rel="stylesheet" href="{{asset('order/css/bootstrap.min.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('order/css/bootstrap-fileinput.css')}}">
@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                             @foreach($result as $key => $val)
-                                <tr>
+                                <tr class="text-c">
                                     <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->order_no }} </a></td>
                                     <td style="width:10%;">{{ date('Y-m-d H:i:s',$val->creat_time) }}</td>
                                     <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->house_name }} </a></td>
@@ -50,8 +50,14 @@
                                         @endif
                                     </td>
                                     <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}">查看订单</a></td>
-                                    <td style="width:10%;"><a href="{{url('order/orderModify',['order_id'=>$val->order_id])}}">修改订单</a></td>
-                                    <td style="width:10%;"><a href="{{ url('order/orderDelete',['order_id'=>$val->order_id]) }}">取消订单</a></td>
+                                    @if($val->order_status == '5')
+                                        <td style="width:10%;">订单已取消</td>
+                                        <td style="width:10%;">订单已取消</td>
+                                    @else
+                                        <td style="width:10%;"><a href="{{url('order/orderModify',['order_id'=>$val->order_id])}}">修改订单</a></td>
+                                        <td style="width:10%;"><a href="{{ url('order/orderCancel',['order_id'=>$val->order_id]) }}">取消订单</a></td>
+                                    @endif
+
                                 </tr>
                             @endforeach
                             </tbody>
