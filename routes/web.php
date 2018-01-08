@@ -89,16 +89,13 @@ Route::group(['prefix'=>'home'],function(){
 	Route::any('renewal',$controller.'renewal');
 
 });
-/*//
+
 Route::group(['prefix'=>'drop'],function(){
 	$controller = 'Drop\DropController@';
-	Route::any('drop',$controller.'drop');
+	Route::any('drop/{id?}',$controller.'drop');
 });
-<<<<<<< HEAD
-//二维码*/
-=======
 
->>>>>>> 4dbfe8735a9d5a30fe849a96b59fc7fc0a804c1c
+
 
 
 

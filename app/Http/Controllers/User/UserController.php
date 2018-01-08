@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\App;
 
 
 class UserController extends Controller {
@@ -14,6 +15,7 @@ class UserController extends Controller {
 	 */
 	public function login() {
 		return view('user.login');
+
 	}
 
 	//登录页面检测
