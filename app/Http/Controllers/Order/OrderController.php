@@ -118,35 +118,36 @@ class OrderController extends Controller
             'sign_time'    => strtotime($data['sign_time']),
         ];
 
-        if($data['pic1'] != '')
+
+
+
+        if(!empty($request['pic1']))
         {
             $file1 = $request->file('pic1');//身份证1
             $renter_idcard1 = $file1->store('','uploads');
-            $data['renter_idcard1']= $renter_idcard1;
+            $order_data['renter_idcard1']= $renter_idcard1;
         }
 
-        if($data['pic11'])
+        if(!empty($data['pic11']))
         {
             $file11 = $request->file('pic11');//身份证2
             $renter_idcard2 = $file11->store('','uploads');
-            $data['renter_idcard2']= $renter_idcard2;
+            $order_data['renter_idcard2']= $renter_idcard2;
         }
 
-        if($data['pic2'])
+        if(!empty($data['pic2']))
         {
             $file2 = $request->file('pic2');//护照
             $renter_passport = $file2->store('','uploads');
-            $data['renter_passport']= $renter_passport;
+            $order_data['renter_passport']= $renter_passport;
         }
 
-        if($data['pic3'])
+        if(!empty($data['pic3']))
         {
             $file3 = $request->file('pic3');//学生证
             $stu_idcard = $file3->store('','uploads');
-            $data['stu_idcard']= $stu_idcard;
+            $order_data['stu_idcard']= $stu_idcard;
         }
-
-        var_dump($data);
 
         $result = DB::table('order')->where('order_id', $order_id)->update($order_data);
 
