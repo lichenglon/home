@@ -49,7 +49,7 @@
 				<td></td>
 					<td colspan="2">
 						{{csrf_field()}}
-						<input type="submit" value="更新" id="tjbtn">
+						<input type="submit" value="注册" id="tjbtn">
 					</td>
 				</tr>
 			</table>

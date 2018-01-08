@@ -6,13 +6,14 @@ use App\Models\House_image;
 use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Models\User_house_collect;
 class HouseController extends BaseController {
 	/**
 	 *房源列表
 	 */
-	public function listing(Request $request) {
-		//echo '<pre>';
-
+	public function listing(Request $request)
+	{
 		$houseMsg = new House_message();
 		//接收关键字
 		$house_keyword = $request->house_keyword ? $request->house_keyword : '%';
@@ -28,7 +29,8 @@ class HouseController extends BaseController {
 		$hiddenPriceMax = $request->hiddenPriceMax ? $request->hiddenPriceMax : '%';
 		//房屋设备
 		//$check_box = $request->check_box ? $request->check_box : '%';
-		if($request->check_box){
+		if($request->check_box)
+		{
 			$house_facility0 = $request->check_box[0];
 			$house_facility1 = isset($request->check_box[1]) ? $request->check_box[1] : '%';
 			$house_facility2 = isset($request->check_box[2]) ? $request->check_box[2] : '%';
@@ -36,7 +38,9 @@ class HouseController extends BaseController {
 			$house_facility4 = isset($request->check_box[4]) ? $request->check_box[4] : '%';
 			$house_facility5 = isset($request->check_box[5]) ? $request->check_box[5] : '%';
 			$house_facility6 = isset($request->check_box[6]) ? $request->check_box[6] : '%';
-		} else {
+		}
+		else
+		{
 			$house_facility0 = '%';
 			$house_facility1 = '%';
 			$house_facility2 = '%';
@@ -47,8 +51,9 @@ class HouseController extends BaseController {
 		}
 
 		//搜索按钮
-		$Search = $request->Search ? $request->Search : '%';
-		if ($Search) {
+		//$Search = $request->Search ? $request->Search : '%';
+		if ($request->_token)
+		{
 			$objData = $houseMsg->where('house_keyword','like','%'.$house_keyword.'%')
 					->where('state','like','%'.$state.'%')
 					->where('house_type','like','%'.$house_type.'%')
@@ -57,7 +62,9 @@ class HouseController extends BaseController {
 					->where('house_price','<',$hiddenPriceMax)
 					->where('house_facility','like','%'.$house_facility0.'%'.$house_facility1.'%'.$house_facility2.'%'.$house_facility3.'%'.$house_facility4.'%'.$house_facility5.'%'.$house_facility6.'%')
 					->paginate(6);
-		} else {
+		}
+		else
+		{
 			$objData = $houseMsg->orderBy('msgid','desc')->paginate(6);
 		}
 
@@ -67,7 +74,8 @@ class HouseController extends BaseController {
 	/**
 	 *详情页
 	 */
-	public function detail($id = 1) {
+	public function detail($id = 1)
+	{
 		$houseMsg = DB::table('house_message')
 				->join('landlord_message', 'house_message.msgid', '=', 'landlord_message.house_id')
 				->select('house_message.*', 'landlord_message.*')
@@ -77,4 +85,49 @@ class HouseController extends BaseController {
 		$imagesObj = $houseImg->where('house_msg_id', $id)->get();
 		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj]);
 	}
+
+	/**
+	 *Ajax房源请求收藏
+	 */
+	public function houseLikeAdd()
+	{
+		$user_house_collect = new User_house_collect();
+		$houseId = $_GET['house_id'];
+		$userId = $_GET['userId'];
+		$initialize = $user_house_collect->where('user_id',$userId)->first();
+		if($initialize)
+		{
+			$collectHouseNum = explode(',',$initialize->house_id);//字符串转数组
+			$judgeNumExist = in_array($houseId,$collectHouseNum);//判断房源ID是否已存在
+			if($judgeNumExist)
+			{
+				return '1';//已收藏
+				exit();
+			}
+			else
+			{
+				$updateHouseId = $initialize->house_id.','.$houseId;
+				$user_house_collect->where('user_id',$userId)->update(['house_id'=>$updateHouseId]);
+				return '2';//收藏成功
+				exit();
+			}
+		}
+		else
+		{
+			$user_house_collect->insert(['user_id'=>$userId,'house_id'=>$houseId]);
+			return '2';//收藏成功
+			exit();
+		}
+		return '0';//收藏失败
+	}
+
+	/**
+	 * 房源收藏列表
+	 */
+	public function like()
+	{
+		return view('house.like.like_index');
+	}
+
+
 }

@@ -19,16 +19,17 @@
     <style>
         .content-width {MARGIN: auto;WIDTH: 358px;}
         .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
-<<<<<<< HEAD
+
         .content-width img{MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
         .content-width img{MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
-=======
+
         .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
         .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
         .form-group{
-            margin-top:7%;
+            margin-top:3%;
         }
->>>>>>> 235a5209cf460ac81c17b489db096e5deb3f4a94
+
+
     </style>
 </head>
 <body>
@@ -36,11 +37,7 @@
 
 <!--Loader-->
 {{--程序载人动画效果--}}
-<div class="loader">
-    <div class="span">
-        <div class="location_indicator"></div>
-    </div>
-</div>
+@include('public.publicLoaderCartoon')
 <!--Loader-->
 
 <!--Slider-->
@@ -99,7 +96,7 @@
                      data-basealign="slide"
                      data-startslide="0"
                      data-endslide="5"
-                     style="z-index: 5;"><a href="listing.html" class="btn-white border_radius uppercase">view Properties</a>
+                     style="z-index: 5;"><a href="{{url('house/listing')}}" class="btn-white border_radius uppercase">view Properties</a>
                 </div>
             </div>
         </ul>
@@ -124,7 +121,7 @@
                             <div class="icons"><i class="icon-telephone114"></i></div>
                             <ul>
                                 <li><strong>Phone Number</strong></li>
-                                <li>+1 900 234 567 - 68</li>
+                                <li>+180 253 309 61</li>
                             </ul>
                         </div>
                     </div>
@@ -132,16 +129,16 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.png" class="logo" alt=""></a>
+                        <a class="navbar-brand" href="javascript:void(0);"><img src="{{asset('home')}}/images/logo.png" class="logo" alt=""></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
                             <li><a href="{{url('/')}}">首页</a></li>
-                            <li><a href="javascript:void(0);">News</a></li>
+                            <li><a href="{{url('error_page')}}">News</a></li>
                             <li><a href="{{url('house/listing')}}">列表</a></li>
-                            <li><a href="javascript:void(0);">Property Detail</a></li>
-                            <li><a href="{{url('contact_us/contact')}}">联系我们</a></li>
-                            <li><a href="javascript:void(0);">Buy Now</a></li>
+                            <li><a href="{{url('error_page')}}">Property Detail</a></li>
+                            <li><a href="{{url('contact/me')}}">联系我们</a></li>
+                            <li><a href="{{url('error_page')}}">Buy Now</a></li>
                         </ul>
                     </div>
                 </div>
@@ -158,7 +155,7 @@
 <div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
         <ul class="breadcrumb_top">
-            <li><a href="#"><i class="icon-icons43"></i>最爱</a></li>
+            <li><a href="@if(Session::get('userId')) {{url('house/like')}} @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-icons43"></i>最爱</a></li>
             <li>
 
                 @if(Session::get('userId'))
@@ -175,133 +172,10 @@
             <li class="last-icon"><i class="icon-icons215"></i></li>
         </ul>
     </div>
-    {{--高级搜索--}}
-    <form class="callus" action="{{url('house/listing')}}" method="get" id="SUBMIT">
-        {{csrf_field()}}
-        <h2 class="text-uppercase t_white bottom20 text-center">advanced search</h2>
-        <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" name="house_keyword" placeholder="Keyword (e.g. 'office')">
-        </div>
-        <div class="single-query form-group col-sm-12">
-            <div class="intro">
-                <select name="state">
-                    <option selected="" value="%">nation</option>
-                    @foreach($nationObject as $nationVal)
-                    <option selected="" value="{{$nationVal->chinese_n_name}}">{{$nationVal->chinese_n_name}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" value="" name="house_location" placeholder="Detailed Address">
-        </div>
-        <div class="single-query form-group col-sm-12">
-            <div class="intro">
-                <select name="house_type">
-                    <option class="active" value="%">House Type</option>
-                    @foreach($houseTypeObject as $houseTypeVal)
-                    <option value="{{$houseTypeVal->name}}">{{$houseTypeVal->name}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-
-
-        <div class="col-sm-12 bottom10">
-            <div class="single-query-slider">
-                <label><strong>Price Range:</strong></label>
-                <div class="price text-right">
-                    <span>$</span>
-                    <div class="leftLabel" id="minPriceNum"></div>
-                    <input type="hidden" value="" name="hiddenPriceMin" id="hiddenPriceMin">
-                    <span>to $</span>
-                    <div class="rightLabel" id="maxPriceNum"></div>
-                    <input type="hidden" value="" name="hiddenPriceMax" id="hiddenPriceMax">
-                </div>
-                <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
-                    <div class="bar"></div>
-                    <div class="leftGrip"></div>
-                    <div class="rightGrip"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="group-button-search">
-                    <a data-toggle="collapse" href=".search-propertie-filters" class="more-filter">
-                        <i class="fa fa-plus text-1" aria-hidden="true"></i><i class="fa fa-minus text-2 hide" aria-hidden="true"></i>
-                        <div class="text-1">Show more search options</div>
-                        <div class="text-2 hide">less more search options</div>
-                    </a>
-                </div>
-                <div class="search-propertie-filters collapse">
-                    <div class="container-2">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="洗衣机" name="check_box[]" />
-                                    <span>洗衣机</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="空调" name="check_box[]" />
-                                    <span>空调</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="暖气" name="check_box[]" />
-                                    <span>暖气</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="床" name="check_box[]" />
-                                    <span>床</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="厨房" name="check_box[]" />
-                                    <span>厨房</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="衣柜" name="check_box[]" />
-                                    <span>衣柜</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
-                                    <input type="checkbox" value="冰箱" name="check_box[]" />
-                                    <span>冰箱</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 form-group">
-            <button type="button" onclick="javascript:priceNumber();" class="btn-blue border_radius">Search</button>
-        </div>
-    </form>
-
+    {{----------------------高级搜索------------------------}}
+    @include('public.publicAdvancedSearch')
+    {{-----------------------结束-------------------------}}
 </div>
-{{--获取价格提交后台搜索--}}
-<script>
-    function priceNumber(){
-        var minPriceNum = document.getElementById('minPriceNum').innerHTML;
-        var maxPriceNum = document.getElementById('maxPriceNum').innerHTML;
-        var hiddenPriceMin = document.getElementById('hiddenPriceMin').value = minPriceNum;
-        var hiddenPriceMax = document.getElementById('hiddenPriceMax').value = maxPriceNum;
-        document.getElementById('SUBMIT').submit();
-    }
-</script>
 
 
 
@@ -331,25 +205,39 @@
                     </div>
                     <div class="proerty_content">
                         <div class="proerty_text">
-                            <h3 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}">{{$houseVal->house_name}}</a></h3>
-                            <p>{{$houseVal->house_location}}</p>
+                            <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name, 0, 15, 'utf-8') ?></a>......</h4>
+                            <p>{{$houseVal->house_structure}}</p>
                         </div>
                         <div class="property_meta transparent">
 
                             <?php
                             if(empty($houseVal->house_facility)){
                                 $equipment = array();
+                                $washing = in_array('洗衣机',$equipment);//洗衣机
+                                $air = in_array('空调',$equipment);//空调
+                                $heating = in_array('暖气',$equipment);//暖气
+                                $bed = in_array('床',$equipment);//床
+                                $kitchen = in_array('厨房',$equipment);//厨房
+                                $closet = in_array('衣柜',$equipment);//衣柜
+                                $refrigerator = in_array('冰箱',$equipment);//冰箱
                             }else{
                                 $equipment = explode(',',$houseVal->house_facility);
+                                $washing = in_array('洗衣机',$equipment);//洗衣机
+                                $air = in_array('空调',$equipment);//空调
+                                $heating = in_array('暖气',$equipment);//暖气
+                                $bed = in_array('床',$equipment);//床
+                                $kitchen = in_array('厨房',$equipment);//厨房
+                                $closet = in_array('衣柜',$equipment);//衣柜
+                                $refrigerator = in_array('冰箱',$equipment);//冰箱
                             }
                             ?>
-                            @if(isset($equipment[0])) <span>洗衣机</span> @endif
-                            @if(isset($equipment[1])) <span>空调</span> @endif
-                            @if(isset($equipment[2])) <span>暖气</span> @endif
-                            @if(isset($equipment[3])) <span>床</span> @endif
-                            @if(isset($equipment[4])) <span>厨房</span> @endif
-                            @if(isset($equipment[5])) <span>衣柜</span> @endif
-                            @if(isset($equipment[6])) <span>冰箱</span> @endif
+                            @if($washing) <span>洗衣机</span> @endif
+                            @if($air) <span>空调</span> @endif
+                            @if($heating) <span>暖气</span> @endif
+                            @if($bed) <span>床</span> @endif
+                            @if($kitchen) <span>厨房</span> @endif
+                            @if($closet) <span>衣柜</span> @endif
+                            @if($refrigerator) <span>冰箱</span> @endif
 
                         </div>
                         <div class="property_meta transparent bottom30">
@@ -357,10 +245,13 @@
                             <span><i class="icon-garage"></i>1 Garage</span>
                             <span></span>
                         </div>
+
                         <div class="favroute clearfix">
                             <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
-                                <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
+                                <li>
+                                    <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}}) @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢"><i class="icon-like"></i></a>
+                                </li>
                                 <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
@@ -397,9 +288,9 @@
                         </div>
                         <div class="listing_full_bg">
                             <div class="listing_inner_full">
-                                <span><a href="#"><i class="icon-like"></i></a></span>
-                                <a href="property_detail.html">
-                                    <h3>{{$recommend->house_name}}</h3>
+                                <span><a href="javascript:houseLikeAdd({{$recommend->msgid}});"><i class="icon-like"></i></a></span>
+                                <a href="{{url('house/detail',['msgid'=>$recommend->msgid])}}">
+                                    <h3><?php echo mb_substr($recommend->house_name, 0, 15, 'utf-8') ?>.......</h3>
                                     <p>{{$recommend->house_location}}</p>
                                 </a>
                                 <div class="favroute clearfix">
@@ -565,128 +456,10 @@
 
 
 <!--Footer-->
-<footer class="footer_third">
-    <div class="container contacts">
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <div class="info-box first">
-                    <div class="icons"><i class="icon-telephone114"></i></div>
-                    <ul class="text-center">
-                        <li><strong>Phone Number</strong></li>
-                        <li>+1 900 234 567 - 68</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <div class="info-box">
-                    <div class="icons"><i class="icon-icons74"></i></div>
-                    <ul class="text-center">
-                        <li><strong>Manhattan Hall,</strong></li>
-                        <li>Castle Melbourne, australia</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center">
-                <div class="info-box">
-                    <div class="icons"><i class="icon-icons142"></i></div>
-                    <ul class="text-center">
-                        <li><strong>Email Address</strong></li>
-                        <li><a href="#.">info@castle.com</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container padding_top">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.png" alt="logo"></a>
-                    <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                        tempor cum consectetuer
-                        adipiscing.
-                    </p>
-                    <p class="bottom15">If you are interested in castle do not wait and <a href="#.">BUY IT NOW!</a></p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30 heading">Search by Area</h4>
-                    <table style="width:100%;">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <ul class="links">
-                                    <li><a href="#."><i></i>About</a></li>
-                                    <li class="active"><a href="#."><i></i>News</a></li>
-                                    <li><a href="#."> <i></i>Contacts</a></li>
-                                    <li><a href="#."><i></i>Testimonials</a></li>
-                                    <li><a href="#."><i></i>Typography</a></li>
-                                </ul>
-                            </td>
-                            <td class="text-right">
-                                <ul class="links text-left">
-                                    <li><a href="#."><i></i>Services</a></li>
-                                    <li class="active"><a href="#."><i></i>Careers</a></li>
-                                    <li><a href="#."><i></i>Our team</a></li>
-                                    <li><a href="#."><i></i>Shop</a></li>
-                                    <li><a href="#."><i></i>Our approach</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30 heading">Latest News</h4>
-                    <div class="media bottom30">
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes google map your villa</a>
-                            <span><i class="icon-clock5"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes google map your villa</a>
-                            <span><i class="icon-clock5"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30 heading">Subscribe</h4>
-                    <p>Sign up with your email to get latest updates and offers</p>
-                    <form class="top30">
-                        <input class="search" placeholder="Enter your Email" type="search">
-                        <a class="button_s" href="#">
-                            <i class="icon-mail-envelope-open"></i>
-                        </a>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--CopyRight-->
-        <div class="copyright_simple">
-            <div class="row">
-                <div class="col-md-6 col-sm-5 top20 bottom20">
-                    <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-                </div>
-                <div class="col-md-6 col-sm-7 text-right top15 bottom10">
-                    <ul class="social_share">
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i></a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i></a></li>
-                        <li><a href="#." class="google"><i class="icon-google4"></i></a></li>
-                        <li><a href="#." class="linkden"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+{{--页尾--}}
+@include('public.publicFooter')
+
+
 
 <script src="{{asset('home')}}/js/jquery-2.1.4.js"></script>
 <script src="{{asset('home')}}/js/bootstrap.min.js"></script>
@@ -711,6 +484,25 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
+<script>
+    function houseLikeAdd(houseMsgId,userId) {
+        $.ajax({
+            url:"{{url('house/houseLikeAdd')}}",
+            data:'house_id='+houseMsgId+'&userId='+userId,
+            type:'get',
+            success:function (re) {
+                if(re == '1'){
+                    alert('亲！您已收藏过此房源');
+                } else if (re == '0'){
+                    alert('抱歉！收藏失败');
+                } else {
+                    alert('收藏成功');
+                }
+            }
+        })
+    }
+</script>
+
 
 </body>
 </html>
