@@ -162,7 +162,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                    <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
 
@@ -178,7 +178,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                    <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                        <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                        {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                    <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
