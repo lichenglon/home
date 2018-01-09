@@ -22,7 +22,7 @@ class OrderController extends Controller
         '7' => '未付款'
     ];
     //添加订单
-    public function orderAdd($house_no='AU022311111111',$uid=1)
+    public function orderAdd($house_no,$uid=1)
     {
         $houseInfo = DB::table('house_message')->where('serial_number', $house_no)->first();
 
