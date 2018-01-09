@@ -19,16 +19,16 @@
     <style>
         .content-width {MARGIN: auto;WIDTH: 358px;}
         .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
-<<<<<<< HEAD
+
         .content-width img{MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
         .content-width img{MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
-=======
+
         .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
         .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
         .form-group{
             margin-top:7%;
         }
->>>>>>> 235a5209cf460ac81c17b489db096e5deb3f4a94
+
     </style>
 </head>
 <body>
@@ -168,7 +168,9 @@
             </li>
             <li>
                 @endif
-                    <a href="{{url('home/drop')}}" value="{{Session::get('userId')}}">退出</a>
+                @if(Session::get('userId'))
+                    <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(confirm('确定要退出吗？'))return false">退出</a>
+                @endif
 
                 <a href="{{url('user/register')}}">注册</a>
             </li>
@@ -414,7 +416,6 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>
     </div>

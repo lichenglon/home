@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 
 class DropController extends Controller{
-	public function drop(){
-		var_dump($_GET);
+	public function drop($id){
+		$bool = Session()->flush($id);
+		if($bool == ''){
+			return redirect('/');
+		}
 	}
 }

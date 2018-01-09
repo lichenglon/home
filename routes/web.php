@@ -94,3 +94,8 @@ Route::group(['prefix'=>'home'],function(){
 
 
 
+Route::group(['prefix'=>'drop'],function(){
+	$controller = 'Drop\DropController@';
+	Route::any('drop/{id?}',$controller.'drop');
+});
+
