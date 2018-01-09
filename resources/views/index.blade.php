@@ -29,7 +29,10 @@
             margin-top:3%;
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 403f8b5c00572d7128901d1daccb68648bc56a8e
     </style>
 </head>
 <body>
@@ -162,10 +165,13 @@
                     <a href="{{url('home/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>个人设置</a>
                 @else
                     <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆</a>
+                @endif
             </li>
             <li>
+
+                @if(Session::get('userId'))
+                    <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('确定要退出吗？'))return false">退出</a>
                 @endif
-                    <a href="{{url('home/drop')}}" value="{{Session::get('userId')}}">退出</a>
 
                 <a href="{{url('user/register')}}">注册</a>
             </li>
@@ -288,7 +294,7 @@
                         </div>
                         <div class="listing_full_bg">
                             <div class="listing_inner_full">
-                                <span><a href="javascript:houseLikeAdd({{$recommend->msgid}});"><i class="icon-like"></i></a></span>
+                                <span><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}}) @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-like"></i></a></span>
                                 <a href="{{url('house/detail',['msgid'=>$recommend->msgid])}}">
                                     <h3><?php echo mb_substr($recommend->house_name, 0, 15, 'utf-8') ?>.......</h3>
                                     <p>{{$recommend->house_location}}</p>
@@ -305,7 +311,6 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>
     </div>

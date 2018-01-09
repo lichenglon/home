@@ -51,6 +51,8 @@ Route::group(['prefix'=>'house'],function() {
 	Route::get('houseLikeAdd',$controller.'houseLikeAdd');
 	#收藏列表页
 	Route::get('like',$controller.'like');
+	#删除收藏
+	Route::get('like_del',$controller.'like_del');
 });
 
 //用户提交订单，返给用户填写租户信息表
@@ -67,7 +69,7 @@ Route::group(['prefix' => 'order'],function(){
 	#修改订单
 	Route::any('orderModify/{order_id?}',$controller.'orderModify');
 	#修改保存
-	Route::any('orderSaveMod/{order_id?}',$controller.'orderSaveMod');
+	Route::any('orderSaveMod',$controller.'orderSaveMod');
 	#订单列表
 	Route::any('orderList',$controller.'orderList');
 	#订单详情
@@ -95,6 +97,16 @@ Route::group(['prefix'=>'home'],function(){
 	Route::any('renewal',$controller.'renewal');
 
 });
+
+
+
+
+
+Route::group(['prefix'=>'drop'],function(){
+	$controller = 'Drop\DropController@';
+	Route::any('drop/{id?}',$controller.'drop');
+});
+
 
 
 
