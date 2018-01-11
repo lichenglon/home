@@ -20,6 +20,14 @@
         .form-group{
             margin-top:3%;
         }
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 403f8b5c00572d7128901d1daccb68648bc56a8e
+>>>>>>> 3600dc575b245f0cbeb0d30600f154f9108cea23
     </style>
 </head>
 <body>
