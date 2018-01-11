@@ -35,13 +35,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="text-uppercase">Listing Style 1</h1>
-        <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <h1 class="text-uppercase"></h1>
+        <p></p>
         <ol class="breadcrumb text-center">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Listing</a></li>
-          <li class="active">Listing - 1</li>
+         {{-- <li></li>
+          <li></li>
+          <li></li>--}}
+          <li class="active"></li>
         </ol>
       </div>
     </div>
@@ -96,7 +96,7 @@
               </div>
               <div class="proerty_content">
                 <div class="proerty_text">
-                  <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}">{{substr($houseVal->house_name,1,15)}}</a></h4>
+                  <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name, 0, 15, 'utf-8') ?></a>......</h4>
                   <p>{{$houseVal->house_structure}}</p>
                   <br>
                   <span><i class="icon-select-an-objecto-tool"></i>{{$houseVal->house_size}} 平方英尺</span>
@@ -173,6 +173,7 @@
             <h3 class="bottom40 margin40">Featured Properties</h3>
           </div>
         </div>
+
         <div class="row bottom20">
           <div class="col-md-4 col-sm-4 col-xs-6 p-image">
             <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
@@ -181,7 +182,20 @@
             <div class="feature-p-text">
               <h4>Historic Town House</h4>
               <p class="bottom15">45 Regent Street, London, UK</p>
-              <a href="#.">$128,600</a>
+              <a href="javascript:void (0);">$128,600</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row bottom20">
+          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
+            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-6">
+            <div class="feature-p-text">
+              <h4>Historic Town House</h4>
+              <p class="bottom15">45 Regent Street, London, UK</p>
+              <a href="javascript:void (0);">$128,600</a>
             </div>
           </div>
         </div>
@@ -197,45 +211,29 @@
             </div>
           </div>
         </div>
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div>
+
         <div class="row">
           <div class="col-md-12">
             <h3 class="margin40 bottom20">Featured Properties</h3>
           </div>
           <div class="col-md-12">
             <div id="agent-2-slider" class="owl-carousel">
+              @foreach($objData as $Featured)
               <div class="item">
                 <div class="property_item heading_space">
                   <div class="image">
-                    <a href="#"><img src="{{asset('home')}}/images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                    <div class="feature"><span class="tag-2">For Rent</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">$8,600 Per Month - <small>Family Home</small></span></div>
+                    <a href="{{url('house/detail',['msgid'=>$Featured->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$Featured->getImageOne($Featured->msgid)}}" alt="listin" class="img-responsive"></a>
+                    <div class="feature"><span class="tag-2">{{$Featured->house_status}}</span></div>
+                    <div class="price clearfix"><span class="tag pull-right">每月 ${{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#"><img src="{{asset('home')}}/images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                    <div class="feature"><span class="tag-2">For Rent</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">$8,600 Per Month - <small>Family Home</small></span></div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+
             </div>
           </div>
         </div>
+
       </aside>
     </div>
   </div>

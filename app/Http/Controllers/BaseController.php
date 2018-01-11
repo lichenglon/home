@@ -5,6 +5,7 @@ use App\Models\Nation;
 use App\Models\House_type;
 class BaseController extends Controller {
 	public function __construct(){
+
 		//实例化国家表
 		$nation = new Nation();
 		//查数据

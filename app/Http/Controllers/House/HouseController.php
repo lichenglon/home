@@ -67,7 +67,6 @@ class HouseController extends BaseController {
 		{
 			$objData = $houseMsg->orderBy('msgid','desc')->paginate(6);
 		}
-
 		return view('house.listing', ['objData'=>$objData]);
 	}
 
@@ -83,7 +82,9 @@ class HouseController extends BaseController {
 				->first();
 		$houseImg = new House_image();
 		$imagesObj = $houseImg->where('house_msg_id', $id)->get();
-		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj]);
+		$house = new House_message();
+		$objData = $house->orderBy('msgid','desc')->paginate(6);
+		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj,'objData'=>$objData]);
 	}
 
 	/**
@@ -126,8 +127,50 @@ class HouseController extends BaseController {
 	 */
 	public function like()
 	{
-		return view('house.like.like_index');
+		$userId = Session::get('userId');
+		$user_house_collect = new User_house_collect();
+		$userCollect = $user_house_collect->where('user_id',$userId)->first();
+		if($userCollect)
+		{
+			$houseId = explode(',',$userCollect->house_id);
+			$houseMsg = new House_message();
+			foreach($houseId as $value)
+			{
+				$data = $houseMsg->select('msgid','house_name','house_facility')->where('msgid',$value)->first();
+				$arr[] = $data;
+			}
+		}
+		else
+		{
+			$arr = array();
+		}
+		return view('house.like.like_index',['arr'=>$arr]);
 	}
 
-
+	/**
+	 * 房源收藏删除
+	 */
+	public function like_del()
+	{
+		$msgid = $_GET['msgid'];
+		$userId = Session::get('userId');
+		$user_house_collect = new User_house_collect();
+		$data = $user_house_collect->where('user_id',$userId)->first();
+		$houseIdArr = explode(',',$data->house_id);
+		foreach($houseIdArr as $k => $v)
+		{
+			if($v == $msgid)
+			{
+				unset($houseIdArr[$k]);
+			}
+		}
+		$result = implode(',',$houseIdArr);
+		$rs = $user_house_collect->where('user_id',$userId)->update(['house_id'=>$result]);
+		if($rs)
+		{
+			return '1';
+			exit();
+		}
+		return '0';
+	}
 }

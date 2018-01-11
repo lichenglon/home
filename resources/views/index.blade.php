@@ -17,19 +17,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/search.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/style.css">
     <style>
-        .content-width {MARGIN: auto;WIDTH: 358px;}
-        .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
-
-        .content-width img{MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
-        .content-width img{MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
-
-        .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
-        .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
         .form-group{
             margin-top:3%;
         }
-
-
     </style>
 </head>
 <body>
@@ -162,10 +152,13 @@
                     <a href="{{url('home/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>个人设置</a>
                 @else
                     <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆</a>
+                @endif
             </li>
             <li>
+
+                @if(Session::get('userId'))
+                    <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('确定要退出吗？'))return false">退出</a>
                 @endif
-                    <a href="{{url('home/drop')}}" value="{{Session::get('userId')}}">退出</a>
 
                 <a href="{{url('user/register')}}">注册</a>
             </li>
@@ -194,9 +187,9 @@
             <div class="cbp-item latest sale">
                 <div class="property_item">
                     <div class="image">
-                        <div class="content-width" >
-                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
-                        </div>
+
+                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img width="358" height="249.81" src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
+
                             <div class="price clearfix">
                             <span class="tag pull-right">每月 ${{$houseVal->house_price}}</span>
                         </div>
@@ -283,19 +276,19 @@
                 <div class="item">
                     <div class="listing_full">
                         <div class="image">
-                            <img alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
+                            <img width="555" height="364.7" alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
                             <span class="tag_t">{{$recommend->house_status}}</span>
                         </div>
                         <div class="listing_full_bg">
                             <div class="listing_inner_full">
-                                <span><a href="javascript:houseLikeAdd({{$recommend->msgid}});"><i class="icon-like"></i></a></span>
+                                <span><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}}) @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-like"></i></a></span>
                                 <a href="{{url('house/detail',['msgid'=>$recommend->msgid])}}">
                                     <h3><?php echo mb_substr($recommend->house_name, 0, 15, 'utf-8') ?>.......</h3>
                                     <p>{{$recommend->house_location}}</p>
                                 </a>
                                 <div class="favroute clearfix">
                                     <div class="property_meta">
-                                        <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}} 平方 英尺</span>
+                                        <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}}平方/英尺</span>
                                         <span><i class="icon-bed"></i>{{$recommend->house_structure}}</span>
                                         <span><i class="icon-briefcase2"></i>{{$recommend->payment_proportion}}</span>
                                         <span class="border-l">每月 ${{$recommend->house_price}}</span></div>
@@ -305,7 +298,6 @@
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>
     </div>

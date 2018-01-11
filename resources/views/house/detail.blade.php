@@ -29,12 +29,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="text-uppercase">Property Details - 1</h1>
-        <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <h1 class="text-uppercase"></h1>
+        <p></p>
         <ol class="breadcrumb text-center">
-          <li><a href="#.">Home</a></li>
-          <li><a href="#.">Properties</a></li>
-          <li class="active">Property Details - 1</li>
+         {{-- <li><a href="#."></a></li>
+          <li><a href="#."></a></li>
+          <li class="active"></li>--}}
         </ol>
       </div>
     </div>
@@ -53,12 +53,12 @@
         <p class="bottom30">{{$houseMsg->house_location}}</p>
         <div id="property-d-1" class="owl-carousel">
           @foreach($imagesObj as $value)
-          <div class="item"><img src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image"></div>
+          <div class="item"><img height="523.34" src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image"></div>
           @endforeach
         </div>
         <div id="property-d-1-2" class="owl-carousel">
           @foreach($imagesObj as $value)
-          <div class="item" ><img src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image"></div>
+          <div class="item" ><img width="140" height="97.69" src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image"></div>
           @endforeach
         </div>
         <div class="property_meta bg-black bottom40">
@@ -155,37 +155,20 @@
           </div>
           @endforeach
         </div>
-        <h2 class="text-uppercase">户型图</h2>
-        <p class="bottom20">我们这里有详细的户型图 能够让你感受到真实的房源信息
-        </p>
-
-        <div class="row bottom40">
-          @foreach($imagesObj as $value)
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="pro-img">
-              <figure class="wpf-demo-gallery">
-                <img src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image">
-                <figcaption class="view-caption">    
-                  <a data-fancybox-group="gallery" class="fancybox" href="http://www.admin.com/uploads/{{$value->house_imagename}}"><i class="icon-focus"></i></a>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-          @endforeach
-        </div>
 
         <div class="row bottom40">
           <div class="col-md-12 padding-b-20">
             <div class="pro-video">
               <figure class="wpf-demo-gallery">
                 <video  class="video" controls>
-                  <source src="{{url('mp4/IMG_0116.MOV')}}" type="video/mp4">
-                  <source src="{{url('mp4/IMG_0116.MOV')}}" type="video/ogg">
+                  <source src="{{url('mp4/IMG_0238.MOV')}}" type="video/mp4">
+                  <source src="{{url('mp4/IMG_0238.MOV')}}" type="video/ogg">
                 </video>
               </figure>
             </div>
           </div>
         </div>
+
         <h2 class="text-uppercase bottom20">物业地图</h2>
         <div class="row bottom40">
           <div class="col-md-12 bottom20">
@@ -222,191 +205,6 @@
             </div>
           </div>
         </div>
-
-          <div class="row">
-            <div class="col-sm-10">
-            <h2 class="text-uppercase top20">Similar Properties</h2>
-            <p class="bottom30">We have Properties in these Areas View a list of Featured Properties.</p>
-            </div>
-            <div class="col-sm-12"><div id="two-col-slider" class="owl-carousel">
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="{{asset('home')}}/images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">$8,600 Per Month</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>45 Regent Street, London, UK</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                      <ul class="pull-right">
-                        <li><a href="#."><i class="icon-like"></i></a></li>
-                        <li><a href="#five" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="five">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="{{asset('home')}}/images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">$8,600 Per Month</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>45 Regent Street, London, UK</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                      <ul class="pull-right">
-                        <li><a href="#."><i class="icon-like"></i></a></li>
-                        <li><a href="#four" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="four">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="{{asset('home')}}/images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">$8,600 Per Month</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>45 Regent Street, London, UK</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                      <ul class="pull-right">
-                        <li><a href="#."><i class="icon-like"></i></a></li>
-                        <li><a href="#six" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="six">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="{{asset('home')}}/images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">$8,600 Per Month</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>45 Regent Street, London, UK</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
-                      <ul class="pull-right">
-                        <li><a href="#."><i class="icon-like"></i></a></li>
-                        <li><a href="#three" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="three">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div></div>
-          </div>
-          
-          <div class="col-sm-12 text-center heading_space">
-            <ul class="pager">
-              <li><a href="#.">1</a></li>
-              <li class="active"><a href="#.">2</a></li>
-              <li><a href="#.">3</a></li>
-            </ul>
-          </div>
       </div>
       <aside class="col-md-4 col-xs-12">
 
@@ -461,24 +259,17 @@
           </div>
           <div class="col-md-12">
             <div id="agent-2-slider" class="owl-carousel">
+              @foreach($objData as $Featured)
               <div class="item">
                 <div class="property_item heading_space">
                   <div class="image">
-                    <a href="#."><img src="{{asset('home')}}/images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                    <div class="feature"><span class="tag-2">For Rent</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">$8,600 Per Month - <small>Family Home</small></span></div>
+                    <a href="{{url('house/detail',['msgid'=>$Featured->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$Featured->getImageOne($Featured->msgid)}}" alt="listin" class="img-responsive"></a>
+                    <div class="feature"><span class="tag-2">{{$Featured->house_status}}</span></div>
+                    <div class="price clearfix"><span class="tag pull-right">每月 ${{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="{{asset('home')}}/images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                    <div class="feature"><span class="tag-2">For Rent</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">$8,600 Per Month - <small>Family Home</small></span></div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
         </div>
