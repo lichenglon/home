@@ -6,13 +6,7 @@
                     <p>我们拥有40年的经验，是最好的城市。</p>
                 </div>
                 <div class="col-md-7 text-right">
-                    <ul class="breadcrumb_top text-right">
-                        <li><a href="#"><i class="icon-icons43"></i>最爱</a></li>
-                        <li><a href="#"><i class="icon-icons215"></i>提交属性</a></li>
-                        <li><a href="#"><i class="icon-icons215"></i>我的财产</a></li>
-                        <li><a href="#"><i class="icon-icons230"></i>轮廓</a></li>
-                        <li><a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆 /</a><a href="{{url('user/register')}}">注册</a></li>
-                    </ul>
+                    @include('.user.include.lang_include')
                 </div>
             </div>
         </div>

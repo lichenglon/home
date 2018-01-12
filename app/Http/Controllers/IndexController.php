@@ -8,11 +8,23 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\House_message;
+use App;
+use Illuminate\Support\Facades\Session;
 class IndexController extends BaseController {
 	/**
 	 *前台首台
 	 */
 	public function index() {
+		$locale = isset($_GET['lang']) ? $_GET['lang'] : false;
+		if($locale){
+			if(Session::get('lang')){
+				Session::forget('lang');
+				session(['lang'=>$locale]);     //lang:键    $locale:值
+			}else{
+				session(['lang'=>$locale]);
+			}
+		}
+
 		//实例化
 		$houseMsg = new House_message();
 		//查最新数据9条

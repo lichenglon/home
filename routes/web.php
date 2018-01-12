@@ -11,7 +11,7 @@
 |
 */
 //首页
-Route::get('/','IndexController@index');
+Route::get('/','IndexController@index')->name('/');
 
 //用户
 Route::group(['prefix'=>'user'],function() {
@@ -25,6 +25,14 @@ Route::group(['prefix'=>'user'],function() {
 
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
+
+	//显示
+	Route::any('data/{id?}',$controller.'data');
+	//更新
+	Route::any('renewal',$controller.'renewal');
+
+	//退出
+	Route::any('drop/{id?}',$controller.'drop');
 
 
 });
@@ -82,17 +90,8 @@ Route::group(['prefix' => 'contact_us'],function(){
 
 //个人设置中心
 Route::group(['prefix'=>'home'],function(){
-	$controller = 'Data\DataController@';
-	//显示
-	Route::any('data/{id?}',$controller.'data');
-	//更新
-	Route::any('renewal',$controller.'renewal');
 
-});
 
-Route::group(['prefix'=>'drop'],function(){
-	$controller = 'Drop\DropController@';
-	Route::any('drop/{id?}',$controller.'drop');
 });
 
 

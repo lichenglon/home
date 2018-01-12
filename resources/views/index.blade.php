@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/range-Slider.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/search.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/app.css">
+
     <style>
         .content-width {MARGIN: auto;WIDTH: 358px;}
         .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
@@ -72,7 +74,7 @@
                      data-startslide="0"
                      data-endslide="5"
                      style="z-index: 5;">
-                    <h1><span class="t_white">We Can Find just Right <br>Property for You.</span></h1>
+                    <h1><span class="t_white">@lang('index.index_Wanted')</span></h1>
                 </div>
                 <div class="tp-caption tp-static-layer"
                      id="slide-37-layer-2"
@@ -85,9 +87,7 @@
                      data-startslide="0"
                      data-endslide="5"
                      style="z-index: 5;">
-                    <p class="t_white">We Deal with Different kinds of Properties No matter you need a House,
-                        an Apartment or garage. <br> You’ll find a good option on our Theme.
-                    </p>
+                    <p class="t_white">@lang('index.index_we')</p>
                 </div>
                 <div class="tp-caption tp-static-layer"
                      id="slide-37-layer-2"
@@ -99,7 +99,7 @@
                      data-basealign="slide"
                      data-startslide="0"
                      data-endslide="5"
-                     style="z-index: 5;"><a href="listing.html" class="btn-white border_radius uppercase">view Properties</a>
+                     style="z-index: 5;"><a href="listing.html" class="btn-white border_radius uppercase">@lang('index.index_view')</a>
                 </div>
             </div>
         </ul>
@@ -123,7 +123,7 @@
                         <div class="upper-column info-box first">
                             <div class="icons"><i class="icon-telephone114"></i></div>
                             <ul>
-                                <li><strong>Phone Number</strong></li>
+                                <li><strong>@lang('index.index_phone')</strong></li>
                                 <li>+1 900 234 567 - 68</li>
                             </ul>
                         </div>
@@ -132,16 +132,16 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.png" class="logo" alt=""></a>
+                        <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.jpg" class="logo" alt=""></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                            <li><a href="{{url('/')}}">首页</a></li>
-                            <li><a href="javascript:void(0);">News</a></li>
-                            <li><a href="{{url('house/listing')}}">列表</a></li>
-                            <li><a href="javascript:void(0);">Property Detail</a></li>
-                            <li><a href="{{url('contact_us/contact')}}">联系我们</a></li>
-                            <li><a href="javascript:void(0);">Buy Now</a></li>
+                            <li><a href="{{url('/')}}">@lang('index.index_home')</a></li>
+                            <li><a href="javascript:void(0);">@lang('index.index_news')</a></li>
+                            <li><a href="{{url('house/listing')}}">@lang('index.index_listing')</a></li>
+                            <li><a href="javascript:void(0);">@lang('index.index_detail')</a></li>
+                            <li><a href="{{url('contact_us/contact')}}">@lang('index.index_us')</a></li>
+                            <li><a href="javascript:void(0);">@lang('index.index_now')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -157,37 +157,20 @@
 <button type="button" class="form_opener"><i class="fa fa-bars"></i></button>
 <div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
-        <ul class="breadcrumb_top">
-            <li><a href="#"><i class="icon-icons43"></i>最爱</a></li>
-            <li>
-
-                @if(Session::get('userId'))
-                    <a href="{{url('home/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>个人设置</a>
-                @else
-                    <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆</a>
-            </li>
-            <li>
-                @endif
-                @if(Session::get('userId'))
-                    <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(confirm('确定要退出吗？'))return false">退出</a>
-                @endif
-
-                <a href="{{url('user/register')}}">注册</a>
-            </li>
-            <li class="last-icon"><i class="icon-icons215"></i></li>
-        </ul>
+        @include('.user.include.lang_include')
     </div>
+
     {{--高级搜索--}}
     <form class="callus" action="{{url('house/listing')}}" method="get" id="SUBMIT">
         {{csrf_field()}}
-        <h2 class="text-uppercase t_white bottom20 text-center">advanced search</h2>
+        <h2 class="text-uppercase t_white bottom20 text-center">@lang('index.index_advanced')</h2>
         <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" name="house_keyword" placeholder="Keyword (e.g. 'office')">
+            <input type="text" class="keyword-input" name="house_keyword" placeholder="@lang('index.index_key')">
         </div>
         <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select name="state">
-                    <option selected="" value="%">nation</option>
+                    <option selected="" value="%">@lang('index.index_nation')</option>
                     @foreach($nationObject as $nationVal)
                     <option selected="" value="{{$nationVal->chinese_n_name}}">{{$nationVal->chinese_n_name}}</option>
                     @endforeach
@@ -195,12 +178,12 @@
             </div>
         </div>
         <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" value="" name="house_location" placeholder="Detailed Address">
+            <input type="text" class="keyword-input" value="" name="house_location" placeholder="@lang('index.index_address')">
         </div>
         <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select name="house_type">
-                    <option class="active" value="%">House Type</option>
+                    <option class="active" value="%">@lang('index.index_house')</option>
                     @foreach($houseTypeObject as $houseTypeVal)
                     <option value="{{$houseTypeVal->name}}">{{$houseTypeVal->name}}</option>
                     @endforeach
@@ -211,7 +194,7 @@
 
         <div class="col-sm-12 bottom10">
             <div class="single-query-slider">
-                <label><strong>Price Range:</strong></label>
+                <label><strong>@lang('index.index_price')</strong></label>
                 <div class="price text-right">
                     <span>$</span>
                     <div class="leftLabel" id="minPriceNum"></div>
@@ -232,35 +215,35 @@
                 <div class="group-button-search">
                     <a data-toggle="collapse" href=".search-propertie-filters" class="more-filter">
                         <i class="fa fa-plus text-1" aria-hidden="true"></i><i class="fa fa-minus text-2 hide" aria-hidden="true"></i>
-                        <div class="text-1">Show more search options</div>
-                        <div class="text-2 hide">less more search options</div>
+                        <div class="text-1">@lang('index.index_options')</div>
+                        <div class="text-2 hide">@lang('index.index_less')</div>
                     </a>
                 </div>
                 <div class="search-propertie-filters collapse">
                     <div class="container-2">
                         <div class="row">
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="search-form-group white bottom10">
+                                <div class="search-form-group white bottom10" style="width:200px;">
                                     <input type="checkbox" value="洗衣机" name="check_box[]" />
-                                    <span>洗衣机</span>
+                                    <span style="width:200px;">@lang('index.index_washing')</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
                                     <input type="checkbox" value="空调" name="check_box[]" />
-                                    <span>空调</span>
+                                    <span>@lang('index.index_air')</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
                                     <input type="checkbox" value="暖气" name="check_box[]" />
-                                    <span>暖气</span>
+                                    <span>@lang('index.index_heating')</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
                                     <input type="checkbox" value="床" name="check_box[]" />
-                                    <span>床</span>
+                                    <span>@lang('index.index_bed')</span>
                                 </div>
                             </div>
                         </div>
@@ -268,19 +251,19 @@
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
                                     <input type="checkbox" value="厨房" name="check_box[]" />
-                                    <span>厨房</span>
+                                    <span>@lang('index.index_cookhouse')</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
                                     <input type="checkbox" value="衣柜" name="check_box[]" />
-                                    <span>衣柜</span>
+                                    <span>@lang('index.index_wardrobe')</span>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="search-form-group white bottom10">
                                     <input type="checkbox" value="冰箱" name="check_box[]" />
-                                    <span>冰箱</span>
+                                    <span>@lang('index.index_refrigerator')</span>
                                 </div>
                             </div>
                         </div>
@@ -289,7 +272,7 @@
             </div>
         </div>
         <div class="col-sm-12 form-group">
-            <button type="button" onclick="javascript:priceNumber();" class="btn-blue border_radius">Search</button>
+            <button type="button" onclick="javascript:priceNumber();" class="btn-blue border_radius">@lang('index.index_seek')</button>
         </div>
     </form>
 
@@ -312,8 +295,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h2 class="uppercase">real estate properties</h2>
-                <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
+                <h2 class="uppercase">@lang('index.index_real')</h2>
+                <p class="heading_space">@lang('index.index_have')</p>
             </div>
         </div>
 
@@ -326,7 +309,7 @@
                         <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
                         </div>
                             <div class="price clearfix">
-                            <span class="tag pull-right">每月 ${{$houseVal->house_price}}</span>
+                            <span class="tag pull-right">@lang('index.index_monthly'){{$houseVal->house_price}}</span>
                         </div>
                         <span class="tag_t">{{$houseVal->house_status}}</span>
                         <span class="tag_l">{{$houseVal->house_structure}}</span>
@@ -456,47 +439,6 @@
         <div class="container">
         </div>
     </div>
-    <div class="container bg_white padding">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h2 class="uppercase">Happy Customers</h2>
-                <p class="heading_space">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra erat Aenean elit tellus.</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="testinomial-slider" class="owl-carousel display navigate">
-                    <div class="item">
-                        <div class="testinomial_content text-center">
-                            <img src="{{asset('home')}}/images/author2.png" alt="happy client" class="bottom15">
-                            <h4 class="uppercase"> SAM NICHOLSON</h4>
-                            <span class="smmery bottom15">( NorthMarq Capital  )</span>
-                            <img src="{{asset('home')}}/images/stars.png" alt="rating" class="bottom30">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testinomial_content text-center">
-                            <img src="{{asset('home')}}/images/author.png" alt="happy client" class="bottom15">
-                            <h4 class="uppercase"> SAM NICHOLSON</h4>
-                            <span class="smmery bottom15">( NorthMarq Capital  )</span>
-                            <img src="{{asset('home')}}/images/stars.png" alt="rating" class="bottom30">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testinomial_content text-center">
-                            <img src="{{asset('home')}}/images/author2.png" alt="happy client" class="bottom15">
-                            <h4 class="uppercase"> SAM NICHOLSON</h4>
-                            <span class="smmery bottom15">( NorthMarq Capital  )</span>
-                            <img src="{{asset('home')}}/images/stars.png" alt="rating" class="bottom30">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis fermentum sem, ac viverra ante luctus vel.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <!--Testinomials ends-->
 
@@ -573,7 +515,7 @@
                 <div class="info-box first">
                     <div class="icons"><i class="icon-telephone114"></i></div>
                     <ul class="text-center">
-                        <li><strong>Phone Number</strong></li>
+                        <li><strong>@lang('index.index_phone')</strong></li>
                         <li>+1 900 234 567 - 68</li>
                     </ul>
                 </div>
@@ -602,7 +544,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="footer_panel bottom30">
-                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.png" alt="logo"></a>
+                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.jpg" alt="logo"></a>
                     <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
                         tempor cum consectetuer
                         adipiscing.
@@ -673,7 +615,7 @@
         <div class="copyright_simple">
             <div class="row">
                 <div class="col-md-6 col-sm-5 top20 bottom20">
-                    <p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                    <p>Copyright &copy; 2017.Company name All rights reserved.</p>
                 </div>
                 <div class="col-md-6 col-sm-7 text-right top15 bottom10">
                     <ul class="social_share">
@@ -713,6 +655,7 @@
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
 
+@include('user.include.ajax_include')
 </body>
 </html>
 
