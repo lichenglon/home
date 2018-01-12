@@ -14,6 +14,7 @@ class IndexController extends BaseController {
 	/**
 	 *前台首台
 	 */
+<<<<<<< HEAD
 	public function index() {
 		$locale = isset($_GET['lang']) ? $_GET['lang'] : false;
 		if($locale){
@@ -25,11 +26,23 @@ class IndexController extends BaseController {
 			}
 		}
 
+=======
+	public function index()
+	{
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
 		//实例化
 		$houseMsg = new House_message();
 		//查最新数据9条
 		$houseObjData = $houseMsg->orderBy('msgid','desc')->paginate(9);
 		//显示模板并传值
 		return view('index',['houseObjData'=>$houseObjData]);
+	}
+
+	/**
+	 *错误页面
+	 */
+	public function error_page()
+	{
+		return view('error_page.error_index');
 	}
 }

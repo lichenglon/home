@@ -19,18 +19,17 @@
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/app.css">
 
     <style>
-        .content-width {MARGIN: auto;WIDTH: 358px;}
-        .content-width {HEIGHT: auto;HEIGHT: 249.81px;}
-
-        .content-width img{MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
-        .content-width img{MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
-
-        .content-width {MAX-WIDTH: 100%!important;!important;width:expression(this.width > 358 ? "358px" : this.width)!important;}
-        .content-width {MAX-HEIGHT: 100%!important;!important;height:expression(this.height > 249.81 ? "10px" : this.height)!important;}
         .form-group{
-            margin-top:7%;
+            margin-top:3%;
         }
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 403f8b5c00572d7128901d1daccb68648bc56a8e
+>>>>>>> 3600dc575b245f0cbeb0d30600f154f9108cea23
     </style>
 </head>
 <body>
@@ -38,11 +37,7 @@
 
 <!--Loader-->
 {{--程序载人动画效果--}}
-<div class="loader">
-    <div class="span">
-        <div class="location_indicator"></div>
-    </div>
-</div>
+@include('public.publicLoaderCartoon')
 <!--Loader-->
 
 <!--Slider-->
@@ -99,7 +94,11 @@
                      data-basealign="slide"
                      data-startslide="0"
                      data-endslide="5"
+<<<<<<< HEAD
                      style="z-index: 5;"><a href="listing.html" class="btn-white border_radius uppercase">@lang('index.index_view')</a>
+=======
+                     style="z-index: 5;"><a href="{{url('house/listing')}}" class="btn-white border_radius uppercase">view Properties</a>
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
                 </div>
             </div>
         </ul>
@@ -123,8 +122,13 @@
                         <div class="upper-column info-box first">
                             <div class="icons"><i class="icon-telephone114"></i></div>
                             <ul>
+<<<<<<< HEAD
                                 <li><strong>@lang('index.index_phone')</strong></li>
                                 <li>0755-26929029</li>
+=======
+                                <li><strong>Phone Number</strong></li>
+                                <li>+180 253 309 61</li>
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
                             </ul>
                         </div>
                     </div>
@@ -132,10 +136,24 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
+<<<<<<< HEAD
                         <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.jpg" class="logo" alt=""></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         @include('user.include.navigation_include')
+=======
+                        <a class="navbar-brand" href="javascript:void(0);"><img src="{{asset('home')}}/images/logo.png" class="logo" alt=""></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
+                            <li><a href="{{url('/')}}">首页</a></li>
+                            <li><a href="{{url('error_page')}}">News</a></li>
+                            <li><a href="{{url('house/listing')}}">列表</a></li>
+                            <li><a href="{{url('error_page')}}">Property Detail</a></li>
+                            <li><a href="{{url('contact/me')}}">联系我们</a></li>
+                            <li><a href="{{url('error_page')}}">Buy Now</a></li>
+                        </ul>
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
                     </div>
                 </div>
             </div>
@@ -150,6 +168,7 @@
 <button type="button" class="form_opener"><i class="fa fa-bars"></i></button>
 <div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
+<<<<<<< HEAD
         @include('.user.include.lang_include')
     </div>
 
@@ -269,17 +288,33 @@
         </div>
     </form>
 
+=======
+        <ul class="breadcrumb_top">
+            <li><a href="@if(Session::get('userId')) {{url('house/like')}} @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-icons43"></i>最爱</a></li>
+            <li>
+
+                @if(Session::get('userId'))
+                    <a href="{{url('home/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>个人设置</a>
+                @else
+                    <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆</a>
+                @endif
+            </li>
+            <li>
+
+                @if(Session::get('userId'))
+                    <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('确定要退出吗？'))return false">退出</a>
+                @endif
+
+                <a href="{{url('user/register')}}">注册</a>
+            </li>
+            <li class="last-icon"><i class="icon-icons215"></i></li>
+        </ul>
+    </div>
+    {{----------------------高级搜索------------------------}}
+    @include('public.publicAdvancedSearch')
+    {{-----------------------结束-------------------------}}
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
 </div>
-{{--获取价格提交后台搜索--}}
-<script>
-    function priceNumber(){
-        var minPriceNum = document.getElementById('minPriceNum').innerHTML;
-        var maxPriceNum = document.getElementById('maxPriceNum').innerHTML;
-        var hiddenPriceMin = document.getElementById('hiddenPriceMin').value = minPriceNum;
-        var hiddenPriceMax = document.getElementById('hiddenPriceMax').value = maxPriceNum;
-        document.getElementById('SUBMIT').submit();
-    }
-</script>
 
 
 
@@ -298,9 +333,9 @@
             <div class="cbp-item latest sale">
                 <div class="property_item">
                     <div class="image">
-                        <div class="content-width" >
-                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
-                        </div>
+
+                        <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img width="358" height="249.81" src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
+
                             <div class="price clearfix">
                             <span class="tag pull-right">@lang('index.index_monthly'){{$houseVal->house_price}}</span>
                         </div>
@@ -309,25 +344,39 @@
                     </div>
                     <div class="proerty_content">
                         <div class="proerty_text">
-                            <h3 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}">{{$houseVal->house_name}}</a></h3>
-                            <p>{{$houseVal->house_location}}</p>
+                            <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name, 0, 15, 'utf-8') ?></a>......</h4>
+                            <p>{{$houseVal->house_structure}}</p>
                         </div>
                         <div class="property_meta transparent">
 
                             <?php
                             if(empty($houseVal->house_facility)){
                                 $equipment = array();
+                                $washing = in_array('洗衣机',$equipment);//洗衣机
+                                $air = in_array('空调',$equipment);//空调
+                                $heating = in_array('暖气',$equipment);//暖气
+                                $bed = in_array('床',$equipment);//床
+                                $kitchen = in_array('厨房',$equipment);//厨房
+                                $closet = in_array('衣柜',$equipment);//衣柜
+                                $refrigerator = in_array('冰箱',$equipment);//冰箱
                             }else{
                                 $equipment = explode(',',$houseVal->house_facility);
+                                $washing = in_array('洗衣机',$equipment);//洗衣机
+                                $air = in_array('空调',$equipment);//空调
+                                $heating = in_array('暖气',$equipment);//暖气
+                                $bed = in_array('床',$equipment);//床
+                                $kitchen = in_array('厨房',$equipment);//厨房
+                                $closet = in_array('衣柜',$equipment);//衣柜
+                                $refrigerator = in_array('冰箱',$equipment);//冰箱
                             }
                             ?>
-                            @if(isset($equipment[0])) <span>洗衣机</span> @endif
-                            @if(isset($equipment[1])) <span>空调</span> @endif
-                            @if(isset($equipment[2])) <span>暖气</span> @endif
-                            @if(isset($equipment[3])) <span>床</span> @endif
-                            @if(isset($equipment[4])) <span>厨房</span> @endif
-                            @if(isset($equipment[5])) <span>衣柜</span> @endif
-                            @if(isset($equipment[6])) <span>冰箱</span> @endif
+                            @if($washing) <span>洗衣机</span> @endif
+                            @if($air) <span>空调</span> @endif
+                            @if($heating) <span>暖气</span> @endif
+                            @if($bed) <span>床</span> @endif
+                            @if($kitchen) <span>厨房</span> @endif
+                            @if($closet) <span>衣柜</span> @endif
+                            @if($refrigerator) <span>冰箱</span> @endif
 
                         </div>
                         <div class="property_meta transparent bottom30">
@@ -335,10 +384,13 @@
                             <span><i class="icon-garage"></i>1 @lang('index.index_garage')</span>
                             <span></span>
                         </div>
+
                         <div class="favroute clearfix">
                             <p class="pull-md-left">@lang('index.index_in') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
-                                <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
+                                <li>
+                                    <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}}) @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢"><i class="icon-like"></i></a>
+                                </li>
                                 <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                             </ul>
                         </div>
@@ -370,19 +422,19 @@
                 <div class="item">
                     <div class="listing_full">
                         <div class="image">
-                            <img alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
+                            <img width="555" height="364.7" alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
                             <span class="tag_t">{{$recommend->house_status}}</span>
                         </div>
                         <div class="listing_full_bg">
                             <div class="listing_inner_full">
-                                <span><a href="#"><i class="icon-like"></i></a></span>
-                                <a href="property_detail.html">
-                                    <h3>{{$recommend->house_name}}</h3>
+                                <span><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}}) @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-like"></i></a></span>
+                                <a href="{{url('house/detail',['msgid'=>$recommend->msgid])}}">
+                                    <h3><?php echo mb_substr($recommend->house_name, 0, 15, 'utf-8') ?>.......</h3>
                                     <p>{{$recommend->house_location}}</p>
                                 </a>
                                 <div class="favroute clearfix">
                                     <div class="property_meta">
-                                        <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}} 平方 英尺</span>
+                                        <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}}平方/英尺</span>
                                         <span><i class="icon-bed"></i>{{$recommend->house_structure}}</span>
                                         <span><i class="icon-briefcase2"></i>{{$recommend->payment_proportion}}</span>
                                         <span class="border-l">@lang('index.index_monthly'){{$recommend->house_price}}</span></div>
@@ -501,6 +553,7 @@
 
 
 <!--Footer-->
+<<<<<<< HEAD
 <footer class="footer_third">
     <div class="container contacts">
         <div class="row">
@@ -535,6 +588,12 @@
     </div>
     @include('user.include.bottom_include')
 </footer>
+=======
+{{--页尾--}}
+@include('public.publicFooter')
+
+
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
 
 <script src="{{asset('home')}}/js/jquery-2.1.4.js"></script>
 <script src="{{asset('home')}}/js/bootstrap.min.js"></script>
@@ -559,6 +618,25 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
+<script>
+    function houseLikeAdd(houseMsgId,userId) {
+        $.ajax({
+            url:"{{url('house/houseLikeAdd')}}",
+            data:'house_id='+houseMsgId+'&userId='+userId,
+            type:'get',
+            success:function (re) {
+                if(re == '1'){
+                    alert('亲！您已收藏过此房源');
+                } else if (re == '0'){
+                    alert('抱歉！收藏失败');
+                } else {
+                    alert('收藏成功');
+                }
+            }
+        })
+    }
+</script>
+
 
 @include('user.include.ajax_include')
 </body>

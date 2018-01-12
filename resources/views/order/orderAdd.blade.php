@@ -114,20 +114,20 @@
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">房源名称：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_name }}" name="house_name" style="border:none"/>
+                            <input type="text" class="input-text" value="{{ $result->house_name }}" name="house_name" disabled style="border:none;  background:none"/>
                         </div>
                     </div>
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">房源位置：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_location }}" name="house_location" style="border:none" />
+                            <input type="text" class="input-text" value="{{ $result->house_location }}" name="house_location" disabled style="border:none; background:none" />
                         </div>
                     </div>
 
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">价格：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            $<input type="text" value="{{ $result->house_price }}" name="house_price" class="input-text" style="width:5%; border:none">
+                            $<input type="text" value="{{ $result->house_price }}" name="house_price" class="input-text"  disabled style="width:15%; border:none; background:none"/>
                         </div>
                     </div>
 
@@ -162,7 +162,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                    <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
 
@@ -178,7 +178,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                    <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                        <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                        {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
-                                    <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>

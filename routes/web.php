@@ -13,6 +13,9 @@
 //首页
 Route::get('/','IndexController@index')->name('/');
 
+//404页面
+Route::get('error_page','IndexController@error_page');
+
 //用户
 Route::group(['prefix'=>'user'],function() {
 	$controller = 'User\UserController@';
@@ -52,7 +55,12 @@ Route::group(['prefix'=>'house'],function() {
 	Route::get('detail/{id?}',$controller.'detail');
 	#高级搜索
 	Route::any('advanced_search',$controller.'advanced_search');
-
+	#添加房源收藏
+	Route::get('houseLikeAdd',$controller.'houseLikeAdd');
+	#收藏列表页
+	Route::get('like',$controller.'like');
+	#删除收藏
+	Route::get('like_del',$controller.'like_del');
 });
 
 //用户提交订单，返给用户填写租户信息表
@@ -80,10 +88,10 @@ Route::group(['prefix' => 'order'],function(){
 
 
 //联系我们
-Route::group(['prefix' => 'contact_us'],function(){
-	$controller = 'Contact_cn\ContactController@';
+Route::group(['prefix' => 'contact'],function(){
+	$controller = 'Contact\ContactController@';
 	#联系我们
-	Route::any('contact',$controller.'contact');
+	Route::any('me',$controller.'contact');
 
 });
 
@@ -92,9 +100,12 @@ Route::group(['prefix' => 'contact_us'],function(){
 Route::group(['prefix'=>'home'],function(){
 
 
+<<<<<<< HEAD
 });
 
 
+=======
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
 
 
 

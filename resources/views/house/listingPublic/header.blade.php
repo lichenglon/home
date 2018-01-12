@@ -6,7 +6,24 @@
                     <p>我们拥有40年的经验，是最好的城市。</p>
                 </div>
                 <div class="col-md-7 text-right">
+<<<<<<< HEAD
                     @include('.user.include.lang_include')
+=======
+                    <ul class="breadcrumb_top text-right">
+                        <li><a href="@if(Session::get('userId')) {{url('house/like')}} @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-icons43"></i>最爱</a></li>
+                        {{--<li><a href="#"><i class="icon-icons215"></i>提交属性</a></li>--}}
+                        <li><a href="{{url('error_page')}}"><i class="icon-icons215"></i>我的财产</a></li>
+                        <li>
+                            @if(!Session::get('userId'))
+                                <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆 /</a>
+                            @else
+                                <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('确定要退出吗？'))return false">退出 /</a>
+                            @endif
+                            <a href="{{url('user/register')}}">注册</a>
+
+                        </li>
+                    </ul>
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
                 </div>
             </div>
         </div>
@@ -15,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-12">
-                    <div class="logo"><a href="#"><img alt="" src="{{asset('home')}}/images/logo.png"></a></div>
+                    <div class="logo"><a href="javascript:void (0);"><img alt="" src="{{asset('home')}}/images/logo.png"></a></div>
                 </div>
                 <!--Info Box-->
                 <div class="col-md-9 col-sm-12 right">
@@ -23,21 +40,21 @@
                         <div class="icons"><i class="icon-telephone114"></i></div>
                         <ul>
                             <li><strong>Phone Number</strong></li>
-                            <li>+1 900 234 567 - 68</li>
+                            <li>+180 253 309 61</li>
                         </ul>
                     </div>
                     <div class="info-box">
                         <div class="icons"><i class="icon-icons74"></i></div>
                         <ul>
-                            <li><strong>Manhattan Hall,</strong></li>
-                            <li>Castle Melbourne, australia</li>
+                            <li><strong>深圳南山区,</strong></li>
+                            <li>泰邦科技大厦2308</li>
                         </ul>
                     </div>
                     <div class="info-box">
                         <div class="icons"><i class="icon-icons142"></i></div>
                         <ul>
-                            <li><strong>Email Address</strong></li>
-                            <li><a href="javascript:void(0)">info@castle.com</a></li>
+                            <li><strong>电子邮件地址</strong></li>
+                            <li><a href="javascript:void(0)">zxy7200@outlook.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,12 +81,12 @@
                     </div> <!-- End Header Navigation -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="news.html">News</a></li>
-                            <li><a href="listing.html">Listing</a></li>
-                            <li><a href="property_detail.html">Property Detail</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="#">Buy Now</a></li>
+                            <li><a href="{{url('/')}}">首页</a></li>
+                            <li><a href="{{url('error_page')}}">News</a></li>
+                            <li><a href="{{url('house/listing')}}">列表页</a></li>
+                            <li><a href="{{url('error_page')}}">Property Detail</a></li>
+                            <li><a href="{{url('contact/me')}}">联系我们</a></li>
+                            <li><a href="{{url('error_page')}}">Buy Now</a></li>
                         </ul>
                     </div>
                 </div>
