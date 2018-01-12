@@ -124,7 +124,7 @@
                             <div class="icons"><i class="icon-telephone114"></i></div>
                             <ul>
                                 <li><strong>@lang('index.index_phone')</strong></li>
-                                <li>+1 900 234 567 - 68</li>
+                                <li>0755-26929029</li>
                             </ul>
                         </div>
                     </div>
@@ -135,14 +135,7 @@
                         <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.jpg" class="logo" alt=""></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                            <li><a href="{{url('/')}}">@lang('index.index_home')</a></li>
-                            <li><a href="javascript:void(0);">@lang('index.index_news')</a></li>
-                            <li><a href="{{url('house/listing')}}">@lang('index.index_listing')</a></li>
-                            <li><a href="javascript:void(0);">@lang('index.index_detail')</a></li>
-                            <li><a href="{{url('contact_us/contact')}}">@lang('index.index_us')</a></li>
-                            <li><a href="javascript:void(0);">@lang('index.index_now')</a></li>
-                        </ul>
+                        @include('user.include.navigation_include')
                     </div>
                 </div>
             </div>
@@ -338,12 +331,12 @@
 
                         </div>
                         <div class="property_meta transparent bottom30">
-                            <span><i class="icon-old-television"></i>TV Lounge</span>
-                            <span><i class="icon-garage"></i>1 Garage</span>
+                            <span><i class="icon-old-television"></i>@lang('index.index_tv')</span>
+                            <span><i class="icon-garage"></i>1 @lang('index.index_garage')</span>
                             <span></span>
                         </div>
                         <div class="favroute clearfix">
-                            <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
+                            <p class="pull-md-left">@lang('index.index_in') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                             <ul class="pull-right">
                                 <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
                                 <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
@@ -355,7 +348,7 @@
             @endforeach
         </div>
         <div class="col-sm-12 text-center top20">
-            <a href="{{url('house/listing')}}" class="btn-dark border_radius uppercase margin40">more listings</a>
+            <a href="{{url('house/listing')}}" class="btn-dark border_radius uppercase margin40">@lang('index.index_more')</a>
         </div>
     </div>
 </section>
@@ -367,8 +360,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-10">
-                <h2 class="uppercase">最好的交易属性</h2>
-                <p class="heading_space">我们在这些区域有属性查看特色属性列表</p>
+                <h2 class="uppercase">@lang('index.index_best')</h2>
+                <p class="heading_space">@lang('index.index_list')</p>
             </div>
         </div>
         <div class="row">
@@ -392,7 +385,7 @@
                                         <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}} 平方 英尺</span>
                                         <span><i class="icon-bed"></i>{{$recommend->house_structure}}</span>
                                         <span><i class="icon-briefcase2"></i>{{$recommend->payment_proportion}}</span>
-                                        <span class="border-l">每月 ${{$recommend->house_price}}</span></div>
+                                        <span class="border-l">@lang('index.index_monthly'){{$recommend->house_price}}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -411,19 +404,19 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 bottom30">
-                <h2 class="uppercase">Over then <strong>7000</strong> Happy Customer</h2>
+                <h2 class="uppercase">@lang('index.index_cooperation')</h2>
             </div>
             <div class="col-sm-8 col-md-10">
                 <div class="row">
                     <div class="col-sm-6 margin40">
                         <i class="icon-presentation"></i>
-                        <h4 class="bottom10">Good Sale & Marketing</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam power nonummy nibh tempor cum soluta nobis eleifend.</p>
+                        <h4 class="bottom10">@lang('index.index_guarantee')</h4>
+                        <p>@lang('index.index_many')</p>
                     </div>
                     <div class="col-sm-6 margin40">
                         <i class="icon-icons215"></i>
-                        <h4 class="bottom10">Good Sale & Marketing</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam power nonummy nibh tempor cum soluta nobis eleifend.</p>
+                        <h4 class="bottom10">@lang('index.index_Choose')</h4>
+                        <p>@lang('index.index_selected')</p>
                     </div>
                 </div>
             </div>
@@ -448,8 +441,8 @@
     <div class="container partner2 padding">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h2 class="uppercase">Our Partners</h2>
-                <p class="heading_space">Aliquam nec viverra erat. Aenean elit tellus mattis quis maximus.</p>
+                <h2 class="uppercase">@lang('index.index_our')</h2>
+                <p class="heading_space">@lang('index.index_nec')</p>
             </div>
         </div>
         <div class="row">
@@ -516,7 +509,7 @@
                     <div class="icons"><i class="icon-telephone114"></i></div>
                     <ul class="text-center">
                         <li><strong>@lang('index.index_phone')</strong></li>
-                        <li>+1 900 234 567 - 68</li>
+                        <li>0755-26929029</li>
                     </ul>
                 </div>
             </div>
@@ -524,8 +517,8 @@
                 <div class="info-box">
                     <div class="icons"><i class="icon-icons74"></i></div>
                     <ul class="text-center">
-                        <li><strong>Manhattan Hall,</strong></li>
-                        <li>Castle Melbourne, australia</li>
+                        <li><strong>@lang('index.index_hall')</strong></li>
+                        <li>@lang('index.index_Castle')</li>
                     </ul>
                 </div>
             </div>
@@ -533,102 +526,14 @@
                 <div class="info-box">
                     <div class="icons"><i class="icon-icons142"></i></div>
                     <ul class="text-center">
-                        <li><strong>Email Address</strong></li>
-                        <li><a href="#.">info@castle.com</a></li>
+                        <li><strong>@lang('index.index_email')</strong></li>
+                        <li><a href="#.">yuheng.zhang@foxmail.com</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container padding_top">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.jpg" alt="logo"></a>
-                    <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                        tempor cum consectetuer
-                        adipiscing.
-                    </p>
-                    <p class="bottom15">If you are interested in castle do not wait and <a href="#.">BUY IT NOW!</a></p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30 heading">Search by Area</h4>
-                    <table style="width:100%;">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <ul class="links">
-                                    <li><a href="#."><i></i>About</a></li>
-                                    <li class="active"><a href="#."><i></i>News</a></li>
-                                    <li><a href="#."> <i></i>Contacts</a></li>
-                                    <li><a href="#."><i></i>Testimonials</a></li>
-                                    <li><a href="#."><i></i>Typography</a></li>
-                                </ul>
-                            </td>
-                            <td class="text-right">
-                                <ul class="links text-left">
-                                    <li><a href="#."><i></i>Services</a></li>
-                                    <li class="active"><a href="#."><i></i>Careers</a></li>
-                                    <li><a href="#."><i></i>Our team</a></li>
-                                    <li><a href="#."><i></i>Shop</a></li>
-                                    <li><a href="#."><i></i>Our approach</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30 heading">Latest News</h4>
-                    <div class="media bottom30">
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes google map your villa</a>
-                            <span><i class="icon-clock5"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes google map your villa</a>
-                            <span><i class="icon-clock5"></i>Feb 22, 2017</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer_panel bottom30">
-                    <h4 class="bottom30 heading">Subscribe</h4>
-                    <p>Sign up with your email to get latest updates and offers</p>
-                    <form class="top30">
-                        <input class="search" placeholder="Enter your Email" type="search">
-                        <a class="button_s" href="#">
-                            <i class="icon-mail-envelope-open"></i>
-                        </a>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--CopyRight-->
-        <div class="copyright_simple">
-            <div class="row">
-                <div class="col-md-6 col-sm-5 top20 bottom20">
-                    <p>Copyright &copy; 2017.Company name All rights reserved.</p>
-                </div>
-                <div class="col-md-6 col-sm-7 text-right top15 bottom10">
-                    <ul class="social_share">
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i></a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i></a></li>
-                        <li><a href="#." class="google"><i class="icon-google4"></i></a></li>
-                        <li><a href="#." class="linkden"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('user.include.bottom_include')
 </footer>
 
 <script src="{{asset('home')}}/js/jquery-2.1.4.js"></script>
