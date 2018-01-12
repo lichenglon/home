@@ -10,11 +10,8 @@ use App;
 
 class BaseController extends Controller {
 	public function __construct(){
-<<<<<<< HEAD
 		$this->middleware('CheckLang');
-=======
 
->>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
 		//实例化国家表
 		$nation = new Nation();
 		//查数据

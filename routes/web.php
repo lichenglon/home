@@ -100,12 +100,9 @@ Route::group(['prefix' => 'contact'],function(){
 Route::group(['prefix'=>'home'],function(){
 
 
-<<<<<<< HEAD
 });
 
 
-=======
->>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
 
 
 
