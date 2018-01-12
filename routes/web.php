@@ -11,7 +11,7 @@
 |
 */
 //首页
-Route::get('/','IndexController@index');
+Route::get('/','IndexController@index')->name('/');
 
 //404页面
 Route::get('error_page','IndexController@error_page');
@@ -28,6 +28,14 @@ Route::group(['prefix'=>'user'],function() {
 
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
+
+	//显示
+	Route::any('data/{id?}',$controller.'data');
+	//更新
+	Route::any('renewal',$controller.'renewal');
+
+	//退出
+	Route::any('drop/{id?}',$controller.'drop');
 
 
 });
@@ -90,13 +98,10 @@ Route::group(['prefix' => 'contact'],function(){
 
 //个人设置中心
 Route::group(['prefix'=>'home'],function(){
-	$controller = 'Data\DataController@';
-	//显示
-	Route::any('data/{id?}',$controller.'data');
-	//更新
-	Route::any('renewal',$controller.'renewal');
+
 
 });
+
 
 
 

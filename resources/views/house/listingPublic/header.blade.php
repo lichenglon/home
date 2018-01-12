@@ -6,6 +6,9 @@
                     <p>我们拥有40年的经验，是最好的城市。</p>
                 </div>
                 <div class="col-md-7 text-right">
+<<<<<<< HEAD
+                    @include('.user.include.lang_include')
+=======
                     <ul class="breadcrumb_top text-right">
                         <li><a href="@if(Session::get('userId')) {{url('house/like')}} @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-icons43"></i>最爱</a></li>
                         {{--<li><a href="#"><i class="icon-icons215"></i>提交属性</a></li>--}}
@@ -20,6 +23,7 @@
 
                         </li>
                     </ul>
+>>>>>>> c4c513deb5ff260d3da705a19b8e5ed54373bdc8
                 </div>
             </div>
         </div>

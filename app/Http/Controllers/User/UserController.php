@@ -72,4 +72,33 @@ class UserController extends Controller {
 		}
 	}
 
+	//退出
+	public function drop($id){
+		$bool = Session()->flush($id);
+		if($bool == ''){
+			return redirect('/');
+		}
+	}
+
+	//数据显示
+	public function data($id){
+		$userData = DB::table('tb_register')->where('id',$id)->first();
+		return view('user.data',['arr'=>$userData]);
+	}
+
+	//更新
+	public function renewal(Request $request){
+		$id = $request->id;
+		$arr = $request->except(["_token","id"]);
+		$bool = DB::table("tb_register")->where("id",$id)->update($arr);
+
+		if($bool)
+		{
+			return redirect('/')->with('message','添加成功');
+		}else{
+			return redirect('user/data')->with('message','添加失败');
+		}
+	}
+
+
 }
