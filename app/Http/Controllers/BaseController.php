@@ -3,8 +3,15 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Nation;
 use App\Models\House_type;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use App;
+
 class BaseController extends Controller {
 	public function __construct(){
+		$this->middleware('CheckLang');
+
 		//实例化国家表
 		$nation = new Nation();
 		//查数据
@@ -14,6 +21,8 @@ class BaseController extends Controller {
 		//查数据
 		$houseTypeObject = $houseType->get();
 		//公共方法传值
+
 		return view()->share(['nationObject'=>$nationObject, 'houseTypeObject'=>$houseTypeObject]);
+
 	}
 }

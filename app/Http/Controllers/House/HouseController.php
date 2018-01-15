@@ -82,7 +82,9 @@ class HouseController extends BaseController {
 				->first();
 		$houseImg = new House_image();
 		$imagesObj = $houseImg->where('house_msg_id', $id)->get();
-		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj]);
+		$house = new House_message();
+		$objData = $house->orderBy('msgid','desc')->paginate(6);
+		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj,'objData'=>$objData]);
 	}
 
 	/**
