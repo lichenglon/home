@@ -37,19 +37,19 @@
                             <tbody>
                             @foreach($result as $key => $val)
                                 <tr class="text-c">
-                                    <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->order_no }} </a></td>
+                                    <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look']) }}"> {{ $val->order_no }} </a></td>
                                     <td style="width:10%;">{{ date('Y-m-d H:i:s',$val->creat_time) }}</td>
-                                    <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->house_name }} </a></td>
+                                    <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look']) }}"> {{ $val->house_name }} </a></td>
                                     <td style="width:5%;">{{ $val->house_price }}</td>
                                     <td style="width:5%;">{{ $val->rent_time }} 周</td>
                                     <td style="width:10%;">
-                                        @if($val->order_status == '7')
+                                        @if($val->order_status == '1')
                                             <a href="{{ url('order/qrcode',['order_id'=>$val->order_id]) }}">去付款</a>
                                         @else
-                                            <a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}">{{ $orderStatus[$val->order_status] }}</a>
+                                            <a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look']) }}">{{ $orderStatus[$val->order_status] }}</a>
                                         @endif
                                     </td>
-                                    <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}">查看订单</a></td>
+                                    <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look']) }}">查看订单</a></td>
                                     @if($val->order_status == '5')
                                         <td style="width:10%;">订单已取消</td>
                                         <td style="width:10%;">订单已取消</td>

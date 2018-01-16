@@ -3,6 +3,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="refresh" content="5;url={{url('order/orderDetail',['order_id'=>$order_id,'ac'=>'payok'])}}" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title></title>
         <link rel="stylesheet" type="text/css" href="{{asset('order/css/H-ui.min.css')}}" />
@@ -137,17 +138,20 @@
         </script>
 
 
-<body>
-
+<body onload="leftTimer()">
 <div id="main">
         <div class="demo">
-                <p><a href="{{url('order/orderList')}}">放弃本次交易</a></p>
+
+
+                <h3>付款成功！页面即将跳转</h3>
+
                 <p>请扫描下方二维码进行支付</p>
                 <p>
                         <!-- <input type="hidden" class="input" id="mytxt" value="">  -->
                         <!-- <input type="button" id="sub_btn" value="提交"> -->
                 </p>
                 <div id="code"></div>
+                <p><a href="{{url('order/orderList')}}">放弃本次交易</a></p>
         </div>
 </div>
 </body>
@@ -167,8 +171,5 @@
                 </div>
         </div>
 </div>
-
-
-
 
 </html>

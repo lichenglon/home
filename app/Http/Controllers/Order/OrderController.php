@@ -13,13 +13,15 @@ use Illuminate\Database\Eloquent\Model;
 class OrderController extends Controller
 {
     public $orderStatus = [
-        '1' => '未审核',
-        '2' => '审核中',
-        '3' => '订单驳回',
-        '4' => '订单确认',
-        '5' => '订单已取消',
-        '6' => '合同上传',
-        '7' => '未付款'
+        '1' => '未付款',
+        '2' => '未审核',
+        '3' => '审核中',
+        '4' => '审核通过',
+        '5' => '订单驳回',
+        '6' => '订单确认',
+        '7' => '合同已上传',
+        '8' => '订单完成',
+        '9' => '订单取消'
     ];
     //添加订单
     public function orderAdd($house_no)
@@ -54,7 +56,7 @@ class OrderController extends Controller
             'tel'            => $data['tel'],
             'name'           => $data['name'],
             'order_remark'   => $data['order_remark'],
-            'order_status'   => 7,
+            'order_status'   => 1,
             'payment_type'   => 'crush',
             'payment_amount' => $request['house_price'],
             'rent_time'      => $data['rent_time'],
@@ -113,14 +115,22 @@ class OrderController extends Controller
     }
 
     //查看订单详情
-    public function orderDetail($order_id)
+    public function orderDetail($order_id,$ac)
     {
-        $result = DB::table('order')
-            ->where('order_id',$order_id)
-            ->join('house_message', 'house_message.msgid', '=', 'order.house_id')
-            ->first();
+        if($ac == 'look'){
+            $result = DB::table('order')->where('order_id', $order_id)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->first();
 
-        return view('order.orderDetail',['result'=>$result ,'orderStatus'=>$this->orderStatus]);
+            return view('order.orderDetail', ['result' => $result, 'orderStatus' => $this->orderStatus]);
+        }elseif($ac == 'payok'){
+
+            $up_sta = DB::table('order')->where('order_id', $order_id)->update(['order_status'=>'2']);
+
+
+            $result = DB::table('order')->where('order_id', $order_id)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->first();
+
+            return view('order.orderDetail', ['result' => $result, 'orderStatus' => $this->orderStatus]);
+        }
+
     }
 
     //修改订单
