@@ -1,5 +1,5 @@
 <ul class="breadcrumb_top">
-    <li><a href="#"><i class="icon-icons43"></i>@lang('index.index_dearest')</a></li>
+    <li><a href="{{url('house/like')}}"><i class="icon-icons43"></i>@lang('index.index_dearest')</a></li>
     <li>
 
         @if(Session::get('userId'))
