@@ -129,6 +129,53 @@
                                 </th>
                                 <td>{{ $result->rent_time }} 周</td>
                             </tr>
+                            @if($result->order_status != '1')
+                            @elseif($result->order_status == '9' && $result->qx_reason != '')
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending"
+                                    style="width: 80px;">
+                                    支付方式
+                                </th>
+                                <td>{{ $result->payment_type }}</td>
+                            </tr><tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending"
+                                    style="width: 80px;">
+                                    支付金额
+                                </th>
+                                <td>
+                                    @if($result->payment_amount != '')$ {{ $result->payment_amount }}@endif
+                                </td>
+                            </tr>
+                            </tr><tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending"
+                                    style="width: 80px;">
+                                    支付货币
+                                </th>
+                                <td>
+                                    @if($result->payment_currency_code != '')$ {{ $result->payment_currency_code }}@endif
+                                </td>
+                            </tr>
+                            </tr><tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending"
+                                    style="width: 80px;">
+                                    支付货率
+                                </th>
+                                <td>
+                                    @if($result->payment_currency_rate != ''){{ $result->payment_currency_rate }} %@endif
+                                </td>
+                            </tr>
+
+
+                            @elseif($result->order_status != '2')
+                            @elseif($result->order_status != '5')
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 150px;">
@@ -143,14 +190,6 @@
                                 </th>
                                 <td>@if($result->sign_position !== ''){{ $result->sign_position }}@else 等待中介确定中@endif</td>
                             </tr>
-                            <tr role="row">
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">
-                                    订单状态
-                                </th>
-                                <td>{{ $orderStatus[$result->order_status] }}</td>
-                            </tr>
-
                             @if($result->order_status != '7')
 
                             <tr role="row">
@@ -168,19 +207,36 @@
                                 </th>
                                 <td>{{ $result->house_eva }}</td>
                             </tr>
-
                             @endif
+                            @endif
+                            <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">
+                                    订单状态
+                                </th>
+                                <td>{{ $orderStatus[$result->order_status] }}</td>
+                            </tr>
+                            @if($result->order_status == 5)
+                                <tr role="row">
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                        aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">
+                                        驳回原因
+                                    </th>
+                                    <td>{{ $result->reject_reason}}</td>
+                                </tr>
+                            @endif
+
                             <tr role="row">
                                 <td class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 111px;">
                                     <a href="{{ url('order/orderList') }}">返回订单列表</a>
                                 </td>
-                                @if($result->order_status == '7')
+                                @if($result->order_status == '1')
                                     <td>
                                     <a href="{{ url('order/qrcode',['order_id'=>$result->order_id]) }}">点击去付款</a>
                                     </td>
-                                @elseif($result->order_status == '5')
-                                    <td><a href="{{ url('order/orderDelete',['order_id'=>$result->order_id]) }}">删除订单</a></td>
+                                @elseif($result->order_status == '9')
+                                    <td><a onclick="javascript:if(window.confirm('你确定要删除这个订单吗')){isDel('{{$result->order_id}}')}">删除订单</a></td>
                                 @endif
                             </tr>
                             </thead>
@@ -216,7 +272,23 @@
 {{--引入公共js文件--}}
 @include('public.publicHouseJs')
 </body>
-
+<script>
+    function isDel(order_id){
+        $.ajax({
+            url:"{{url('order/orderDelete')}}",
+            data:'order_id='+order_id,
+            type:'get',
+            success: function(re){
+                if(re == '1'){
+                    location.href="{{url('order/orderList')}}";
+                    alert('删除订单成功');
+                }else{
+                    alert('删除订单失败');
+                }
+            }
+        })
+    }
+</script>
 
 </html>
 

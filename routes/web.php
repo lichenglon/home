@@ -71,7 +71,9 @@ Route::group(['prefix' => 'order'],function(){
     #添加保存
     Route::any('orderSave',$controller.'orderSave');
 	#取消订单
-	Route::any('orderCancel/{order_id?}',$controller.'orderCancel');
+	Route::any('orderCancel',$controller.'orderCancel');
+	#取消订单原因
+	Route::any('qxReason/{order_id?}',$controller.'qxReason');
 	#删除订单
 	Route::any('orderDelete/{order_id?}',$controller.'orderDelete');
 	#修改订单

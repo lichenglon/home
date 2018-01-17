@@ -13,14 +13,14 @@ use Illuminate\Database\Eloquent\Model;
 class OrderController extends Controller
 {
     public $orderStatus = [
-        '1' => '未付款',
-        '2' => '未审核',
-        '3' => '审核中',
-        '4' => '审核通过',
+        '1' => '订单未付款',
+        '2' => '订单未审核',
+        '3' => '订单审核中',
+        '4' => '审核已通过',
         '5' => '订单驳回',
-        '6' => '订单确认',
+        '6' => '订单已确认',
         '7' => '合同已上传',
-        '8' => '订单完成',
+        '8' => '订单已完成',
         '9' => '订单取消'
     ];
     //添加订单
@@ -58,7 +58,8 @@ class OrderController extends Controller
             'order_remark'   => $data['order_remark'],
             'order_status'   => 1,
             'payment_type'   => 'crush',
-            'payment_amount' => $request['house_price'],
+//            'payment_amount'   => 'crush',
+//            'payment_time'   => 'crush',
             'rent_time'      => $data['rent_time'],
             'sign_time'      => strtotime($data['sign_time']),
         ];
@@ -91,14 +92,11 @@ class OrderController extends Controller
         /*echo '<pre>';
         var_dump($order_data);exit();*/
 
-
-
         $result = DB::table('order')->insert($order_data);
 
         if($result){
-
             $order_id = DB::table('order')->where('order_no', $order_no)->value('order_id');
-            return view('order.qrcode',['order_id',$order_id]);
+            return view('order.qrcode',['order_id'=>$order_id]);
         }
     }
 
@@ -106,11 +104,20 @@ class OrderController extends Controller
     public function orderList()
     {
         $uid = Session::get('userId');
-        $result = DB::table('order')
-            ->where('uid',$uid)
-            ->join('house_message', 'house_message.msgid', '=', 'order.house_id')
-            ->paginate(5);
-            //->get();
+        $data = DB::table('order')->where('uid',$uid)->get();
+        foreach($data as $v)
+        {
+            //将stdClass对象转换为数组
+            $v =  json_decode( json_encode( $v),true);
+            $t = time();
+            if($v['order_status'] == '1'){
+                if($t - $v['creat_time'] >= 1800){
+                    DB::table('order')->where('order_id',$v['order_id'])->update(['order_status'=>'9']);
+                }
+            }
+        }
+
+        $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(8);
         return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus]);
     }
 
@@ -134,7 +141,7 @@ class OrderController extends Controller
     }
 
     //修改订单
-    public function orderModify($order_id)
+    /*public function orderModify($order_id)
     {
         $result = DB::table('order')
             ->where('order_id',$order_id)
@@ -143,10 +150,10 @@ class OrderController extends Controller
 
 
         return view('order.orderModify',['result'=>$result]);
-    }
+    }*/
 
     //修改保存
-    public function orderSaveMod(Request $request)
+    /*public function orderSaveMod(Request $request)
     {
         $data = Input::all();
         $order_id = (int)$data['order_id'];
@@ -245,25 +252,30 @@ class OrderController extends Controller
             return redirect('order/orderList')->with('success', '修改成功！');
 
         }
-    }
+    }*/
 
     //取消订单
-    public function orderCancel($order_id)
+    public function orderCancel()
     {
-        $order_id = (int)$order_id;
-        $result = DB::table('order')->where('order_id',$order_id)->update(['order_status'=>'5']);
-        if($result)
-        {
-            $uid = 1;
-            $req = DB::table('order')->where('uid',$uid)->get();
-            return redirect('order/orderList');
-        }
+        $order_id = $_REQUEST['order_id'];
+        $qx_reason = $_REQUEST['qx_reason'] ? $_REQUEST['qx_reason'] : '';
+        $re = DB::table('order')->where('order_id',$order_id)->update(['qx_reason'=>$qx_reason,'order_status'=>'9']);
+
+        /*$order_id = (int)$_REQUEST['order_id'];
+        $result = DB::table('order')->where('order_id',$order_id)->update(['order_status'=>'9']);
+        if($result){return '1';}else{return '0';}*/
+    }
+
+    //取消订单原因页面弹出
+    public function qxReason($order_id)
+    {
+        return view('order.qxReason',['order_id'=>$order_id]);
     }
 
     //删除订单
-    public function orderDelete($order_id)
+    public function orderDelete()
     {
-        $order_id = (int)$order_id;
+        $order_id = (int)$_REQUEST['order_id'];
 
         $img1 = DB::table('order')->where('order_id',$order_id)->value('renter_idcard1');
         $img2 = DB::table('order')->where('order_id',$order_id)->value('renter_idcard2');
@@ -288,12 +300,13 @@ class OrderController extends Controller
 
 
         $result = DB::table('order')->where('order_id',$order_id)->delete();
-        if($result)
+       /* if($result)
         {
             $uid = 1;
             $req = DB::table('order')->where('uid',$uid)->get();
             return redirect('order/orderList');
-        }
+        }*/
+        if($result){return '1';}else{return '0';}
     }
 
     //二维码
