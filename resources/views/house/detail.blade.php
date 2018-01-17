@@ -62,45 +62,45 @@
           @endforeach
         </div>
         <div class="property_meta bg-black bottom40">
-          <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span>
-          <span><i class=" icon-microphone"></i>2 Office Rooms</span>
-          <span><i class="icon-safety-shower"></i>1 Bathroom</span>
-          <span><i class="icon-old-television"></i>TV Lounge</span>
-          <span><i class="icon-garage"></i>1 Garage</span>
+          <span><i class="icon-select-an-objecto-tool"></i>@lang('detail.detail_4800')</span>
+          <span><i class=" icon-microphone"></i>2 @lang('detail.detail_office')</span>
+          <span><i class="icon-safety-shower"></i>1 @lang('detail.detail_bathroom')</span>
+          <span><i class="icon-old-television"></i>@lang('detail.detail_lounge')</span>
+          <span><i class="icon-garage"></i>1 @lang('detail.detail_garage')</span>
         </div>
-        <h2 class="text-uppercase">房源简介</h2>
+        <h2 class="text-uppercase">@lang('detail.detail_introduction')</h2>
         <p class="bottom30"></p>
         <p class="bottom30"></p>
         <div class="text-it-p bottom40">
           <p>{{$houseMsg->house_brief}}</p>
         </div>
-        <h2 class="text-uppercase bottom20">快速总结</h2>
+        <h2 class="text-uppercase bottom20">@lang('detail.detail_quick')</h2>
         <div class="row property-d-table bottom40">
           <div class="col-md-6 col-sm-6 col-xs-12">
             <table class="table table-striped table-responsive">
               <tbody>
                 <tr>
-                  <td><b>属性 ID</b></td>
+                  <td><b>@lang('detail.detail_id')</b></td>
                   <td class="text-right">{{$houseMsg->serial_number}}</td>
                 </tr>
                 <tr>
-                  <td><b>价钱</b></td>
-                  <td class="text-right">${{$houseMsg->house_price}} / 月</td>
+                  <td><b>@lang('detail.detail_price')</b></td>
+                  <td class="text-right">${{$houseMsg->house_price}} / @lang('detail.detail_month')</td>
                 </tr>
                 <tr>
-                  <td><b>物业大小</b></td>
-                  <td class="text-right">{{$houseMsg->house_size}} 平方英尺</td>
+                  <td><b>@lang('detail.detail_size')</b></td>
+                  <td class="text-right">{{$houseMsg->house_size}} @lang('detaildetail_feet')</td>
                 </tr>
                 <tr>
-                  <td><b>卧室</b></td>
+                  <td><b>@lang('detail.detail_bedroom')</b></td>
                   <td class="text-right">5</td>
                 </tr>
                 <tr>
-                  <td><b>浴室</b></td>
+                  <td><b>@lang('detail.detail_bathroom')</b></td>
                   <td class="text-right">3</td>
                 </tr>
                 <tr>
-                  <td><b>可租时长</b></td>
+                  <td><b>@lang('detail.detail_time')</b></td>
                   <td class="text-right">{{$houseMsg->house_duration}}</td>
                 </tr>
               </tbody>
@@ -110,35 +110,35 @@
             <table class="table table-striped table-responsive">
               <tbody>
                 <tr>
-                  <td><b>房屋状态</b></td>
+                  <td><b>@lang('detail.detail_home')</b></td>
                   <td class="text-right">{{$houseMsg->house_status}}</td>
                 </tr>
                 <tr>
-                  <td><b>建造年份</b></td>
+                  <td><b>@lang('detail.detail_built')</b></td>
                   <td class="text-right">1991</td>
                 </tr>
                 <tr>
-                  <td><b>车库</b></td>
+                  <td><b>@lang('detaildetail_garage')</b></td>
                   <td class="text-right">1</td>
                 </tr>
                 <tr>
-                  <td><b>交叉街道</b></td>
-                  <td class="text-right">Nordoff</td>
+                  <td><b>@lang('detail.detail_cross')</b></td>
+                  <td class="text-right">@lang('detail.detail_nordoff')</td>
                 </tr>
                 <tr>
-                  <td><b>地板</b></td>
-                  <td class="text-right">地毯 - 瓷砖</td>
+                  <td><b>@lang('detail.detail_floor')</b></td>
+                  <td class="text-right">@lang('detail.detail_carpet')</td>
                 </tr>
                 <tr>
-                  <td><b>水暖</b></td>
-                  <td class="text-right">全铜水暖</td>
+                  <td><b>@lang('detail.detail_plumbing')</b></td>
+                  <td class="text-right">@lang('detail.detail_all')</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <h2 class="text-uppercase bottom20">特征</h2>
+        <h2 class="text-uppercase bottom20">@lang('detail.detail_feature')</h2>
         <div class="row bottom40">
           <?php
           if(empty($houseMsg->house_facility)){
@@ -169,7 +169,7 @@
           </div>
         </div>
 
-        <h2 class="text-uppercase bottom20">物业地图</h2>
+        <h2 class="text-uppercase bottom20">@lang('detail.detail_property')</h2>
         <div class="row bottom40">
           <div class="col-md-12 bottom20">
             <div class="property-list-map">
@@ -178,7 +178,7 @@
                 <script src="http://webapi.amap.com/maps?v=1.4.2&key=b31cb5cfe1e6ea003e00bd558327fb03"></script>
                 <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
                 <div id="container"></div>
-                <div id="tip">可以移动地图，得到城市的信息哦！<br><span id="info">泰邦科技大厦</span></div>
+                <div id="tip">@lang('detail.detail_can')<br><span id="info">@lang('detail.detail_and')</span></div>
                 <script>
                   var map = new AMap.Map('container', {
                     resizeEnable: true
@@ -198,10 +198,10 @@
           </div>
           <div class="social-networks">
             <div class="social-icons-2">
-              <span class="share-it">Share this Property</span>
-              <span><a href="#."><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></span>
-              <span><a href="#."><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></span>
-              <span><a href="#."><i class="fa fa-google-plus" aria-hidden="true"></i> Google +</a></span>
+              <span class="share-it">@lang('detail.detail_share')</span>
+              <span><a href="#."><i class="fa fa-facebook" aria-hidden="true"></i> @lang('detail.detail_facebook')</a></span>
+              <span><a href="#."><i class="fa fa-twitter" aria-hidden="true"></i> @lang('detail.detail_twitter')</a></span>
+              <span><a href="#."><i class="fa fa-google-plus" aria-hidden="true"></i> @lang('detail.detail_google') +</a></span>
             </div>
           </div>
         </div>
@@ -212,9 +212,13 @@
         @include('public.publicAdvancedSearch')
         {{-----------------------结束-------------------------}}
 
+
+
+        //////有待更改
+
         <div class="row">
           <div class="col-md-12">
-            <h3 class="bottom40 margin40">Featured Properties</h3>
+            <h3 class="bottom40 margin40">@lang('detail.detail_featured')</h3>
           </div>
         </div>
         <div class="row bottom20">

@@ -14,24 +14,6 @@ return [
 		'index_drop'=>'drop out',
 		'index_Language'=>'Language switching',
 
-		//高级搜索
-		'index_advanced'=>'ADVANCED SEARCH',
-		'index_key'=>'keyword',
-		'index_nation'=>'nation',
-		'index_address'=>'address',
-		'index_house'=>'house type',
-		'index_price'=>'Price Range',
-		'index_options'=>'Show more search options',
-		'index_less'=>'less more search options',
-		'index_seek'=>'SEARCH',
-		'index_washing'=>'Washing',
-		'index_air'=>'Conditioner',
-		'index_heating'=>'Heating',
-		'index_bed'=>'Ded',
-		'index_cookhouse'=>'Cookhouse',
-		'index_wardrobe'=>'Wardrobe',
-		'index_refrigerator'=>'Refrigerator',
-
 		//导航
 		'index_home'=>'home page',
 		'index_search'=>'search',
@@ -62,7 +44,7 @@ return [
 		'index_feet'=>'Square feet',
 
 		//中部图
-		'index_cooperation'=>'Cooperation with ASPC a leading British real estate service provider.',
+		'index_cooperation'=>'Cooperation with <font color="#f7cb46"> ASPC </font> a leading British real estate service provider.',
 		'index_guarantee'=>'Price Guarantee',
 		"index_many"=>"There are many things in the world that are hard to guarantee, and our best price guarantee is the exception. <br> You can book directly through UIzz.com to ensure that you will always get the best price.",
 		'index_Choose'=>'Choose what you love',
@@ -97,5 +79,6 @@ return [
 		'index_updates'=>'Sign up with your email to get latest updates and offers',
 		'index_your'=>'Enter your email',
 		'index_name'=>'Copyright © 2017.Company name All rights reserved.',
+
 
 ];

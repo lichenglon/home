@@ -25,6 +25,8 @@ Route::group(['prefix'=>'user'],function() {
 	Route::get('register',$controller.'register');
 	#注册保存
 	Route::post('save',$controller.'save');
+	//注册检测
+	Route::any('registerData',$controller.'registerData');
 
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
@@ -45,6 +47,15 @@ Route::group(['prefix'=>'KitController'],function() {
 	Route::get('captcha/{tmp}',$controller.'captcha');
 
 });
+
+//新闻
+Route::group(['prefix'=>'news'],function() {
+	$controller = 'News\NewsController@';
+	//详情页
+	Route::any('foreign',$controller.'foreign');
+
+});
+
 
 //房源
 Route::group(['prefix'=>'house'],function() {

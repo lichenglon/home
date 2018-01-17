@@ -3,12 +3,9 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="footer_panel bottom30">
-                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.png" alt="logo"></a>
-                    <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                        tempor cum consectetuer
-                        adipiscing.
-                    </p>
-                    <p class="bottom15">If you are interested in castle do not wait and <a href="#.">BUY IT NOW!</a></p>
+                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo6-white.jpg" alt="logo"></a>
+
+                    <p class="bottom15">@lang('include.include_castle')</p>
                     <ul class="social_share">
                         <li><a href="#." class="facebook"><i class="icon-facebook-1"></i></a></li>
                         <li><a href="#." class="twitter"><i class="icon-twitter-1"></i></a></li>
@@ -20,50 +17,50 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="footer_panel bottom30">
-                    <h4 class="bottom30">Search by Area</h4>
+                    <h4 class="bottom30">@lang('include.include_search')</h4>
                     <ul class="area_search">
-                        <li><a href="#."><i class="icon-icons74"></i>Bayonne, New Jersey</a></li>
-                        <li class="active"><a href="#."><i class="icon-icons74"></i>Greenville, New Jersey</a></li>
-                        <li><a href="#."> <i class="icon-icons74"></i>The Heights, New Jersey</a></li>
-                        <li><a href="#."><i class="icon-icons74"></i>West Side, New York</a></li>
-                        <li><a href="#."><i class="icon-icons74"></i>Upper East Side, New York</a></li>
+                        <li><a href="#."><i class="icon-icons74"></i>@lang('include.include_bayonne')</a></li>
+                        <li class="active"><a href="#."><i class="icon-icons74"></i>@lang('include.include_jersey')</a></li>
+                        <li><a href="#."> <i class="icon-icons74"></i>@lang('include.include_york')</a></li>
+                        <li><a href="#."><i class="icon-icons74"></i>@lang('include.include_side')</a></li>
+                        <li><a href="#."><i class="icon-icons74"></i>@lang('include.include_upper')</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="footer_panel bottom30">
-                    <h4 class="bottom30">Latest News</h4>
+                    <h4 class="bottom30">@lang('include.include_latest')</h4>
                     <div class="media">
                         <a class="media-object"><img src="{{asset('home')}}/images/footer-news1.png" alt="news"></a>
                         <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes your villa</a>
-                            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+                            <a href="#.">@lang('include.include_nearest')</a>
+                            <span><i class="icon-clock4"></i>@lang('include.include_date')</span>
                         </div>
                     </div>
                     <div class="media">
                         <a class="media-object"><img src="{{asset('home')}}/images/footer-news1.png" alt="news"></a>
                         <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes your villa</a>
-                            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+                            <a href="#.">@lang('include.include_nearest')</a>
+                            <span><i class="icon-clock4"></i>@lang('include.include_date')</span>
                         </div>
                     </div>
                     <div class="media">
                         <a class="media-object"><img src="{{asset('home')}}/images/footer-news1.png" alt="news"></a>
                         <div class="media-body">
-                            <a href="#.">Nearest mall in high tech Goes your villa</a>
-                            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+                            <a href="#.">@lang('include.include_nearest')</a>
+                            <span><i class="icon-clock4"></i>@lang('include.include_date')</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="footer_panel bottom30">
-                    <h4 class="bottom30">Get in Touch</h4>
+                    <h4 class="bottom30">@lang('include.include_get')</h4>
                     <ul class="getin_touch">
-                        <li><i class="icon-telephone114"></i>01 900 234 567 - 68</li>
-                        <li><a href="#."><i class="icon-icons142"></i>info@castle.com</a></li>
-                        <li><a href="#."><i class="icon-browser2"></i>www.castle.com</a></li>
-                        <li><i class="icon-icons74"></i>Castle Melbourne, Merrick Way,FL 12345 australia</li>
+                        <li><i class="icon-telephone114"></i>0755-26929029</li>
+                        <li><a href="#."><i class="icon-icons142"></i>yuheng.zhang@foxmail.com</a></li>
+                        <li><a href="#."><i class="icon-browser2"></i>www.baidu.com</a></li>
+                        <li><i class="icon-icons74"></i>@lang('include.include_way')</li>
                     </ul>
                 </div>
             </div>

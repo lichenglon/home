@@ -20,12 +20,12 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span>@lang('index.index_Language')</span>
         </a>
-        <ul class="dropdown-menu" style="margin-left:170px; margin-top:-1px;">
+        <ul class="dropdown-menu" style="margin-left:490px; margin-top:-1px;">
             <li class="user-footer">
                 <div class="pull-left">
                     <a href="javascript:setLocale('zh_cn');" class="btn btn-default btn-flat">中文</a>
                 </div>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <div class="pull-right">
                     <a href="javascript:setLocale('en');" class="btn btn-default btn-flat">English</a>
                 </div>
@@ -34,5 +34,4 @@
 
 
     </li>
-    <li class="last-icon"><i class="icon-icons215"></i></li>
 </ul>

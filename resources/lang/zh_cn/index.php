@@ -14,28 +14,8 @@ return [
 		'index_drop'=>'退出',
 		'index_Language'=>'语言切换',
 
-		//高级搜索
-		'index_advanced'=>'高级搜索',
-		'index_key'=>'关键词',
-		'index_nation'=>'国家',
-		'index_address'=>'详细地址',
-		'index_house'=>'房屋类型',
-		'index_view'=>'视图属性',
-		'index_price'=>'价格范围',
-		'index_options'=>'显示更多搜索选项',
-		'index_less'=>'更少的搜索选项',
-		'index_washing'=>'洗衣机',
-		'index_air'=>'空调',
-		'index_heating'=>'暖气',
-		'index_bed'=>'床',
-		'index_cookhouse'=>'厨房',
-		'index_wardrobe'=>'衣柜',
-		'index_refrigerator'=>'冰箱',
-		'index_seek'=>'搜索',
-
 		//导航
 		'index_home'=>'主页',
-		'index_search'=>'search',
 		'index_news'=>'新闻',
 		'index_listing'=>'列表',
 		'index_detail'=>'财产的细节',
@@ -46,6 +26,7 @@ return [
 		//头部大图
 		'index_Wanted'=>'才下航班，已得心头之好',
 		"index_we"=>"我们拥有各地区大量真实房源，且在线上完成租凭办理让<br>您在航班到达后即可入住海外一见倾心的新家。",
+		'index_view'=>'视图属性',
 
 		//中部房源顶部文字
 		'index_real'=>'房地产的特性',
@@ -62,7 +43,7 @@ return [
 		'index_feet'=>'平方 英尺',
 
 		//中部图
-		'index_cooperation'=>'与英国著名房产服务商ASPC合作',
+		"index_cooperation"=>"与英国著名房产服务商<font color='#f7cb46'>ASPC</font>合作",
 		'index_guarantee'=>'价格保证',
 		"index_many"=>"世界上很多事情都难以保证，而我们的最优惠房价保证却是例外。<br> 您直接通过UIzz.com预订，既可确保始终获享最优惠价格",
 		'index_Choose'=>'选你所爱',

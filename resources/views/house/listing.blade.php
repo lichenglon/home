@@ -58,15 +58,15 @@
       <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="row">
           <div class="col-md-9">
-            <h2 class="uppercase">PROPERTY LISTINGS</h2>
-            <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
+            <h2 class="uppercase">@lang('listing.listing_property')</h2>
+            <p class="heading_space">@lang('listing.listing_have')</p>
           </div>
           <div class="col-md-3">
           <form class="callus">
             <div class="single-query">
               <div class="intro">
                 <select>
-                  <option class="active">Default Order</option>
+                  <option class="active">@lang('listing.listing_default')</option>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -89,7 +89,7 @@
                 <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img class="content-width" src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
                 </div>
                   <div class="price clearfix">
-                  <span class="tag pull-right">每月 ${{$houseVal->house_price}}</span>
+                  <span class="tag pull-right">@lang('listing.listing_month'){{$houseVal->house_price}}</span>
                 </div>
                 <span class="tag_t">{{$houseVal->house_status}}</span>
                 <span class="tag_l">{{$houseVal->house_structure}}</span>
@@ -99,7 +99,7 @@
                   <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name, 0, 15, 'utf-8') ?></a>......</h4>
                   <p>{{$houseVal->house_structure}}</p>
                   <br>
-                  <span><i class="icon-select-an-objecto-tool"></i>{{$houseVal->house_size}} 平方英尺</span>
+                  <span><i class="icon-select-an-objecto-tool"></i>{{$houseVal->house_size}} @lang('listing.listing_square')</span>
                 </div>
                 <div class="property_meta transparent">
 
@@ -124,24 +124,24 @@
                     $refrigerator = in_array('冰箱',$equipment);//冰箱
                   }
                   ?>
-                  @if($washing) <span>洗衣机</span> @endif
-                  @if($air) <span>空调</span> @endif
-                  @if($heating) <span>暖气</span> @endif
-                  @if($bed) <span>床</span> @endif
-                  @if($kitchen) <span>厨房</span> @endif
-                  @if($closet) <span>衣柜</span> @endif
-                  @if($refrigerator) <span>冰箱</span> @endif
+                  @if($washing) <span>@lang('include.include_washing')</span> @endif
+                  @if($air) <span>@lang('include.include_air')</span> @endif
+                  @if($heating) <span>@lang('include.include_heating')</span> @endif
+                  @if($bed) <span>@lang('include.include_bed')</span> @endif
+                  @if($kitchen) <span>@lang('include.include_cookhouse')</span> @endif
+                  @if($closet) <span>@lang('include.include_wardrobe')</span> @endif
+                  @if($refrigerator) <span>@lang('include.include_refrigerator')</span> @endif
 
                 </div>
                 <div class="property_meta transparent bottom30">
-                  <span><i class="icon-old-television"></i>TV Lounge</span>
-                  <span><i class="icon-garage"></i>1 Garage</span>
+                  <span><i class="icon-old-television"></i>@lang('listing.listing_lounge')</span>
+                  <span><i class="icon-garage"></i>1 @lang('listing.listing_garage')</span>
                   <span></span>
                 </div>
                 <div class="favroute clearfix">
-                  <p class="pull-md-left">发布于 &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
+                  <p class="pull-md-left">@lang('listing.listing_released') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                   <ul class="pull-right">
-                    <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
+                    <li><a href="#" title="想要"><i class="icon-like"></i></a></li>
                     <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                   </ul>
                 </div>
@@ -170,7 +170,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h3 class="bottom40 margin40">Featured Properties</h3>
+            <h3 class="bottom40 margin40">@lang('listing.listing_featured')</h3>
           </div>
         </div>
 
@@ -180,8 +180,8 @@
           </div>
           <div class="col-md-8 col-sm-8 col-xs-6">
             <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
+              <h4>@lang('listing.listing_house')</h4>
+              <p class="bottom15">@lang('listing.listing_45')</p>
               <a href="javascript:void (0);">$128,600</a>
             </div>
           </div>
@@ -193,8 +193,8 @@
           </div>
           <div class="col-md-8 col-sm-8 col-xs-6">
             <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
+              <h4>@lang('listing.listing_house')</h4>
+              <p class="bottom15">@lang('listing.listing_45')</p>
               <a href="javascript:void (0);">$128,600</a>
             </div>
           </div>
@@ -205,8 +205,8 @@
           </div>
           <div class="col-md-8 col-sm-8 col-xs-6">
             <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
+              <h4>@lang('listing.listing_house')</h4>
+              <p class="bottom15">@lang('listing.listing_45')</p>
               <a href="#.">$128,600</a>
             </div>
           </div>
@@ -214,7 +214,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h3 class="margin40 bottom20">Featured Properties</h3>
+            <h3 class="margin40 bottom20">@lang('listing.listing_featured')</h3>
           </div>
           <div class="col-md-12">
             <div id="agent-2-slider" class="owl-carousel">
@@ -224,7 +224,7 @@
                   <div class="image">
                     <a href="{{url('house/detail',['msgid'=>$Featured->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$Featured->getImageOne($Featured->msgid)}}" alt="listin" class="img-responsive"></a>
                     <div class="feature"><span class="tag-2">{{$Featured->house_status}}</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">每月 ${{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
+                    <div class="price clearfix"><span class="tag pull-right">@lang('listing.listing_month'){{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
                   </div>
                 </div>
               </div>

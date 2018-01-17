@@ -70,6 +70,25 @@ class UserController extends Controller {
 		}else{
 			return redirect('user/register')->with('message','添加失败');
 		}
+
+
+	}
+
+	public function registerData(){
+		echo 1;
+		$username = isset($_POST['username']) ? $_POST['username'] : "";
+		var_dump($username);
+		if($username){
+			$uname = DB::table('tb_register')->select('uname')->get();
+			if($uname == $username){
+				echo 1;
+				exit;
+			}else{
+				echo 2;
+				exit;
+			}
+		}
+
 	}
 
 	//退出

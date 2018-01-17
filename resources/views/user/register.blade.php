@@ -65,20 +65,41 @@
 		var username = $('#uname').val();
 	 $.ajax({
 	   type: "POST",
-	   url: "{{url('index/user/check')}}",
+	   url: "{{url('user/registerData')}}",
 	   data: "username="+ username,
 	   success: function(msg){
+		alert('1');
 		 if (msg != "1"){
 			$unameMsg.html("用户名可用")
 				.removeClass().addClass("ok");
-				}else 
+				}else
 					$unameMsg.html("用户名重复").removeClass()
 			.addClass("err");
-			
+
 	   }
 	});
 	});
 	//console.log($("#unameMsg").hasClass("ok"));
+	{{--	<script>
+		$("[name=uname]").blur(function(){
+			houhou = this.value;
+			$.post("shunshi.php",{"uname":houhou},function(zhi){
+				if(zhi == 1){      //已经被注册
+					$("#jiance").html("居然是JQ的毛病");
+					$("#jiance").css({"display":"","color":"red"});
+				}else if(zhi == 2){   //可以注册
+					$("#jiance").html("你大爷的JQ");
+					$("#jiance").css({"display":"","color":"blue"});
+				}else if(zhi == 3){  //不能为空
+					$("#jiance").html("因为JQ居然花了那么久");
+					$("#jiance").css({"display":"","color":"red"});
+				}else if(zhi == 4){
+					$("#jiance").html("用户名不能使用");
+					$("#jiance").css({"display":"","color":"red"});
+				}
+			});
+		});
+	</script>--}}
 
 		/*点击按钮提交注册信息*/
 $("#tjbtn").click(function(){

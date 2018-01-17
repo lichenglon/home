@@ -4,16 +4,17 @@
     <title>个人中心</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="{{asset('home/user/css_style/enter.css')}}">
-
 </head>
 
 <body>
+
 <div>
     <div>
         <form action="{{url('user/renewal')}}" method="post">
 
             <table>
                 <th>个人中心</th>
+                <span style="margin-left:300px; font-weight:600;" id="lang1">语言切换</span>
                 <tr>
                     <td>用户名：</td>
                     <td><input type="text" name="uname"  id="uname" placeholder="{{$arr->uname}}"></td>
@@ -49,6 +50,7 @@
 </body>
 <script src="{{asset('home/user/js/jquery-1.11.3.js')}}"></script>
 <script src="{{asset('home/user/js/enters.js')}}"></script>
+
 <script type="text/javascript">
     /*鼠标失去焦点验证用户名是否重复*/
     $('#uname').blur(function(){
@@ -94,4 +96,5 @@
         }
     });
 </script>
+@include('user.include.ajax_include')
 </html>
