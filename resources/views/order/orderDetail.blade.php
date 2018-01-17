@@ -97,7 +97,7 @@
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 322px;">
                                     房子编号
                                 </th>
-                                <td>{{ $result->house_no }}</td>
+                                <td>{{ $result->serial_number }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"

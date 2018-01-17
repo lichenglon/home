@@ -92,7 +92,7 @@ Route::group(['prefix' => 'order'],function(){
 	#订单列表
 	Route::any('orderList',$controller.'orderList');
 	#订单详情
-	Route::any('orderDetail/{order_id?}',$controller.'orderDetail');
+	Route::any('orderDetail/{order_id?}/{ac?}',$controller.'orderDetail');
 	#QR code
 	Route::any('qrcode/{order_id?}',$controller.'qrcode');
 });

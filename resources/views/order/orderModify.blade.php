@@ -153,7 +153,11 @@
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        @if(!empty($result->renter_idcard1))
+                                            <span class="fileinput-new">换一张</span>
+                                        @else
+                                            <span class="fileinput-new">选择照片</span>
+                                        @endif
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
@@ -173,7 +177,11 @@
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        @if(!empty($result->renter_idcard2))
+                                            <span class="fileinput-new">换一张</span>
+                                        @else
+                                            <span class="fileinput-new">选择照片</span>
+                                        @endif
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
@@ -199,7 +207,11 @@
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        @if(!empty($result->renter_passport))
+                                            <span class="fileinput-new">换一张</span>
+                                        @else
+                                            <span class="fileinput-new">选择照片</span>
+                                        @endif
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
@@ -224,7 +236,11 @@
                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                             <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        @if(!empty($result->stu_idcard))
+                                            <span class="fileinput-new">换一张</span>
+                                        @else
+                                            <span class="fileinput-new">选择照片</span>
+                                        @endif
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
