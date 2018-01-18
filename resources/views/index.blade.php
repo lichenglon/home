@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -298,7 +299,7 @@
                 <div class="cbp-item latest sale">
                     <div class="property_item">
                         <div class="image">
-                            <div class="content-width" >
+                            <div class="content-width">
                                 <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
                             </div>
                             <div class="price clearfix">
@@ -309,8 +310,8 @@
                         </div>
                         <div class="proerty_content">
                             <div class="proerty_text">
-                                <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,17,'utf-8');?>.....</a></h4>
-                                <p>{{$houseVal->house_location}}</p>
+                                <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,26,'utf-8');?>.....</a></h4>
+                                <p><?php echo mb_substr($houseVal->house_location,0,33,'utf-8');?>.....</p>
                             </div>
                             <div class="property_meta transparent">
 

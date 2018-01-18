@@ -110,24 +110,28 @@
 
                     <input type="hidden" name="house_no" value="{{ $result->serial_number }}"/>
                     <input type="hidden" name="house_id" value="{{ $result->msgid }}"/>
+                    {{--<input type="hidden" name="house_name" value="{{ $result->house_name }}" />--}}
+                    {{--<input type="hidden" name="house_location" value="{{ $result->house_location }}"/>--}}
+                    {{--<input type="hidden" name="house_price" value="{{ $result->house_price }}"/>--}}
+
 
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">房源名称：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_name }}" name="house_name" disabled style="border:none;  background:none"/>
+                            <input type="text" class="input-text" value="{{ $result->house_name }}" disabled style="border:none;  background:none"/>
                         </div>
                     </div>
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">房源位置：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_location }}" name="house_location" disabled style="border:none; background:none" />
+                            <input type="text" class="input-text" value="{{ $result->house_location }}" disabled style="border:none; background:none" />
                         </div>
                     </div>
 
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">价格：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            $<input type="text" value="{{ $result->house_price }}" name="house_price" class="input-text"  disabled style="width:15%; border:none; background:none"/>
+                            $<input type="text" value="{{ $result->house_price }}" class="input-text"  disabled style="width:15%; border:none; background:none"/>
                         </div>
                     </div>
 
@@ -158,7 +162,7 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-new">选择照片</span>
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
@@ -174,7 +178,7 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-new">选择照片</span>
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
@@ -196,7 +200,7 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-new">选择照片</span>
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
@@ -217,7 +221,7 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择文件</span>
+                                        <span class="fileinput-new">选择照片</span>
                                         <span class="fileinput-exists">换一张</span>
                                         <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
