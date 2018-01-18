@@ -310,7 +310,7 @@
                         </div>
                         <div class="proerty_content">
                             <div class="proerty_text">
-                                <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,26,'utf-8');?>.....</a></h4>
+                                <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,26,'utf-8');?></a></h4>
                                 <p><?php echo mb_substr($houseVal->house_location,0,33,'utf-8');?>.....</p>
                             </div>
                             <div class="property_meta transparent">
