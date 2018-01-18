@@ -37,17 +37,12 @@
 <body>
 
 
-<!--Loader-->
-{{--程序载人动画效果--}}
 <div class="loader">
     <div class="span">
         <div class="location_indicator"></div>
     </div>
 </div>
-<!--Loader-->
 
-<!--Slider-->
-{{-------------------------------------轮播开始------------------------------------------}}
 <div class="rev_slider_wrapper">
     <div id="rev_overlaped" class="rev_slider"  data-version="5.0">
         <ul>
@@ -106,13 +101,6 @@
         </ul>
     </div>
 </div>
-<!--Slider ends-->
-{{-------------------------------------轮播结束------------------------------------------}}
-
-{{--var_dump(\Illuminate\Support\Facades\Session::get('userId'));
---}}
-<!--Header-->
-{{--导航--}}
 
 <div id="mainMenuBarAnchor"></div>
 <header class="white_header">
@@ -376,15 +364,6 @@
                                     $refrigerator = in_array('冰箱',$equipment);//冰箱
                                 }
                                 ?>
-<<<<<<< HEAD
-                                @if(isset($equipment[0])) <span>@lang('include.include_washing')</span> @endif
-                                @if(isset($equipment[1])) <span>空调</span> @endif
-                                @if(isset($equipment[2])) <span>暖气</span> @endif
-                                @if(isset($equipment[3])) <span>床</span> @endif
-                                @if(isset($equipment[4])) <span>厨房</span> @endif
-                                @if(isset($equipment[5])) <span>衣柜</span> @endif
-                                @if(isset($equipment[6])) <span>冰箱</span> @endif
-=======
                                 @if($washing) <span>洗衣机</span> @endif
                                 @if($air) <span>空调</span> @endif
                                 @if($heating) <span>暖气</span> @endif
@@ -392,7 +371,6 @@
                                 @if($kitchen) <span>厨房</span> @endif
                                 @if($closet) <span>衣柜</span> @endif
                                 @if($refrigerator) <span>冰箱</span> @endif
->>>>>>> 0919331d8110df841b5339128722254200b636e6
 
                             </div>
                             <div class="property_meta transparent bottom30">
@@ -403,11 +381,7 @@
                             <div class="favroute clearfix">
                                 <p class="pull-md-left">@lang('index.index_in') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                                 <ul class="pull-right">
-<<<<<<< HEAD
-                                    <li><a href="#" title="我喜欢"><i class="icon-like"></i></a></li>
-=======
                                     <li><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
->>>>>>> 0919331d8110df841b5339128722254200b636e6
                                     <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                                 </ul>
                             </div>
