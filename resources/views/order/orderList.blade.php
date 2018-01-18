@@ -17,61 +17,6 @@
 <!--Header-->
 {{--头部--}}
 @include('house.listingPublic.header')
-
-<<<<<<< HEAD
-<div class="box"  style="height:548px">
-    <div class="box-body" style="width:1500px">
-        <div class="Hui-article" style="height:450px">
-            <article class="cl pd-20">
-                <div class="mt-20">
-                    <table class="table table-border table-bordered table-bg table-hover table-sort" style="margin:0px">
-                        <thead>
-                        <tr class="text-c" id="theader">
-                            <th width="20%">订单号</th>
-                            <th width="10%">时间</th>
-                            <th width="20%">房子名称</th>
-                            <th width="5%">房子价格</th>
-                            <th width="5%">租期</th>
-                            <th width="10%">订单状态</th>
-                            <th width="30%" colspan="3">操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($result as $key => $val)
-                            <tr class="text-c">
-                                <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look']) }}"> {{ $val->order_no }} </a></td>
-                                <td style="width:10%;">{{ date('Y-m-d H:i:s',$val->creat_time) }}</td>
-                                <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->house_name }} </a></td>
-                                <td style="width:5%;">{{ $val->house_price }}</td>
-                                <td style="width:5%;">{{ $val->rent_time }} 周</td>
-                                <td style="width:10%;">
-                                    @if($val->order_status == '1')
-                                        <a href="{{ url('order/qrcode',['order_id'=>$val->order_id]) }}">去付款</a>
-                                    @elseif($val->order_status == '9' && $val->qx_reason == '')
-                                        订单已自动取消
-                                    @elseif($val->order_status == '9' && $val->qx_reason != '')
-                                        订单已取消
-                                    @elseif($val->order_status == '5')
-                                        订单驳回，驳回原因：{{$val->reject_reason}}
-                                    @else
-                                        {{ $orderStatus[$val->order_status] }}
-                                    @endif
-                                </td>
-                                <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look'])}}">查看订单</a></td>
-                                {{--<td style="width:10%;"><a href="{{url('order/orderModify',['order_id'=>$val->order_id])}}">修改订单</a></td>--}}
-                                <td style="width:10%;">
-                                    @if($val->order_status == '9')
-                                    @else
-                                        {{--<a onclick="javascript:if(window.confirm('确定要取消订单吗？')){isCancel('{{$val->order_id}}')}">取消订单</a>--}}
-                                        <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >取消订单</a>
-                                    @endif
-                                </td>
-
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-=======
     <div class="box"  style="height:548px">
         <div class="box-body" style="width:1500px">
             <div class="Hui-article" style="height:450px">
@@ -146,7 +91,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <p>Copyright &copy; LEMON TEA<a target="_blank" href="http://www.17sucai.com/"></a></p>
->>>>>>> 0919331d8110df841b5339128722254200b636e6
+
                 </div>
             </article>
         </div>
