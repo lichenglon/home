@@ -54,7 +54,7 @@ class HouseController extends BaseController {
 		//$Search = $request->Search ? $request->Search : '%';
 		if ($request->_token)
 		{
-			$objData = $houseMsg->where('house_keyword','like','%'.$house_keyword.'%')
+			$objData = $houseMsg->where('house_name','like','%'.$house_keyword.'%')
 					->where('state','like','%'.$state.'%')
 					->where('house_type','like','%'.$house_type.'%')
 					->where('house_location','like','%'.$house_location.'%')

@@ -53,12 +53,12 @@
         <p class="bottom30">{{$houseMsg->house_location}}</p>
         <div id="property-d-1" class="owl-carousel">
           @foreach($imagesObj as $value)
-          <div class="item"><img height="523.34" src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image"></div>
+          <div class="item"><img height="523.34" src="{{HOUSE_SERVER_PATH}}uploads/{{$value->house_imagename}}" alt="image"></div>
           @endforeach
         </div>
         <div id="property-d-1-2" class="owl-carousel">
           @foreach($imagesObj as $value)
-          <div class="item" ><img width="140" height="97.69" src="http://www.admin.com/uploads/{{$value->house_imagename}}" alt="image"></div>
+          <div class="item" ><img width="140" height="97.69" src="{{HOUSE_SERVER_PATH}}uploads/{{$value->house_imagename}}" alt="image"></div>
           @endforeach
         </div>
         <div class="property_meta bg-black bottom40">

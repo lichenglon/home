@@ -57,8 +57,13 @@ class OrderController extends BaseController
             'order_remark'   => $data['order_remark'],
             'order_status'   => 1,
             'payment_type'   => 'crush',
+<<<<<<< HEAD
             //            'payment_amount'   => 'crush',
             //            'payment_time'   => 'crush',
+=======
+//            'payment_amount'   => 'crush',
+//            'payment_time'   => 'crush',
+>>>>>>> 0919331d8110df841b5339128722254200b636e6
             'rent_time'      => $data['rent_time'],
             'sign_time'      => strtotime($data['sign_time']),
         ];
@@ -299,12 +304,21 @@ class OrderController extends BaseController
 
 
         $result = DB::table('order')->where('order_id',$order_id)->delete();
+<<<<<<< HEAD
         /* if($result)
 		 {
 			 $uid = 1;
 			 $req = DB::table('order')->where('uid',$uid)->get();
 			 return redirect('order/orderList');
 		 }*/
+=======
+       /* if($result)
+        {
+            $uid = 1;
+            $req = DB::table('order')->where('uid',$uid)->get();
+            return redirect('order/orderList');
+        }*/
+>>>>>>> 0919331d8110df841b5339128722254200b636e6
         if($result){return '1';}else{return '0';}
     }
 
