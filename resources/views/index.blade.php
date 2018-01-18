@@ -174,7 +174,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span>@lang('index.index_Language')</span>
                 </a>
-                <ul class="dropdown-menu" style="margin-left:170px; margin-top:-1px;">
+                <ul class="dropdown-menu" style="margin-left:270px; margin-top:-1px;">
                     <li class="user-footer">
                         <div class="pull-left">
                             <a href="javascript:setLocale('zh_cn');" class="btn btn-default btn-flat">中文</a>
@@ -361,7 +361,7 @@
                                     $equipment = explode(',',$houseVal->house_facility);
                                 }
                                 ?>
-                                @if(isset($equipment[0])) <span>洗衣机</span> @endif
+                                @if(isset($equipment[0])) <span>@lang('include.include_washing')</span> @endif
                                 @if(isset($equipment[1])) <span>空调</span> @endif
                                 @if(isset($equipment[2])) <span>暖气</span> @endif
                                 @if(isset($equipment[3])) <span>床</span> @endif
@@ -378,7 +378,7 @@
                             <div class="favroute clearfix">
                                 <p class="pull-md-left">@lang('index.index_in') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                                 <ul class="pull-right">
-                                    <li><a href="#" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
+                                    <li><a href="#" title="我喜欢"><i class="icon-like"></i></a></li>
                                     <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                                 </ul>
                             </div>
@@ -422,7 +422,7 @@
                                     </a>
                                     <div class="favroute clearfix">
                                         <div class="property_meta">
-                                            <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}} 平方 英尺</span>
+                                            <span><i class="icon-select-an-objecto-tool"></i>{{$recommend->house_size}} @lang('index.index_feet')</span>
                                             <span><i class="icon-bed"></i>{{$recommend->house_structure}}</span>
                                             <span><i class="icon-briefcase2"></i>{{$recommend->payment_proportion}}</span>
                                             <span class="border-l">@lang('index.index_monthly'){{$recommend->house_price}}</span></div>

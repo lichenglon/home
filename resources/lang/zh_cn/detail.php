@@ -39,5 +39,5 @@ return [
 	'detail_google'=>'谷歌',
 	'detail_historic'=>'历史城镇',
 	'detail_45'=>'英国伦敦摄政街45号',
-
+	'detail_featured'=>'精选楼盘',
 ];

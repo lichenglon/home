@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers\User;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Input;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\App;
 
 
-class UserController extends Controller {
+class UserController extends BaseController {
 	/**
 	 *登陆页
 	 */

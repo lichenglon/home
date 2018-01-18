@@ -14,7 +14,6 @@
 
             <table>
                 <th>个人中心</th>
-                <span style="margin-left:300px; font-weight:600;" id="lang1">语言切换</span>
                 <tr>
                     <td>用户名：</td>
                     <td><input type="text" name="uname"  id="uname" placeholder="{{$arr->uname}}"></td>

@@ -13,9 +13,9 @@
 <!--Loader-->
 {{--程序载人动画效果--}}
 @include('public.publicLoaderCartoon')
- <!--Loader--> 
- 
- 
+ <!--Loader-->
+
+
 
 <!--Header-->
 {{--头部--}}
@@ -259,7 +259,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h3 class="margin40 bottom20">Featured Properties</h3>
+            <h3 class="margin40 bottom20">@lang('detail.detail_featured')</h3>
           </div>
           <div class="col-md-12">
             <div id="agent-2-slider" class="owl-carousel">

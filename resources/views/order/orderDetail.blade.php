@@ -198,20 +198,9 @@
     </div>
 
 <!--CopyRight-->
-<div class="copyright index2">
-    <div class="copyright_inner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <p>Copyright &copy; LEMON TEA<a target="_blank" href="http://www.17sucai.com/"></a></p>
-                </div>
-                <div class="col-md-5 text-right">
-                    <p> by <a href="#."></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+{{--引入公共js文件--}}
+@include('house.listingPublic.footer')
 
 {{--引入公共js文件--}}
 @include('public.publicHouseJs')

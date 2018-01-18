@@ -8,24 +8,6 @@
                 <div class="col-md-7 text-right">
                     @include('user.include.lang_include')
 
-
-                    @include('.user.include.lang_include')
-
-                    <ul class="breadcrumb_top text-right">
-                        <li><a href="@if(Session::get('userId')) {{url('house/like')}} @else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-icons43"></i>最爱</a></li>
-                        {{--<li><a href="#"><i class="icon-icons215"></i>提交属性</a></li>--}}
-                        <li><a href="{{url('error_page')}}"><i class="icon-icons215"></i>我的财产</a></li>
-                        <li>
-                            @if(!Session::get('userId'))
-                                <a href="{{url('user/login')}}"><i class="icon-icons179"></i>登陆 /</a>
-                            @else
-                                <a href="{{url('drop/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('确定要退出吗？'))return false">退出 /</a>
-                            @endif
-                            <a href="{{url('user/register')}}">注册</a>
-
-                        </li>
-                    </ul>
-
                 </div>
             </div>
         </div>

@@ -116,45 +116,45 @@
 
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">房源名称：</label>
+                        <label class="form-label col-xs-4 col-sm-2">@lang('order.order_name')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
                             <input type="text" class="input-text" value="{{ $result->house_name }}" disabled style="border:none;  background:none"/>
                         </div>
                     </div>
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">房源位置：</label>
+                        <label class="form-label col-xs-4 col-sm-2">@lang('order.order_location')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
                             <input type="text" class="input-text" value="{{ $result->house_location }}" disabled style="border:none; background:none" />
                         </div>
                     </div>
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">价格：</label>
+                        <label class="form-label col-xs-4 col-sm-2">@lang('order.order_price')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
                             $<input type="text" value="{{ $result->house_price }}" class="input-text"  disabled style="width:15%; border:none; background:none"/>
                         </div>
                     </div>
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客姓名：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_tenant')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" class="input-text" value="" placeholder="请填写租客姓名" id="order_location" name="name"/>
+                            <input type="text" class="input-text" value="" placeholder="@lang('order.order_tenant')" id="order_location" name="name"/>
                         </div>
                         <span id="order_locationMsg"></span>
                     </div>
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客手机号码：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_number')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" class="input-text" value="" placeholder="请填写租客手机号码" maxlength="255" id="order_location" name="tel"/>
+                            <input type="text" class="input-text" value="" placeholder="@lang('order.order_number')" maxlength="255" id="order_location" name="tel"/>
                         </div>
                         <span id="order_locationMsg"></span>
                     </div>
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客身份证：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_card')：</label>
                         <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
-                            <div class="">正面照</div>
+                            <div class="">@lang('order.order_front')</div>
                             <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                                 <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
                                     <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
@@ -162,15 +162,15 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择照片</span>
-                                        <span class="fileinput-exists">换一张</span>
+                                        <span class="fileinput-new">@lang('order.order_photos')</span>
+                                        <span class="fileinput-exists">@lang('order.order_one')</span>
                                         <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                     {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
 
-                            <div class="">反面照</div>
+                            <div class="">@lang('order.order_reverse')</div>
                             <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                                 <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
                                     <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
@@ -178,8 +178,8 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择照片</span>
-                                        <span class="fileinput-exists">换一张</span>
+                                        <span class="fileinput-new">@lang('order.order_photos')</span>
+                                        <span class="fileinput-exists">@lang('order.order_one')</span>
                                         <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                     {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
@@ -190,9 +190,9 @@
 
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客护照：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_passport')：</label>
                         <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
-                            <div class="">图片预览</div>
+                            <div class="">@lang('order.order_picture')</div>
                             <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                                 <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
                                     <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
@@ -200,8 +200,8 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择照片</span>
-                                        <span class="fileinput-exists">换一张</span>
+                                        <span class="fileinput-new">@lang('order.order_photos')</span>
+                                        <span class="fileinput-exists">@lang('order.order_one')</span>
                                         <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                         {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
@@ -211,9 +211,9 @@
                     </div>
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租客学生证：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_id')：</label>
                         <div class="formControls col-xs-8 col-sm-9 form-group" id="uploadForm" enctype='multipart/form-data'>
-                            <div class="">学生证照片</div>
+                            <div class="">@lang('order.order_photo')</div>
                             <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                                 <div class="fileinput-new thumbnail" style="width: 200px;height:auto;max-height:150px;">
                                     <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
@@ -221,8 +221,8 @@
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                     <span class="btn btn-primary btn-file">
-                                        <span class="fileinput-new">选择照片</span>
-                                        <span class="fileinput-exists">换一张</span>
+                                        <span class="fileinput-new">@lang('order.order_photos')</span>
+                                        <span class="fileinput-exists">@lang('order.order_one')</span>
                                         <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
                                     </span>
                                     {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
@@ -232,27 +232,27 @@
                     </div>
 
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>租期：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_lease')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" name="rent_time" id="rent_time" placeholder="" value=""  min="1" class="input-text" style="width:10%;"> 周
+                            <input type="text" name="rent_time" id="rent_time" placeholder="" value=""  min="1" class="input-text" style="width:10%;"> @lang('order.order_weeks')
                         </div>
                     </div>
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>签约时间：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_time')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
                             <input type="text" name="sign_time" id="sign_time" class="input-text Wdate"/>
                         </div>
                     </div>
                     <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>备注：</label>
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_note')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
                             <textarea name="order_remark" class="input-text" style="width:30%; height:300%;"></textarea>
                         </div>
                     </div>
                     <div class="row cl">
                         <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                            <button class="btn btn-primary radius" type="submit" id="verification">下一步</button>
-                            <a href="javascript:window.history.go(-1);"><button class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button></a>
+                            <button class="btn btn-primary radius" type="submit" id="verification">@lang('order.order_step')</button>
+                            <a href="javascript:window.history.go(-1);"><button class="btn btn-default radius" type="button">&nbsp;&nbsp;@lang('order.order_cancel')&nbsp;&nbsp;</button></a>
                         </div>
                     </div>
                 </form>
