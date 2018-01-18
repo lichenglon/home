@@ -1,2 +1,2 @@
 <?php
-define('HOUSE_SERVER_PATH','http://lang.com/');
+define('HOUSE_SERVER_PATH','http://www.admin.com/');
