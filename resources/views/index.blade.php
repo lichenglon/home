@@ -379,6 +379,7 @@
                                     $refrigerator = in_array('冰箱',$equipment);//冰箱
                                 }
                                 ?>
+
                                     @if($washing)
                                         <span style="display:inline-block; margin-right:5%;">@lang('include.include_washing')</span>&nbsp;
                                     @endif

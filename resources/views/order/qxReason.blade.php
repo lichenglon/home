@@ -7,16 +7,16 @@
 {{--<div style="border: 1px solid black;padding:20px; height:400px;">--}}
 <table style="position:relative">
     <form action="{{url('order/orderCancel')}}" type="post">
-        <div><font style="font-size: 14px;">请选择取消原因：</font></div><br/>
+        <div><font style="font-size: 14px;">@lang('order.order_choose')：</font></div><br/>
         <input type="hidden" id="order_id" value="{{$order_id}}"/>
         <select name="qx_reason" id="qx_reason" style="width:150px">
-            <option value="1">审核时间太长</option>
-            <option value="2">不喜欢这套房子了</option>
-            <option value="3">房子不合适</option>
-            <option value="4">其他原因</option>
+            <option value="1">@lang('order.order_too')</option>
+            <option value="2">@lang('order.order_like')</option>
+            <option value="3">@lang('order.order_not')</option>
+            <option value="4">@lang('order.order_reasons')</option>
         </select>
         <br/><br/><br/><br/><br/>
-        <input id="btnClose" type="button" value="提交" onClick="fun('{{$order_id}}')" />
+        <input id="btnClose" type="button" value="@lang('order.order_submit')" onClick="fun('{{$order_id}}')" />
 
     </form>
 </table>

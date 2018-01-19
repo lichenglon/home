@@ -13,24 +13,24 @@
         <form action="{{url('user/renewal')}}" method="post">
 
             <table>
-                <th>个人中心</th>
+                <th>@lang('user.user_personal')</th>
                 <tr>
-                    <td>用户名：</td>
+                    <td>@lang('user.user_name')：</td>
                     <td><input type="text" name="uname"  id="uname" placeholder="{{$arr->uname}}"></td>
                     <td><span id="unameMsg" class="ok"></span></td>
                 </tr>
                 <tr>
-                    <td>邮箱：</td>
+                    <td>@lang('user.user_mailbox')：</td>
                     <td><input type="text" name="email" id="email" placeholder=" {{$arr->email}}"></td>
                     <td><span id="emailMsg"></span></td>
                 </tr>
                 <tr>
-                    <td>手机号码：</td>
+                    <td>@lang('user.user_cell')：</td>
                     <td><input type="text" name="phone" id="phone" placeholder="{{$arr->phone}}"></td>
                     <td><span id="phoneMsg"></span></td>
                 </tr>
                 <tr>
-                    <td>姓名：</td>
+                    <td>@lang('user.user_compellation')：</td>
                     <td><input type="text" name="user" id="userName" placeholder="{{$arr->user}}"></td>
                     <td><span  id="userNameMsg"></span></td>
                 </tr>
@@ -39,7 +39,7 @@
                     <td colspan="2">
                         {{csrf_field()}}
                         <input type="hidden"  name="id" value="{{$arr->id}}">
-                        <input type="submit" value="更新" id="tjbtn">
+                        <input type="submit" value="@lang('user.user_update')" id="tjbtn">
                     </td>
                 </tr>
             </table>

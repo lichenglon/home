@@ -27,28 +27,28 @@
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Browser: activate to sort column ascending" style="width: 100px;">
-                                    订单号
+                                    @lang('order.order_numbe')
                                 </th>
                                 <td class="sorting_1">{{ $result->order_no }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">
-                                    日期
+                                    @lang('order.order_date')
                                 </th>
                                 <td>{{ date('Y-m-d H:i:s',$result->creat_time) }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 120px;">
-                                    租客姓名
+                                    @lang('order.order_tenant')
                                 </th>
                                 <td>{{ $result->name }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 150px;">
-                                    身份证照片
+                                    @lang('order.order_identity')
                                 </th>
                                 <td>
                                     @if($result->renter_idcard1 != '')
@@ -69,7 +69,7 @@
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending"
                                     style="width: 140px;">
-                                    护照照片
+                                    @lang('order.order_passports')
                                 </th>
                                 <td>
                                     @if($result->renter_passport != '')
@@ -82,7 +82,7 @@
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Browser: activate to sort column ascending" style="width: 150px;">
-                                    学生证照片
+                                    @lang('order.order_photo')
                                 </th>
                                 <td>
                                     @if($result->stu_idcard != '')
@@ -95,21 +95,21 @@
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 322px;">
-                                    房子编号
+                                    @lang('order.order_house')
                                 </th>
                                 <td>{{ $result->serial_number }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 120px;">
-                                    房子名称
+                                    @lang('order.order_name')
                                 </th>
                                 <td>{{ $result->house_name }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 120px;">
-                                    房子位置
+                                    @lang('order.order_location')
                                 </th>
                                 <td>{{ $result->house_location }}</td>
                             </tr>
@@ -118,16 +118,16 @@
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending"
                                     style="width: 80px;">
-                                    房子价格
+                                    @lang('order.order_prices')
                                 </th>
-                                <td>$ {{ $result->house_price }}</td>
+                                <td>@lang('order.order_money') {{ $result->house_price }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Browser: activate to sort column ascending" style="width: 120px;">
-                                    租期
+                                    @lang('order.order_lease')
                                 </th>
-                                <td>{{ $result->rent_time }} 周</td>
+                                <td>{{ $result->rent_time }} @lang('order.order_weeks')</td>
                             </tr>
                             @if($result->order_status != '1')
                             @elseif($result->order_status == '9' && $result->qx_reason != '')
@@ -136,7 +136,7 @@
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending"
                                     style="width: 80px;">
-                                    支付方式
+                                    @lang('order.order_pattern')
                                 </th>
                                 <td>{{ $result->payment_type }}</td>
                             </tr><tr role="row">
@@ -144,7 +144,7 @@
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending"
                                     style="width: 80px;">
-                                    支付金额
+                                    @lang('order.order_payments')
                                 </th>
                                 <td>
                                     @if($result->payment_amount != '')$ {{ $result->payment_amount }}@endif
@@ -155,7 +155,7 @@
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending"
                                     style="width: 80px;">
-                                    支付货币
+                                    @lang('order.order_currency')
                                 </th>
                                 <td>
                                     @if($result->payment_currency_code != '')$ {{ $result->payment_currency_code }}@endif
@@ -166,7 +166,7 @@
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending"
                                     style="width: 80px;">
-                                    支付货率
+                                    @lang('order.order_goods')
                                 </th>
                                 <td>
                                     @if($result->payment_currency_rate != ''){{ $result->payment_currency_rate }} %@endif
@@ -179,23 +179,23 @@
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 150px;">
-                                    签约时间
+                                    @lang('order.order_time')
                                 </th>
                                 <td>{{ date('Y-m-d',$result->sign_time) }}</td>
                             </tr>
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 150px;">
-                                    签约地点
+                                    @lang('order.order_site')
                                 </th>
-                                <td>@if($result->sign_position !== ''){{ $result->sign_position }}@else 等待中介确定中@endif</td>
+                                <td>@if($result->sign_position !== ''){{ $result->sign_position }}@else @lang('order.order_be')@endif</td>
                             </tr>
                             @if($result->order_status != '7')
-
+                                @lang('order.order_contract')
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 111px;">
-                                    合同
+
                                 </th>
                                 <td>{{ $result->contract }}</td>
                             </tr>
@@ -203,7 +203,7 @@
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 111px;">
-                                    评价
+                                    @lang('order.order_evaluation')
                                 </th>
                                 <td>{{ $result->house_eva }}</td>
                             </tr>
@@ -212,7 +212,7 @@
                             <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">
-                                    订单状态
+                                    @lang('order.order_status')
                                 </th>
                                 <td>{{ $orderStatus[$result->order_status] }}</td>
                             </tr>
@@ -220,7 +220,7 @@
                                 <tr role="row">
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                         aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">
-                                        驳回原因
+                                        @lang('order.order_dismiss')
                                     </th>
                                     <td>{{ $result->reject_reason}}</td>
                                 </tr>
@@ -229,14 +229,14 @@
                             <tr role="row">
                                 <td class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending" style="width: 111px;">
-                                    <a href="{{ url('order/orderList') }}">返回订单列表</a>
+                                    <a href="{{ url('order/orderList') }}">@lang('order.order_list')</a>
                                 </td>
                                 @if($result->order_status == '1')
                                     <td>
-                                    <a href="{{ url('order/qrcode',['order_id'=>$result->order_id]) }}">点击去付款</a>
+                                    <a href="{{ url('order/qrcode',['order_id'=>$result->order_id]) }}">@lang('order.order_pay')</a>
                                     </td>
                                 @elseif($result->order_status == '9')
-                                    <td><a onclick="javascript:if(window.confirm('你确定要删除这个订单吗')){isDel('{{$result->order_id}}')}">删除订单</a></td>
+                                    <td><a onclick="javascript:if(window.confirm('@lang('order.order_sure')')){isDel('{{$result->order_id}}')}">@lang('order.order_delete')</a></td>
                                 @endif
                             </tr>
                             </thead>
@@ -270,9 +270,9 @@
             success: function(re){
                 if(re == '1'){
                     location.href="{{url('order/orderList')}}";
-                    alert('删除订单成功');
+                    alert('@lang('order.order_success')');
                 }else{
-                    alert('删除订单失败');
+                    alert('@lang('order.order_failed')');
                 }
             }
         })
