@@ -10,6 +10,8 @@ use App\Http\Controllers\BaseController;
 use App\Models\House_message;
 use App;
 use Illuminate\Support\Facades\Session;
+use DB;
+
 class IndexController extends BaseController{
 	/**
 	 *前台首台
@@ -24,12 +26,19 @@ class IndexController extends BaseController{
 				session(['lang' => $locale]);
 			}
 		}
+		//获取用户房源收藏记录
+		$userId = Session::get('userId');
+		if($userId){
+			$userLike = Db::table('user_house_collect')->where('user_id',$userId)->first();
+		}else{
+			$userLike = [];
+		}
 		//实例化
 		$houseMsg = new House_message();
 		//查最新数据9条
 		$houseObjData = $houseMsg->orderBy('msgid', 'desc')->paginate(9);
 		//显示模板并传值
-		return view('index', ['houseObjData' => $houseObjData]);
+		return view('index', ['houseObjData' => $houseObjData, 'userLike' => $userLike]);
 	}
 
 

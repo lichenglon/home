@@ -19,6 +19,7 @@ class CheckLang
 		if ($lang) {
 			App::setLocale($lang);
 		}else{
+			session(['lang'=>'en']);
 			App::setLocale('en');
 		}
 		return $next($request);
