@@ -110,9 +110,9 @@
 
                     <input type="hidden" name="house_no" value="{{ $result->serial_number }}"/>
                     <input type="hidden" name="house_id" value="{{ $result->msgid }}"/>
-                    {{--<input type="hidden" name="house_name" value="{{ $result->house_name }}" />--}}
-                    {{--<input type="hidden" name="house_location" value="{{ $result->house_location }}"/>--}}
-                    {{--<input type="hidden" name="house_price" value="{{ $result->house_price }}"/>--}}
+                    {{--<input type="hidden" name="house_name" value="{{ $result->house_name }}" />
+                    <input type="hidden" name="house_location" value="{{ $result->house_location }}"/>
+                    <input type="hidden" name="house_price" value="{{ $result->house_price }}"/>--}}
 
 
                     <div class="row cl">
