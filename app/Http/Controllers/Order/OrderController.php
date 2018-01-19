@@ -26,8 +26,14 @@ class OrderController extends BaseController
     public function orderAdd($house_no)
     {
         $uid = Session::get('userId');
-        $houseInfo = DB::table('house_message')->where('serial_number', $house_no)->first();
-        return view("Order/orderAdd", ['result' => $houseInfo, 'uid' => $uid]);
+        if(!empty($uid)){
+            $houseInfo = DB::table('house_message')->where('serial_number', $house_no)->first();
+            return view("Order/orderAdd", ['result' => $houseInfo, 'uid' => $uid]);
+        }else{
+            return redirect("user/login");
+        }
+        
+
     }
 
     //提交订单
@@ -92,7 +98,7 @@ class OrderController extends BaseController
     {
         $uid = Session::get('userId');
         $data = DB::table('order')->where('uid',$uid)->get();
-
+	    $orderStatus = DB::table('order_status')->get();
         foreach($data as $v){
             //将stdClass对象转换为数组
             $v =  json_decode( json_encode( $v),true);
@@ -104,7 +110,9 @@ class OrderController extends BaseController
             }
         }
         $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(8);
-        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus]);
+
+        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus]);
+
     }
 
     //查看订单详情
