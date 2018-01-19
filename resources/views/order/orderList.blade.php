@@ -53,7 +53,11 @@
                                     @elseif($val->order_status == '5')
                                         @lang('order.order_was')：{{$val->reject_reason}}
                                     @else
-
+                                        @foreach($order_status as $value)
+                                            @if($val->order_status == $value->id)
+                                                @if(Session::get('lang') == 'en'){{$value->en_order_status}}@else{{$value->order_status}}@endif
+                                            @endif
+                                        @endforeach
                                     @endif
                                 </td>
                                 <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look'])}}">@lang('order.order_view')</a></td>
@@ -66,7 +70,6 @@
 
                                         <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >@lang('order.order_cancels')</a>
 
-                                            <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >取消订单</a>
 
                                     @endif
                                 </td>
