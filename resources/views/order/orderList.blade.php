@@ -60,9 +60,14 @@
                                 {{--<td style="width:10%;"><a href="{{url('order/orderModify',['order_id'=>$val->order_id])}}">修改订单</a></td>--}}
                                 <td style="width:10%;">
                                     @if($val->order_status == '9')
+                                    @elseif($val->order_status == '1')
+                                            <a onclick="javascript:if(window.confirm('确定要取消订单吗？')){isCancel('{{$val->order_id}}')}">取消订单</a>
                                     @else
-                                        {{--<a onclick="javascript:if(window.confirm('确定要取消订单吗？')){isCancel('{{$val->order_id}}')}">取消订单</a>--}}
+
                                         <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >@lang('order.order_cancels')</a>
+
+                                            <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >取消订单</a>
+
                                     @endif
                                 </td>
 
@@ -109,14 +114,10 @@
         })
     }
 
-
-
     function qxReason(order_id){
         var order_id = order_id;
         window.open ("{{url('order/qxReason')}}"+'/'+order_id, 'newwindow', 'height=300, width=500, top=200,left=600, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')
     }
 </script>
-
-
 
 </html>
