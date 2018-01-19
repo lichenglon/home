@@ -212,51 +212,29 @@
         @include('public.publicAdvancedSearch')
         {{-----------------------结束-------------------------}}
 
-
-
-        //////有待更改
-
+        <div class="feature-p-text" style="padding-top:8%;">
+        <a style="display:inline-block; width:68%; height:50px; text-align:center;line-height:28px; font-weight:300; font-size:22px;" href="{{url('order/orderAdd',['house_no'=>$houseMsg->serial_number])}}">去下单</a>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <h3 class="bottom40 margin40">@lang('detail.detail_featured')</h3>
           </div>
         </div>
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
-              <a href="#.">$128,600</a>
+        @foreach($recommend as $recommendVal)
+          <div class="row bottom20">
+            <div class="col-md-4 col-sm-4 col-xs-6 p-image">
+              <a href="{{url('house/detail',['msgid'=>$recommendVal->msgid])}}"><img width="80" height="77.06" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommendVal->getImageOne($recommendVal->msgid)}}" alt="image"></a>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-6">
+              <div class="feature-p-text">
+                <h4><?php echo mb_substr($recommendVal->house_name, 0, 16, 'utf-8') ?><b>....</b></h4>
+                <p class="bottom15"><?php echo mb_substr($recommendVal->house_location, 0, 25, 'utf-8') ?><b>....</b></p>
+                <a href="{{url('house/detail',['msgid'=>$recommendVal->msgid])}}">$ {{$recommendVal->house_price}} @if(Session::get('lang') == 'en') {{ $recommendVal->en_price_currency }} @else {{ $recommendVal->price_currency }} @endif</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div>
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">45 Regent Street, London, UK</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div>
+        @endforeach
+
         <div class="row">
           <div class="col-md-12">
             <h3 class="margin40 bottom20">@lang('detail.detail_featured')</h3>

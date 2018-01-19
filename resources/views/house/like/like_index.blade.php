@@ -28,12 +28,12 @@
         a,img{border:0;}
 
         /* display */
-        ul.display{float:left;width:100%;padding:0;list-style:none;border-top:0px solid #333;border-right:0px solid #333;background:#778899;}
+        ul.display{float:left;width:100%;padding:0;list-style:none;border-top:0px solid #333;border-right:0px solid #333;background:#f8f8ff;}
         ul.display li{float:left;width:100%;padding:10px 0;border-top:0px solid #111;border-right:0px solid #111;border-bottom:1px solid #333;border-left:0px solid #333;}
-        ul.display li a{color:#e7ff61;text-decoration:none;}
+        ul.display li a{color:black;text-decoration:none;}
         ul.display li .content_block{padding:0 10px;}
         ul.display li .content_block h2{padding:5px;font-weight:normal;font-size:1.7em;}
-        ul.display li .content_block p{padding:5px 5px 5px 245px;font-size:1.2em;color:#fff;}
+        ul.display li .content_block p{padding:5px 5px 5px 245px;font-size:1.2em;color:black;}
         ul.display li .content_block a img{padding:5px;border:2px solid #ccc;background:#fff;margin:0 15px 0 0;float:left;}
         ul.thumb_view li{width:250px;}
         ul.thumb_view li h2{display:inline;}
@@ -53,8 +53,52 @@
             <div class="content_block">
                 <a href="{{url('house/detail',['msgid'=>$value->msgid])}}"><img width="229" height="134" src="{{HOUSE_SERVER_PATH}}/uploads/{{$value->getImageOne($value->msgid)}}" alt="Featured Partner"></a>
                 <h2><a href="{{url('house/detail',['msgid'=>$value->msgid])}}">{{$value->house_name}}</a></h2>
-                <h4>设备：</h4>
-                <p>{{$value->house_facility}}</p><i class="icon-like"></i><a href="javascript:if(confirm('亲！您确定要取消收藏我吗？')){javascript:delCollectHouse({{$value->msgid}})}">取消收藏</a>
+                <h4>@lang('user_like.Building_equipment')：</h4>
+                <p>
+                    <?php
+                    if(empty($value->house_facility)){
+                        $equipment = array();
+                        $washing = in_array('洗衣机',$equipment);//洗衣机
+                        $air = in_array('空调',$equipment);//空调
+                        $heating = in_array('暖气',$equipment);//暖气
+                        $bed = in_array('床',$equipment);//床
+                        $kitchen = in_array('厨房',$equipment);//厨房
+                        $closet = in_array('衣柜',$equipment);//衣柜
+                        $refrigerator = in_array('冰箱',$equipment);//冰箱
+                    }else{
+                        $equipment = explode(',',$value->house_facility);
+                        $washing = in_array('洗衣机',$equipment);//洗衣机
+                        $air = in_array('空调',$equipment);//空调
+                        $heating = in_array('暖气',$equipment);//暖气
+                        $bed = in_array('床',$equipment);//床
+                        $kitchen = in_array('厨房',$equipment);//厨房
+                        $closet = in_array('衣柜',$equipment);//衣柜
+                        $refrigerator = in_array('冰箱',$equipment);//冰箱
+                    }
+                    ?>
+                        @if($washing)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.machine')</span>&nbsp;
+                        @endif
+                        @if($air)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.conditioning')</span>&nbsp;
+                        @endif
+                        @if($heating)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.heating')</span>&nbsp;
+                        @endif
+                        @if($bed)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.bed')</span>&nbsp;
+                        @endif
+                        @if($kitchen)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.kitchen')</span>&nbsp;
+                        @endif
+                        @if($closet)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.wardrobe')</span>&nbsp;
+                        @endif
+                        @if($refrigerator)
+                            <span style="display:inline-block; margin-right:5%;">@lang('user_like.refrigerator')</span>&nbsp;
+                        @endif
+                </p>
+                <i class="icon-like"></i><a href="javascript:if(confirm('亲！您确定要取消收藏我吗？')){javascript:delCollectHouse({{$value->msgid}})}">@lang('user_like.Cancel_the_collection')</a>
             </div>
         </li>
     </ul>

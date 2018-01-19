@@ -26,8 +26,14 @@ class OrderController extends BaseController
     public function orderAdd($house_no)
     {
         $uid = Session::get('userId');
-        $houseInfo = DB::table('house_message')->where('serial_number', $house_no)->first();
-        return view("Order/orderAdd", ['result' => $houseInfo, 'uid' => $uid]);
+        if(!empty($uid)){
+            $houseInfo = DB::table('house_message')->where('serial_number', $house_no)->first();
+            return view("Order/orderAdd", ['result' => $houseInfo, 'uid' => $uid]);
+        }else{
+            return redirect("user/login");
+        }
+        
+
     }
 
     //提交订单

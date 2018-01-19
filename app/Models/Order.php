@@ -9,5 +9,4 @@ class Order extends Base
 {
 	protected $table = 'order';//房源信息表
 
-
 }

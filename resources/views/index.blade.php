@@ -142,7 +142,7 @@
 <div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
         <ul class="breadcrumb_top">
-            <li><a href="#"><i class="icon-icons43"></i>@lang('index.index_dearest')</a></li>
+            <li><a href="{{url('house/like')}}"><i class="icon-icons43"></i>@lang('index.index_dearest')</a></li>
             <li>
 
                 @if(Session::get('userId'))
@@ -194,7 +194,7 @@
                 <select name="state">
                     <option selected="" value="%">@lang('include.include_nation')</option>
                     @foreach($nationObject as $nationVal)
-                        <option selected="" value="{{$nationVal->chinese_n_name}}">{{$nationVal->chinese_n_name}}</option>
+                        <option selected="" value="{{$nationVal->chinese_n_name}}">@if(Session::get('lang') == 'en') {{$nationVal->english_n_name}} @else {{ $nationVal->chinese_n_name }} @endif</option>
                     @endforeach
                 </select>
             </div>
@@ -311,7 +311,6 @@
 </script>
 
 
-
 <!-- Gallery -->
 <section id="property" class="padding bg_gallery">
     <div class="container">
@@ -334,14 +333,30 @@
                                 <span class="tag pull-right">@lang('index.index_monthly'){{$houseVal->house_price}}</span>
                             </div>
                             <span class="tag_t">{{$houseVal->house_status}}</span>
-                            <span class="tag_l">{{$houseVal->house_structure}}</span>
+
+                            <span class="tag_l" style="background-color:#b0b0b0;">
+                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢">
+                                    <?php
+                                        if(!empty($userLike)){
+                                            $userLikeNum = explode(',',$userLike->house_id);
+                                        }else{
+                                            $userLikeNum = [];
+                                        }
+                                    ?>
+                                    @if(in_array($houseVal->msgid, $userLikeNum))
+                                            <img src="{{asset('home')}}/images/yesLike.png" alt="like">
+                                        @else
+                                            <img src="{{asset('home')}}/images/noLike.png" id="like_{{$houseVal->msgid}}" alt="like">
+                                    @endif
+                                </a>
+                            </span>
                         </div>
                         <div class="proerty_content">
                             <div class="proerty_text">
                                 <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,26,'utf-8');?></a></h4>
                                 <p><?php echo mb_substr($houseVal->house_location,0,33,'utf-8');?>.....</p>
                             </div>
-                            <div class="property_meta transparent">
+                            <div class="property_meta transparent" style="padding-left:10px;">
 
                                 <?php
                                 if(empty($houseVal->house_facility)){
@@ -364,25 +379,47 @@
                                     $refrigerator = in_array('冰箱',$equipment);//冰箱
                                 }
                                 ?>
-                                @if(isset($equipment[0])) <span>@lang('include.include_washing')</span> @endif
-                                @if(isset($equipment[1])) <span>空调</span> @endif
-                                @if(isset($equipment[2])) <span>暖气</span> @endif
-                                @if(isset($equipment[3])) <span>床</span> @endif
-                                @if(isset($equipment[4])) <span>厨房</span> @endif
-                                @if(isset($equipment[5])) <span>衣柜</span> @endif
-                                @if(isset($equipment[6])) <span>冰箱</span> @endif
 
+                                    @if($washing)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_washing')</span>&nbsp;
+                                    @endif
+                                    @if($air)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_air')</span>&nbsp;
+                                    @endif
+                                    @if($heating)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_heating')</span>&nbsp;
+                                    @endif
+                                    @if($bed)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_bed')</span>&nbsp;
+                                    @endif
+                                    @if($kitchen)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_cookhouse')</span>&nbsp;
+                                    @endif
+                                    @if($closet)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_wardrobe')</span>&nbsp;
+                                    @endif
+                                    @if($refrigerator)
+                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_refrigerator')</span>&nbsp;
+                                    @endif
 
                             </div>
+
                             <div class="property_meta transparent bottom30">
                                 <span><i class="icon-old-television"></i>@lang('index.index_tv')</span>
                                 <span><i class="icon-garage"></i>1 @lang('index.index_garage')</span>
                                 <span></span>
                             </div>
                             <div class="favroute clearfix">
-                                <p class="pull-md-left">@lang('index.index_in') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
+                                <?php
+                                $house_structure = explode(',', $houseVal->house_structure)
+                                ?>
+                                <p class="pull-md-left">
+                                    {{ $house_structure[0] }} @lang('listing.room')
+                                    {{ $house_structure[1] }} @lang('listing.hall')
+                                    {{ $house_structure[2] }} @lang('listing.kitchen')
+                                    {{ $house_structure[3] }} @lang('listing.toilet')
+                                </p>
                                 <ul class="pull-right">
-                                    <li><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
                                     <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                                 </ul>
                             </div>
@@ -419,10 +456,10 @@
                             </div>
                             <div class="listing_full_bg">
                                 <div class="listing_inner_full">
-                                    <span><a href="#"><i class="icon-like"></i></a></span>
-                                    <a href="property_detail.html">
-                                        <h4><?php echo mb_substr($recommend->house_name,0,17,'utf-8');?>.....</h4>
-                                        <p>{{$recommend->house_location}}</p>
+                                    <span><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-like"></i></a></span>
+                                    <a href="{{url('house/detail',['msgid'=>$recommend->msgid])}}">
+                                        <h4><?php echo mb_substr($recommend->house_name,0,17,'utf-8');?></h4>
+                                        <p><?php echo mb_substr($recommend->house_location,0,40,'utf-8');?>.....</p>
                                     </a>
                                     <div class="favroute clearfix">
                                         <div class="property_meta">
@@ -615,6 +652,7 @@
                 } else if (re == '0'){
                 alert('抱歉！收藏失败');
                 } else {
+                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
                 alert('收藏成功');
                 }
             }

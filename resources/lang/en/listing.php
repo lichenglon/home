@@ -19,5 +19,9 @@ return [
 	'listing_house'=>'Historic Town House',
 	'listing_45'=>'45 Regent Street, London, UK',
 
+	'room'                      => 'Room',                          //房
+	'hall'                      => 'Hall',                          //厅
+	'kitchen'                   => 'Kitchen',                       //厨
+	'toilet'                    => 'Toilet',                        //卫
 
 ];

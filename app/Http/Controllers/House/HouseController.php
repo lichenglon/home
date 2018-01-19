@@ -67,7 +67,15 @@ class HouseController extends BaseController {
 		{
 			$objData = $houseMsg->orderBy('msgid','desc')->paginate(6);
 		}
-		return view('house.listing', ['objData'=>$objData]);
+		//获取用户房源收藏记录
+		$userId = Session::get('userId');
+		if($userId){
+			$userLike = Db::table('user_house_collect')->where('user_id',$userId)->first();
+		}else{
+			$userLike = [];
+		}
+
+		return view('house.listing', ['objData'=>$objData, 'userLike' => $userLike,]);
 	}
 
 	/**
