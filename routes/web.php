@@ -76,13 +76,15 @@ Route::group(['prefix'=>'house'],function() {
 
 //用户提交订单，返给用户填写租户信息表
 Route::group(['prefix' => 'order'],function(){
-    $controller = 'Order\OrderController@';
-    #添加订单
-    Route::any('orderAdd/{house_no?}',$controller.'orderAdd');
-    #添加保存
-    Route::any('orderSave',$controller.'orderSave');
+	$controller = 'Order\OrderController@';
+	#添加订单
+	Route::any('orderAdd/{house_no?}',$controller.'orderAdd');
+	#添加保存
+	Route::any('orderSave',$controller.'orderSave');
 	#取消订单
-	Route::any('orderCancel/{order_id?}',$controller.'orderCancel');
+	Route::any('orderCancel',$controller.'orderCancel');
+	#取消订单原因
+	Route::any('qxReason/{order_id?}',$controller.'qxReason');
 	#删除订单
 	Route::any('orderDelete/{order_id?}',$controller.'orderDelete');
 	#修改订单

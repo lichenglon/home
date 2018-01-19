@@ -14,7 +14,7 @@ return [
 	'listing_lounge'=>'电视休息厅',
 	'listing_garage'=>'车库',
 	'listing_released'=>'发布于',
-	'listing_featured'=>'特征属性',
+	'listing_featured'=>'精选楼盘',
 	'listing_house'=>'历史城镇',
 	'listing_45'=>'英国伦敦摄政街45号',
 

@@ -33,13 +33,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1 class="text-uppercase">Blog classic</h1>
-                <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-                <ol class="breadcrumb text-center">
-                    <li><a href="{{asset('home')}}/#.">Home</a></li>
-                    <li><a href="{{asset('home')}}/#.">Properties</a></li>
-                    <li class="active">Blog</li>
-                </ol>
+                <h1 class="text-uppercase">@lang('news.news_chinese')</h1>
+                <p>@lang('news.news_select')</p>
             </div>
         </div>
     </div>
@@ -57,7 +52,7 @@
                     <div class="news-1-box clearfix">
                         <div class="col-md-5 col-sm-5 col-xs-12">
                             <div class="image-2">
-                                <a href="{{asset('home')}}/#"><img src="{{asset('home')}}/images/blog-1.jpg" alt="image" class="img-responsive"></a>
+                                <a href="https://www.sohu.com/a/211813723_99925321?qq-pf-to=pcqq.c2c"><img src="{{asset('home')}}/images/blog-1.jpg" alt="image" class="img-responsive"></a>
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-7 col-xs-12 padding-left-25">
@@ -125,8 +120,6 @@
                         <div class="col-md-7 col-sm-7 col-xs-12 padding-left-25">
                             <h3><a href="{{asset('home')}}/#">Easy your wat to the Global sotck</a></h3>
                             <div class="news-details padding-b-10 margin-t-5">
-                                <span><i class="icon-icons230"></i> by Martin Moore</span>
-                                <span><i class="icon-icons228"></i> August 22, 2017</span>
                             </div>
                             <p class="p-font-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin. Donec non odio neque. Aliquam hendrerit mi accumsan nec...</p>
                             <div class="pro-3-link padding-t-20">
@@ -191,15 +184,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row margin_bottom">
-                    <div class="col-md-12">
-                        <ul class="pager">
-                            <li><a href="{{asset('home')}}/#.">1</a></li>
-                            <li class="active"><a href="{{asset('home')}}/#.">2</a></li>
-                            <li><a href="{{asset('home')}}/#.">3</a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
             <aside class="col-md-4 col-xs-12">
@@ -207,38 +192,38 @@
                     <div class="col-md-12">
                         <form class="form-search bottom40" method="get" id="news-search" action="">
                             <div class="input-append">
-                                <input type="text" class="input-medium search-query" placeholder="Search Here" value="">
+                                <input type="text" class="input-medium search-query" placeholder="@lang('news.news_search')" value="">
                                 <button type="submit" class="add-on"><i class="icon-icons185"></i></button>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-12">
-                        <h3 class="bottom20">Categories</h3>
+                        <h3 class="bottom20">@lang('news.news_categories')</h3>
                         <ul class="pro-list bottom20">
                             <li>
-                                Air Conditioning
+                               @lang('news.news_air')
                             </li>
                             <li>
-                                Barbeque
+                                @lang('news.news_barbeque')
                             </li>
                             <li>
-                                Dryer
+                                @lang('news.news_dryer')
                             </li>
                             <li>
-                                Laundry
+                                @lang('news.news_laundry')
                             </li>
                             <li>
-                                Refrigerator
+                                @lang('news.news_refrigerator')
                             </li>
                             <li>
-                                Swimming Pool
+                                @lang('news.news_swimming')
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="bottom40 margin40">Featured Properties</h3>
+                        <h3 class="bottom40 margin40">@lang('news.news_featured')</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -274,9 +259,10 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="margin40 bottom20">Featured Properties</h3>
+                        <h3 class="margin40 bottom20">@lang('news.news_featured')</h3>
                     </div>
                     <div class="col-md-12 padding-t-30">
                         <div id="agent-2-slider" class="owl-carousel">
@@ -284,17 +270,8 @@
                                 <div class="property_item heading_space">
                                     <div class="image">
                                         <a href="{{asset('home')}}/#."><img src="{{asset('home')}}/images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                                        <div class="feature"><span class="tag-2">For Rent</span></div>
-                                        <div class="price clearfix"><span class="tag pull-right">$8,600 Per Month - <small>Family Home</small></span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="property_item heading_space">
-                                    <div class="image">
-                                        <a href="{{asset('home')}}/#."><img src="{{asset('home')}}/images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                                        <div class="feature"><span class="tag-2">For Rent</span></div>
-                                        <div class="price clearfix"><span class="tag pull-right">$8,600 Per Month - <small>Family Home</small></span></div>
+                                        <div class="feature"><span class="tag-2">@lang('news.news_for')</span></div>
+                                        <div class="price clearfix"><span class="tag pull-right">@lang('news.news_month') - <small>@lang('news.news_family')</small></span></div>
                                     </div>
                                 </div>
                             </div>

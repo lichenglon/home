@@ -157,19 +157,25 @@
 </body>
 
 <!--CopyRight-->
-<div class="copyright index2"  style="margin-top:150px">
-        <div class="copyright_inner">
-                <div class="container">
-                        <div class="row">
-                                <div class="col-md-7">
-                                        <p>Copyright &copy; LEMON TEA<a target="_blank" href="http://www.17sucai.com/"></a></p>
-                                </div>
-                                <div class="col-md-5 text-right">
-                                        <p> by <a href="#."></a></p>
-                                </div>
-                        </div>
-                </div>
-        </div>
-</div>
 
+
+
+<script>
+        function setLocale(lang){
+
+                $.ajax({
+                        url:"{{url('/')}}",
+                        data:'lang='+lang,
+                        type:'get',
+                        success:function () {
+                                location.reload();
+                        }
+                })
+        }
+</script>
+{{--<script src="{{asset('home')}}/js/jquery-2.1.4.js"></script>--}}
+@include('house.listingPublic.footer')
 </html>
+
+
+{{--引入公共js文件--}}
