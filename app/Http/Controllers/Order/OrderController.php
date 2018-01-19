@@ -98,6 +98,7 @@ class OrderController extends BaseController
     {
         $uid = Session::get('userId');
         $data = DB::table('order')->where('uid',$uid)->get();
+
         foreach($data as $v){
             //将stdClass对象转换为数组
             $v =  json_decode( json_encode( $v),true);
@@ -109,7 +110,7 @@ class OrderController extends BaseController
             }
         }
         $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(8);
-        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus]);
+        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'orderdata'=>$orderdata]);
     }
 
     //查看订单详情

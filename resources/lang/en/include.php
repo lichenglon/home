@@ -22,7 +22,7 @@ return [
 	'include_washing'=>'Washing',
 	'include_air'=>'Conditioner',
 	'include_heating'=>'Heating',
-	'include_bed'=>'Ded',
+	'include_bed'=>'Bed',
 	'include_cookhouse'=>'Cookhouse',
 	'include_wardrobe'=>'Wardrobe',
 	'include_refrigerator'=>'Refrigerator',

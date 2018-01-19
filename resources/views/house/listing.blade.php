@@ -19,9 +19,9 @@
 <!--Loader-->
 {{--程序载人动画效果--}}
 @include('public.publicLoaderCartoon')
- <!--Loader--> 
- 
- 
+ <!--Loader-->
+
+
 
 <!--Header-->
 {{--头部--}}
@@ -92,16 +92,34 @@
                   <span class="tag pull-right">@lang('listing.listing_month'){{$houseVal->house_price}}</span>
                 </div>
                 <span class="tag_t">{{$houseVal->house_status}}</span>
-                <span class="tag_l">{{$houseVal->house_structure}}</span>
+                <?php
+                $house_structure = explode(',', $houseVal->house_structure)
+                ?>
+                <span class="tag_l" style="background-color:#f0f1f2">
+                   <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢">
+                      <?php
+                        if(!empty($userLike)){
+                          $userLikeNum = explode(',',$userLike->house_id);
+                        }else{
+                         $userLikeNum = [];
+                        }
+                      ?>
+                      @if(in_array($houseVal->msgid, $userLikeNum))
+                          <i style="color:red;" class="icon-like"></i>
+                        @else
+                          <i style="color:#b0b0b0;" class="icon-like" id="like_{{$houseVal->msgid}}"></i>
+                       @endif
+                   </a>
+                </span>
               </div>
               <div class="proerty_content">
                 <div class="proerty_text">
-                  <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name, 0, 15, 'utf-8') ?></a>......</h4>
-                  <p>{{$houseVal->house_structure}}</p>
+                  <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name, 0, 28, 'utf-8') ?></a></h4>
+                  <p><?php echo mb_substr($houseVal->house_location, 0, 33, 'utf-8') ?> <b></b></p>
                   <br>
                   <span><i class="icon-select-an-objecto-tool"></i>{{$houseVal->house_size}} @lang('listing.listing_square')</span>
                 </div>
-                <div class="property_meta transparent">
+                <div class="property_meta transparent" style="padding-left:10px;">
 
                   <?php
                   if(empty($houseVal->house_facility)){
@@ -124,13 +142,27 @@
                     $refrigerator = in_array('冰箱',$equipment);//冰箱
                   }
                   ?>
-                  @if($washing) <span>@lang('include.include_washing')</span> @endif
-                  @if($air) <span>@lang('include.include_air')</span> @endif
-                  @if($heating) <span>@lang('include.include_heating')</span> @endif
-                  @if($bed) <span>@lang('include.include_bed')</span> @endif
-                  @if($kitchen) <span>@lang('include.include_cookhouse')</span> @endif
-                  @if($closet) <span>@lang('include.include_wardrobe')</span> @endif
-                  @if($refrigerator) <span>@lang('include.include_refrigerator')</span> @endif
+                    @if($washing)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_washing')</span>&nbsp;
+                    @endif
+                    @if($air)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_air')</span>&nbsp;
+                    @endif
+                    @if($heating)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_heating')</span>&nbsp;
+                    @endif
+                    @if($bed)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_bed')</span>&nbsp;
+                    @endif
+                    @if($kitchen)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_cookhouse')</span>&nbsp;
+                    @endif
+                    @if($closet)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_wardrobe')</span>&nbsp;
+                    @endif
+                    @if($refrigerator)
+                      <span style="display:inline-block; margin-right:5%;">@lang('include.include_refrigerator')</span>&nbsp;
+                    @endif
 
                 </div>
                 <div class="property_meta transparent bottom30">
@@ -139,9 +171,16 @@
                   <span></span>
                 </div>
                 <div class="favroute clearfix">
-                  <p class="pull-md-left">@lang('listing.listing_released') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
+                  <?php
+                  $house_structure = explode(',', $houseVal->house_structure)
+                  ?>
+                  <p class="pull-md-left">
+                    {{ $house_structure[0] }} @lang('listing.room')
+                    {{ $house_structure[1] }} @lang('listing.hall')
+                    {{ $house_structure[2] }} @lang('listing.kitchen')
+                    {{ $house_structure[3] }} @lang('listing.toilet')
+                  </p>
                   <ul class="pull-right">
-                    <li><a href="#" title="想要"><i class="icon-like"></i></a></li>
                     <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                   </ul>
                 </div>
@@ -173,44 +212,21 @@
             <h3 class="bottom40 margin40">@lang('listing.listing_featured')</h3>
           </div>
         </div>
+        @foreach($recommend as $recommendVal)
+        <div class="row bottom20">
+          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
+            <a href="{{url('house/detail',['msgid'=>$recommendVal->msgid])}}"><img width="80" height="77.06" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommendVal->getImageOne($recommendVal->msgid)}}" alt="image"></a>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-6">
+            <div class="feature-p-text">
+              <h4><?php echo mb_substr($recommendVal->house_name, 0, 16, 'utf-8') ?><b>....</b></h4>
+              <p class="bottom15"><?php echo mb_substr($recommendVal->house_location, 0, 25, 'utf-8') ?><b>....</b></p>
+              <a href="{{url('house/detail',['msgid'=>$recommendVal->msgid])}}">$ {{$recommendVal->house_price}} @if(Session::get('lang') == 'en') {{ $recommendVal->en_price_currency }} @else {{ $recommendVal->price_currency }} @endif</a>
+            </div>
+          </div>
+        </div>
+        @endforeach
 
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>@lang('listing.listing_house')</h4>
-              <p class="bottom15">@lang('listing.listing_45')</p>
-              <a href="javascript:void (0);">$128,600</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>@lang('listing.listing_house')</h4>
-              <p class="bottom15">@lang('listing.listing_45')</p>
-              <a href="javascript:void (0);">$128,600</a>
-            </div>
-          </div>
-        </div>
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="{{asset('home')}}/images/f-p-1.png" alt="image">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>@lang('listing.listing_house')</h4>
-              <p class="bottom15">@lang('listing.listing_45')</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col-md-12">
@@ -224,7 +240,20 @@
                   <div class="image">
                     <a href="{{url('house/detail',['msgid'=>$Featured->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$Featured->getImageOne($Featured->msgid)}}" alt="listin" class="img-responsive"></a>
                     <div class="feature"><span class="tag-2">{{$Featured->house_status}}</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">@lang('listing.listing_month'){{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
+                    <div class="price clearfix">
+                      <span class="tag pull-right">
+                        @lang('listing.listing_month'){{$Featured->house_price}} -
+                        <small>
+                          <?php
+                          $house_structure = explode(',', $houseVal->house_structure)
+                          ?>
+                            {{ $house_structure[0] }} @lang('listing.room')
+                            {{ $house_structure[1] }} @lang('listing.hall')
+                            {{ $house_structure[2] }} @lang('listing.kitchen')
+                            {{ $house_structure[3] }} @lang('listing.toilet')
+                        </small>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -246,7 +275,25 @@
 @include('house.listingPublic.footer')
 {{--引入公共js文件--}}
 @include('public.publicHouseJs')
-
+<script>
+  function houseLikeAdd(houseMsgId,userId) {
+    $.ajax({
+      url:"{{url('house/houseLikeAdd')}}",
+      data:'house_id='+houseMsgId+'&userId='+userId,
+      type:'get',
+      success:function (re) {
+        if(re == '1'){
+          alert('亲！您已收藏过此房源');
+        } else if (re == '0'){
+          alert('抱歉！收藏失败');
+        } else {
+          $('#like_'+houseMsgId).css('color', 'red');
+          alert('收藏成功');
+        }
+      }
+    })
+  }
+</script>
 </body>
 </html>
 

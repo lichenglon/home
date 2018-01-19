@@ -19,5 +19,8 @@ return [
 	'listing_45'=>'英国伦敦摄政街45号',
 
 
-
+	'room'                      => '房',
+	'hall'                      => '厅',
+	'kitchen'                   => '厨',
+	'toilet'                    => '卫',
 ];
