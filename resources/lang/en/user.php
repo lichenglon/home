@@ -22,7 +22,7 @@ return [
 	'user_please'=>'Please enter your login account',
 	'user_password'=>'Login password',
 	'user_enter'=>'Please enter your login password',
-	'user_verification'=>'Verification code',
+	'user_verification'=>'code',
 	'user_authentication'=>'Please enter your authentication password',
 
 

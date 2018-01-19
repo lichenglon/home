@@ -143,15 +143,15 @@
         <div class="demo">
 
 
-                <h3>付款成功！页面即将跳转</h3>
+                <h3>@lang('order.order_successful')</h3>
 
-                <p>请扫描下方二维码进行支付</p>
+                <p>@lang('order.order_scan')</p>
                 <p>
                         <!-- <input type="hidden" class="input" id="mytxt" value="">  -->
                         <!-- <input type="button" id="sub_btn" value="提交"> -->
                 </p>
                 <div id="code"></div>
-                <p><a href="{{url('order/orderList')}}">放弃本次交易</a></p>
+                <p><a href="{{url('order/orderList')}}">@lang('order.order_transaction')</a></p>
         </div>
 </div>
 </body>

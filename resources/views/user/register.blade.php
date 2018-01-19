@@ -13,43 +13,43 @@
 			<form action="{{url('user/save')}}" method="post">
 
 			<table>
-			<th>新用户注册</th>
-			<th id="entera"><a href="{{url('user/login')}}">直接登录</a></th>
+			<th>@lang('user.user_new')</th>
+			<th id="entera"><a href="{{url('user/login')}}">@lang('user.user_direct')</a></th>
 				<tr>
-					<td>用户名：</td>
-					<td><input type="text" name="uname" id="uname" placeholder="请输入您的用户名"></td>
+					<td>@lang('user.user_user')：</td>
+					<td><input type="text" name="uname" id="uname" placeholder="@lang('user.user_username')"></td>
 					<td><span id="unameMsg" class="ok"></span></td>
 				</tr>
 				<tr>
-					<td>登录密码：</td>
-					<td><input type="password" name="upwd" id="upwd" placeholder="请输入您的密码"></td>
+					<td>@lang('user.user_password')：</td>
+					<td><input type="password" name="upwd" id="upwd" placeholder="@lang('user.user_your')"></td>
 					<td><span id="upwdMsg" class="ok"></span></td>
 				</tr>
 				<tr>
-					<td>确认密码：</td>
-					<td><input type="password" placeholder="请输入您的密码" id="upwds"></td>
+					<td>@lang('user.user_confirm')：</td>
+					<td><input type="password" placeholder="@lang('user.user_your')" id="upwds"></td>
 					<td><span id="upwdsMsg"></span></td>
 				</tr>
 				<tr>
-					<td>邮箱：</td>
-					<td><input type="text" name="email" id="email" placeholder=" 请输入您的邮箱地址"></td>
+					<td>@lang('user.user_mailbox')：</td>
+					<td><input type="text" name="email" id="email" placeholder=" @lang('user.user_address')"></td>
 					<td><span id="emailMsg"></span></td>
 				</tr>
 				<tr>
-					<td>手机号码：</td>
-					<td><input type="text" name="phone" id="phone" placeholder="请输入您的手机号码"></td>
+					<td>@lang('user.user_phone')：</td>
+					<td><input type="text" name="phone" id="phone" placeholder="@lang('user.user_mobile')"></td>
 					<td><span id="phoneMsg"></span></td>
 				</tr>
 				<tr>
-					<td>姓名：</td>
-					<td><input type="text" name="user" id="userName" placeholder="请输入您的真实姓名"></td>
+					<td>@lang('user.user_compellation')：</td>
+					<td><input type="text" name="user" id="userName" placeholder="@lang('user.user_real')"></td>
 					<td><span  id="userNameMsg"></span></td>
 				</tr>
 				<tr>
 				<td></td>
 					<td colspan="2">
 						{{csrf_field()}}
-						<input type="submit" value="注册" id="tjbtn">
+						<input type="submit" value="@lang('user.user_register')" id="tjbtn">
 					</td>
 				</tr>
 			</table>

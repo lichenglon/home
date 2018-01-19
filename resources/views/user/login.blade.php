@@ -17,27 +17,27 @@
 
    <table></table>
 
-		<h3>登录</h3>
+		<h3>@lang('user.user_login')</h3>
 	<ul type="none">
 		<li>
-            用户账户<span id="unameMsg" class=""></span><a href="{{url('user/register')}}">注册账户</a>
-            <input type="text" name="uname" id="uname" placeholder="请输入您的登录账户">
+            @lang('user.user_the')<span id="unameMsg" class=""></span><a href="{{url('user/register')}}">@lang('user.user_registered')</a>
+            <input type="text" name="uname" id="uname" placeholder="@lang('user.user_please')">
 
 		</li>
 		<li>
-            登录密码<span id="upwdMsg" class=""></span><!-- <a href="#">忘记密码？</a> -->
-            <input type="password" name="upwd" id="upwd" placeholder="请输入您的登录密码">
+            @lang('user.user_password')<span id="upwdMsg" class=""></span><!-- <a href="#">忘记密码？</a> -->
+            <input type="password" name="upwd" id="upwd" placeholder="@lang('user.user_enter')">
 
 		</li>
         <li style="display:inline-block;width:100%; height: 60px;">
-            验证码
-            <input type="text" name="code" id="yzm" placeholder="请输入您的验证码" style="width: 240px;">
+            @lang('user.user_verification')
+            <input type="text" name="code" id="yzm" placeholder="@lang('user.user_authentication')" style="width: 240px;">
             <span style="display:inline-block;float:right"><img style="display:inline-block" onclick="reloadcode();" src="{{url('KitController/captcha/1')}}" id="safecode"/></span>
         </li>
 
         <li>
             {{csrf_field()}}
-            <input type="submit" value="登录" id="tjbtn">
+            <input type="submit" value="@lang('user.user_login')" id="tjbtn">
             @if (session('message'))
                 <div class="alert alert-success">
                     {{ session('message') }}

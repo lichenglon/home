@@ -26,13 +26,13 @@
                     <table class="table table-border table-bordered table-bg table-hover table-sort" style="margin:0px">
                         <thead>
                         <tr class="text-c" id="theader">
-                            <th width="20%">订单号</th>
-                            <th width="10%">时间</th>
-                            <th width="20%">房子名称</th>
-                            <th width="5%">房子价格</th>
-                            <th width="5%">租期</th>
-                            <th width="10%">订单状态</th>
-                            <th width="30%" colspan="3">操作</th>
+                            <th width="20%">@lang('order.order_numbe')</th>
+                            <th width="10%">@lang('order.order_times')</th>
+                            <th width="20%">@lang('order.order_name')</th>
+                            <th width="5%">@lang('order.order_prices')</th>
+                            <th width="5%">@lang('order.order_lease')</th>
+                            <th width="10%">@lang('order.order_status')</th>
+                            <th width="30%" colspan="3">@lang('order.order_operation')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,27 +42,27 @@
                                 <td style="width:10%;">{{ date('Y-m-d H:i:s',$val->creat_time) }}</td>
                                 <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->house_name }} </a></td>
                                 <td style="width:5%;">{{ $val->house_price }}</td>
-                                <td style="width:5%;">{{ $val->rent_time }} 周</td>
+                                <td style="width:5%;">{{ $val->rent_time }} @lang('order.order_weeks')</td>
                                 <td style="width:10%;">
                                     @if($val->order_status == '1')
-                                        <a href="{{ url('order/qrcode',['order_id'=>$val->order_id]) }}">去付款</a>
+                                        <a href="{{ url('order/qrcode',['order_id'=>$val->order_id]) }}">@lang('order.order_payment')</a>
                                     @elseif($val->order_status == '9' && $val->qx_reason == '')
-                                        订单已自动取消
+                                        @lang('order.order_has')
                                     @elseif($val->order_status == '9' && $val->qx_reason != '')
-                                        订单已取消
+                                        @lang('order.order_cancelled')
                                     @elseif($val->order_status == '5')
-                                        订单驳回，驳回原因：{{$val->reject_reason}}
+                                        @lang('order.order_was')：{{$val->reject_reason}}
                                     @else
-                                        {{ $orderStatus[$val->order_status] }}
+
                                     @endif
                                 </td>
-                                <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look'])}}">查看订单</a></td>
+                                <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look'])}}">@lang('order.order_view')</a></td>
                                 {{--<td style="width:10%;"><a href="{{url('order/orderModify',['order_id'=>$val->order_id])}}">修改订单</a></td>--}}
                                 <td style="width:10%;">
                                     @if($val->order_status == '9')
                                     @else
                                         {{--<a onclick="javascript:if(window.confirm('确定要取消订单吗？')){isCancel('{{$val->order_id}}')}">取消订单</a>--}}
-                                        <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >取消订单</a>
+                                        <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >@lang('order.order_cancels')</a>
                                     @endif
                                 </td>
 
@@ -85,8 +85,7 @@
 </div>
 
 
-
-{{--引入公共js文件--}}
+<!--CopyRight-->
 @include('house.listingPublic.footer')
 
 {{--引入公共js文件--}}

@@ -59,6 +59,8 @@ class OrderController extends BaseController
             'payment_type'   => 'crush',
             //            'payment_amount'   => 'crush',
             //            'payment_time'   => 'crush',
+//            'payment_amount'   => 'crush',
+//            'payment_time'   => 'crush',
             'rent_time'      => $data['rent_time'],
             'sign_time'      => strtotime($data['sign_time']),
         ];
@@ -104,6 +106,8 @@ class OrderController extends BaseController
     {
         $uid = Session::get('userId');
         $data = DB::table('order')->where('uid',$uid)->get();
+        $orderdata = DB::table('order_status')->get();
+
         foreach($data as $v)
         {
             //将stdClass对象转换为数组
@@ -117,7 +121,7 @@ class OrderController extends BaseController
         }
 
         $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(8);
-        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus]);
+        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'orderdata'=>$orderdata]);
     }
 
     //查看订单详情
@@ -305,6 +309,12 @@ class OrderController extends BaseController
 			 $req = DB::table('order')->where('uid',$uid)->get();
 			 return redirect('order/orderList');
 		 }*/
+       /* if($result)
+        {
+            $uid = 1;
+            $req = DB::table('order')->where('uid',$uid)->get();
+            return redirect('order/orderList');
+        }*/
         if($result){return '1';}else{return '0';}
     }
 

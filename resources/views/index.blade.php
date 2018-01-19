@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,17 +37,12 @@
 <body>
 
 
-<!--Loader-->
-{{--程序载人动画效果--}}
 <div class="loader">
     <div class="span">
         <div class="location_indicator"></div>
     </div>
 </div>
-<!--Loader-->
 
-<!--Slider-->
-{{-------------------------------------轮播开始------------------------------------------}}
 <div class="rev_slider_wrapper">
     <div id="rev_overlaped" class="rev_slider"  data-version="5.0">
         <ul>
@@ -105,13 +101,6 @@
         </ul>
     </div>
 </div>
-<!--Slider ends-->
-{{-------------------------------------轮播结束------------------------------------------}}
-
-{{--var_dump(\Illuminate\Support\Facades\Session::get('userId'));
---}}
-<!--Header-->
-{{--导航--}}
 
 <div id="mainMenuBarAnchor"></div>
 <header class="white_header">
@@ -338,7 +327,7 @@
                 <div class="cbp-item latest sale">
                     <div class="property_item">
                         <div class="image">
-                            <div class="content-width" >
+                            <div class="content-width">
                                 <a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$houseVal->getImageOne($houseVal->msgid)}}" alt="latest property" class="img-responsive"></a>
                             </div>
                             <div class="price clearfix">
@@ -349,16 +338,30 @@
                         </div>
                         <div class="proerty_content">
                             <div class="proerty_text">
-                                <h3 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}">{{$houseVal->house_name}}</a></h3>
-                                <p>{{$houseVal->house_location}}</p>
+                                <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,26,'utf-8');?></a></h4>
+                                <p><?php echo mb_substr($houseVal->house_location,0,33,'utf-8');?>.....</p>
                             </div>
                             <div class="property_meta transparent">
 
                                 <?php
                                 if(empty($houseVal->house_facility)){
                                     $equipment = array();
+                                    $washing = in_array('洗衣机',$equipment);//洗衣机
+                                    $air = in_array('空调',$equipment);//空调
+                                    $heating = in_array('暖气',$equipment);//暖气
+                                    $bed = in_array('床',$equipment);//床
+                                    $kitchen = in_array('厨房',$equipment);//厨房
+                                    $closet = in_array('衣柜',$equipment);//衣柜
+                                    $refrigerator = in_array('冰箱',$equipment);//冰箱
                                 }else{
                                     $equipment = explode(',',$houseVal->house_facility);
+                                    $washing = in_array('洗衣机',$equipment);//洗衣机
+                                    $air = in_array('空调',$equipment);//空调
+                                    $heating = in_array('暖气',$equipment);//暖气
+                                    $bed = in_array('床',$equipment);//床
+                                    $kitchen = in_array('厨房',$equipment);//厨房
+                                    $closet = in_array('衣柜',$equipment);//衣柜
+                                    $refrigerator = in_array('冰箱',$equipment);//冰箱
                                 }
                                 ?>
                                 @if(isset($equipment[0])) <span>@lang('include.include_washing')</span> @endif
@@ -369,6 +372,7 @@
                                 @if(isset($equipment[5])) <span>衣柜</span> @endif
                                 @if(isset($equipment[6])) <span>冰箱</span> @endif
 
+
                             </div>
                             <div class="property_meta transparent bottom30">
                                 <span><i class="icon-old-television"></i>@lang('index.index_tv')</span>
@@ -378,7 +382,7 @@
                             <div class="favroute clearfix">
                                 <p class="pull-md-left">@lang('index.index_in') &nbsp; <i class="icon-calendar2"></i>&nbsp; {{$houseVal->house_rise}}</p>
                                 <ul class="pull-right">
-                                    <li><a href="#" title="我喜欢"><i class="icon-like"></i></a></li>
+                                    <li><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢"><i class="icon-like"></i></a></li>
                                     <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
                                 </ul>
                             </div>
@@ -410,14 +414,14 @@
                     <div class="item">
                         <div class="listing_full">
                             <div class="image">
-                                <img alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
+                                <img width="555" height="387.27" alt="image" src="{{HOUSE_SERVER_PATH}}uploads/{{$recommend->getImageOne($recommend->msgid)}}">
                                 <span class="tag_t">{{$recommend->house_status}}</span>
                             </div>
                             <div class="listing_full_bg">
                                 <div class="listing_inner_full">
                                     <span><a href="#"><i class="icon-like"></i></a></span>
                                     <a href="property_detail.html">
-                                        <h3>{{$recommend->house_name}}</h3>
+                                        <h4><?php echo mb_substr($recommend->house_name,0,17,'utf-8');?>.....</h4>
                                         <p>{{$recommend->house_location}}</p>
                                     </a>
                                     <div class="favroute clearfix">
@@ -599,6 +603,24 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
+    <script>
+    function houseLikeAdd(houseMsgId,userId) {
+        $.ajax({
+                url:"{{url('house/houseLikeAdd')}}",
+                data:'house_id='+houseMsgId+'&userId='+userId,
+                type:'get',
+                success:function (re) {
+            if(re == '1'){
+                alert('亲！您已收藏过此房源');
+                } else if (re == '0'){
+                alert('抱歉！收藏失败');
+                } else {
+                alert('收藏成功');
+                }
+            }
+        })
+    }
+    </script>
 
 @include('user.include.ajax_include')
 </body>
