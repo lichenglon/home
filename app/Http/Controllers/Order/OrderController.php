@@ -33,6 +33,9 @@ class OrderController extends BaseController
     //提交订单
     public function orderSave(Request $request)
     {
+       /* var_dump($_REQUEST);
+        exit();*/
+
         $data = Input::all();
         $file1 = $request->file('pic1');//身份证1
         $file11 = $request->file('pic11');//身份证2

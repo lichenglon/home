@@ -105,7 +105,8 @@
 
 
             <div class="page-container">
-                <form action="{{url('order/orderSave')}}" method="post" id="SUBMIT" class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
+                {{--//{{url('order/orderSave')}}--}}
+                <form action="" method="post" id="SUBMIT"  class="form form-horizontal" id="form-article-add" name="myForm" onsubmit="javascript:return check()" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <input type="hidden" name="house_no" value="{{ $result->serial_number }}"/>
@@ -114,11 +115,10 @@
                     <input type="hidden" name="house_location" value="{{ $result->house_location }}"/>
                     <input type="hidden" name="house_price" value="{{ $result->house_price }}"/>--}}
 
-
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">@lang('order.order_name')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" class="input-text" value="{{ $result->house_name }}" disabled style="border:none;  background:none"/>
+                            <input type="text" class="input-text" value="{{ $result->house_name }}" disabled style="border:none;  background:none" required="required"/>
                         </div>
                     </div>
                     <div class="row cl">
@@ -138,7 +138,7 @@
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_tenant')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" class="input-text" value="" placeholder="@lang('order.order_tenant')" id="order_location" name="name"/>
+                            <input type="text" class="input-text" value="" placeholder="@lang('order.order_tenant')" onsubmit="javascript:chkName(this.value)" name="name" required="required"/>
                         </div>
                         <span id="order_locationMsg"></span>
                     </div>
@@ -146,7 +146,7 @@
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_number')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" class="input-text" value="" placeholder="@lang('order.order_number')" maxlength="255" id="order_location" name="tel"/>
+                            <input type="text" class="input-text" value="" placeholder="@lang('order.order_number')" onsubmit="javascript:chkMobile(this.value)" name="tel" required="required"/>
                         </div>
                         <span id="order_locationMsg"></span>
                     </div>
@@ -164,9 +164,8 @@
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">@lang('order.order_photos')</span>
                                         <span class="fileinput-exists">@lang('order.order_one')</span>
-                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                     </span>
-                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
 
@@ -180,9 +179,8 @@
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">@lang('order.order_photos')</span>
                                         <span class="fileinput-exists">@lang('order.order_one')</span>
-                                        <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                     </span>
-                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -202,9 +200,8 @@
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">@lang('order.order_photos')</span>
                                         <span class="fileinput-exists">@lang('order.order_one')</span>
-                                        <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                     </span>
-                                        {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -223,9 +220,8 @@
                                     <span class="btn btn-primary btn-file">
                                         <span class="fileinput-new">@lang('order.order_photos')</span>
                                         <span class="fileinput-exists">@lang('order.order_one')</span>
-                                        <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png"/>
+                                        <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                     </span>
-                                    {{--<a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -234,13 +230,13 @@
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_lease')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:45%;">
-                            <input type="text" name="rent_time" id="rent_time" placeholder="" value=""  min="1" class="input-text" style="width:10%;"> @lang('order.order_weeks')
+                            <input type="text" name="rent_time" id="rent_time" placeholder="" value="" onblur="javascript:isNum(this.value)" min="1" class="input-text" style="width:10%;" required="required"> @lang('order.order_weeks')
                         </div>
                     </div>
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>@lang('order.order_time')：</label>
                         <div class="formControls col-xs-8 col-sm-9" style="width:15%;">
-                            <input type="text" name="sign_time" id="sign_time" class="input-text Wdate"/>
+                            <input type="text" name="sign_time" id="sign_time" class="input-text Wdate" required="required"/>
                         </div>
                     </div>
                     <div class="row cl">
@@ -251,7 +247,7 @@
                     </div>
                     <div class="row cl">
                         <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                            <button class="btn btn-primary radius" type="submit" id="verification">@lang('order.order_step')</button>
+                            <button class="btn btn-primary radius" type="submit"  id="verification">@lang('order.order_step')</button>
                             <a href="javascript:window.history.go(-1);"><button class="btn btn-default radius" type="button">&nbsp;&nbsp;@lang('order.order_cancel')&nbsp;&nbsp;</button></a>
                         </div>
                     </div>
@@ -275,39 +271,36 @@
 <script type="text/javascript" src="{{asset('order/laydate/laydate.js')}}"></script>
 <script type="text/javascript" src="{{asset('order/js/bootstrap-fileinput.js')}}"></script>
 
-<script>
+
+<script type="text/javascript">
+    function check(){
+        if(myForm.submit){
+            //([\u4e00-\u9fa5]{2,7})中文
+            if(!(/^[A-Za-z][A-Za-z\s]*[A-Za-z]$/.test(myForm.name.value))){
+                alert('Please enter the correct name');
+                return false;
+            }else if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(myForm.tel.value))){
+                //alert("请输入正确的手机号码");
+                alert("Please enter the correct phone number");
+                return false;
+            }else if(!(/^\+?[1-9][0-9]*$/.test(myForm.rent_time.value))){
+                //alert("请输入正确的租期");
+                alert("Please enter the correct lease term");
+                return false;
+            }else{
+                /*//window.location.href="http://{{--{{url('order/orderSave')}}--}}";*/
+                myForm.action = "{{url('order/orderSave')}}";
+            }
+        }
+    }
+
+
     //常规用法 日期
     laydate.render({
         elem: '#sign_time'
     });
-</script>
-<script type="text/javascript">
-    $(function () {
-        //租客护照
-        $('#uploadSubmit').click(function () {
-            var data = new FormData($('#uploadForm')[0]);
-            $.ajax({
-                url: 'xxx/xxx',
-                type: 'POST',
-                data: data,
-                async: false,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    console.log(data);
-                    if(data.status){
-                        console.log('upload success');
-                    }else{
-                        console.log(data.message);
-                    }
-                },
-                error: function (data) {
-                    console.log(data.status);
-                }
-            });
-        });
-    })
+
+
 </script>
 
 
