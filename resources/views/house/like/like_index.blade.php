@@ -46,7 +46,7 @@
 <body>
 @include('house.listingPublic.header')
 <div class="container" style="margin-top:1%; margin-bottom:1%;">
-    @if($arr)
+    @if($arr[0])
         @foreach($arr as $value)
     <ul class="display" id="ul_{{$value->msgid}}">
         <li>
@@ -98,7 +98,7 @@
                             <span style="display:inline-block; margin-right:5%;">@lang('user_like.refrigerator')</span>&nbsp;
                         @endif
                 </p>
-                <i class="icon-like"></i><a href="javascript:if(confirm('亲！您确定要取消收藏我吗？')){javascript:delCollectHouse({{$value->msgid}})}">@lang('user_like.Cancel_the_collection')</a>
+                <img src="{{asset('home')}}/images/yesLike.png" alt="like"><a href="javascript:if(confirm('亲！您确定要取消收藏我吗？')){javascript:delCollectHouse({{$value->msgid}})}">@lang('user_like.Cancel_the_collection')</a>
             </div>
         </li>
     </ul>
@@ -108,8 +108,8 @@
         <li>
             <div class="content_block">
                 <a href="http://www.17sucai.com/"><img width="229" height="134" src="{{asset('home')}}/images/logo1.png" alt="Featured Partner"></a>
-                <h2><a href="http://www.17sucai.com/">没有</a></h2>
-                <p>阿斯金'，jehosephat来pudneer，SAM-地狱，在感叹。客舱税吏咒语，chitlins吐口水'看着'hootch我正确可接受。女人在唱歌'，去年揭掉狗，响尾蛇熙山楂炖mobilehome拖车车道乱射'工作。</p>
+                <h2><a href="http://www.17sucai.com/">Pro! </a></h2>
+                <p>You haven't collected any listings yet.</p>
             </div>
         </li>
     </ul>
