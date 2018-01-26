@@ -3,8 +3,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <title>Home</title>
+    <script src="{{asset('home')}}/js/jquery-2.1.4.js"></script>
+    <script src="{{asset('home')}}/js/bootstrap.min.js"></script>
+    <script src="{{asset('home')}}/js/jquery.appear.js"></script>
+    <script src="{{asset('home')}}/js/jquery-countTo.js"></script>
+    <script src="{{asset('home')}}/js/bootsnav.js"></script>
+    <script src="{{asset('home')}}/js/masonry.pkgd.min.js"></script>
+    <script src="{{asset('home')}}/js/jquery.parallax-1.1.3.js"></script>
+    <script src="{{asset('home')}}/js/jquery.cubeportfolio.min.js"></script>
+    <script src="{{asset('home')}}/js/range-Slider.min.js"></script>
+    <script src="{{asset('home')}}/js/owl.carousel.min.js"></script>
+    <script src="{{asset('home')}}/js/selectbox-0.2.min.js"></script>
+    <script src="{{asset('home')}}/js/zelect.js"></script>
+    <script src="{{asset('home')}}/js/jquery.fancybox.js"></script>
+    <script src="{{asset('home')}}/js/jquery.themepunch.tools.min.js"></script>
+    <script src="{{asset('home')}}/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="{{asset('home')}}/js/revolution.extension.actions.min.js"></script>
+    <script src="{{asset('home')}}/js/revolution.extension.layeranimation.min.js"></script>
+    <script src="{{asset('home')}}/js/revolution.extension.navigation.min.js"></script>
+    <script src="{{asset('home')}}/js/revolution.extension.parallax.min.js"></script>
+    <script src="{{asset('home')}}/js/revolution.extension.slideanims.min.js"></script>
+    <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
+    <script src="{{asset('home')}}/js/custom.js"></script>
+    <script src="{{asset('home')}}/js/functions.js"></script>
+
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/reality-icon.css">
@@ -344,7 +367,7 @@
                                     ?>
                                     @if(in_array($houseVal->msgid, $userLikeNum))
                                             <img src="{{asset('home')}}/images/yesLike.png" alt="like">
-                                        @else
+                                    @else
                                             <img src="{{asset('home')}}/images/noLike.png" class="like_{{$houseVal->msgid}}" alt="like">
                                     @endif
                                 </a>
@@ -626,51 +649,50 @@
     @include('user.include.bottom_include')
 </footer>
 
-<script src="{{asset('home')}}/js/jquery-2.1.4.js"></script>
-<script src="{{asset('home')}}/js/bootstrap.min.js"></script>
-<script src="{{asset('home')}}/js/jquery.appear.js"></script>
-<script src="{{asset('home')}}/js/jquery-countTo.js"></script>
-<script src="{{asset('home')}}/js/bootsnav.js"></script>
-<script src="{{asset('home')}}/js/masonry.pkgd.min.js"></script>
-<script src="{{asset('home')}}/js/jquery.parallax-1.1.3.js"></script>
-<script src="{{asset('home')}}/js/jquery.cubeportfolio.min.js"></script>
-<script src="{{asset('home')}}/js/range-Slider.min.js"></script>
-<script src="{{asset('home')}}/js/owl.carousel.min.js"></script>
-<script src="{{asset('home')}}/js/selectbox-0.2.min.js"></script>
-<script src="{{asset('home')}}/js/zelect.js"></script>
-<script src="{{asset('home')}}/js/jquery.fancybox.js"></script>
-<script src="{{asset('home')}}/js/jquery.themepunch.tools.min.js"></script>
-<script src="{{asset('home')}}/js/jquery.themepunch.revolution.min.js"></script>
-<script src="{{asset('home')}}/js/revolution.extension.actions.min.js"></script>
-<script src="{{asset('home')}}/js/revolution.extension.layeranimation.min.js"></script>
-<script src="{{asset('home')}}/js/revolution.extension.navigation.min.js"></script>
-<script src="{{asset('home')}}/js/revolution.extension.parallax.min.js"></script>
-<script src="{{asset('home')}}/js/revolution.extension.slideanims.min.js"></script>
-<script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
-<script src="{{asset('home')}}/js/custom.js"></script>
-<script src="{{asset('home')}}/js/functions.js"></script>
+
 <script>
+
+    function setLocale(lang){
+
+        $.ajax({
+            url:"{{url('/')}}",
+            data:'lang='+lang,
+            type:'get',
+            success:function () {
+                location.reload();
+            }
+        })
+    }
+
+
+
     function houseLikeAdd(houseMsgId,userId) {
+
         $.ajax({
             url:"{{url('house/houseLikeAdd')}}",
             data:'house_id='+houseMsgId+'&userId='+userId,
             type:'get',
             success:function (re) {
+
                 if(re == '1'){
                     alert('@lang('index.index_pro')');
                 } else if (re == '0'){
                     alert('@lang('index.index_sorry')');
                 } else {
-                    $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
+                    $('.like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
                     alert('@lang('index.index_success')');
                 }
             }
         })
     }
-</script>
 
-@include('user.include.ajax_include')
+
+</script>
 </body>
+
 </html>
+
+
+
 
 
