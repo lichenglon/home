@@ -28,7 +28,22 @@ class OrderController extends BaseController
         $uid = Session::get('userId');
         if(!empty($uid)){
             $houseInfo = DB::table('house_message')->where('serial_number', $house_no)->first();
-            return view("Order/orderAdd", ['result' => $houseInfo, 'uid' => $uid]);
+
+            //计算订金并返回
+            $v =  json_decode( json_encode( $houseInfo),true);
+            $pay_amount = (int)'';
+            if(!empty($v['payment_proportion'])){
+                $money1 = (int)substr($v['payment_proportion'],0);
+                $money2 = (int)substr($v['payment_proportion'],2);
+                $pay_amount = (int)($money1*$v['house_price']+$money2*$v['house_price'])*8.98;
+            }
+            //房型
+            if(!empty($v['house_structure'])){
+                $num1 = (int)substr($v['house_structure'],0);
+                $num2 = (int)substr($v['house_structure'],2);
+                $house_structure = $num1.'室'.$num2.'厅';
+            }
+            return view("Order/orderAdd", ['result' => $houseInfo,'payment_amount'=>$pay_amount,'house_structure'=>$house_structure, 'uid' => $uid]);
         }else{
             return redirect("user/login");
         }
@@ -39,58 +54,96 @@ class OrderController extends BaseController
     //提交订单
     public function orderSave(Request $request)
     {
-       /* var_dump($_REQUEST);
-        exit();*/
 
         $data = Input::all();
         $file1 = $request->file('pic1');//身份证1
-        $file11 = $request->file('pic11');//身份证2
-        $file2 = $request->file('pic2');//护照
-        $file3 = $request->file('pic3');//学生证
+        $file2 = $request->file('pic11');//身份证2
+        $file3 = $request->file('pic2');//护照
+        $file4 = $request->file('pic3');//学生证
+
         $time = time();
-        $order_no = 'zhongjie'.$time.$data['house_no'];
+        $order_no = 'zhongjie'.$time.$_REQUEST['house_no'];//中介唯一标识码+时间+房源编号
         $uid = Session::get('userId');
+
+
+        //订单信息
         $order_data = [
 
-            'uid'            => $uid,
-            'order_no'       => $order_no,
-            'creat_time'     => $time,
-            'house_id'       => $data['house_id'],
-            'tel'            => $data['tel'],
-            'name'           => $data['name'],
-            'order_remark'   => $data['order_remark'],
-            'order_status'   => 1,
-            'payment_type'   => 'crush',
-            //'payment_amount'   => 'crush',
+            'uid'              => $uid,
+            'order_no'         => $order_no,
+            'creat_time'       => $time,
+            'house_id'         => $data['house_id'],
+            'tel'              => $data['tel'],
+            'name'             => $data['name'],
+            'order_remark'     => $data['order_remark'],
+            'order_status'     => 1,
+            'payment_type'     => 'crush',
+            //'payment_amount' => 'crush',
             //'payment_time'   => 'crush',
-            //'payment_amount'   => 'crush',
+            //'payment_amount' => 'crush',
             //'payment_time'   => 'crush',
-            'rent_time'      => $data['rent_time'],
-            'sign_time'      => strtotime($data['sign_time']),
+            'rent_time'        => $data['rent_time'],
+            'sign_time'        => strtotime($data['sign_time']),
         ];
+
+        //租客信息
+        $renter = [
+
+            'fname'        => $data['fname'],
+            'lname'        => $data['lname'],
+            'email'        => $data['email'],
+            'tel'          => $data['tel'],
+            'name'         => $data['name'],
+            'wechat'       => $data['wechat'],
+            'qq'           => $data['qq'],
+            'university'   => $data['university'],
+            'course'       => $data['course'],
+            'dob'          => $data['dob'],
+            'nationality'  => $data['nationality'],
+            'address'      => $data['address'],
+            'postcode'     => $data['postcode'],
+            'r_name'       => $data['r_name'],
+            'relationship' => $data['relationship'],
+            'r_tel'       => $data['r_tel'],
+            'gender'       => $data['gender']
+        ];
+
+
+        //身份证正面
         if(!empty($file1)){
             $renter_idcard1 = $file1->store('','uploads');
             $order_data['renter_idcard1'] = $renter_idcard1;
+            $renter['renter_idcard1'] = $renter_idcard1;
         }
-        if(!empty($file11)){
-            $renter_idcard2 = $file11->store('','uploads');
-            $order_data['renter_idcard2'] = $renter_idcard2;
-        }
+        //身份证反面
         if(!empty($file2)){
-            $renter_passport = $file2->store('','uploads');
-            $order_data['renter_passport'] = $renter_passport;
+            $renter_idcard2 = $file2->store('','uploads');
+            $order_data['renter_idcard2'] = $renter_idcard2;
+            $renter['renter_idcard2'] = $renter_idcard2;
         }
-
+        //护照
         if(!empty($file3)){
-            $renter_stucard = $file3->store('','uploads');
+            $renter_passport = $file3->store('','uploads');
+            $order_data['renter_passport'] = $renter_passport;
+            $renter['renter_passport'] = $renter_passport;
+        }
+        //学生证
+        if(!empty($file4)){
+            $renter_stucard = $file4->store('','uploads');
             $order_data['stu_idcard'] = $renter_stucard;
+            $renter['stu_idcard'] = $renter_stucard;
         }
 
         $result = DB::table('order')->insert($order_data);
-        if($result){
-            $order_id = DB::table('order')->where('order_no', $order_no)->value('order_id');
+        $insert = DB::table('renter')->insert($renter);
+        if($result && $insert){
+            $order_id = DB::table('order')->where('order_no', $order_no)->value('id');
             return view('order.qrcode',['order_id'=>$order_id]);
         }
+    }
+
+    public function pay(){
+        return view('order.pay');
     }
 
     //订单列表
@@ -105,23 +158,25 @@ class OrderController extends BaseController
             $t = time();
             if($v['order_status'] == '1'){
                 if($t - $v['creat_time'] >= 1800){
-                    DB::table('order')->where('order_id',$v['order_id'])->update(['order_status'=>'9']);
+                    DB::table('order')->where('id',$v['id'])->update(['order_status'=>'9']);
                 }
             }
         }
         $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(8);
+
         return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus]);
+
     }
 
     //查看订单详情
     public function orderDetail($order_id,$ac)
     {
         if($ac == 'look'){
-            $result = DB::table('order')->where('order_id', $order_id)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->first();
+            $result = DB::table('order')->where('id', $order_id)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->first();
             return view('order.orderDetail', ['result' => $result, 'orderStatus' => $this->orderStatus]);
         }elseif($ac == 'payok'){
-            $up_sta = DB::table('order')->where('order_id', $order_id)->update(['order_status'=>'2']);
-            $result = DB::table('order')->where('order_id', $order_id)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->first();
+            $up_sta = DB::table('order')->where('id', $order_id)->update(['order_status'=>'2']);
+            $result = DB::table('order')->where('id', $order_id)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->first();
             return view('order.orderDetail', ['result' => $result, 'orderStatus' => $this->orderStatus]);
         }
 
@@ -222,10 +277,10 @@ class OrderController extends BaseController
         $order_id = $_REQUEST['order_id'];
         $qx_reason = isset($_REQUEST['qx_reason']) ? $_REQUEST['qx_reason'] : '';
         if($qx_reason == ''){
-            $result = DB::table('order')->where('order_id',$order_id)->update(['order_status'=>'9']);
+            $result = DB::table('order')->where('id',$order_id)->update(['order_status'=>'9']);
             if($result){return '1';}else{return '0';}
         }else{
-            $re = DB::table('order')->where('order_id',$order_id)->update(['qx_reason'=>$qx_reason,'order_status'=>'9']);
+            $re = DB::table('order')->where('id',$order_id)->update(['qx_reason'=>$qx_reason,'order_status'=>'9']);
         }
     }
 
@@ -239,15 +294,15 @@ class OrderController extends BaseController
     public function orderDelete()
     {
         $order_id = (int)$_REQUEST['order_id'];
-        $img1 = DB::table('order')->where('order_id',$order_id)->value('renter_idcard1');
-        $img2 = DB::table('order')->where('order_id',$order_id)->value('renter_idcard2');
-        $img3 = DB::table('order')->where('order_id',$order_id)->value('renter_passport');
-        $img4 = DB::table('order')->where('order_id',$order_id)->value('stu_idcard');
+        $img1 = DB::table('order')->where('id',$order_id)->value('renter_idcard1');
+        $img2 = DB::table('order')->where('id',$order_id)->value('renter_idcard2');
+        $img3 = DB::table('order')->where('id',$order_id)->value('renter_passport');
+        $img4 = DB::table('order')->where('id',$order_id)->value('stu_idcard');
         if(!empty($img1)){@unlink('./uploads/'.$img1);}
         if(!empty($img2)){@unlink('./uploads/'.$img2);}
         if(!empty($img3)){@unlink('./uploads/'.$img3);}
         if(!empty($img4)){@unlink('./uploads/'.$img4);}
-        $result = DB::table('order')->where('order_id',$order_id)->delete();
+        $result = DB::table('order')->where('id',$order_id)->delete();
         if($result){return '1';}else{return '0';}
     }
 

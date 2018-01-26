@@ -652,8 +652,9 @@
                 } else if (re == '0'){
                 alert('@lang('index.index_sorry')');
                 } else {
-                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
                 alert('@lang('index.index_success')');
+                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
+                alert('收藏成功');
                 }
             }
         })

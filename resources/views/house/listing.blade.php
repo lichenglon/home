@@ -95,21 +95,21 @@
                 <?php
                 $house_structure = explode(',', $houseVal->house_structure)
                 ?>
-                <span class="tag_l" style="background-color:#f0f1f2">
-                   <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢">
-                      <?php
-                        if(!empty($userLike)){
-                          $userLikeNum = explode(',',$userLike->house_id);
-                        }else{
-                         $userLikeNum = [];
-                        }
-                      ?>
-                      @if(in_array($houseVal->msgid, $userLikeNum))
-                          <i style="color:red;" class="icon-like"></i>
-                        @else
-                          <i style="color:#b0b0b0;" class="icon-like" id="like_{{$houseVal->msgid}}"></i>
-                       @endif
-                   </a>
+                <span class="tag_l" style="background-color:#b0b0b0;">
+                  <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢">
+                    <?php
+                      if(!empty($userLike)){
+                        $userLikeNum = explode(',',$userLike->house_id);
+                      }else{
+                        $userLikeNum = [];
+                      }
+                    ?>
+                    @if(in_array($houseVal->msgid, $userLikeNum))
+                        <img src="{{asset('home')}}/images/yesLike.png" alt="like">
+                      @else
+                        <img src="{{asset('home')}}/images/noLike.png" id="like_{{$houseVal->msgid}}" alt="like">
+                    @endif
+                  </a>
                 </span>
               </div>
               <div class="proerty_content">
@@ -287,8 +287,11 @@
         } else if (re == '0'){
           alert('@lang('index.index_sorry')');
         } else {
+
           $('#like_'+houseMsgId).css('color', 'red');
           alert('@lang('index.index_success')');
+          $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
+          alert('收藏成功');
         }
       }
     })

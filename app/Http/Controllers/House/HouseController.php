@@ -115,10 +115,16 @@ class HouseController extends BaseController {
 			}
 			else
 			{
-				$updateHouseId = $initialize->house_id.','.$houseId;
-				$user_house_collect->where('user_id',$userId)->update(['house_id'=>$updateHouseId]);
-				return '2';//收藏成功
-				exit();
+				if(!empty($initialize->house_id)){
+					$updateHouseId = $initialize->house_id.','.$houseId;
+					$user_house_collect->where('user_id',$userId)->update(['house_id'=>$updateHouseId]);
+					return '2';//收藏成功
+					exit();
+				}else{
+					$user_house_collect->where('user_id',$userId)->update(['house_id'=>$houseId]);
+					return '2';//收藏成功
+					exit();
+				}
 			}
 		}
 		else

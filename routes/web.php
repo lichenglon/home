@@ -83,6 +83,9 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('orderAdd/{house_no?}',$controller.'orderAdd');
 	#添加保存
 	Route::any('orderSave',$controller.'orderSave');
+	#支付
+	Route::any('pay',$controller.'pay');
+
 	#取消订单
 	Route::any('orderCancel',$controller.'orderCancel');
 	#取消订单原因
