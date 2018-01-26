@@ -119,7 +119,7 @@
                   <br>
                   <span><i class="icon-select-an-objecto-tool"></i>{{$houseVal->house_size}} @lang('listing.listing_square')</span>
                 </div>
-                <div class="property_meta transparent" style="padding-left:10px;">
+                <div class="property_meta transparent" style="padding-left:10px; height:75px;">
 
                   <?php
                   if(empty($houseVal->house_facility)){
