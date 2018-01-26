@@ -652,7 +652,7 @@
                 } else if (re == '0'){
                 alert('抱歉！收藏失败');
                 } else {
-                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
+                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
                 alert('收藏成功');
                 }
             }

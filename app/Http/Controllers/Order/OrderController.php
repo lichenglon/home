@@ -163,7 +163,9 @@ class OrderController extends BaseController
             }
         }
         $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(8);
+
         return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus]);
+
     }
 
     //查看订单详情
