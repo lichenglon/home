@@ -42,7 +42,7 @@
 				</tr>
 				<tr>
 					<td>@lang('user.user_compellation')：</td>
-					<td><input type="text" name="user" id="userName" placeholder="@lang('user.user_real')"></td>
+					<td><input type="text" name="user" id="username" placeholder="@lang('user.user_real')"></td>
 					<td><span  id="userNameMsg"></span></td>
 				</tr>
 				<tr>
@@ -62,7 +62,7 @@
 	<script type="text/javascript">
 		/*鼠标失去焦点验证用户名是否重复*/
 	$('#uname').blur(function(){
-		var username = $('#uname').val();
+		var username = $('#uname').html('lalalal');
 	 $.ajax({
 	   type: "POST",
 	   url: "{{url('user/registerData')}}",

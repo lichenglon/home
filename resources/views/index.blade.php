@@ -649,27 +649,25 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
-    <script>
+<script>
     function houseLikeAdd(houseMsgId,userId) {
         $.ajax({
-                url:"{{url('house/houseLikeAdd')}}",
-                data:'house_id='+houseMsgId+'&userId='+userId,
-                type:'get',
-                success:function (re) {
-            if(re == '1'){
-                alert('@lang('index.index_pro')');
+            url:"{{url('house/houseLikeAdd')}}",
+            data:'house_id='+houseMsgId+'&userId='+userId,
+            type:'get',
+            success:function (re) {
+                if(re == '1'){
+                    alert('@lang('index.index_pro')');
                 } else if (re == '0'){
-                alert('@lang('index.index_sorry')');
+                    alert('@lang('index.index_sorry')');
                 } else {
-                alert('@lang('index.index_success')');
-                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
-                $('.like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
-                alert('收藏成功');
+                    $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
+                    alert('@lang('index.index_success')');
                 }
             }
         })
     }
-    </script>
+</script>
 
 @include('user.include.ajax_include')
 </body>
