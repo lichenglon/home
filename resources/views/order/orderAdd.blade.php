@@ -295,8 +295,7 @@
                 alert("Please enter the correct lease term");
                 return false;
             }else{
-                myForm.action = "{{url('order/pay')}}";
-                /*myForm.action = "{{--{{url('order/orderSave')}}--}}";*/
+                myForm.action = "{{url('order/orderSave')}}";
             }
         }
     }
