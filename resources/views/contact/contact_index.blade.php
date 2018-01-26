@@ -53,12 +53,11 @@
            
             	<div class="agent-p-contact">
                 	<div class="our-agent-box bottom30">
-                        <h2>get in touch</h2>
+                        <h2>@lang('include.contact_get')</h2>
                     </div>
                     <div class="agetn-contact-2 bottom30">
                       	 <p><i class="icon-telephone114"></i>0755-26929029</p>
                          <p><i class=" icon-icons142"></i>yuheng.zhang@foxmail.com</p>
-                         
                          <p><i class="icon-browser2"></i>www.ulzz.com</p>
                          <p><i class="icon-icons74"></i>@lang('include.contact_2308')</p>
                       </div>
@@ -75,22 +74,27 @@
                 	<div class="our-agent-box bottom30">
                         <h2>@lang('include.contact_send')</h2>
                     </div>
-                    
+                    @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     <div class="row">
-                      <form action="#" class="callus">
+                      <form action="{{url('contact/send')}}" method="post" class="callus">
                         <div class="col-md-12">
                           <div class="single-query form-group">
-                            <input type="text" placeholder="@lang('include.contact_name')" class="keyword-input">
+                            <input type="text" name="yourname" placeholder="@lang('include.contact_name')" class="keyword-input">
                             </div>
                             <div class="single-query form-group">
-                            <input type="text" placeholder="@lang('include.contact_number')" class="keyword-input">
+                            <input type="text" name="phonenumber" placeholder="@lang('include.contact_number')" class="keyword-input">
                           </div>
                           <div class="single-query form-group">
-                            <input type="text" placeholder="@lang('include.contact_Email')" class="keyword-input">
+                            <input type="text" name="email" placeholder="@lang('include.contact_Email')" class="keyword-input">
                           </div>
                           <div class="single-query form-group">
-                            <textarea placeholder="@lang('include.contact_massege')" class="form-control"></textarea>
+                            <textarea name="message" placeholder="@lang('include.contact_massege')" class="form-control"></textarea>
                           </div>
+                            {{csrf_field()}}
                           <input type="submit" value="@lang('include.contact_now')" class="btn-blue">
                           </div>
                       </form>
@@ -105,6 +109,7 @@
     </div>
   </div>
 </section>
+
 <!-- Contact End -->
 
 @include('house.listingPublic.footer')

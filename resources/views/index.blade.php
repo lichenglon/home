@@ -335,7 +335,7 @@
                             <span class="tag_t">{{$houseVal->house_status}}</span>
 
                             <span class="tag_l" style="background-color:#b0b0b0;">
-                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢">
+                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('@lang('index.index_first')')){location.href='{{url('user/login')}}'} @endif" title="@lang('index.index_like')">
                                     <?php
                                         if(!empty($userLike)){
                                             $userLikeNum = explode(',',$userLike->house_id);
@@ -420,7 +420,7 @@
                                     {{ $house_structure[3] }} @lang('listing.toilet')
                                 </p>
                                 <ul class="pull-right">
-                                    <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
+                                    <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="@lang('index.index_place')"><i class="icon-document-play"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -648,12 +648,12 @@
                 type:'get',
                 success:function (re) {
             if(re == '1'){
-                alert('亲！您已收藏过此房源');
+                alert('@lang('index.index_pro')');
                 } else if (re == '0'){
-                alert('抱歉！收藏失败');
+                alert('@lang('index.index_sorry')');
                 } else {
                 $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
-                alert('收藏成功');
+                alert('@lang('index.index_success')');
                 }
             }
         })

@@ -39,5 +39,8 @@ return [
 	'detail_featured'=>'Featured Properties',
 	'detail_historic'=>'Historic Town House',
 	'detail_45'=>'45 Regent Street, London, UK',
+	'detail_the'=>'by the month $',
+	'detail_place'=>'To place the order',
+
 
 ];

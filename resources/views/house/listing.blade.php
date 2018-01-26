@@ -283,12 +283,12 @@
       type:'get',
       success:function (re) {
         if(re == '1'){
-          alert('亲！您已收藏过此房源');
+          alert('@lang('index.index_pro')');
         } else if (re == '0'){
-          alert('抱歉！收藏失败');
+          alert('@lang('index.index_sorry')');
         } else {
           $('#like_'+houseMsgId).css('color', 'red');
-          alert('收藏成功');
+          alert('@lang('index.index_success')');
         }
       }
     })

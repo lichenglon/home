@@ -79,6 +79,13 @@ return [
 		'index_updates'=>'Sign up with your email to get latest updates and offers',
 		'index_your'=>'Enter your email',
 		'index_name'=>'Copyright © 2017.Company name All rights reserved.',
+		'index_pro'=>'Pro! You have collected this house source.',
+		'index_sorry'=>'I\'m sorry! Collection of failure',
+		'index_success'=>'Collection of success',
+		'index_first'=>'Pro! Please login first',
+		'index_like'=>'I like it',
+		'index_place'=>'To place the order',
+
 
 
 ];

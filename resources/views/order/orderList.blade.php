@@ -65,7 +65,7 @@
                                 <td style="width:10%;">
                                     @if($val->order_status == '9')
                                     @elseif($val->order_status == '1')
-                                            <a onclick="javascript:if(window.confirm('确定要取消订单吗？')){isCancel('{{$val->order_id}}')}">取消订单</a>
+                                            <a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->order_id}}')}">@lang('order.order_cancellation')</a>
                                     @else
 
                                         <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >@lang('order.order_cancels')</a>
