@@ -13,12 +13,14 @@
 //首页
 Route::get('/','IndexController@index')->name('/');
 
+
 //404页面
 Route::get('error_page','IndexController@error_page');
 
 //用户
 Route::group(['prefix'=>'user'],function() {
 	$controller = 'User\UserController@';
+
 	#登陆页
 	Route::get('login',$controller.'login');
 	#注册页
@@ -112,7 +114,14 @@ Route::group(['prefix' => 'contact'],function(){
 	#联系我们
 	Route::any('me',$controller.'contact');
 
+	//邮件
+	Route::any('send',$controller.'send');
+
 });
+
+/*Route::group(['prefix'=>'send'],function(){
+	$mailable =
+});*/
 
 
 //个人设置中心

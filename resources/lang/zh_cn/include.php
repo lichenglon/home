@@ -57,5 +57,6 @@ return [
 		'contact_Email'=>'电子邮件地址',
 		'contact_massege'=>'留言信息',
 		'contact_now'=>'提交报名表',
+		'contact_get'=>'联系方式',
 
 ];

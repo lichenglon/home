@@ -16,4 +16,6 @@ return [
 	'wardrobe'                  => '衣柜',
 	'refrigerator'              => '冰箱',
 	'Cancel_the_collection'     => '取消收藏',
+	'Cancel_sure'=> '亲！您确定要取消收藏我吗？',
+
 ];

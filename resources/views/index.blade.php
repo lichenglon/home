@@ -36,7 +36,6 @@
 </head>
 <body>
 
-
 <div class="loader">
     <div class="span">
         <div class="location_indicator"></div>
@@ -335,7 +334,7 @@
                             <span class="tag_t">{{$houseVal->house_status}}</span>
 
                             <span class="tag_l" style="background-color:#b0b0b0;">
-                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif" title="收藏到我喜欢">
+                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('@lang('index.index_first')')){location.href='{{url('user/login')}}'} @endif" title="@lang('index.index_like')">
                                     <?php
                                         if(!empty($userLike)){
                                             $userLikeNum = explode(',',$userLike->house_id);
@@ -346,7 +345,7 @@
                                     @if(in_array($houseVal->msgid, $userLikeNum))
                                             <img src="{{asset('home')}}/images/yesLike.png" alt="like">
                                         @else
-                                            <img src="{{asset('home')}}/images/noLike.png" id="like_{{$houseVal->msgid}}" alt="like">
+                                            <img src="{{asset('home')}}/images/noLike.png" class="like_{{$houseVal->msgid}}" alt="like">
                                     @endif
                                 </a>
                             </span>
@@ -356,7 +355,7 @@
                                 <h4 class="captlize"><a href="{{url('house/detail',['msgid'=>$houseVal->msgid])}}"><?php echo mb_substr($houseVal->house_name,0,26,'utf-8');?></a></h4>
                                 <p><?php echo mb_substr($houseVal->house_location,0,33,'utf-8');?>.....</p>
                             </div>
-                            <div class="property_meta transparent" style="padding-left:10px;">
+                            <div class="property_meta transparent" style="padding-left:10px; height:75px;">
 
                                 <?php
                                 if(empty($houseVal->house_facility)){
@@ -420,7 +419,7 @@
                                     {{ $house_structure[3] }} @lang('listing.toilet')
                                 </p>
                                 <ul class="pull-right">
-                                    <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="去下单"><i class="icon-document-play"></i></a></li>
+                                    <li><a href="{{url('order/orderAdd',['house_no'=>$houseVal->serial_number])}}" title="@lang('index.index_place')"><i class="icon-document-play"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -456,7 +455,17 @@
                             </div>
                             <div class="listing_full_bg">
                                 <div class="listing_inner_full">
-                                    <span><a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif"><i class="icon-like"></i></a></span>
+                                    <span>
+                                        {{--用户收藏--}}
+                                        <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$recommend->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('亲！请先登录')){location.href='{{url('user/login')}}'} @endif">
+
+                                            @if(in_array($recommend->msgid, $userLikeNum))
+                                                <img src="{{asset('home')}}/images/yesLike.png" alt="like">
+                                            @else
+                                                <img src="{{asset('home')}}/images/noLike.png" class="like_{{$recommend->msgid}}" alt="like">
+                                            @endif
+                                        </a>
+                                    </span>
                                     <a href="{{url('house/detail',['msgid'=>$recommend->msgid])}}">
                                         <h4><?php echo mb_substr($recommend->house_name,0,17,'utf-8');?></h4>
                                         <p><?php echo mb_substr($recommend->house_location,0,40,'utf-8');?>.....</p>
@@ -640,25 +649,25 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
-    <script>
+<script>
     function houseLikeAdd(houseMsgId,userId) {
         $.ajax({
-                url:"{{url('house/houseLikeAdd')}}",
-                data:'house_id='+houseMsgId+'&userId='+userId,
-                type:'get',
-                success:function (re) {
-            if(re == '1'){
-                alert('亲！您已收藏过此房源');
+            url:"{{url('house/houseLikeAdd')}}",
+            data:'house_id='+houseMsgId+'&userId='+userId,
+            type:'get',
+            success:function (re) {
+                if(re == '1'){
+                    alert('@lang('index.index_pro')');
                 } else if (re == '0'){
-                alert('抱歉！收藏失败');
+                    alert('@lang('index.index_sorry')');
                 } else {
-                $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
-                alert('收藏成功');
+                    $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
+                    alert('@lang('index.index_success')');
                 }
             }
         })
     }
-    </script>
+</script>
 
 @include('user.include.ajax_include')
 </body>

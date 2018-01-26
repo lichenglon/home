@@ -119,7 +119,7 @@
                   <br>
                   <span><i class="icon-select-an-objecto-tool"></i>{{$houseVal->house_size}} @lang('listing.listing_square')</span>
                 </div>
-                <div class="property_meta transparent" style="padding-left:10px;">
+                <div class="property_meta transparent" style="padding-left:10px; height:75px;">
 
                   <?php
                   if(empty($houseVal->house_facility)){
@@ -283,12 +283,12 @@
       type:'get',
       success:function (re) {
         if(re == '1'){
-          alert('亲！您已收藏过此房源');
+          alert('@lang('index.index_pro')');
         } else if (re == '0'){
-          alert('抱歉！收藏失败');
+          alert('@lang('index.index_sorry')');
         } else {
-          $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
-          alert('收藏成功');
+          $('#like_'+houseMsgId).css('color', 'red');
+          alert('@lang('index.index_success')');
         }
       }
     })

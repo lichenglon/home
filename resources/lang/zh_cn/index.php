@@ -78,6 +78,12 @@ return [
 		'index_updates'=>'注册电子邮件，获取最新更新和优惠',
 		'index_your'=>'输入您的电子邮件',
 		'index_name'=>'版权©2017。公司名称保留所有权利。',
+		'index_pro'=>'亲！您已收藏过此房源',
+		'index_sorry'=>'抱歉！收藏失败',
+		'index_success'=>'收藏成功',
+		'index_first'=>'亲！请先登录',
+		'index_like'=>'收藏到我喜欢',
+		'index_place'=>'去下单',
 
 
 ];

@@ -62,10 +62,14 @@ return [
 		'order_sure'=>'你确定要删除这个订单吗',
 		'order_success'=>'删除订单成功',
 		'order_failed'=>'删除订单失败',
+		'order_enter'=>'请输入正确的名字',
+		'order_phone'=>'请输入正确的电话号码',
+		'order_correct'=>'请输入正确的租期期限',
 
 
 
-		//二维码
+
+	//二维码
 		'order_successful'=>'如果付款成功！页面即将跳转',
 		'order_scan'=>'请扫描下方二维码进行支付',
 		'order_transaction'=>'放弃本次交易',
@@ -78,4 +82,6 @@ return [
 		'order_not'=>'房子不合适',
 		'order_reasons'=>'其他原因',
 		'order_submit'=>'提交',
+		'order_want'=>'确定要取消订单吗？',
+		'order_cancellation'=>'取消订单'
 ];

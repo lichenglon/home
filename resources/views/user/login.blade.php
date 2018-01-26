@@ -58,6 +58,7 @@
  </script>
  <script src="{{asset('home/user/js/jquery-1.11.3.js')}}"></script>
  <script src="{{asset('home/user/js/enroll.js')}}"></script>
+
 </html>
 
 

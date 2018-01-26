@@ -40,4 +40,7 @@ return [
 	'detail_historic'=>'历史城镇',
 	'detail_45'=>'英国伦敦摄政街45号',
 	'detail_featured'=>'精选楼盘',
+	'detail_the'=>'每月 ￥',
+	'detail_place'=>'去下单',
+
 ];

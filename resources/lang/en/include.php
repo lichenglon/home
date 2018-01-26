@@ -57,6 +57,7 @@ return [
 	'contact_Email'=>'Email Adress',
 	'contact_massege'=>'Massege',
 	'contact_now'=>'Submit Now',
+	'contact_get'=>'GET IN TOUCH',
 
 
 ];

@@ -213,7 +213,7 @@
         {{-----------------------结束-------------------------}}
 
         <div class="feature-p-text" style="padding-top:8%;">
-        <a style="display:inline-block; width:68%; height:50px; text-align:center;line-height:28px; font-weight:300; font-size:22px;" href="{{url('order/orderAdd',['house_no'=>$houseMsg->serial_number])}}">去下单</a>
+        <a style="display:inline-block; width:68%; height:50px; text-align:center;line-height:28px; font-weight:300; font-size:22px;" href="{{url('order/orderAdd',['house_no'=>$houseMsg->serial_number])}}">@lang('detail.detail_place')</a>
         </div>
         <div class="row">
           <div class="col-md-12">
@@ -247,7 +247,7 @@
                   <div class="image">
                     <a href="{{url('house/detail',['msgid'=>$Featured->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$Featured->getImageOne($Featured->msgid)}}" alt="listin" class="img-responsive"></a>
                     <div class="feature"><span class="tag-2">{{$Featured->house_status}}</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">每月 ${{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
+                    <div class="price clearfix"><span class="tag pull-right">@lang('detail.detail_the'){{$Featured->house_price}} - <small>{{$Featured->house_structure}}</small></span></div>
                   </div>
                 </div>
               </div>

@@ -16,4 +16,7 @@ return [
 	'wardrobe'                  =>'The wardrobe',              //衣柜
 	'refrigerator'              =>'The refrigerator',          //冰箱
 	'Cancel_the_collection'     => 'Cancel the collection',    //取消收藏
+	'Cancel_sure'=> 'Pro! Are you sure you want to cancel my collection?',
+
+
 ];

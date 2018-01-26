@@ -98,12 +98,17 @@
                             <span style="display:inline-block; margin-right:5%;">@lang('user_like.refrigerator')</span>&nbsp;
                         @endif
                 </p>
+
+                <i class="icon-like"></i><a href="javascript:if(confirm('@lang('user_like.Cancel_sure')')){javascript:delCollectHouse({{$value->msgid}})}">@lang('user_like.Cancel_the_collection')</a>
+
                 <img src="{{asset('home')}}/images/yesLike.png" alt="like"><a href="javascript:if(confirm('亲！您确定要取消收藏我吗？')){javascript:delCollectHouse({{$value->msgid}})}">@lang('user_like.Cancel_the_collection')</a>
+
             </div>
         </li>
     </ul>
         @endforeach
     @else
+
     <ul class="display">
         <li>
             <div class="content_block">
@@ -113,6 +118,7 @@
             </div>
         </li>
     </ul>
+
      @endif
 </div>
 @include('house.listingPublic.footer')

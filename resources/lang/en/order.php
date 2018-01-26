@@ -60,7 +60,9 @@ return [
 	'order_sure '=>'Are you sure you want to delete this order',
 	'order_success'=>'Delete order success',
 	'order_failed'=>'Delete order failed',
-
+	'order_enter'=>'Please enter the correct name',//请输入正确的名字
+	'order_phone'=>'Please enter the correct phone number',//请输入正确的电话号码
+	'order_correct'=>'Please enter the correct lease term',//请输入正确的租期期限
 
 
 	//二维码
@@ -76,5 +78,7 @@ return [
 	'order_not'=>'The house is not suitable',
 	'order_reasons'=>'Other reasons',
 	'order_submit'=>'submit',
+	'order_want'=>'Are you sure you want to cancel the order?',
+	'order_cancellation'=>'cancellation of order'
 
 ];

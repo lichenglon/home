@@ -282,6 +282,7 @@
     function isCheck(){
         if(myForm.submit){
             //([\u4e00-\u9fa5]{2,7})中文
+<<<<<<< HEAD
             //if(!(/^[A-Za-z][A-Za-z\s]*[A-Za-z]$/.test(myForm.name.value))){
             if(!(/^[\u4E00-\u9FA5]{2,4}$/.test(myForm.name.value))){
                 alert('Please enter the correct name');
@@ -296,6 +297,27 @@
                 return false;
             }else{
                 myForm.action = "{{url('order/orderSave')}}";
+=======
+            if(!(/^[A-Za-z][A-Za-z\s]*[A-Za-z]$/.test(myForm.name.value))){
+                alert('@lang('order.order_enter')');
+                //if(!(/^[A-Za-z][A-Za-z\s]*[A-Za-z]$/.test(myForm.name.value))){
+                if(!(/^[\u4E00-\u9FA5]{2,4}$/.test(myForm.name.value))){
+                    alert('Please enter the correct name');
+                    return false;
+                }else if(!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(myForm.tel.value))){
+                    //alert("请输入正确的手机号码");
+                    alert("@lang('order.order_phone')");
+                    return false;
+                }else if(!(/^\+?[1-9][0-9]*$/.test(myForm.rent_time.value))){
+                    //alert("请输入正确的租期");
+                    alert("@lang('order.order_correct')");
+                    return false;
+                }else{
+                    myForm.action = "{{url('order/pay')}}";
+                    /*myForm.action = "
+                    {{--{{url('order/orderSave')}}--}}";*/
+                }
+>>>>>>> 235576eab039891051ca08dea8ba630af6b64ffb
             }
         }
     }
