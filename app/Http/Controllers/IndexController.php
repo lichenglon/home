@@ -36,7 +36,7 @@ class IndexController extends BaseController{
 		//实例化
 		$houseMsg = new House_message();
 		//查最新数据9条
-		$houseObjData = $houseMsg->orderBy('msgid', 'desc')->paginate(9);
+		$houseObjData = $houseMsg->where('chk_sta','2')->orderBy('msgid', 'desc')->paginate(9);
 		//显示模板并传值
 		return view('index', ['houseObjData' => $houseObjData, 'userLike' => $userLike]);
 	}
