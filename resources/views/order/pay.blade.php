@@ -107,7 +107,7 @@
 			width:200px;
 			position:absolute;
 			top:1150px;
-			left:350px;
+			left:250px;
 			background-color:#fff;
 			border:1px solid #000;
 		}
@@ -143,7 +143,7 @@
 				<div id="down-4">
 					<h4>人民币支付</h4>
 					<ul class="radio-demo">
-						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/worldpay.png')}}" alt="" style="position:absolute;top:620px;"></li>
+						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/masta.jpg')}}" alt="" style="position:absolute;top:620px;"></li>
 						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/zfb.png')}}" alt="" style="position:absolute;top:690px;"></li>
 						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/wp.png')}}" alt="" style="position:absolute;top:760px;"></li>
 						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/op.png')}}" alt="" style="position:absolute;top:830px;"></li>
@@ -160,8 +160,7 @@
 			</div>
 			<div id="down-3">
 				<div  id="down-5">
-					{{--url={{url('order/orderDetail',['order_id'=>$order_id,'ac'=>'payok'])}}"--}}
-					<a href="{{url('order/payoff',['order_id'=>$result->order_id])}}"><input type="button" id="paybutton" value="立即支付"/></a>
+					<a href="{{url('order/payoff',['order_id'=>$result->id])}}"><input type="button" id="paybutton" value="立即支付"/></a>
 				</div>
 			</div>
 		</div>

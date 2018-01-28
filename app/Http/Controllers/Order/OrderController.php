@@ -153,9 +153,9 @@ class OrderController extends BaseController
     //付款成功
     public function payoff($order_id){
         $req = DB::table('order')->where('id',$order_id)->update(['order_status'=>2]);
-        if($req){
-            return view('order.payoff');
-        }
+        /*if($req){*/
+            return view('order.payoff',['order_id'=>$order_id]);
+        /*}*/
     }
 
     //订单列表
