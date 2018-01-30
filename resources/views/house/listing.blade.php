@@ -287,8 +287,9 @@
         } else if (re == '0'){
           alert('@lang('index.index_sorry')');
         } else {
-          $('#like_'+houseMsgId).css('color', 'red');
+          $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
           alert('@lang('index.index_success')');
+          
         }
       }
     })

@@ -3,8 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <title>Home</title>
+
+
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/reality-icon.css">
@@ -344,7 +345,7 @@
                                     ?>
                                     @if(in_array($houseVal->msgid, $userLikeNum))
                                             <img src="{{asset('home')}}/images/yesLike.png" alt="like">
-                                        @else
+                                    @else
                                             <img src="{{asset('home')}}/images/noLike.png" class="like_{{$houseVal->msgid}}" alt="like">
                                     @endif
                                 </a>
@@ -649,28 +650,38 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
+
 <script>
+    alert('fasfasf');
+
     function houseLikeAdd(houseMsgId,userId) {
+
         $.ajax({
             url:"{{url('house/houseLikeAdd')}}",
             data:'house_id='+houseMsgId+'&userId='+userId,
             type:'get',
             success:function (re) {
+
                 if(re == '1'){
                     alert('@lang('index.index_pro')');
                 } else if (re == '0'){
                     alert('@lang('index.index_sorry')');
                 } else {
-                    $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.jpg');
+                    $('.like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
                     alert('@lang('index.index_success')');
                 }
             }
         })
     }
-</script>
 
+
+</script>
 @include('user.include.ajax_include')
 </body>
+
 </html>
+
+
+
 
 

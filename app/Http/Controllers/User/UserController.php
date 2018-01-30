@@ -25,7 +25,6 @@ class UserController extends BaseController {
 		$upwd = $request->input('upwd');
 		$password = md5($upwd);
 		$sessionCodeNum = Session::get('milkcaptcha');
-		$userInfoid = DB::table('tb_register')->get();
 
 		if($code == $sessionCodeNum){
 			$userInfo = DB::table('tb_register')->where('uname',$uname)->first();
@@ -74,6 +73,7 @@ class UserController extends BaseController {
 
 	}
 
+	//注册检测
 	public function registerData(){
 		echo 1;
 		$username = isset($_POST['username']) ? $_POST['username'] : "";
