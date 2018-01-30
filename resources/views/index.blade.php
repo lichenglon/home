@@ -125,7 +125,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                        @include('user.include.navigation_include')
+                            @include('user.include.navigation_include')
                         </ul>
                     </div>
                 </div>
@@ -337,16 +337,16 @@
                             <span class="tag_l" style="background-color:#b0b0b0;">
                                 <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('@lang('index.index_first')')){location.href='{{url('user/login')}}'} @endif" title="@lang('index.index_like')">
                                     <?php
-                                        if(!empty($userLike)){
-                                            $userLikeNum = explode(',',$userLike->house_id);
-                                        }else{
-                                            $userLikeNum = [];
-                                        }
+                                    if(!empty($userLike)){
+                                        $userLikeNum = explode(',',$userLike->house_id);
+                                    }else{
+                                        $userLikeNum = [];
+                                    }
                                     ?>
                                     @if(in_array($houseVal->msgid, $userLikeNum))
-                                            <img src="{{asset('home')}}/images/yesLike.png" alt="like">
+                                        <img src="{{asset('home')}}/images/yesLike.png" alt="like">
                                     @else
-                                            <img src="{{asset('home')}}/images/noLike.png" class="like_{{$houseVal->msgid}}" alt="like">
+                                        <img src="{{asset('home')}}/images/noLike.png" class="like_{{$houseVal->msgid}}" alt="like">
                                     @endif
                                 </a>
                             </span>
@@ -380,27 +380,27 @@
                                 }
                                 ?>
 
-                                    @if($washing)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_washing')</span>&nbsp;
-                                    @endif
-                                    @if($air)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_air')</span>&nbsp;
-                                    @endif
-                                    @if($heating)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_heating')</span>&nbsp;
-                                    @endif
-                                    @if($bed)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_bed')</span>&nbsp;
-                                    @endif
-                                    @if($kitchen)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_cookhouse')</span>&nbsp;
-                                    @endif
-                                    @if($closet)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_wardrobe')</span>&nbsp;
-                                    @endif
-                                    @if($refrigerator)
-                                        <span style="display:inline-block; margin-right:5%;">@lang('include.include_refrigerator')</span>&nbsp;
-                                    @endif
+                                @if($washing)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_washing')</span>&nbsp;
+                                @endif
+                                @if($air)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_air')</span>&nbsp;
+                                @endif
+                                @if($heating)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_heating')</span>&nbsp;
+                                @endif
+                                @if($bed)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_bed')</span>&nbsp;
+                                @endif
+                                @if($kitchen)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_cookhouse')</span>&nbsp;
+                                @endif
+                                @if($closet)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_wardrobe')</span>&nbsp;
+                                @endif
+                                @if($refrigerator)
+                                    <span style="display:inline-block; margin-right:5%;">@lang('include.include_refrigerator')</span>&nbsp;
+                                @endif
 
                             </div>
 
