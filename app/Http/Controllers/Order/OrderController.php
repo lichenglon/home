@@ -173,9 +173,9 @@ class OrderController extends BaseController
                 }
             }
 
-            $pic = DB::table('house_image')->where('house_msg_id',$v['house_id'])->get();
-            $pic = json_decode( json_encode($pic[0]),true);
-            $v['house_img'] = $pic["house_imagename"];
+//            $pic = DB::table('house_image')->where('house_msg_id',$v['house_id'])->get();
+//            $pic = json_decode( json_encode($pic[0]),true);
+//            $v['house_img'] = $pic["house_imagename"];
         }
         $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(3);
         return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus]);

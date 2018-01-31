@@ -99,7 +99,7 @@
                     @foreach($result as $key => $val)
 
 
-                            <div id="house" style="padding: 15px 0px">
+                            {{--<div id="house" style="padding: 15px 0px">
                                 <table class="detail">
                                     <div style="float:left;margin-right:15px;">
                                         <img  width="200px" height="150px" src="{{HOUSE_SERVER_PATH}}uploads/{{$result->house_img}}" alt="">
@@ -123,7 +123,7 @@
                                         </tr>
                                     </div>
                                 </table>
-                            </div>
+                            </div>--}}
 
 
 
@@ -132,57 +132,57 @@
 
 
 
-                    {{--<div class="order-info">--}}
-                        {{--<div class="info1">--}}
-                            {{--<span>--}}
-                                {{--@if($val->order_status == '1')--}}
-                                {{--<a href="{{ url('order/pay',['order_id'=>$val->id]) }}">@lang('order.order_payment')</a>--}}
-                                {{--@elseif($val->order_status == '9' && $val->qx_reason == '')--}}
-                                    {{--@lang('order.order_has')--}}
-                                {{--@elseif($val->order_status == '9' && $val->qx_reason != '')--}}
-                                    {{--@lang('order.order_cancelled')--}}
-                                {{--@elseif($val->order_status == '5')--}}
-                                    {{--@lang('order.order_was')：{{$val->reject_reason}}--}}
-                                {{--@else--}}
-                                    {{--@foreach($order_status as $value)--}}
-                                        {{--@if($val->order_status == $value->id)--}}
-                                            {{--@if(Session::get('lang') == 'en'){{$value->en_order_status}}@else{{$value->order_status}}@endif--}}
-                                        {{--@endif--}}
-                                    {{--@endforeach--}}
-                                {{--@endif--}}
-                            {{--</span>--}}
-                        {{--</div>--}}
-                        {{--<table class="detail">--}}
-                            {{--<tr>--}}
-                                {{--<td class="td1">@lang('order.order_numbe')</td>--}}
-                                {{--<td><a href="{{ url('order/orderDetail',['order_id'=>$val->id,'ac'=>'look']) }}"> {{ $val->order_no }} </a></td>--}}
-                            {{--</tr>--}}
-                            {{--<tr>--}}
-                                {{--<td class="td1">@lang('order.order_name')</td>--}}
-                                {{--<td><a href="{{ url('order/orderDetail',['order_id'=>$val->id]) }}"> {{ $val->house_name }} </a></td>--}}
-                            {{--</tr>--}}
-                            {{--<tr>--}}
-                                {{--<td class="td1">@lang('order.order_prices')</td>--}}
-                                {{--<td>$ {{ $val->house_price }}</td>--}}
-                            {{--</tr>--}}
-                            {{--<tr>--}}
-                                {{--<td class="td1">@lang('order.order_lease')</td>--}}
-                                {{--<td>{{ $val->rent_time }} @lang('order.order_weeks')</td>--}}
-                            {{--</tr>--}}
-                            {{--<tr>--}}
-                                {{--<td class="td1">--}}
-                                    {{--<a href="{{ url('order/orderDetail',['order_id'=>$val->id,'ac'=>'look'])}}"><font color="#5f9ea0">@lang('order.order_view')</font></a>--}}
-                                {{--</td>--}}
-                                {{--<td>@if($val->order_status == '9')--}}
-                                    {{--@elseif($val->order_status == '1')--}}
-                                        {{--<a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->id}}')}"><font color="#5f9ea0">@lang('order.order_cancellation')</font></a>--}}
-                                    {{--@else--}}
-                                        {{--<a href="javascript:void(0);" onclick="qxReason('{{$val->id}}')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>--}}
-                                    {{--@endif--}}
-                                {{--</td>--}}
-                            {{--</tr>--}}
-                        {{--</table>--}}
-                    {{--</div>--}}
+                    <div class="order-info">
+                        <div class="info1">
+                            <span>
+                                @if($val->order_status == '1')
+                                <a href="{{ url('order/pay',['order_id'=>$val->id]) }}">@lang('order.order_payment')</a>
+                                @elseif($val->order_status == '9' && $val->qx_reason == '')
+                                    @lang('order.order_has')
+                                @elseif($val->order_status == '9' && $val->qx_reason != '')
+                                    @lang('order.order_cancelled')
+                                @elseif($val->order_status == '5')
+                                    @lang('order.order_was')：{{$val->reject_reason}}
+                                @else
+                                    @foreach($order_status as $value)
+                                        @if($val->order_status == $value->id)
+                                            @if(Session::get('lang') == 'en'){{$value->en_order_status}}@else{{$value->order_status}}@endif
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </span>
+                        </div>
+                        <table class="detail">
+                            <tr>
+                                <td class="td1">@lang('order.order_numbe')</td>
+                                <td><a href="{{ url('order/orderDetail',['order_id'=>$val->id,'ac'=>'look']) }}"> {{ $val->order_no }} </a></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">@lang('order.order_name')</td>
+                                <td><a href="{{ url('order/orderDetail',['order_id'=>$val->id]) }}"> {{ $val->house_name }} </a></td>
+                            </tr>
+                            <tr>
+                                <td class="td1">@lang('order.order_prices')</td>
+                                <td>$ {{ $val->house_price }}</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">@lang('order.order_lease')</td>
+                                <td>{{ $val->rent_time }} @lang('order.order_weeks')</td>
+                            </tr>
+                            <tr>
+                                <td class="td1">
+                                    <a href="{{ url('order/orderDetail',['order_id'=>$val->id,'ac'=>'look'])}}"><font color="#5f9ea0">@lang('order.order_view')</font></a>
+                                </td>
+                                <td>@if($val->order_status == '9')
+                                    @elseif($val->order_status == '1')
+                                        <a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->id}}')}"><font color="#5f9ea0">@lang('order.order_cancellation')</font></a>
+                                    @else
+                                        <a href="javascript:void(0);" onclick="qxReason('{{$val->id}}')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     @endforeach
 
                     @else
