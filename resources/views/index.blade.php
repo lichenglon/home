@@ -650,7 +650,6 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
-
 <script>
 
 
