@@ -652,7 +652,7 @@
 <script src="{{asset('home')}}/js/functions.js"></script>
 
 <script>
-    alert('fasfasf');
+
 
     function houseLikeAdd(houseMsgId,userId) {
 

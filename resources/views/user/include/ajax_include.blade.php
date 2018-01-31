@@ -6,6 +6,7 @@
             data:'lang='+lang,
             type:'get',
             success:function () {
+
                 location.reload();
             }
         })
