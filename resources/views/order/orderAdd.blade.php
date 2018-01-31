@@ -250,6 +250,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading panel-yellow"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 房源信息</div>
                 <div class="panel-body">
+                    <p><img  width="190px" height="150px" src="{{HOUSE_SERVER_PATH}}uploads/{{$house_img}}" alt=""></p>
                     <p>城市： {{$result->state}} {{$result->province}} {{$result->city}}</p>
                     <p>房源： {{$result->house_name}}</p>
                     <p>地址： {{$result->house_location}}

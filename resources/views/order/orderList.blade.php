@@ -1,104 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{--<meta http-equiv="refresh" content="1">--}}
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="{{asset('order/css/H-ui.min.css')}}" />
-    <link type="text/css" rel="stylesheet" href="{{asset('order/css/bootstrap.min.css')}}">
-    <link type="text/css" rel="stylesheet" href="{{asset('order/css/bootstrap-fileinput.css')}}">
-
+    @include('house.listingPublic.header')
     @include('public.publicHouseCss')
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{asset('home')}}/css/reality-icon.css">
+    <link type="text/css" rel="stylesheet" href="{{asset('order/css/orderPay.css')}}">
+    <style>
+        #up-4{
+            height:658px;
+            padding-top:10px;
+        }
+
+        #up-3{
+            height:557px;
+            padding:0px;
+            border:0px;
+
+        }
+
+        #oorder{
+            margin-bottom:10px;
+        }
+
+        .order-info{
+            width:524px;
+            height: 184px;
+            padding:15px;
+            margin-bottom: 10px;
+            border:1px solid #E0E0E0;
+        }
+
+        .info1{
+            height:40px;
+            border-bottom:1px solid #E0E0E0;
+        }
+
+        .page_list{
+            position:absolute;
+            top:847px;
+            left:710px;
+        }
+
+        .detail{
+            line-height:24px;
+            font-family:华文细黑;
+            font-size:12px;
+        }
+
+        .td1{
+            width:200px;
+        }
+
+        .td2{
+            width:120px;
+        }
+
+        #house{
+            height: 181px;
+            border-bottom:1px solid #E0E0E0;
+        }
+    </style>
 </head>
 <body>
+<div id="box">
+    {{--{{ csrf_field() }}--}}
+    <div id="b-up">
 
-<!--Header-->
-{{--头部--}}
-@include('house.listingPublic.header')
-
-<div class="box"  style="height:548px">
-    <div class="box-body" style="width:1500px">
-        <div class="Hui-article" style="height:450px">
-            <article class="cl pd-20">
-                <div class="mt-20">
-                    <table class="table table-border table-bordered table-bg table-hover table-sort" style="margin:0px">
-                        <thead>
-                        <tr class="text-c" id="theader">
-                            <th width="20%">@lang('order.order_numbe')</th>
-                            <th width="10%">@lang('order.order_times')</th>
-                            <th width="20%">@lang('order.order_name')</th>
-                            <th width="5%">@lang('order.order_prices')</th>
-                            <th width="5%">@lang('order.order_lease')</th>
-                            <th width="10%">@lang('order.order_status')</th>
-                            <th width="30%" colspan="3">@lang('order.order_operation')</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($result as $key => $val)
-                            <tr class="text-c">
-                                <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look']) }}"> {{ $val->order_no }} </a></td>
-                                <td style="width:10%;">{{ date('Y-m-d H:i:s',$val->creat_time) }}</td>
-                                <td style="width:20%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id]) }}"> {{ $val->house_name }} </a></td>
-                                <td style="width:5%;">{{ $val->house_price }}</td>
-                                <td style="width:5%;">{{ $val->rent_time }} @lang('order.order_weeks')</td>
-                                <td style="width:10%;">
-                                    @if($val->order_status == '1')
-                                        <a href="{{ url('order/qrcode',['order_id'=>$val->order_id]) }}">@lang('order.order_payment')</a>
-                                    @elseif($val->order_status == '9' && $val->qx_reason == '')
-                                        @lang('order.order_has')
-                                    @elseif($val->order_status == '9' && $val->qx_reason != '')
-                                        @lang('order.order_cancelled')
-                                    @elseif($val->order_status == '5')
-                                        @lang('order.order_was')：{{$val->reject_reason}}
-                                    @else
-                                        @foreach($order_status as $value)
-                                            @if($val->order_status == $value->id)
-                                                @if(Session::get('lang') == 'en'){{$value->en_order_status}}@else{{$value->order_status}}@endif
-                                            @endif
-                                        @endforeach
-                                    @endif
-                                </td>
-                                <td style="width:10%;"><a href="{{ url('order/orderDetail',['order_id'=>$val->order_id,'ac'=>'look'])}}">@lang('order.order_view')</a></td>
-                                {{--<td style="width:10%;"><a href="{{url('order/orderModify',['order_id'=>$val->order_id])}}">修改订单</a></td>--}}
-                                <td style="width:10%;">
-                                    @if($val->order_status == '9')
-                                    @elseif($val->order_status == '1')
-                                            <a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->order_id}}')}">@lang('order.order_cancellation')</a>
-                                    @else
-
-                                        <a href="javascript:void(0);" onclick="qxReason('{{$val->order_id}}')" >@lang('order.order_cancels')</a>
-
-
-                                    @endif
-                                </td>
-
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-        </div>
-        @if (!empty($result))
-            <div class="page_list" style="margin-left:20px;">
-                {{$result->appends(Request::input())->links()}}
-                <div style="display:inline-block; margin-bottom:25px;">
-                    {{--<span class="r">@lang('house_translate.Common_data')：<strong>{{$total}}</strong> @lang('house_translate.strip')</span>--}}
-                </div>
+        <div id="up-1">
+            {{--左边导航列表--}}
+            <div id="up-2">
+                <dl>
+                    <dt><i class="icon-icons230"></i>&nbsp;@lang('order.my_account')</dt>
+                    <dd><a href="{{url('order/orderList')}}">@lang('order.my_orders')</a></dd>
+                    <dd>@lang('order.my_like')</dd>
+                    <dd>@lang('order.my_info')</dd>
+                    <dd>@lang('order.my_house')</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon-icons215"></i>&nbsp;@lang('order.my_wealth')</dt>
+                    <dd>@lang('order.my_balance')</dd>
+                    <dd>@lang('order.my_coupon')</dd>
+                    <dd>@lang('order.my_coins')</dd>
+                </dl>
+                <dl>
+                    <dt><i class="icon-icons179"></i>&nbsp;@lang('order.my_profile')</dt>
+                    <dd>@lang('order.my_profile2')</dd>
+                    <dd>@lang('order.settings')</dd>
+                </dl>
             </div>
-        @endif
+
+            {{--右边信息--}}
+            <div id="up-4">
+                <div id="oorder"><h4>@lang('order.my_orders')</h4></div>
+                <div id="up-3">
+                    @if(!empty($result))
+                    @foreach($result as $key => $val)
+
+
+                            <div id="house" style="padding: 15px 0px">
+                                <table class="detail">
+                                    <div style="float:left;margin-right:15px;">
+                                        <img  width="200px" height="150px" src="{{HOUSE_SERVER_PATH}}uploads/{{$result->house_img}}" alt="">
+                                    </div>
+                                    <div style="float:left;">
+                                        <tr>
+                                            <td class="td2">@lang('order.order_house')</td>
+                                            <td>{{ $val->serial_number }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td2">@lang('order.order_name')</td>
+                                            <td>{{ $val->house_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td2">@lang('order.order_location')</td>
+                                            <td>{{ $val->house_location }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td2">@lang('order.order_prices')</td>
+                                            <td>$ {{ $val->house_price }}</td>
+                                        </tr>
+                                    </div>
+                                </table>
+                            </div>
+
+
+
+
+
+
+
+
+                    {{--<div class="order-info">--}}
+                        {{--<div class="info1">--}}
+                            {{--<span>--}}
+                                {{--@if($val->order_status == '1')--}}
+                                {{--<a href="{{ url('order/pay',['order_id'=>$val->id]) }}">@lang('order.order_payment')</a>--}}
+                                {{--@elseif($val->order_status == '9' && $val->qx_reason == '')--}}
+                                    {{--@lang('order.order_has')--}}
+                                {{--@elseif($val->order_status == '9' && $val->qx_reason != '')--}}
+                                    {{--@lang('order.order_cancelled')--}}
+                                {{--@elseif($val->order_status == '5')--}}
+                                    {{--@lang('order.order_was')：{{$val->reject_reason}}--}}
+                                {{--@else--}}
+                                    {{--@foreach($order_status as $value)--}}
+                                        {{--@if($val->order_status == $value->id)--}}
+                                            {{--@if(Session::get('lang') == 'en'){{$value->en_order_status}}@else{{$value->order_status}}@endif--}}
+                                        {{--@endif--}}
+                                    {{--@endforeach--}}
+                                {{--@endif--}}
+                            {{--</span>--}}
+                        {{--</div>--}}
+                        {{--<table class="detail">--}}
+                            {{--<tr>--}}
+                                {{--<td class="td1">@lang('order.order_numbe')</td>--}}
+                                {{--<td><a href="{{ url('order/orderDetail',['order_id'=>$val->id,'ac'=>'look']) }}"> {{ $val->order_no }} </a></td>--}}
+                            {{--</tr>--}}
+                            {{--<tr>--}}
+                                {{--<td class="td1">@lang('order.order_name')</td>--}}
+                                {{--<td><a href="{{ url('order/orderDetail',['order_id'=>$val->id]) }}"> {{ $val->house_name }} </a></td>--}}
+                            {{--</tr>--}}
+                            {{--<tr>--}}
+                                {{--<td class="td1">@lang('order.order_prices')</td>--}}
+                                {{--<td>$ {{ $val->house_price }}</td>--}}
+                            {{--</tr>--}}
+                            {{--<tr>--}}
+                                {{--<td class="td1">@lang('order.order_lease')</td>--}}
+                                {{--<td>{{ $val->rent_time }} @lang('order.order_weeks')</td>--}}
+                            {{--</tr>--}}
+                            {{--<tr>--}}
+                                {{--<td class="td1">--}}
+                                    {{--<a href="{{ url('order/orderDetail',['order_id'=>$val->id,'ac'=>'look'])}}"><font color="#5f9ea0">@lang('order.order_view')</font></a>--}}
+                                {{--</td>--}}
+                                {{--<td>@if($val->order_status == '9')--}}
+                                    {{--@elseif($val->order_status == '1')--}}
+                                        {{--<a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->id}}')}"><font color="#5f9ea0">@lang('order.order_cancellation')</font></a>--}}
+                                    {{--@else--}}
+                                        {{--<a href="javascript:void(0);" onclick="qxReason('{{$val->id}}')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>--}}
+                                    {{--@endif--}}
+                                {{--</td>--}}
+                            {{--</tr>--}}
+                        {{--</table>--}}
+                    {{--</div>--}}
+                    @endforeach
+
+                    @else
+                    @endif
+                    @if (!empty($result))
+                        <div class="page_list">
+                            {{$result->appends(Request::input())->links()}}
+                        </div>
+                    @endif
+
+                </div>
+
+            </div>
+        </div>
     </div>
+
 </div>
 
-
-<!--CopyRight-->
-@include('house.listingPublic.footer')
-
-{{--引入公共js文件--}}
-@include('public.publicHouseJs')
+</div>
 </body>
+@include('public.publicHouseJs')
+@include('house.listingPublic.footer')
 
 <script>
     function isCancel(order_id){
@@ -122,5 +228,6 @@
         window.open ("{{url('order/qxReason')}}"+'/'+order_id, 'newwindow', 'height=300, width=500, top=200,left=600, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')
     }
 </script>
-
 </html>
+
+
