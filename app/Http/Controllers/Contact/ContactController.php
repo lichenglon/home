@@ -39,13 +39,14 @@ class ContactController extends BaseController {
 
 		$arr = Input::all();
 		unset($arr['_token']);
+		$time = strtotime(carbon::now());
 
 		$arr = [
 			'yourname'	=>$request->yourname,
 			'phonenumber'	=>$request->phonenumber,
 			'email'	=>$request->email,
 			'message'	=>$request->message,
-			'time'=>carbon::now()
+			'time'=>$time
 		];
 		$data = DB::table('tb_email')->insert($arr);
 

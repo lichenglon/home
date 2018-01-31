@@ -10,6 +10,7 @@ use App;
 use App\Models\House_message;
 class BaseController extends Controller {
 	public function __construct(){
+
 		$this->middleware('CheckLang');
 
 		//实例化国家表
