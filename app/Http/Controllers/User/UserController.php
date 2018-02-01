@@ -74,19 +74,9 @@ class UserController extends BaseController {
 	}
 
 	//注册检测
-	public function registerData(){
-		echo 1;
-		$username = isset($_POST['username']) ? $_POST['username'] : "";
-		var_dump($username);
-		if($username){
-			$uname = DB::table('tb_register')->select('uname')->get();
-			if($uname == $username){
-				echo 1;
-				exit;
-			}else{
-				echo 2;
-				exit;
-			}
+	public function registerData(Request $request){
+		if($request->isMethod('post')){
+			
 		}
 
 	}

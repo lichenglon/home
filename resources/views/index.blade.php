@@ -650,12 +650,8 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
-<<<<<<< HEAD
-=======
-
->>>>>>> 4692e91992e44c4d2e940952ee739d2cdc5f57ad
 <script>
-    alert('fasfasf');
+
 
     function houseLikeAdd(houseMsgId,userId) {
 
