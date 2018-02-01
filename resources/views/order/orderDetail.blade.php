@@ -13,6 +13,10 @@
             padding-top:10px;
         }
 
+        #up-2{
+            height:300px;
+        }
+
         #up-3{
             height:557px;
             padding:0px;
@@ -78,20 +82,20 @@
                 <dl>
                     <dt><i class="icon-icons230"></i>&nbsp;@lang('order.my_account')</dt>
                     <dd><a href="{{url('order/orderList')}}">@lang('order.my_orders')</a></dd>
-                    <dd>@lang('order.my_like')</dd>
-                    <dd>@lang('order.my_info')</dd>
-                    <dd>@lang('order.my_house')</dd>
+                   {{-- <dd>@lang('order.my_like')</dd>
+                    <dd>@lang('order.my_info')</dd>--}}
+                    <dd><a href="{{ url('order/myHouse') }}">@lang('order.my_house')</a></dd>
                 </dl>
-                <dl>
+                {{--<dl>
                     <dt><i class="icon-icons215"></i>&nbsp;@lang('order.my_wealth')</dt>
                     <dd>@lang('order.my_balance')</dd>
                     <dd>@lang('order.my_coupon')</dd>
                     <dd>@lang('order.my_coins')</dd>
-                </dl>
+                </dl>--}}
                 <dl>
                     <dt><i class="icon-icons179"></i>&nbsp;@lang('order.my_profile')</dt>
                     <dd>@lang('order.my_profile2')</dd>
-                    <dd>@lang('order.settings')</dd>
+                    {{--<dd>@lang('order.settings')</dd>--}}
                 </dl>
             </div>
 

@@ -9,6 +9,7 @@ use App\Models\Order;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\BaseController;
 
+
 class OrderController extends BaseController
 {
     public $orderStatus = [
@@ -162,24 +163,45 @@ class OrderController extends BaseController
     {
         $uid = Session::get('userId');
         $data = DB::table('order')->where('uid',$uid)->get();
-	    $orderStatus = DB::table('order_status')->get();
+        $orderStatus = DB::table('order_status')->get();
         foreach($data as $v){
+
             //将stdClass对象转换为数组
-            $v =  json_decode( json_encode( $v),true);
+            $v = json_decode(json_encode($v), true);
             $t = time();
             if($v['order_status'] == '1'){
-                if($t - $v['creat_time'] >= 180000){
-                    DB::table('order')->where('id',$v['id'])->update(['order_status'=>'9']);
+                if($t-$v['creat_time']>=180000){
+                    DB::table('order')->where('id', $v['id'])->update(['order_status' => '9']);
                 }
             }
-
-//            $pic = DB::table('house_image')->where('house_msg_id',$v['house_id'])->get();
-//            $pic = json_decode( json_encode($pic[0]),true);
-//            $v['house_img'] = $pic["house_imagename"];
         }
-        $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->paginate(3);
-        return view('order.orderList',['result'=>$result, 'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus]);
+
+        $result = DB::table('order')->where('uid',$uid)->join('house_message', 'house_message.msgid', '=', 'order.house_id')->orderby('creat_time', 'desc')->paginate(3);
+        return view('order.orderList',['result'=>$result,'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus,'h_img'=>new Order()]);
     }
+
+    //我的房源
+    public function myHouse()
+    {
+        $uid = Session::get('userId');
+        $data = DB::table('order')->where('uid',$uid)->get();
+        $orderStatus = DB::table('order_status')->get();
+        foreach($data as $v){
+
+            //将stdClass对象转换为数组
+            $v = json_decode(json_encode($v), true);
+            $t = time();
+            if($v['order_status'] == '1'){
+                if($t-$v['creat_time']>=180000){
+                    DB::table('order')->where('id', $v['id'])->update(['order_status' => '9']);
+                }
+            }
+        }
+        $result = DB::table('order')->where('uid',$uid)->where('order_status','8')->join('house_message', 'house_message.msgid', '=', 'order.house_id')->orderby('creat_time', 'desc')->paginate(3);
+        return view('order.myHouse',['result'=>$result,'orderStatus'=>$this->orderStatus,'order_status'=>$orderStatus,'h_img'=>new Order()]);
+    }
+
+
 
     //查看订单详情
     public function orderDetail($order_id,$ac)
@@ -203,7 +225,7 @@ class OrderController extends BaseController
 
     }
 
-    //未付款取消订单
+    //取消订单
     public function orderCancel()
     {
         $order_id = $_REQUEST['order_id'];
@@ -226,10 +248,11 @@ class OrderController extends BaseController
     public function orderDelete()
     {
         $order_id = (int)$_REQUEST['order_id'];
-        $img1 = DB::table('order')->where('id',$order_id)->value('renter_idcard1');
-        $img2 = DB::table('order')->where('id',$order_id)->value('renter_idcard2');
-        $img3 = DB::table('order')->where('id',$order_id)->value('renter_passport');
-        $img4 = DB::table('order')->where('id',$order_id)->value('stu_idcard');
+
+        $img1 = DB::table('renter')->where('id',$order_id)->value('renter_idcard1');
+        $img2 = DB::table('renter')->where('id',$order_id)->value('renter_idcard2');
+        $img3 = DB::table('renter')->where('id',$order_id)->value('renter_passport');
+        $img4 = DB::table('renter')->where('id',$order_id)->value('stu_idcard');
         if(!empty($img1)){@unlink('./uploads/'.$img1);}
         if(!empty($img2)){@unlink('./uploads/'.$img2);}
         if(!empty($img3)){@unlink('./uploads/'.$img3);}

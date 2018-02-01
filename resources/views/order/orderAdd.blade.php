@@ -25,122 +25,122 @@
             <form id="form" name="myForm" method="post" action="" enctype="multipart/form-data" onsubmit="javascript:return isCheck()" >
                 {{ csrf_field() }}
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="fa fa-file-text"></i> 预订表单</div>
+                    <div class="panel-heading"><i class="fa fa-file-text"></i>@lang('order.order_form')</div>
                     <div class="panel-body" style="background:#f5f5f5">
                         <div class="row">
                             <div class="form-group col-xs-6">
-                                <label>姓名 * （中文）</label>{{--@lang('order.order_tenant')--}}
-                                <input type="text" name="name" class="form-control" placeholder="例：王小明" required>
+                                <label>@lang('order.renter_name') *</label>
+                                <input type="text" name="name" class="form-control" placeholder="@lang('order.order_for')：王小明" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>性别</label><br/>
+                                <label>@lang('order.sex') *</label><br/>
                                 <label class="checkbox-inline i-checks" style="padding-left:0">
-                                    <input type="radio" value="1" name="gender" required> 男 </label>
+                                    <input type="radio" value="1" name="gender" required> @lang('order.male') </label>
 
                                 <label class="checkbox-inline i-checks">
-                                    <input type="radio" value="2" name="gender" required checked> 女 </label>
+                                    <input type="radio" value="2" name="gender" required checked> @lang('order.female') </label>
                             </div>
 
                             <div class="clearfix"></div>
 
                             <div class="form-group col-xs-6">
-                                <label>First Name * （英文/拼音）</label>
-                                <input type="text" name="fname" class="form-control" placeholder="例：XIAOMING" required>
+                                <label>@lang('order.fname') *</label>
+                                <input type="text" name="fname" class="form-control" placeholder="@lang('order.order_for')：XIAOMING" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>Last Name * （英文/拼音）</label>
-                                <input type="text" name="lname" class="form-control" placeholder="例：WANG" required>
+                                <label>@lang('order.lname') *</label>
+                                <input type="text" name="lname" class="form-control" placeholder="@lang('order.order_for')：WANG" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>开始时间 *</label>
+                                <label>@lang('order.stime') *</label>
                                 <input type="text" name="stime" id="stime" class="form-control date" placeholder="" value="" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>租期</label>
-                                <input type="text" name="rent_time" id="rent_time" class="form-control" placeholder="" value="" required style="width:100px;"/><span style="position: absolute; top:35px; left:120px;">周</span>
+                                <label>@lang('order.order_lease') *</label>
+                                <input type="text" name="rent_time" id="rent_time" class="form-control" placeholder="" value="" required style="width:100px;"/><span style="position: absolute; top:35px; left:120px;">@lang('order.order_weeks')</span>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>电子邮箱 *</label>
+                                <label>@lang('order.renter_email') *</label>
                                 <input type="email" placeholder="" name="email" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>电话 *</label>
+                                <label>@lang('order.renter_tel') *</label>
                                 <input type="tel" name="tel" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>微信</label>
+                                <label>@lang('order.renter_wechat')</label>
                                 <input type="text" name="wechat" class="form-control">
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>QQ</label>
+                                <label>@lang('order.renter_qq')</label>
                                 <input type="text" name="qq" class="form-control">
                             </div>
 
                             <!--学生公寓相关-->
                             <div class="form-group col-xs-6">
-                                <label>学校 *</label>
-                                <input type="text" name="university" class="form-control">
+                                <label>@lang('order.university') *</label>
+                                <input type="text" name="university" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>专业 *</label>
-                                <input type="text" name="course" class="form-control">
+                                <label>@lang('order.course') *</label>
+                                <input type="text" name="course" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>生日 *</label>
+                                <label>@lang('order.dob') *</label>
                                 <input type="text" name="dob" id="dob" class="form-control date" placeholder="" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>国籍 *</label>
+                                <label>@lang('order.nation') *</label>
                                 <input type="text" name="nationality" class="form-control" required >
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>地址 *</label>
+                                <label>@lang('order.add') *</label>
                                 <input type="text" name="address" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>邮编 *</label>
+                                <label>@lang('order.post_code') *</label>
                                 <input type="text" name="postcode" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>紧急联系人姓名 *</label>
+                                <label>@lang('order.eme_name') *</label>
                                 <input type="text" name="r_name" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>与紧急联系的人关系 *</label>
-                                <input type="text" name="relationship" placeholder="亲人/朋友/师生/恋人" class="form-control" required>
+                                <label>@lang('order.eme_relate') *</label>
+                                <input type="text" name="relationship" placeholder="@lang('order.order_rel')" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>紧急联系人电话  *</label>
+                                <label>@lang('order.eme_tel')  *</label>
                                 <input type="text" name="r_tel" class="form-control" required>
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>签约时间 *</label>
+                                <label>@lang('order.order_time') *</label>
                                 <input type="text" name="sign_time" id="sign_time" class="form-control date" placeholder="" required>
                             </div>
 
                             <!--学生公寓相关 结束-->
 
                             <div class="form-group col-xs-6">
-                                <label>身份证 *</label>
+                                <label>@lang('order.order_card') *</label>
                                 <div class="" id="uploadForm" enctype='multipart/form-data'>
-                                    <div class="">正面照</div>
+                                    <div class="">@lang('order.order_front') *</div>
                                     <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                                         <div class="fileinput-new thumbnail" style="width: 200px;height:auto;">
                                             <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
@@ -148,8 +148,8 @@
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
                                             <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">点击上传</span>
-                                                <span class="fileinput-exists">换一张</span>
+                                                <span class="fileinput-new">@lang('order.order_photos')</span>
+                                                <span class="fileinput-exists">@lang('order.order_one')</span>
                                                 <input type="file" name="pic1" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                             </span>
                                         </div>
@@ -162,7 +162,7 @@
                             <div class="form-group col-xs-6">
                                 <label>&nbsp;&nbsp;&nbsp;</label>
                                 <div class="" id="uploadForm" enctype='multipart/form-data'>
-                                    <div class="">反面照</div>
+                                    <div class="">@lang('order.order_reverse') *</div>
                                     <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
                                         <div class="fileinput-new thumbnail" style="width: 200px;height:auto;">
                                             <img id='picImg' style="width: 100%;height: auto;max-height: 140px;" src="{{asset('order/images/noimage.png')}}" alt="" />
@@ -170,8 +170,8 @@
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
                                             <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">点击上传</span>
-                                                <span class="fileinput-exists">换一张</span>
+                                                <span class="fileinput-new">@lang('order.order_photos')</span>
+                                                <span class="fileinput-exists">@lang('order.order_one')</span>
                                                 <input type="file" name="pic11" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                             </span>
                                         </div>
@@ -180,7 +180,7 @@
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>护照 *</label>
+                                <label>@lang('order.order_passport') *</label>
                                 <div class="" id="uploadForm" enctype='multipart/form-data'>
                                     <div class=""></div>
                                     <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
@@ -190,8 +190,8 @@
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
                                             <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">点击上传</span>
-                                                <span class="fileinput-exists">换一张</span>
+                                                <span class="fileinput-new">@lang('order.order_photos')</span>
+                                                <span class="fileinput-exists">@lang('order.order_one')</span>
                                                 <input type="file" name="pic2" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                             </span>
                                         </div>
@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="form-group col-xs-6">
-                                <label>学生证 *</label>
+                                <label>@lang('order.order_photo') *</label>
                                 <div class="" id="uploadForm" enctype='multipart/form-data'>
                                     <div class=""></div>
                                     <div class="fileinput fileinput-new" data-provides="fileinput"  id="exampleInputUpload">
@@ -210,8 +210,8 @@
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
                                             <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">点击上传</span>
-                                                <span class="fileinput-exists">换一张</span>
+                                                <span class="fileinput-new">@lang('order.order_photos')</span>
+                                                <span class="fileinput-exists">@lang('order.order_one')</span>
                                                 <input type="file" name="pic3" id="picID" accept="image/gif,image/jpeg,image/x-png" required="required"/>
                                             </span>
                                         </div>
@@ -220,20 +220,20 @@
                             </div>
 
                             <div class="form-group col-xs-12">
-                                <label>要求备注（如入住时间提前，楼层要求等）和个人情况备注（如特殊健康状况等）</label>
+                                <label>@lang('order.order_note')@lang('order.note_a')</label>
                                 <textarea name="order_remark" class="form-control" rows="4"></textarea>
                             </div>
 
 
                             <div class="form-group col-xs-12">
                                 <label>
-                                    <input type="checkbox" required aria-required="true" name="agreement" checked> 已阅读并接受荔枝租房网 的<a href="javascript:(0)" target="_blank" style="text-decoration:underline">服务条款</a>
+                                    <input type="checkbox" required aria-required="true" name="agreement" checked>@lang('order.order_read')
                                 </label>
                             </div>
 
 
                             <div class="form-group col-xs-12">
-                                <button type="submit" id="btn-submit" class="btn btn-block btn-back btn-default radius">提交预订</button>
+                                <button type="submit" id="btn-submit" class="btn btn-block btn-back btn-default radius">@lang('order.order_step')</button>
                             </div>
                         </div>
                     </div>

@@ -12,29 +12,62 @@ return [
 	'order_price'       =>  'price',
 	'order_tenant'      =>  'Name of tenant',
 	'order_number'      =>  'Tenant cell phone number',
-	'order_card'        =>  'Tenant id card',
-	'order_front'       =>  'front',
-	'order_photos'      =>  'Select Photos',
+	'order_card'        =>  ' ID card',
+	'order_front'       =>  'Front Picture',
+		'order_photos'      =>  'Select one',
 	'order_one'         =>  'Another one',
-	'order_reverse'     =>  'Reverse picture',
-	'order_passport'    =>  'Tenant passport',
+	'order_reverse'     =>  'Reverse Picture',
+	'order_passport'    =>  'Passport',
 	'order_picture'     =>  'Preview picture',
-	'order_photo'       =>  'Student id photo',
+	'order_photo'       =>  'Student Card',
 	'order_id'          =>  'Student id card',
-	'order_lease'       =>  'lease',
+	'order_lease'       =>  'Lease',
 	'order_weeks'       =>  'weeks',
 	'order_time'        =>  'Signing time',
-	'order_note'        =>  'note',
-	'order_step'        =>  'Next step',
+	'order_note'        =>  'Others',
+	'note_a'            =>  '(such as early stay, floor requirements, etc.)and personal remarks (such as special health conditions, etc.)',
+	'order_step'        =>  'Submit',
 	'order_cancel'      =>  'cancel',
+	'order_read'        =>  'Read and accept the terms of service of the litchi renting net',
+	'order_for'         =>  'for example',
+	'order_rel'         =>  'family/friend/teacher/lover',
+
+	'order_form'            =>  'Order Form',
+	'renter_name'           =>   'Name(Chinese)',
+	'fname'                 =>  'First Name(English/PinYin)',
+	'lname'                 =>  'Last Name(English/PinYin)',
+	'sex'                   =>  'Sex',
+	'male'=>'Male',
+	'female'=>'Female',
+	'stime'                 =>  'Begin Time',
+	'renter_email'          =>  'E-mail',
+	'renter_wechat'         =>  'Wechat',
+	'renter_qq'             =>  'QQ',
+	'dob'                   =>  'Birthday',
+	'nation'                =>  'Nationality',
+	'add'                   =>  'Address',
+	'post_code'             =>  'Post Code',
+	'eme_name'              =>  'Emergency Contact',
+	'eme_relate'            =>  'Contact Relationship',
+	'eme_tel'               =>  'Contact Phone',
+	'renter_tel'            =>  'Renter phone number',
+	'university'            =>  'University',
+	'course'                =>  'Course',
+	'renter_tel'            =>  'Telephone Number',
+
+	'order_top'            =>   'orders submitted successfully, please pay ~',
+
+
+
+
 
 	//订单列表
-	'order_numbe'       =>  'Order number',
+	'order_numbe'       =>  'Order Number',
 	'order_date'        =>  'date',
 	'order_identity'    =>  'Photo of identity card',
-	'order_passports'   => 'Passport photo',
+	'order_passports'   =>  'Passport photo',
 	'order_house'       =>  'House number',
-	'order_prices'      =>  'House price',
+	'order_prices'      =>  'House Price',
 	'order_site'        =>  'Signing site',
 	'order_be'          =>  'Wait for the mediation to be determined',
 	'order_status'      =>  'The order status',
@@ -45,7 +78,7 @@ return [
 	'order_delete'      =>  'Delete the order',
 	'order_times'       =>  'time',
 	'order_operation'   =>  'operation',
-	'order_payment'     =>  'Go to the payment',
+	'order_payment'     =>  'Go to pay',
 	'order_has'         =>  'The order has been canceled',
 	'order_cancelled'   =>  'The order has been cancelled',
 	'order_was'         =>  'The order was rejected and the cause was rejected',
@@ -53,7 +86,7 @@ return [
 	'order_cancels'     =>  'Cancel the order',
 	'order_dismiss'     =>  'Dismiss the reason',
 	'order_pattern'     =>  'Method of payment',
-	'order_payments'    =>  'Pay the amount',
+	'order_payments'    =>  'Deposit',
 	'order_currency'    =>  'Pay the money',
 	'order_goods'       =>  'Rate of pay for goods',
 	'order_money'       =>  '$',
@@ -63,6 +96,9 @@ return [
 	'order_enter'       =>  'Please enter the correct name',//请输入正确的名字
 	'order_phone'       =>  'Please enter the correct phone number',//请输入正确的电话号码
 	'order_correct'     =>  'Please enter the correct lease term',//请输入正确的租期期限
+
+	'order_fc'=>'Foreign currency',
+	'order_rc'=>'RMB',
 
 	//付款成功payoff
 	'my_account'        =>  'My Account',
@@ -82,9 +118,7 @@ return [
 	'attention'         =>  'Please pay attention to it.',
 	'return'            =>  'Return to the orders list.',
 	'order_detail'      =>  'Order Detail',
-	'renter_tel'        =>  'Renter phone number',
-	'university'        =>  'University',
-	'course'            =>  'Course',
+
 
 
 

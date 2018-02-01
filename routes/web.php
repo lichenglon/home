@@ -29,20 +29,25 @@ Route::group(['prefix'=>'user'],function() {
 	Route::post('save',$controller.'save');
 	//注册检测
 	Route::any('registerData',$controller.'registerData');
-
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
-
 	//显示
 	Route::any('data/{id?}',$controller.'data');
 	//更新
 	Route::any('renewal',$controller.'renewal');
-
 	//退出
 	Route::any('drop/{id?}',$controller.'drop');
+});
+//setting
+Route::group(['prefix'=>'setting'],function(){
 
+	$controller = 'setting\SettingController@';
+
+	Route::any('account',$controller.'account');
 
 });
+
+
 Route::group(['prefix'=>'KitController'],function() {
 	$controller = 'KitController\KitController@';
 	//验证码
@@ -105,6 +110,9 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('orderDetail/{order_id?}/{ac?}',$controller.'orderDetail');
 	#QR code
 	Route::any('qrcode/{order_id?}',$controller.'qrcode');
+	#我的房源
+	Route::any('myHouse',$controller.'myHouse');
+
 });
 
 
