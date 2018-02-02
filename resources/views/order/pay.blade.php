@@ -104,10 +104,10 @@
 		}
 
 		#paybutton{
-			width:180px;
+			width:130px;
 			position:absolute;
 			top:1150px;
-			left:250px;
+			left:350px;
 			background-color:#fff;
 			border:1px solid #000;
 		}
@@ -160,7 +160,9 @@
 			</div>
 			<div id="down-3">
 				<div  id="down-5">
-					<a href="{{url('order/payoff',['order_id'=>$result->id])}}"><input type="button" id="paybutton" value="@lang('order.order_payment')"/></a>
+					<a href="{{url('order/payoff',['order_id'=>$result->id])}}">
+						<button type="submit" id="paybutton" class="btn btn-block btn-back btn-default radius">@lang('order.order_payment')</button>
+					</a>
 				</div>
 			</div>
 		</div>

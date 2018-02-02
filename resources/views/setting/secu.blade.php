@@ -137,8 +137,8 @@
                             <tbody>
                                 <tr>
                                     <td class="ng-binding ip" style="border-right:0px;" align="center">IP</td>
-                                    <td class="ng-binding addr" style="border-left:0px; border-right:0px;" align="center">位置</td>
-                                    <td class="ng-binding time" style="border-left:0px;" align="center">时间</td>
+                                    <td class="ng-binding addr" style="border-left:0px; border-right:0px;" align="center">@lang('passwords.ladd')</td>
+                                    <td class="ng-binding time" style="border-left:0px;" align="center">@lang('passwords.ltime')</td>
                                 </tr>
                                 @foreach($log as $v)
                                     <tr>

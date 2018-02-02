@@ -29,5 +29,8 @@ return [
     'tip3'          =>  'The password is not consistent, please retype',
 	'save'          =>  'Save',
 	'tip4'          =>  'Incorrect password format',
+    'lip'           =>  'IP',
+    'ladd'          =>  'Address',
+    'ltime'         =>  'Login Time',
 
 ];
