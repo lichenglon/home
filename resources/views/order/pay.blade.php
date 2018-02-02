@@ -95,7 +95,7 @@
 		#down-5{
 			width:970px;
 			height:70px;
-			padding:30px 0 0px 110px;
+			padding:30px 0 0px 120px;
 		}
 
 		.radio-demo{
@@ -104,7 +104,7 @@
 		}
 
 		#paybutton{
-			width:200px;
+			width:180px;
 			position:absolute;
 			top:1150px;
 			left:250px;

@@ -89,8 +89,8 @@
                 {{--</dl>--}}
                 <dl>
                     <dt><i class="icon-icons179"></i>&nbsp;@lang('order.my_profile')</dt>
-                    <dd>@lang('order.my_profile2')</dd>
-                    {{--<dd>@lang('order.settings')</dd>--}}
+                    <dd><a href="{{url('setting/account')}}">@lang('order.my_profile2')</a></dd>
+                    <dd><a href="{{ url('setting/secu') }}">@lang('order.settings')</a></dd>
                 </dl>
             </div>
 

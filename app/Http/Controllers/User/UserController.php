@@ -36,8 +36,8 @@ class UserController extends BaseController {
 			}
 			if($userInfo->upwd == $password){
 				$sessionid = Session::put('userId',$userInfo->id);
-
 				return redirect('/')->with($sessionid);
+
 			}
 		} else {
 			return redirect('user/login')->with('message', '验证码错误');

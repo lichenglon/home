@@ -8,8 +8,10 @@
 
 return [
 		//订单添加
-		'order_name'            =>  '房源名称',
-		'order_location'        =>  '房源位置',
+		'order_name'            =>  '房源',
+		'order_location'        =>  '地址',
+		'order_city'            =>  '城市',
+		'order_htype'            =>  '房型',
 		'order_price'           =>  '价格',
 		'order_tenant'          =>  '租客姓名',
 		'order_number'          =>  '手机号码',
@@ -38,8 +40,8 @@ return [
 		'fname'                 =>  'First Name（英文/拼音）',
 		'lname'                 =>  'Last Name（英文/拼音）',
 		'sex'                   =>  '性别',
-		'male'=>'男',
-		'female'=>'女',
+		'male'                  =>  '男',
+		'female'                =>  '女',
 		'stime'                 =>  '开始时间',
 		'renter_email'          =>  '邮箱',
 		'renter_wechat'         =>  '微信',

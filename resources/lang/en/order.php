@@ -7,14 +7,16 @@
  */
 return [
 	//订单添加
-	'order_name'        =>  'House name',
-	'order_location'    =>  'House location',
-	'order_price'       =>  'price',
+	'order_name'        =>  'House Name',
+	'order_location'    =>  'House Location',
+	'order_price'       =>  'Price',
+	'order_city'        =>  'City',
+	'order_htype'       =>  'House Type',
 	'order_tenant'      =>  'Name of tenant',
 	'order_number'      =>  'Tenant cell phone number',
 	'order_card'        =>  ' ID card',
 	'order_front'       =>  'Front Picture',
-		'order_photos'      =>  'Select one',
+	'order_photos'      =>  'Select one',
 	'order_one'         =>  'Another one',
 	'order_reverse'     =>  'Reverse Picture',
 	'order_passport'    =>  'Passport',
@@ -33,10 +35,10 @@ return [
 	'order_rel'         =>  'family/friend/teacher/lover',
 
 	'order_form'            =>  'Order Form',
-	'renter_name'           =>   'Name(Chinese)',
+	'renter_name'           =>  'Name(Chinese)',
 	'fname'                 =>  'First Name(English/PinYin)',
 	'lname'                 =>  'Last Name(English/PinYin)',
-	'sex'                   =>  'Sex',
+	'sex'                   =>  'Gender',
 	'male'=>'Male',
 	'female'=>'Female',
 	'stime'                 =>  'Begin Time',
@@ -49,11 +51,11 @@ return [
 	'post_code'             =>  'Post Code',
 	'eme_name'              =>  'Emergency Contact',
 	'eme_relate'            =>  'Contact Relationship',
-	'eme_tel'               =>  'Contact Phone',
-	'renter_tel'            =>  'Renter phone number',
+	'eme_tel'               =>  'Contact Mobile',
+	'renter_tel'            =>  'Renter Mobile',
 	'university'            =>  'University',
 	'course'                =>  'Course',
-	'renter_tel'            =>  'Telephone Number',
+	'renter_tel'            =>  'Mobile',
 
 	'order_top'            =>   'orders submitted successfully, please pay ~',
 
@@ -63,27 +65,27 @@ return [
 
 	//订单列表
 	'order_numbe'       =>  'Order Number',
-	'order_date'        =>  'date',
-	'order_identity'    =>  'Photo of identity card',
-	'order_passports'   =>  'Passport photo',
-	'order_house'       =>  'House number',
+	'order_date'        =>  'Date',
+	'order_identity'    =>  'Identity Card',
+	'order_passports'   =>  'Passport Photo',
+	'order_house'       =>  'House Number',
 	'order_prices'      =>  'House Price',
-	'order_site'        =>  'Signing site',
+	'order_site'        =>  'Signing Site',
 	'order_be'          =>  'Wait for the mediation to be determined',
-	'order_status'      =>  'The order status',
-	'order_contract'    =>  'contract',
-	'order_evaluation'  =>    'evaluation',
+	'order_status'      =>  'Order Status',
+	'order_contract'    =>  'Contract',
+	'order_evaluation'  =>   'Evaluation',
 	'order_list'        =>  'Return order list',
 	'order_pay'         =>  'Click to pay',
 	'order_delete'      =>  'Delete the order',
-	'order_times'       =>  'time',
-	'order_operation'   =>  'operation',
+	'order_times'       =>  'Time',
+	'order_operation'   =>  'Operation',
 	'order_payment'     =>  'Go to pay',
 	'order_has'         =>  'The order has been canceled',
 	'order_cancelled'   =>  'The order has been cancelled',
 	'order_was'         =>  'The order was rejected and the cause was rejected',
-	'order_view'        =>  'To view the order',
-	'order_cancels'     =>  'Cancel the order',
+	'order_view'        =>  'View',
+	'order_cancels'     =>  'Cancel',
 	'order_dismiss'     =>  'Dismiss the reason',
 	'order_pattern'     =>  'Method of payment',
 	'order_payments'    =>  'Deposit',
@@ -97,7 +99,7 @@ return [
 	'order_phone'       =>  'Please enter the correct phone number',//请输入正确的电话号码
 	'order_correct'     =>  'Please enter the correct lease term',//请输入正确的租期期限
 
-	'order_fc'=>'Foreign currency',
+	'order_fc'=>'Foreign Currency',
 	'order_rc'=>'RMB',
 
 	//付款成功payoff
@@ -123,7 +125,7 @@ return [
 
 
 	//二维码
-	'order_successful'  =>  'Payment is successful! The page is about to jump',
+	'order_successful'  =>  'Payment is successful! jump~',
 	'order_scan'        =>  'Please scan the qr code for payment',
 	'order_transaction' =>  'Abandon the transaction',
 
@@ -134,8 +136,8 @@ return [
 	'order_like'        =>  'I don\'t like the house',
 	'order_not'         =>  'The house is not suitable',
 	'order_reasons'     =>  'Other reasons',
-	'order_submit'      =>  'submit',
-	'order_want'        =>  'Are you sure you want to cancel the order?',
-	'order_cancellation'=>  'cancellation of order'
+	'order_submit'      =>  'Submit',
+	'order_want'        =>  'Are you sure?',
+	'order_cancellation'=>  'Cancel',
 
 ];

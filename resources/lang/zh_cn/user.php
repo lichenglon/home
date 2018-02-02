@@ -7,12 +7,14 @@
  */
 return [
 	//个人管理
-	'user_personal'=>'个人中心',
-	'user_name'=>'用户名',
-	'user_mailbox'=>'邮箱',
-	'user_cell'=>'手机号码',
-	'user_compellation'=>'姓名',
-	'user_update'=>'更新',
+	'user_personal'     =>  '个人中心',
+	'user_name'         =>  '用户名',
+	'user_mailbox'      =>  '邮箱',
+	'user_cell'         =>  '手机号码',
+	'user_compellation' =>  '昵称',
+	'user_update'       =>  '保存',
+	'hobby'             =>  '爱好',
+	'introduction'      =>  '自我介绍',
 
 
 	//登录

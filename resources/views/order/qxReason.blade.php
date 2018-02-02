@@ -26,9 +26,7 @@
 @include('public.publicHouseJs')
 <script language="javascript">
     function fun(order_id){
-
         var qx = document.getElementById('qx_reason').value;
-
         $.ajax({
             url: "{{url('order/orderCancel')}}",
             data: 'order_id='+order_id+"&qx_reason="+qx,

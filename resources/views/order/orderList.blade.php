@@ -76,7 +76,7 @@
             <div id="up-2">
                 <dl>
                     <dt><i class="icon-icons230"></i>&nbsp;@lang('order.my_account')</dt>
-                    <dd><a href="{{url('order/orderList')}}">@lang('order.my_orders')</a></dd>
+                    <dd>@lang('order.my_orders')</dd>
                    {{-- <dd>@lang('order.my_like')</dd>
                     <dd>@lang('order.my_info')</dd>--}}
                     <dd><a href="{{ url('order/myHouse') }}">@lang('order.my_house')</a></dd>
@@ -90,7 +90,7 @@
                 <dl>
                     <dt><i class="icon-icons179"></i>&nbsp;@lang('order.my_profile')</dt>
                     <dd><a href="{{url('setting/account')}}">@lang('order.my_profile2')</a></dd>
-                    {{--<dd>@lang('order.settings')</dd>--}}
+                    <dd><a href="{{ url('setting/secu') }}">@lang('order.settings')</a></dd>
                 </dl>
             </div>
 
@@ -159,9 +159,10 @@
                                 </td>
                                 <td>@if($val->order_status == '9')
                                     @elseif($val->order_status == '1')
-                                        <a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->id}}')}"><font color="#5f9ea0">@lang('order.order_cancellation')</font></a>
+                                        <a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->id}}','1')}"><font color="#5f9ea0">@lang('order.order_cancellation')</font></a>
                                     @else
-                                        <a href="javascript:void(0);" onclick="qxReason('{{$val->id}}')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>
+                                        {{--<a href="javascript:void(0);" onclick="qxReason('{{$val->id}}')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>--}}
+                                        <a href="javascript:void(0);" onclick="isCancel('{{$val->id}}','2')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>
                                     @endif
                                 </td>
                             </tr>
@@ -179,7 +180,6 @@
                     @endif
 
                 </div>
-
             </div>
         </div>
     </div>
@@ -192,19 +192,41 @@
 @include('house.listingPublic.footer')
 
 <script>
-    function isCancel(order_id){
-        $.ajax({
-            url: "{{url('order/orderCancel')}}",
-            data: 'order_id='+order_id,
-            type: 'get',
-            success: function(re){
-                if(re == '1'){
-                    location.href="{{url('order/orderList')}}";
-                }else{
-                    alert('取消订单失败');
+    function isCancel(order_id,sta){
+
+        if(sta != '1'){
+            var order_id = order_id;
+            window.open ("{{url('order/qxReason')}}"+'/'+order_id, 'newwindow', 'height=300, width=500, top=200,left=600, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')
+
+            $.ajax({
+                url: "{{url('order/orderCancel')}}",
+                data: 'order_id='+order_id,
+                type: 'get',
+                success: function(re){
+                    if(re == '1'){
+                        location.href="{{url('order/orderList')}}";
+                        alert('@lang('order.order_success')');
+                    }else{
+                        alert('取消订单失败');
+                    }
                 }
-            }
-        })
+            })
+
+        }else{
+            $.ajax({
+                url: "{{url('order/orderCancel')}}",
+                data: 'order_id='+order_id,
+                type: 'get',
+                success: function(re){
+                    if(re == '1'){
+                        location.href="{{url('order/orderList')}}";
+                        alert('@lang('order.order_success')');
+                    }else{
+                        alert('取消订单失败');
+                    }
+                }
+            })
+        }
     }
 
     function qxReason(order_id){

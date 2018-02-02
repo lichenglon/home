@@ -251,12 +251,12 @@
                 <div class="panel-heading panel-yellow"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 房源信息</div>
                 <div class="panel-body">
                     <p><img  width="190px" height="150px" src="{{HOUSE_SERVER_PATH}}uploads/{{$house_img}}" alt=""></p>
-                    <p>城市： {{$result->state}} {{$result->province}} {{$result->city}}</p>
-                    <p>房源： {{$result->house_name}}</p>
-                    <p>地址： {{$result->house_location}}
-                    <p>房型： {{$house_structure}}</p>
-                    <p>价格： £ {{$result->house_price}} /周</p>
-                    <p>订金： @if(!empty($payment_amount)) ¥ {{$payment_amount}} @else @endif</p>
+                    <p>@lang('order.order_city')： {{$result->state}} {{$result->province}} {{$result->city}}</p>
+                    <p>@lang('order.order_name')： {{$result->house_name}}</p>
+                    <p>@lang('order.order_location')： {{$result->house_location}}
+                    <p>@lang('order.order_htype')： {{$house_structure}}</p>
+                    <p>@lang('order.order_price')： £ {{$result->house_price}} /周</p>
+                    <p>@lang('order.order_payments')： @if(!empty($payment_amount)) ¥ {{$payment_amount}} @else @endif</p>
 
                 </div>
             </div>
