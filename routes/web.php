@@ -12,15 +12,11 @@
 */
 //首页
 Route::get('/','IndexController@index')->name('/');
-
-
 //404页面
 Route::get('error_page','IndexController@error_page');
-
 //用户
 Route::group(['prefix'=>'user'],function() {
 	$controller = 'User\UserController@';
-
 	#登陆页
 	Route::get('login',$controller.'login');
 	#注册页
@@ -29,25 +25,21 @@ Route::group(['prefix'=>'user'],function() {
 	Route::post('save',$controller.'save');
 	//注册检测
 	Route::any('registerData',$controller.'registerData');
-
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
-
 	//显示
 	Route::any('data/{id?}',$controller.'data');
 	//更新
 	Route::any('renewal',$controller.'renewal');
-
 	//退出
 	Route::any('drop/{id?}',$controller.'drop');
-
-
 });
+
+
 Route::group(['prefix'=>'KitController'],function() {
 	$controller = 'KitController\KitController@';
 	//验证码
 	Route::get('captcha/{tmp}',$controller.'captcha');
-
 });
 
 //新闻
@@ -55,7 +47,6 @@ Route::group(['prefix'=>'news'],function() {
 	$controller = 'News\NewsController@';
 	//详情页
 	Route::any('foreign',$controller.'foreign');
-
 });
 
 
@@ -85,10 +76,8 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('orderSave',$controller.'orderSave');
 	#支付
 	Route::any('pay/{result?}',$controller.'pay');
-
 	#支付成功
 	Route::any('payoff/{order_id?}',$controller.'payoff');
-
 	#取消订单
 	Route::any('orderCancel',$controller.'orderCancel');
 	#取消订单原因
@@ -105,6 +94,9 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('orderDetail/{order_id?}/{ac?}',$controller.'orderDetail');
 	#QR code
 	Route::any('qrcode/{order_id?}',$controller.'qrcode');
+	#我的房源
+	Route::any('myHouse',$controller.'myHouse');
+
 });
 
 
@@ -113,7 +105,6 @@ Route::group(['prefix' => 'contact'],function(){
 	$controller = 'Contact\ContactController@';
 	#联系我们
 	Route::any('me',$controller.'contact');
-
 	//邮件
 	Route::any('send',$controller.'send');
 
@@ -126,6 +117,12 @@ Route::group(['prefix'=>'comment'],function(){
 	Route::any('login','Comment\CommentController@login');
 });
 
+//setting
+Route::group(['prefix'=>'setting'],function(){
+	$controller = 'setting\SettingController@';
+	Route::any('account',$controller.'account');
+	Route::any('secu',$controller.'secu');
+});
 
 //个人设置中心
 Route::group(['prefix'=>'home'],function(){

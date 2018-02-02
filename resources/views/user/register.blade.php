@@ -60,9 +60,28 @@
 	<script src="{{asset('home/user/js/jquery-1.11.3.js')}}"></script>
 	<script src="{{asset('home/user/js/enters.js')}}"></script>
 	<script type="text/javascript">
-		/*鼠标失去焦点验证用户名是否重复*/
+		/*$("[name=uname]").blur(function(){
+			var username = document.getElementById('unameMsg').value() ;
+			$.post("{{url('user/registerData')}}",{"username":unameMsg},function(zhi){
+				if(zhi == 1){      //已经被注册
+					$("#unameMsg").html("已经被注册了");
+					$("#unameMsg").css({"display":"","color":"red"});
+				}else if(zhi == 2){   //可以注册
+					$("#unameMsg").html("可以注册");
+					$("#unameMsg").css({"display":"","color":"blue"});
+				}else if(zhi == 3){  //不能为空
+					$("#unameMsg").html("用户不能为空");
+					$("#unameMsg").css({"display":"","color":"red"});
+				}else if(zhi == 4){
+					$("#unameMsg").html("用户不能使用");
+					$("#unameMsg").css({"display":"","color":"red"});
+				}
+			});
+		});*/
+		/!*鼠标失去焦点验证用户名是否重复*!/
 	$('#uname').blur(function(){
-		var username = $('#uname').html('lalalal');
+
+		var username = $('#unameMsg').html('');
 	 $.ajax({
 	   type: "POST",
 	   url: "{{url('user/registerData')}}",
@@ -80,26 +99,9 @@
 	});
 	});
 	//console.log($("#unameMsg").hasClass("ok"));
-	{{--	<script>
-		$("[name=uname]").blur(function(){
-			houhou = this.value;
-			$.post("shunshi.php",{"uname":houhou},function(zhi){
-				if(zhi == 1){      //已经被注册
-					$("#jiance").html("居然是JQ的毛病");
-					$("#jiance").css({"display":"","color":"red"});
-				}else if(zhi == 2){   //可以注册
-					$("#jiance").html("你大爷的JQ");
-					$("#jiance").css({"display":"","color":"blue"});
-				}else if(zhi == 3){  //不能为空
-					$("#jiance").html("因为JQ居然花了那么久");
-					$("#jiance").css({"display":"","color":"red"});
-				}else if(zhi == 4){
-					$("#jiance").html("用户名不能使用");
-					$("#jiance").css({"display":"","color":"red"});
-				}
-			});
-		});
-	</script>--}}
+
+
+
 
 		/*点击按钮提交注册信息*/
 $("#tjbtn").click(function(){

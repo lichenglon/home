@@ -1,0 +1,64 @@
+body{
+	background-color:#F0F0F0;
+}
+
+#box{
+	width:1180px;
+	height:1155px;
+	margin:5px auto;
+	background-color:#F0F0F0;
+}
+
+#b-up{
+	width:1180px;
+	height:500px;
+	margin:5px auto;
+	padding:0px 100px;
+	background-color:#F0F0F0;
+}
+
+#up-1{
+	width:1080px;
+	height:128px;
+	padding-bottom:30px
+}
+
+#up-2{
+	width:170px;
+	height:455px;
+	padding: 50px 0px 50PX 34PX;
+	margin:50px 34px;
+	float:left;
+	border:1px solid #FFF;
+	background-color:#FFF;
+	font-family:华文细黑;
+	font-size:15px;
+	color:#313131;
+
+}
+
+dd{
+	font-family:华文细黑;
+	font-size:12px;
+	color:#313131;
+	line-height:20px;
+	padding-left:20px;
+}
+
+#up-4{
+	width:628px;
+	height:555px;
+	padding: 50px;
+	margin:50px 50px 50px 0px;
+	float:left;
+	border: 1px solid #FFF;
+	background-color:#FFF;
+}
+
+#up-3{
+	width:526px;
+	height:453px;
+	padding:50px;
+	border: 1px solid #E0E0E0;
+	color:#666666;
+}

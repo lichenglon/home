@@ -36,8 +36,8 @@ class UserController extends BaseController {
 			}
 			if($userInfo->upwd == $password){
 				$sessionid = Session::put('userId',$userInfo->id);
-
 				return redirect('/')->with($sessionid);
+
 			}
 		} else {
 			return redirect('user/login')->with('message', '验证码错误');
@@ -74,19 +74,9 @@ class UserController extends BaseController {
 	}
 
 	//注册检测
-	public function registerData(){
-		echo 1;
-		$username = isset($_POST['username']) ? $_POST['username'] : "";
-		var_dump($username);
-		if($username){
-			$uname = DB::table('tb_register')->select('uname')->get();
-			if($uname == $username){
-				echo 1;
-				exit;
-			}else{
-				echo 2;
-				exit;
-			}
+	public function registerData(Request $request){
+		if($request->isMethod('post')){
+			
 		}
 
 	}

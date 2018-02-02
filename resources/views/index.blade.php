@@ -652,6 +652,7 @@
 <script src="{{asset('home')}}/js/functions.js"></script>
 
 
+
 @include('user.include.ajax_include')
 <script>
 
@@ -679,8 +680,6 @@
 </body>
 
 </html>
-
-
 
 
 
