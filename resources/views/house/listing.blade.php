@@ -318,12 +318,12 @@
       type:'get',
       success:function (re) {
         if(re == '1'){
-          alert('@lang('index.index_pro')');
+          alert("@lang('index.index_pro')");
         } else if (re == '0'){
-          alert('@lang('index.index_sorry')');
+          alert("@lang('index.index_sorry')");
         } else {
           $('#like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
-          alert('@lang('index.index_success')');
+          alert("@lang('index.index_success')");
           
         }
       }

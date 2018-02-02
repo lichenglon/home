@@ -119,9 +119,12 @@ Route::group(['prefix' => 'contact'],function(){
 
 });
 
-/*Route::group(['prefix'=>'send'],function(){
-	$mailable =
-});*/
+Route::group(['prefix'=>'comment'],function(){
+	#评论
+	Route::any('comment','Comment\CommentController@index');
+	#评论登陆
+	Route::any('login','Comment\CommentController@login');
+});
 
 
 //个人设置中心

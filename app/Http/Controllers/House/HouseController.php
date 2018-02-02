@@ -92,7 +92,11 @@ class HouseController extends BaseController {
 		$imagesObj = $houseImg->where('house_msg_id', $id)->get();
 		$house = new House_message();
 		$objData = $house->orderBy('msgid','desc')->paginate(6);
-		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj,'objData'=>$objData]);
+
+		//评论
+		$comment = DB::table('comment')->where('house_id',$id)->join('tb_register','comment.user_id','=','tb_register.id')->select('comment.*','tb_register.user')->get();
+
+		return view('house.detail', ['houseMsg'=>$houseMsg, 'imagesObj'=>$imagesObj,'objData'=>$objData, 'comment' => $comment]);
 	}
 
 	/**

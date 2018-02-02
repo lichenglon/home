@@ -43,4 +43,20 @@ return [
 	'detail_place'=>'To place the order',
 
 
+
+
+	//评论
+	'comment'           => 'Comment',               //评论
+	'Is_very_poor'      => 'Poor',          //很差
+	'general'           => 'General',               //一般
+	'good'              => 'Good',                  //好
+	'Very_good'         => 'Very good',             //很好
+	'Very_Very_good'    => 'Very Very good',        //非常好
+	'You_can_also_type' => 'You can also type',     //您还可以输入
+	'A_word'            => 'A word',                //个字
+	'submit'            => 'Submit',                //提交
+	'score'             => 'Score',                 //评分
+	'user_name'         => 'User Name',             //用户名
+	'content'           => 'Content',               //内容
+
 ];
