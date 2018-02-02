@@ -16,6 +16,8 @@
     <script type="text/javascript" src="{{asset('order/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('order/laydate/laydate.js')}}"></script>
     <script type="text/javascript" src="{{asset('order/js/bootstrap-fileinput.js')}}"></script>
+
+
 </head>
 <body>
 <div class="container" id="main-container"  style="margin-top:10px">
@@ -248,7 +250,7 @@
         <!--Right-->
         <div class="col-xs-3">
             <div class="panel panel-default">
-                <div class="panel-heading panel-yellow"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 房源信息</div>
+                <div class="panel-heading panel-yellow"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>@lang('order.house_info')</div>
                 <div class="panel-body">
                     <p><img  width="190px" height="150px" src="{{HOUSE_SERVER_PATH}}uploads/{{$house_img}}" alt=""></p>
                     <p>@lang('order.order_city')： {{$result->state}} {{$result->province}} {{$result->city}}</p>

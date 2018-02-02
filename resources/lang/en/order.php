@@ -58,6 +58,7 @@ return [
 	'renter_tel'            =>  'Mobile',
 
 	'order_top'            =>   'orders submitted successfully, please pay ~',
+	'house_info'           =>   'House Information',
 
 
 
