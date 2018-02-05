@@ -118,6 +118,14 @@ Route::group(['prefix' => 'contact'],function(){
 
 });
 
+//setting
+Route::group(['prefix'=>'setting'],function(){
+	$controller = 'Setting\SettingController@';
+
+	Route::any('account',$controller.'account');
+	Route::any('secu',$controller.'secu');
+});
+
 
 
 
