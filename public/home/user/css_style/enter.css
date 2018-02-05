@@ -135,6 +135,7 @@ form{
 	border: 0;
 	font-size: 16px;
 	font-family: "Microsoft YaHei","Hiragino Sans GB";
+	cursor:pointer;
 }
 .submit_btn>input:hover{
 	background-color:red;

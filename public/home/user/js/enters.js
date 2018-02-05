@@ -24,14 +24,14 @@ var	$uname=$("#uname"),
 	 inputId.blur(function(){
 		var val=inputId.val().search(zhengZe);
 		if (inputId.val()!=""){
-		if (val!= -1){
-			spanId.html("").removeClass().addClass("ok").css("color","red");
-		}else{
-			spanId.html("格式错误")
-				.removeClass().addClass("err").css("color","red");
-			$(".refer").attr("type","button");
+			if (val!= -1){
+				spanId.html("").removeClass().addClass("ok").css("color","red");
+			}else{
+				spanId.html("格式错误")
+					.removeClass().addClass("err").css("color","red");
+				$(".refer").attr("type","button");
 
-		}
+			}
 		}else{
 		spanId.html("必填").removeClass().addClass("err").css("color","red");
 		$(".refer").attr("type","button");

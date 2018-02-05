@@ -24,7 +24,7 @@
 </style>
 <header>
 	<a href="#" class="logo"></a>
-	<div class="desc" style="color:red">@lang('user.user_register')</div>
+	<div class="desc" style="color:re">@lang('user.user_register')</div>
 </header>
 <video autoplay muted loop style="width:100%;" id="v1">
 	<source src="{{ url('mp4/v1.mp4') }}">
@@ -33,28 +33,28 @@
 	<form action="{{url('user/save')}}" method="post">
 		<div class="register-box">
 			<label for="username" class="username_label ">@lang('user.user_user')</label>
-			<input maxlength="20" type="text" name="uname" id="uname"  placeholder="@lang('user.user_your')"/>
+			<input maxlength="20" type="text" required="required" name="uname" id="uname"  placeholder="@lang('user.user_your')"/>
 			<div id="unameMsg" style="width:200px ;height: 15px;" >
 
 			</div>
 		</div>
 		<div class="register-box">
 			<label for="username" class="other_label">@lang('user.user_set')</label>
-			<input maxlength="20" type="password" name="upwd" id="upwd" placeholder="@lang('user.user_Please')"/>
+			<input maxlength="20" type="password" required="required" name="upwd" id="upwd" placeholder="@lang('user.user_Please')"/>
 			<div id="upwdMsg"  style="width:200px ;height: 15px;">
 
 			</div>
 		</div>
 		<div class="register-box">
 			<label for="username" class="other_label">@lang('user.user_confirm')</label>
-			<input maxlength="20" type="password" id="upwds" placeholder="@lang('user.user_again')"/>
+			<input maxlength="20" type="password" required="required" id="upwds" placeholder="@lang('user.user_again')"/>
 			<div id="upwdsMsg" style="width:300px ;height: 15px;" >
 
 			</div>
 		</div>
 		<div class="register-box">
 			<label for="username" class="other_label">@lang('user.user_phone')</label>
-			<input class="phone" maxlength="20" type="text" id="phone" name="phone" style="margin-right:112px" placeholder="@lang('user.user_recommended')"/>
+			<input class="phone" maxlength="20" required="required" type="text" id="phone" name="phone" style="margin-right:112px" placeholder="@lang('user.user_recommended')"/>
 			<div id="phoneMsg" style="width:300px ;height: 15px;" >
 
 			</div>
@@ -62,7 +62,7 @@
 
 		<div class="register-box">
 			<label for="username" class="other_label">@lang('user.user_e-mail')</label>
-			<input maxlength="20" type="text" id="email" name="email" placeholder="@lang('user.user_address')"/>
+			<input maxlength="20" type="text" required="required" id="email" name="email" placeholder="@lang('user.user_address')"/>
 			<div id="emailMsg" style="width:300px ;height: 15px;" >
 
 			</div>
@@ -70,14 +70,14 @@
 
 		<div class="register-box">
 			<label for="username" class="other_label">@lang('user.user_Real')</label>
-			<input maxlength="20" type="text" id="userName" name="user" placeholder="@lang('user.user_reals')"/>
+			<input maxlength="20" type="text" required="required" id="userName" name="user" placeholder="@lang('user.user_reals')"/>
 			<div id="userNameMsg" style="width:200px ;height: 15px;" >
 
 			</div>
 		</div>
 
 		<div class="submit_btn">
-			<input type="hidden" id="_token" name="_token"  value="{{csrf_token()}}"/>
+			<input type="hidden" id="_token" name="_token" value="{{csrf_token()}}"/>
 			<input type="submit" id="submit_btn" class="refer" value="@lang('user.user_immediately')">
 		</div>
 	</form>

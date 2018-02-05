@@ -164,14 +164,14 @@
             <li>
 
                 @if(Session::get('userId'))
-                    <a href="{{url('user/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>@lang('index.index_setting')</a>
+                    <a href="{{url('setting/account',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>@lang('index.index_setting')</a>
                 @else
                     <a href="{{url('user/login')}}"><i class="icon-icons179"></i>@lang('index.index_login')</a>
             </li>
             <li>
                 @endif
                 @if(Session::get('userId'))
-                    <a href="{{url('user/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('确定要退出吗？'))return false">@lang('index.index_drop')</a>
+                    <a href="{{url('user/drop',['id'=>Session::get('userId')])}}" onclick="if(!confirm('@lang('index.index_Are')'))return false">@lang('index.index_drop')</a>
                 @endif
 
                 <a href="{{url('user/register')}}">@lang('index.index_register')</a>
