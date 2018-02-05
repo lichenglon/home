@@ -142,6 +142,24 @@
 <div class="tp_overlay" style="width:30%;">
     <div class="topbar clearfix">
         <ul class="breadcrumb_top">
+            <li>
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-switch2"></i>
+                    <span>@lang('index.index_Language')</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="user-footer">
+                        <div class="pull-left">
+                            <a href="javascript:setLocale('zh_cn');" class="btn btn-default btn-flat">中文</a>
+                        </div>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="pull-right">
+                            <a href="javascript:setLocale('en');" class="btn btn-default btn-flat">English</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
             <li><a href="{{url('house/like')}}"><i class="icon-icons43"></i>@lang('index.index_dearest')</a></li>
             <li>
 
@@ -157,25 +175,6 @@
                 @endif
 
                 <a href="{{url('user/register')}}">@lang('index.index_register')</a>
-            </li>
-            <li>
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <span>@lang('index.index_Language')</span>
-                </a>
-                <ul class="dropdown-menu" style="margin-left:270px; margin-top:-1px;">
-                    <li class="user-footer">
-                        <div class="pull-left">
-                            <a href="javascript:setLocale('zh_cn');" class="btn btn-default btn-flat">中文</a>
-                        </div>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <div class="pull-right">
-                            <a href="javascript:setLocale('en');" class="btn btn-default btn-flat">English</a>
-                        </div>
-                    </li>
-                </ul>
-
-
             </li>
             <li class="last-icon"><i class="icon-icons215"></i></li>
         </ul>
