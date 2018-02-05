@@ -15,7 +15,7 @@ Route::get('/','IndexController@index')->name('/');
 
 
 //404页面
-Route::get('error_page','IndexController@error_page');
+Route::any('error_page','IndexController@error_page');
 
 //用户
 Route::group(['prefix'=>'user'],function() {
@@ -24,11 +24,9 @@ Route::group(['prefix'=>'user'],function() {
 	#登陆页
 	Route::get('login',$controller.'login');
 	#注册页
-	Route::get('register',$controller.'register');
+	Route::any('register',$controller.'register');
 	#注册保存
-	Route::post('save',$controller.'save');
-	//注册检测
-	Route::any('registerData',$controller.'registerData');
+	Route::any('save',$controller.'save');
 
 	//登录检测
 	Route::post('loginFind',$controller.'loginFind');
@@ -40,6 +38,9 @@ Route::group(['prefix'=>'user'],function() {
 
 	//退出
 	Route::any('drop/{id?}',$controller.'drop');
+
+	//注册检测
+	Route::any('detection',$controller.'detection');
 
 
 });
@@ -119,16 +120,8 @@ Route::group(['prefix' => 'contact'],function(){
 
 });
 
-/*Route::group(['prefix'=>'send'],function(){
-	$mailable =
-});*/
 
 
-//个人设置中心
-Route::group(['prefix'=>'home'],function(){
-
-
-});
 
 
 
