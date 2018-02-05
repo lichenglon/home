@@ -11,12 +11,12 @@ var	$uname=$("#uname"),
 	$userName=$("#userName"),
 	$userNameMsg=$("#userNameMsg");
 /*获取焦点事件和按住事件*/
-	function onfocus(inputId,spanId,spanMsg){
+	function onfocus(inputId,divId,divMsg){
 		inputId.focus(function(){
-         spanId.html(spanMsg).removeClass().addClass("asd");
+         divId.html(divMsg).removeClass().addClass("asd").css("color","red");
       });
 		inputId.keyup(function(){
-        spanId.html(spanMsg);	
+        divId.html(divMsg);
       });
     }
 /*鼠标失去焦点验证格式*/
@@ -25,13 +25,17 @@ var	$uname=$("#uname"),
 		var val=inputId.val().search(zhengZe);
 		if (inputId.val()!=""){
 		if (val!= -1){
-			spanId.html("通过").removeClass().addClass("ok");
+			spanId.html("").removeClass().addClass("ok").css("color","red");
 		}else{
 			spanId.html("格式错误")
-				.removeClass().addClass("err");
-		  }
+				.removeClass().addClass("err").css("color","red");
+			$(".refer").attr("type","button");
+
+		}
 		}else{
-		spanId.html("必填").removeClass().addClass("err");}
+		spanId.html("必填").removeClass().addClass("err").css("color","red");
+		$(".refer").attr("type","button");
+		}
 	 })
 	}
 /**/
@@ -53,13 +57,14 @@ var	$uname=$("#uname"),
 	$upwds.blur(function(){
 		if ($upwds.val()==""){
 			$upwdsMsg.html("密码不能为空")
-			.removeClass().addClass("err");
+			.removeClass().addClass("err").css("color","red");
 		}else if ($upwds.val()==$("#upwd").val()){
 			$upwdsMsg.html("通过")
-			.removeClass().addClass("ok");
+			.removeClass().addClass("ok").css("color","red");
 		}else{
 			$upwdsMsg.html("两次密码输入不一致")
 			.removeClass().addClass("err");
+			$(".refer").attr("type","button");
 		}
 	});
 

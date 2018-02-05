@@ -47,39 +47,34 @@ class UserController extends BaseController {
 	/**
 	 *注册页
 	 */
-	public function register() {
+	public function register(Request $request){
+
 		return view('user.register');
 	}
 	//注册入库
 	public function save (Request $request) {
-		$arr = Input::all();
-		unset($arr['_token']);
-		$data = [
-				'uname' => $request->uname,
-				'upwd' => md5($request->upwd),
-				'email' => $request->email,
-				'phone' => $request->phone,
-				'user' => $request->user,
-				'status' => 1,
-		];
-		$re = DB::table('tb_register')->insert($data);
-		if($re)
-		{
-			return redirect('user/register')->with('message','添加成功');
+
+		if(isset($request->username)){
+			$data = DB::table('tb_register')->where('uname', $request->username)->first();
+			if($data){
+				return 1;
+			}
 		}else{
-			return redirect('user/register')->with('message','添加失败');
+			$arr = Input::all();
+			unset($arr['_token']);
+
+			$re = DB::table('tb_register')->insert($arr);
+			if($re == true){
+				return view('user/login')->with('message', '添加成功');
+			} else{
+				return view('error_page');
+			}
 		}
 
 
 	}
 
-	//注册检测
-	public function registerData(Request $request){
-		if($request->isMethod('post')){
-			
-		}
 
-	}
 
 	//退出
 	public function drop($id){

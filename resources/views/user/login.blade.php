@@ -7,10 +7,30 @@
  </head>
  <body>
  <style>
-
+     body{
+         margin:0;
+     }
+     video{
+         position:fixed;
+         right:0;
+         bottom:0;
+         min-width:100%;
+         min-height:100%;
+         width:auto;
+         height:auto;
+         z-index:-9999;
+         /*-webkit-filter:grayscale(100%)*/
+     }
  </style>
 
  <div id="h">
+     <header>
+         <a href="{{asset(url('/'))}}" class="logo"></a>
+         <div class="desc" style="color:red">欢迎登陆</div>
+     </header>
+     <video autoplay muted loop style="width:100%;" id="v1">
+         <source src="{{ url('mp4/v1.mp4') }}">
+     </video>
    <div>
 
    <form action="{{url('user/loginFind')}}" method="post">
@@ -58,6 +78,10 @@
  </script>
  <script src="{{asset('home/user/js/jquery-1.11.3.js')}}"></script>
  <script src="{{asset('home/user/js/enroll.js')}}"></script>
+ <script>
+     var video= document.getElementById('v1');
+     video.playbackRate = 0.5;
+ </script>
 
 </html>
 
