@@ -38,9 +38,7 @@ Route::group(['prefix'=>'user'],function() {
 
 	//退出
 	Route::any('drop/{id?}',$controller.'drop');
-
-	//注册检测
-	Route::any('detection',$controller.'detection');
+	
 
 
 });

@@ -43,4 +43,19 @@ return [
 	'detail_the'=>'每月 ￥',
 	'detail_place'=>'去下单',
 
+
+	//评论
+	'comment'           => '评论',
+	'Is_very_poor'      => '很差',
+	'general'           => '一般',
+	'good'              => '好',
+	'Very_good'         => '很好',
+	'Very_Very_good'    => '非常好',
+	'You_can_also_type' => '您还可以输入',
+	'A_word'            => '个字',
+	'submit'            => '提交',
+	'score'             => '评分',
+	'user_name'         => '用户名',
+	'content'           => '内容',
+
 ];

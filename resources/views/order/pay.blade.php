@@ -95,7 +95,7 @@
 		#down-5{
 			width:970px;
 			height:70px;
-			padding:30px 0 0px 110px;
+			padding:30px 0 0px 120px;
 		}
 
 		.radio-demo{
@@ -104,10 +104,10 @@
 		}
 
 		#paybutton{
-			width:200px;
+			width:130px;
 			position:absolute;
 			top:1150px;
-			left:250px;
+			left:350px;
 			background-color:#fff;
 			border:1px solid #000;
 		}
@@ -124,15 +124,15 @@
 				<img src="{{asset('order/images/01.png')}}" alt="">
 			</div>
 			<div id="up-4">
-				<h3>订单提交成功, 请尽快支付噢~</h3><br/>
-				订单号：{{$result->order_no}}<br/>
+				<h3>@lang('order.order_top')</h3><br/>
+				@lang('order.order_numbe')：{{$result->order_no}}<br/>
 				{{$result->house_name}} / {{date('Y-m-d',$result->stime)}} / {{$result->rent_time}}
 			</div>
 		</div>
 		<div id="up-2">
 			<div id="up-5">
-				房租：<font color="#FF5151"><b>￥ {{$result->house_price}}</b></font><br/>
-				订金：<font color="#FF5151"><b>￥ {{$result->payment_amount}}</b></font>
+				@lang('order.order_prices')：<font color="#FF5151"><b>￥ {{$result->house_price}}</b></font><br/>
+				@lang('order.order_payments')：<font color="#FF5151"><b>￥ {{$result->payment_amount}}</b></font>
 			</div>
 		</div>
 	</div>
@@ -141,7 +141,7 @@
 		<div id="down-1">
 			<div id="down-2">
 				<div id="down-4">
-					<h4>人民币支付</h4>
+					<h4>@lang('order.order_rc')</h4>
 					<ul class="radio-demo">
 						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/masta.jpg')}}" alt="" style="position:absolute;top:620px;"></li>
 						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/zfb.png')}}" alt="" style="position:absolute;top:690px;"></li>
@@ -150,7 +150,7 @@
 						<li><input type="radio" class="radio-demo"><img src="{{asset('order/images/ye.png')}}" alt="" style="position:absolute;top:900px;"></li>
 					</ul>
 					<br/>
-					<h4>外币支付</h4><br/>
+					<h4>@lang('order.order_fc')</h4><br/>
 					<ul>
 						<li>
 							<input type="radio" class="radio-demo"><img src="{{asset('order/images/pp.png')}}" alt="" style="position:absolute;top:1000px;">
@@ -160,7 +160,9 @@
 			</div>
 			<div id="down-3">
 				<div  id="down-5">
-					<a href="{{url('order/payoff',['order_id'=>$result->id])}}"><input type="button" id="paybutton" value="立即支付"/></a>
+					<a href="{{url('order/payoff',['order_id'=>$result->id])}}">
+						<button type="submit" id="paybutton" class="btn btn-block btn-back btn-default radius">@lang('order.order_payment')</button>
+					</a>
 				</div>
 			</div>
 		</div>

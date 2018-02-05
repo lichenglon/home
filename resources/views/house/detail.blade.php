@@ -6,6 +6,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <title>Property Detail</title>
   @include('public.publicHouseCss')
+  <link type="text/css" rel="stylesheet" href="{{asset('user_login')}}/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="{{asset('user_login')}}/css/index.css">
+  <style>
+
+
+    .comment-text-area {
+      width: 700px;
+    }
+
+    .text-area {
+      width: 680px;
+      max-width: 680px;
+      max-height: 150px;
+      border: 5px #ebebeb solid;
+      height: 150px;
+      overflow: hidden;
+      padding: 5px 5px 5px 5px;
+      color: #999999;
+    }
+
+    .text-area-input-length {
+      font-size: 12px;
+      line-height: 30px;
+    }
+
+    .text-area-input-length span {
+      margin: 0px 5px 0px 5px;
+      color: red;
+    }
+
+    .text-area-bottom {
+      text-align: right;
+      margin: 5px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
+    }
+
+    .text-area-bottom {
+      border: #ebebeb 2px solid;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+      background-color: #1AA094;
+      font-size: 14px;
+    }
+
+    .text-area-star {
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .text-area-star label {
+      float: left;
+      line-height: 35px;
+      height: 35px;
+      font-size: 12px;
+      margin: 0px 10px 10px 0px;
+      padding: 0px 5px 0px 5px;
+      cursor: pointer;
+      border: 1px solid #ebebeb;
+    }
+
+    .red {
+      color: red;
+      border: 1px solid red !important;
+    }
+
+    .text-area-star label input {
+      filter: alpha(opacity=0);
+      -moz-opacity: 0;
+      opacity: 0;
+      position: absolute;
+    }
+
+    .text-area-star label span {
+      padding: 10px 10px 10px 10px;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
 
@@ -154,7 +231,13 @@
             </ul>
           </div>
           @endforeach
+
         </div>
+
+
+
+
+
 
         <div class="row bottom40">
           <div class="col-md-12 padding-b-20">
@@ -202,10 +285,97 @@
               <span><a href="#."><i class="fa fa-facebook" aria-hidden="true"></i> @lang('detail.detail_facebook')</a></span>
               <span><a href="#."><i class="fa fa-twitter" aria-hidden="true"></i> @lang('detail.detail_twitter')</a></span>
               <span><a href="#."><i class="fa fa-google-plus" aria-hidden="true"></i> @lang('detail.detail_google') +</a></span>
+
             </div>
+
+              <h2 class="text-uppercase">@lang('detail.comment')</h2>
+              <div class="comment-level"></div>
+            <form action="{{url('comment/comment')}}" method="post" id="SUBMIT">
+
+              {{ csrf_field() }}
+              <div class="comment-text-area">
+                <div class="text-area-star" style="width:780px;">
+                  <label>
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <input type="radio" name="star" value="1"/><span>@lang('detail.Is_very_poor')</span>
+                  </label>
+                  <label>
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <input type="radio" name="star" value="2"/><span>@lang('detail.general')</span>
+                  </label>
+                  <label>
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <input type="radio" name="star" value="3"/><span>@lang('detail.good')</span>
+                  </label>
+                  <label>
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <input type="radio" name="star" value="4"/><span>@lang('detail.Very_good')</span>
+                  </label>
+                  <label class="red">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <img src="{{asset("./home/images/star.png")}}" alt="">
+                    <input type="radio" checked name="star" value="5"/><span>@lang('detail.Very_Very_good')</span>
+                  </label>
+                  <input type="hidden" name="user_id" id="user_id" value="{{Session::get('userId')}}">
+                  <input type="hidden" name="house_id" value="{{$houseMsg->msgid}}">
+                </div>
+                <div>
+                  <textarea id="textarea" class="text-area text-area-input" name="content" required="required">{{Session::get('textarea')}}</textarea>
+                  <div class="text-area-input-length">@lang('detail.You_can_also_type')<span>150</span>@lang('detail.A_word')</div>
+                  <div>
+                    @if(Session::get('userId'))
+                      <button type="submit" class="text-area-bottom">@lang('detail.submit')</button>
+                    @else
+                      <butto class="globalLoginBtn" style="width:80px;">@lang('detail.submit')</butto>
+                    @endif
+                  </div>
+                </div>
+
+
+              </div>
+            </form>
+
+            <div class="row property-d-table bottom40">
+              @foreach($comment as $com)
+              <div>
+                <table class="table table-striped table-responsive" style="width:680px;margin-left:15px;">
+                  <tbody>
+                  <tr>
+                    <td><b>@lang('detail.user_name')：</b></td>
+                    <td>{{$com->user}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>@lang('detail.score')：</b></td>
+                    <td>
+                      @for($i = 0 ; $i < $com->star; $i++)
+                      <img src="{{asset("./home/images/star.png")}}" alt="">
+                      @endfor
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="120"><b>@lang('detail.content')：</b></td>
+                    <td>{{$com->content}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              @endforeach
+            </div>
+
+
           </div>
         </div>
       </div>
+
       <aside class="col-md-4 col-xs-12">
 
         {{----------------------高级搜索------------------------}}
@@ -240,9 +410,12 @@
             <h3 class="margin40 bottom20">@lang('detail.detail_featured')</h3>
           </div>
           <div class="col-md-12">
+
             <div id="agent-2-slider" class="owl-carousel">
+
               @foreach($objData as $Featured)
               <div class="item">
+
                 <div class="property_item heading_space">
                   <div class="image">
                     <a href="{{url('house/detail',['msgid'=>$Featured->msgid])}}"><img src="{{HOUSE_SERVER_PATH}}uploads/{{$Featured->getImageOne($Featured->msgid)}}" alt="listin" class="img-responsive"></a>
@@ -258,17 +431,134 @@
       </aside>
     </div>
   </div>
+
 </section>
+
+<div class="modal fade" id="loginModal" style="display:none;">
+  <div class="modal-dialog modal-sm" style="width:540px;">
+    <div class="modal-content" style="border:none;">
+      <div class="col-left"></div>
+
+      <div class="col-right">
+        <div class="modal-header">
+          <button type="button" id="login_close" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="loginModalLabel" style="font-size: 18px;">登录</h4>
+        </div>
+        <div class="modal-body">
+          <form id="login_form" action="{{url('comment/login')}}" method="post" autocomplete="off" class="js-ajax-form">
+          <section class="box-login v5-input-txt" id="box-login">
+
+              <input type="hidden" name="_token"  value="{{csrf_token()}}"/>
+              <ul>
+                <li class="form-group"><input class="form-control" id="id_account_l" maxlength="50" name="account_l" placeholder="请输入账号" type="text">
+                  <div class="tips_error"></div>
+                </li>
+                <li class="form-group"><input class="form-control" id="id_password_l" name="password_l" placeholder="请输入密码" type="password"></li>
+              </ul>
+
+            <p class="good-tips marginB10"><a id="btnForgetpsw" class="fr">忘记密码？</a>还没有账号？<a href="{{url('user/register')}}" target="_blank" id="btnRegister">立即注册</a></p>
+            <div class="login-box marginB10">
+              <button id="login_btn" type="submit" class="btn btn-micv5 btn-block globalLogin js-ajax-form">登录</button>
+              <div id="login-form-tips" class="tips-error bg-danger" style="display: none;">错误提示</div>
+            </div>
+            <div class="threeLogin"><span>其他方式登录</span><a class="nqq" href="javascript:;"></a><a class="nwx" href="javascript:;"></a><!--<a class="nwb"></a>--></div>
+          </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Property Detail End -->
 
 
 
 <!--Footer-->
 {{--页尾--}}
+
 @include('house.listingPublic.footer')
 
 {{--引入公共js文件--}}
 @include('public.publicHouseJs')
+{{--<script type="text/javascript" src="{{asset('user_login')}}/js/jquery2.2.2.min.js"></script>--}}
+<script type="text/javascript" src="{{asset('user_login')}}/js/modal.js"></script>
+<script type="text/javascript" src="{{asset('user_login')}}/js/script.js"></script>
+
+<script type="text/javascript">
+  $(function(){
+    $('.js-ajax-form').submit(function () {
+      var data  ={
+        _token : $('input[name=_token]').val(),
+        account_l : $('input[name=account_l]').val(),
+        password_l : $('input[name=password_l]').val(),
+        xinxin : $("#SUBMIT input[name=star]:checked").val(),
+        textarea : document.getElementById('textarea').value
+      };
+      if(!data.password_l){
+        $('.tips_error').html('The user name cannot be empty.');
+        return false;
+      }
+      if(!data.password_l){
+        $('.tips_error').html('The password cannot be empty.');
+        return false;
+      }
+      $.post("{{asset('comment/login')}}",data,function(msg){
+
+        if(msg == 1){
+          location.reload();
+        }else if(msg == 0){
+          $('.tips_error').html("用户名不存在！");
+        }else{
+          $('.tips_error').html("密码错误！");
+        }
+
+      },'json');
+      return false;
+
+    });
+
+  });
+
+  $(function () {
+    //离开的时候
+    $('.text-area-input').blur(function () {
+      var iNum = $(this).val().length;
+      var fixedLength = 150;//固定长度
+      if (iNum < fixedLength) {
+        $('.text-area-input-length span').html(fixedLength - iNum);
+      } else {
+        $(this).val($(this).val().substr(0, fixedLength - 1));//截取长度
+        $('.text-area-input-length span').html(iNum - fixedLength);
+      }
+    });
+
+    //按下的时候
+    $('.text-area-input').keydown(function () {
+      var iNum = $(this).val().length;
+      var fixedLength = 150;//固定长度
+      if (iNum < fixedLength) {
+        $('.text-area-input-length span').html(fixedLength - iNum);
+      } else {
+        $(this).val($(this).val().substr(0, fixedLength - 1));//截取长度
+        $('.text-area-input-length span').html(iNum - fixedLength);
+      }
+    });
+
+
+    $('.text-area-star label').click(function () {
+      var labelLength = $('.text-area-star label').length;
+      for (var i = 0; i < labelLength; i++) {
+        if (this == $('.text-area-star label').get(i)) {
+          $('.text-area-star label').eq(i).addClass('red');
+        } else {
+          $('.text-area-star label').eq(i).removeClass('red');
+        }
+      }
+    });
+
+
+  });
+</script>
 </body>
 </html>
 

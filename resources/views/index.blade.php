@@ -335,7 +335,7 @@
                             <span class="tag_t">{{$houseVal->house_status}}</span>
 
                             <span class="tag_l" style="background-color:#b0b0b0;">
-                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd({{$houseVal->msgid}},{{Session::get('userId')}});@else javascript:if(window.confirm('@lang('index.index_first')')){location.href='{{url('user/login')}}'} @endif" title="@lang('index.index_like')">
+                                <a href="@if(Session::get('userId'))javascript:houseLikeAdd('{{$houseVal->msgid}}','{{Session::get('userId')}}');@else javascript:if(window.confirm('@lang('index.index_first')')){location.href='{{url('user/login')}}'} @endif" title="@lang('index.index_like')">
                                     <?php
                                     if(!empty($userLike)){
                                         $userLikeNum = explode(',',$userLike->house_id);
@@ -650,8 +650,11 @@
 <script src="{{asset('home')}}/js/revolution.extension.video.min.js"></script>
 <script src="{{asset('home')}}/js/custom.js"></script>
 <script src="{{asset('home')}}/js/functions.js"></script>
-<script>
 
+
+
+@include('user.include.ajax_include')
+<script>
 
     function houseLikeAdd(houseMsgId,userId) {
 
@@ -660,14 +663,13 @@
             data:'house_id='+houseMsgId+'&userId='+userId,
             type:'get',
             success:function (re) {
-
                 if(re == '1'){
-                    alert('@lang('index.index_pro')');
+                    alert("@lang('index.index_pro')");
                 } else if (re == '0'){
-                    alert('@lang('index.index_sorry')');
+                    alert("@lang('index.index_sorry')");
                 } else {
                     $('.like_'+houseMsgId).attr('src', '{{asset('home')}}/images/yesLike.png');
-                    alert('@lang('index.index_success')');
+                    alert("@lang('index.index_success')");
                 }
             }
         })
@@ -675,12 +677,9 @@
 
 
 </script>
-@include('user.include.ajax_include')
 </body>
 
 </html>
-
-
 
 
 
