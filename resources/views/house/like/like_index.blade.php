@@ -46,7 +46,7 @@
 <body>
 @include('house.listingPublic.header')
 <div class="container" style="margin-top:1%; margin-bottom:1%;">
-    @if($arr[0])
+    @if(!empty($arr[0]))
         @foreach($arr as $value)
     <ul class="display" id="ul_{{$value->msgid}}">
         <li>
