@@ -62,6 +62,7 @@ class UserController extends BaseController {
 		}else{
 			$arr = Input::all();
 			unset($arr['_token']);
+			$arr['upwd'] = md5($arr['upwd']);
 
 			$re = DB::table('tb_register')->insert($arr);
 			if($re == true){

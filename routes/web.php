@@ -38,7 +38,7 @@ Route::group(['prefix'=>'user'],function() {
 
 	//退出
 	Route::any('drop/{id?}',$controller.'drop');
-	
+
 
 
 });

@@ -84,6 +84,6 @@ return [
 		'index_first'=>'亲！请先登录',
 		'index_like'=>'收藏到我喜欢',
 		'index_place'=>'去下单',
-
+		'index_Are'=>'确定要退出吗？'
 
 ];

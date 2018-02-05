@@ -85,7 +85,7 @@ return [
 		'index_first'=>'Pro! Please login first',
 		'index_like'=>'I like it',
 		'index_place'=>'To place the order',
-
+		'index_Are'=>'Are you sure you want to quit?',
 
 
 ];

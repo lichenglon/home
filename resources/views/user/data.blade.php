@@ -3,7 +3,7 @@
 <head>
     <title>个人中心</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="{{asset('home/user/css_style/enter.css')}}">
+    <link rel="stylesheet" href="{{asset('home/user/css_style/enters.css')}}">
 </head>
 
 <body>
