@@ -244,8 +244,8 @@
             <div class="pro-video">
               <figure class="wpf-demo-gallery">
                 <video  class="video" controls>
-                  <source src="{{url('mp4/IMG_0238.MOV')}}" type="video/mp4">
-                  <source src="{{url('mp4/IMG_0238.MOV')}}" type="video/ogg">
+                  <source src="{{url('mp4/a001.mp4')}}" type="video/mp4">
+                 {{-- <source src="{{url('mp4/IMG_0238.MOV')}}" type="video/ogg">--}}
                 </video>
               </figure>
             </div>
