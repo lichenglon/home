@@ -74,7 +74,18 @@
 
     var banner = new FragmentBanner({
         container : "#banner1",//选择容器 必选
-        imgs : ['{{url('home/user/img/a1.jpg')}}','{{url('home/user/img/a2.jpg')}}','{{url('home/user/img/a3.jpg')}}','{{url('home/user/img/a4.jpg')}}','{{url('home/user/img/a5.jpg')}}'],//图片集合 必选
+        imgs : [
+            '{{url('home/user/img/a1.jpg')}}',
+            '{{url('home/user/img/a2.jpg')}}',
+            '{{url('home/user/img/a3.jpg')}}',
+            '{{url('home/user/img/a4.jpg')}}',
+            '{{url('home/user/img/a5.png')}}',
+            '{{url('home/user/img/a6.jpg')}}',
+            '{{url('home/user/img/a7.jpg')}}',
+            '{{url('home/user/img/a8.jpg')}}',
+            '{{url('home/user/img/a9.jpg')}}',
+            '{{url('home/user/img/a10.jpg')}}'
+        ],//图片集合 必选
         size : {
             width : window.innerWidth,
             height : window.innerHeight
@@ -85,8 +96,8 @@
             list : 5
         },
         index: 0,//图片集合的索引位置 可选
-        type : 2,//切换类型 1 ， 2 可选
-        boxTime : 3000,//小方块来回运动的时长 可选
+        type : 1,//切换类型 1 ， 2 可选
+        boxTime : 5000,//小方块来回运动的时长 可选
         fnTime : 6000//banner切换的时长 可选
     });
 
