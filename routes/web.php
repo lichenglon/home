@@ -104,6 +104,9 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('orderDetail/{order_id?}/{ac?}',$controller.'orderDetail');
 	#QR code
 	Route::any('qrcode/{order_id?}',$controller.'qrcode');
+
+	#我的房源
+	Route::any('myHouse',$controller.'myHouse');
 });
 
 
