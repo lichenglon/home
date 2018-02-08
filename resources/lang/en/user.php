@@ -55,6 +55,8 @@ return [
 	'user_set'=>'Setup Password ',
 	'user_e-mail'=>'E-mail Address',
 	'user_Real'=>'Real name',
-	'user_immediately'=>'register immediately'
+	'user_immediately'=>'register immediately',
+	'user_Register'=>'Register'
+
 
 ];
