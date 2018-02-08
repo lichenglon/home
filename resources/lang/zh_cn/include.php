@@ -8,7 +8,7 @@
 return [
 	//高级搜索
 		'include_advanced'=>'高级搜索',
-		'include_key'=>'关键词',
+		'include_key'=>'房源名称',
 		'include_nation'=>'国家',
 		'include_address'=>'详细地址',
 		'include_house'=>'房屋类型',

@@ -47,10 +47,11 @@ a{
 	li{
 		margin-top:20px;
 	}
-	body {
-		background-image: url("../img/enroll/img.jpg") ;
+	/*body {
+		background-image: url("../img/enroll/2.jpg") ;
+		background-size:1920px,1080px;
 	}
-
+*/
 	#h{
 		height:580px;
 		background-position: 0 50%;
@@ -86,7 +87,7 @@ a{
 	.logo{
 		width: 160px;
 		height:50px;
-		background: url(../img/icon.png) no-repeat;
+		background: url(../img/logo.png) no-repeat;
 		position: absolute;
 		top:20px;
 		left:20px;
