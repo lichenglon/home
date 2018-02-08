@@ -95,7 +95,7 @@
                      data-basealign="slide"
                      data-startslide="0"
                      data-endslide="5"
-                     style="z-index: 5;"><a href="listing.html" class="btn-white border_radius uppercase">@lang('index.index_view')</a>
+                     style="z-index: 5;"><a href="{{url('house/listing')}}" class="btn-white border_radius uppercase">@lang('index.index_view')</a>
                 </div>
             </div>
         </ul>
