@@ -100,8 +100,10 @@ return [
 	'order_phone'       =>  'Please enter the correct phone number',//请输入正确的电话号码
 	'order_correct'     =>  'Please enter the correct lease term',//请输入正确的租期期限
 
-	'order_fc'=>'Foreign Currency',
-	'order_rc'=>'RMB',
+	'order_fc'          =>  'Foreign Currency',
+	'order_rc'          =>  'RMB',
+	'reject1'           =>  'house has been rented',
+	'reject2'           =>  'tenant information audit failed to pass',
 
 	//付款成功payoff
 	'my_account'        =>  'My Account',

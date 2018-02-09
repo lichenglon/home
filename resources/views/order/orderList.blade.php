@@ -110,7 +110,12 @@
                                 @elseif($val->order_status == '9' && $val->qx_reason != '')
                                     @lang('order.order_cancelled')
                                 @elseif($val->order_status == '5')
-                                    @lang('order.order_was')：{{$val->reject_reason}}
+                                    @lang('order.order_was')：<br/>
+                                    @if($val->reject_reason == '1')
+                                        @lang('order.reject1')
+                                    @elseif($val->reject_reason == '2')
+                                        @lang('order.reject2')
+                                    @endif
                                 @else
                                     @foreach($order_status as $value)
                                         @if($val->order_status == $value->id)
@@ -119,7 +124,6 @@
                                     @endforeach
                                 @endif
                             </span>
-
                             @if($val->order_status == '1' || $val->order_status == '8' || $val->order_status == '9')
                             <span style="position:absolute; right:460px;"><a onclick="javascript:if(window.confirm('@lang('order.order_sure')')){isDel('{{$val->id}}')}"><i class="icon-trash"></i></a></span>
                             @endif
@@ -161,7 +165,6 @@
                                     @elseif($val->order_status == '1')
                                         <a onclick="javascript:if(window.confirm('@lang('order.order_want')')){isCancel('{{$val->id}}','1')}"><font color="#5f9ea0">@lang('order.order_cancellation')</font></a>
                                     @else
-                                        {{--<a href="javascript:void(0);" onclick="qxReason('{{$val->id}}')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>--}}
                                         <a href="javascript:void(0);" onclick="isCancel('{{$val->id}}','2')" ><font color="#5f9ea0">@lang('order.order_cancels')</font></a>
                                     @endif
                                 </td>
