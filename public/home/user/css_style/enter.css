@@ -79,6 +79,7 @@ form{
 	display: inline-block;
 	text-align:center;
 	background-color:white;
+	border-radius:7px 0px 0px 7px;
 }
 .register-box input{
 	width: 300px;
@@ -91,6 +92,8 @@ form{
 	font-family: "Microsoft YaHei","Hiragino Sans GB";
 	float:right;
 	margin-right:110px;
+	border-radius:0px 7px 7px 0px;
+
 }
 .register-box .tips{
 	position: absolute;
