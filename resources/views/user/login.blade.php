@@ -23,12 +23,11 @@
                     <ul type="none">
                         <li>
                             @lang('user.user_the')<span id="unameMsg" class=""></span><a href="{{url('user/register')}}">@lang('user.user_registered')</a>
-                            <input type="text" name="uname" id="uname" placeholder="@lang('user.user_please')">
-
+                            <input type="text" required="required" name="uname" id="uname" placeholder="@lang('user.user_please')">
                         </li>
                         <li>
                             @lang('user.user_password')<span id="upwdMsg" class=""></span><!-- <a href="#">忘记密码？</a> -->
-                            <input type="password" name="upwd" id="upwd" placeholder="@lang('user.user_enter')">
+                            <input type="password" required="required" name="upwd" id="upwd" placeholder="@lang('user.user_enter')">
 
                         </li>
                         <li style="display:inline-block;width:100%; height: 60px;">
@@ -98,7 +97,7 @@
         index: 0,//图片集合的索引位置 可选
         type : 1,//切换类型 1 ， 2 可选
         boxTime : 5000,//小方块来回运动的时长 可选
-        fnTime : 6000//banner切换的时长 可选
+        fnTime : 7000//banner切换的时长 可选
     });
 
 
