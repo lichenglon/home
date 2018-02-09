@@ -52,12 +52,14 @@ header{
 
 .list{
 	width:600px;
-	height:800px;
+	height:720px;
 	position:absolute; z-index:1;
 	left:40%;
 	margin-top:100px;
 	background-color: rgba(68, 56, 56, 0.26);
 	margin-left:-100px;
+	border-radius:10px 10px 10px 10px;
+
 
 }
 form{
@@ -67,12 +69,12 @@ form{
 	margin-left:80px;
 }
 .register-box{
-	margin-bottom: 32px;
+	margin-bottom: 20px;
 	border-radius:5px 5px 5px 5px;
 }
 .register-box label{
 	width:120px;
-	height: 52px;
+	height: 49px;
 	line-height: 52px;
 	display: inline-block;
 	text-align:center;
@@ -80,7 +82,7 @@ form{
 }
 .register-box input{
 	width: 300px;
-	height: 21px;
+	height: 18px;
 	padding-bottom:16px;
 	padding-left: 20px;
 	padding-top: 15px;
@@ -143,14 +145,14 @@ form{
 	width: 81%;
 	height: 54px;
 	color: #fff;
-	background:#7c1212;
+	background:#ff0000;
 	border: 0;
 	font-size: 16px;
 	font-family: "Microsoft YaHei","Hiragino Sans GB";
 	cursor:pointer;
 }
 .submit_btn>input:hover{
-	background-color:red;
+	background-color:#E3170D;
 }
 
 h2{
