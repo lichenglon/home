@@ -9,7 +9,7 @@
 return [
 	//高级搜索
 	'include_advanced'=>'ADVANCED SEARCH',
-	'include_key'=>'Property name',
+	'include_key'=>'House name',
 	'include_nation'=>'nation',
 	'include_address'=>'address',
 	'include_house'=>'house type',

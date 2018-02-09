@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('home/user')}}/css_style/banner.css">
 
 </head>
+
 <body onload="refresh()">
 
 <div id="h" style="margin-top:100px;">
@@ -45,6 +46,7 @@
                 </li>
             </ul>
         </form>
+
     </div>
 </div>
 
@@ -117,6 +119,7 @@
         var img = imgs[index];
         document.body.style.backgroundImage="url("+img+")";
     }
+
 </script>
 
 
