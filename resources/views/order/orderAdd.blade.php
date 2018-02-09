@@ -24,7 +24,7 @@
     <div class="row">
         <!--Left-->
         <div class="col-xs-9">
-            <form id="form" name="myForm" method="post" action="" enctype="multipart/form-data" onsubmit="javascript:return isCheck()" >
+            <form id="form" name="myForm" method="post" enctype="multipart/form-data" onsubmit="javascript:return isCheck()" >
                 {{ csrf_field() }}
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="fa fa-file-text"></i>@lang('order.order_form')</div>
