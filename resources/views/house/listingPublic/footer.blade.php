@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="footer_panel bottom30">
-                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo6-white.jpg" alt="logo"></a>
+                    <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white6.png" alt="logo"></a>
 
                     <p class="bottom15">@lang('include.include_castle')</p>
                     <ul class="social_share">

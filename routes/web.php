@@ -84,10 +84,8 @@ Route::group(['prefix' => 'order'],function(){
 	Route::any('orderSave',$controller.'orderSave');
 	#支付
 	Route::any('pay/{result?}',$controller.'pay');
-
 	#支付成功
 	Route::any('payoff/{order_id?}',$controller.'payoff');
-
 	#取消订单
 	Route::any('orderCancel',$controller.'orderCancel');
 	#取消订单原因

@@ -121,6 +121,8 @@ return [
 		'order_fc'         =>   '外币支付',
 		'order_rc'         =>   '人民币支付',
 		'house_info'       =>   '房源信息',
+		'reject1'          =>   '房源已出租',
+		'reject2'          =>   '信息审核不通过',
 
 	//二维码
 		'order_successful' =>	'如果付款成功！页面即将跳转',

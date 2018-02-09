@@ -49,10 +49,22 @@ header{
 }
 /*注册信息*/
 /*总体布局*/
+
+.list{
+	width:600px;
+	height:800px;
+	position:absolute; z-index:1;
+	left:40%;
+	margin-top:100px;
+	background-color: rgba(68, 56, 56, 0.26);
+	margin-left:-100px;
+
+}
 form{
 	width: 550px;
 	margin: auto;
-	margin-top: 100px;
+	margin-top:50px;
+	margin-left:80px;
 }
 .register-box{
 	margin-bottom: 32px;
@@ -139,4 +151,10 @@ form{
 }
 .submit_btn>input:hover{
 	background-color:red;
+}
+
+h2{
+	text-align: center;
+	margin:50px 0;
+	color:white;
 }

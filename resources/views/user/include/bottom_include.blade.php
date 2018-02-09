@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-6">
             <div class="footer_panel bottom30">
-                <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.jpg" alt="logo"></a>
+                <a href="#." class="logo bottom30"><img src="{{asset('home')}}/images/logo-white.png" alt="logo"></a>
 
                 <p class="bottom15">@lang('index.index_castle')<br><a href="#.">@lang('index.index_it')</a></p>
             </div>

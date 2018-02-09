@@ -95,7 +95,7 @@
                      data-basealign="slide"
                      data-startslide="0"
                      data-endslide="5"
-                     style="z-index: 5;"><a href="listing.html" class="btn-white border_radius uppercase">@lang('index.index_view')</a>
+                     style="z-index: 5;"><a href="{{url('house/listing')}}" class="btn-white border_radius uppercase">@lang('index.index_view')</a>
                 </div>
             </div>
         </ul>
@@ -121,7 +121,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.jpg" class="logo" alt=""></a>
+                        <a class="navbar-brand" href="#"><img src="{{asset('home')}}/images/logo.png" class="logo" alt=""></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
@@ -164,7 +164,7 @@
             <li>
 
                 @if(Session::get('userId'))
-                    <a href="{{url('setting/account',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>@lang('index.index_setting')</a>
+                    <a href="{{url('setting/account')}}"><i class="icon-icons215"></i>@lang('index.index_setting')</a>
                 @else
                     <a href="{{url('user/login')}}"><i class="icon-icons179"></i>@lang('index.index_login')</a>
             </li>

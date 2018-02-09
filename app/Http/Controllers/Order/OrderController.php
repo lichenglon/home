@@ -272,20 +272,3 @@ class OrderController extends BaseController
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

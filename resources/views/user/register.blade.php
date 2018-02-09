@@ -4,93 +4,80 @@
 	<meta charset="utf-8" />
 	<title></title>
 	<link rel="stylesheet" href="{{asset('home/user/css_style/enter.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('home/user')}}/css_style/banner.css">
+
 </head>
 <body>
-<style>
-	body{
-		margin:0;
-	}
-	video{
-		position:fixed;
-		right:0;
-		bottom:0;
-		min-width:100%;
-		min-height:100%;
-		width:auto;
-		height:auto;
-		z-index:-9999;
-		/*-webkit-filter:grayscale(100%)*/
-	}
-</style>
-<header>
-	<a href="#" class="logo"></a>
-	<div class="desc" style="color:re">@lang('user.user_register')</div>
-</header>
-<video autoplay muted loop style="width:100%;" id="v1">
-	<source src="{{ url('mp4/v1.mp4') }}">
-</video>
+	<div class="banner" id="banner1">
+		<div class="banner-view">
 
-	<form action="{{url('user/save')}}" method="post">
-		<div class="register-box">
-			<label for="username" class="username_label ">@lang('user.user_user')</label>
-			<input maxlength="20" type="text" required="required" name="uname" id="uname"  placeholder="@lang('user.user_your')"/>
-			<div id="unameMsg" style="width:200px ;height: 15px;" >
+			<div class="list">
+				<h2>ULzz.com | @lang('user.user_Register')</h2>
+				<form action="{{url('user/save')}}" method="post">
+					<div class="register-box">
+						<label for="username" class="username_label ">@lang('user.user_user')</label>
+						<input maxlength="20" type="text" required="required" name="uname" id="uname"  placeholder="@lang('user.user_your')"/>
+						<div id="unameMsg" style="width:200px ;height: 15px;" >
 
+						</div>
+					</div>
+					<div class="register-box">
+						<label for="username" class="other_label">@lang('user.user_set')</label>
+						<input maxlength="20" type="password" required="required" name="upwd" id="upwd" placeholder="@lang('user.user_Please')"/>
+						<div id="upwdMsg"  style="width:200px ;height: 15px;">
+
+						</div>
+					</div>
+					<div class="register-box">
+						<label for="username" class="other_label">@lang('user.user_confirm')</label>
+						<input maxlength="20" type="password" required="required" id="upwds" placeholder="@lang('user.user_again')"/>
+						<div id="upwdsMsg" style="width:300px ;height: 15px;" >
+
+						</div>
+					</div>
+					<div class="register-box">
+						<label for="username" class="other_label">@lang('user.user_phone')</label>
+						<input class="phone" maxlength="20" required="required" type="text" id="phone" name="phone" style="margin-right:112px" placeholder="@lang('user.user_recommended')"/>
+						<div id="phoneMsg" style="width:300px ;height: 15px;" >
+
+						</div>
+					</div>
+
+					<div class="register-box">
+						<label for="username" class="other_label">@lang('user.user_e-mail')</label>
+						<input maxlength="20" type="text" required="required" id="email" name="email" placeholder="@lang('user.user_address')"/>
+						<div id="emailMsg" style="width:300px ;height: 15px;" >
+
+						</div>
+					</div>
+
+					<div class="register-box">
+						<label for="username" class="other_label">@lang('user.user_Real')</label>
+						<input maxlength="20" type="text" required="required" id="userName" name="user" placeholder="@lang('user.user_reals')"/>
+						<div id="userNameMsg" style="width:200px ;height: 15px;" >
+
+						</div>
+					</div>
+
+					<div class="submit_btn">
+						<input type="hidden" id="_token" name="_token" value="{{csrf_token()}}"/>
+						<input type="submit" id="submit_btn" class="refer" value="@lang('user.user_immediately')">
+					</div>
+				</form>
 			</div>
+
 		</div>
-		<div class="register-box">
-			<label for="username" class="other_label">@lang('user.user_set')</label>
-			<input maxlength="20" type="password" required="required" name="upwd" id="upwd" placeholder="@lang('user.user_Please')"/>
-			<div id="upwdMsg"  style="width:200px ;height: 15px;">
-
-			</div>
-		</div>
-		<div class="register-box">
-			<label for="username" class="other_label">@lang('user.user_confirm')</label>
-			<input maxlength="20" type="password" required="required" id="upwds" placeholder="@lang('user.user_again')"/>
-			<div id="upwdsMsg" style="width:300px ;height: 15px;" >
-
-			</div>
-		</div>
-		<div class="register-box">
-			<label for="username" class="other_label">@lang('user.user_phone')</label>
-			<input class="phone" maxlength="20" required="required" type="text" id="phone" name="phone" style="margin-right:112px" placeholder="@lang('user.user_recommended')"/>
-			<div id="phoneMsg" style="width:300px ;height: 15px;" >
-
-			</div>
-		</div>
-
-		<div class="register-box">
-			<label for="username" class="other_label">@lang('user.user_e-mail')</label>
-			<input maxlength="20" type="text" required="required" id="email" name="email" placeholder="@lang('user.user_address')"/>
-			<div id="emailMsg" style="width:300px ;height: 15px;" >
-
-			</div>
-		</div>
-
-		<div class="register-box">
-			<label for="username" class="other_label">@lang('user.user_Real')</label>
-			<input maxlength="20" type="text" required="required" id="userName" name="user" placeholder="@lang('user.user_reals')"/>
-			<div id="userNameMsg" style="width:200px ;height: 15px;" >
-
-			</div>
-		</div>
-
-		<div class="submit_btn">
-			<input type="hidden" id="_token" name="_token" value="{{csrf_token()}}"/>
-			<input type="submit" id="submit_btn" class="refer" value="@lang('user.user_immediately')">
-		</div>
-	</form>
+		<div class="banner-btn"></div>
+		<div class="banner-number"></div>
+		<div class="banner-progres"></div>
+	</div>
 
 </body>
 
 
-
-<script>
-	var video= document.getElementById('v1');
-	video.playbackRate = 0.5;
-</script>
 <script src="{{asset('home/user/js/jquery-1.11.3.js')}}"></script>
+<script type="text/javascript" src="{{asset('home/user')}}/js/banner.js"></script>
+
 <script type="text/javascript">
 	$("input[name=uname]").blur(function(){
 		var username = document.getElementById('uname').value;
@@ -107,11 +94,7 @@
 	});
 
 </script>
-<script>
-	var video= document.getElementById('v1');
-	video.playbackRate = 0.5;
 
-</script>
 <script>
 	var	$uname=$("#uname"),
 			$unameMsg=$("#unameMsg"),
@@ -183,6 +166,41 @@
 		}
 	});
 
+
+
+</script>
+
+
+<script type="text/javascript">
+
+	var banner = new FragmentBanner({
+		container : "#banner1",//选择容器 必选
+		imgs : [
+				'{{url('home/user/img/a1.jpg')}}',
+				'{{url('home/user/img/a2.jpg')}}',
+				'{{url('home/user/img/a3.jpg')}}',
+				'{{url('home/user/img/a4.jpg')}}',
+				'{{url('home/user/img/a5.png')}}',
+				'{{url('home/user/img/a6.jpg')}}',
+				'{{url('home/user/img/a7.jpg')}}',
+				'{{url('home/user/img/a8.jpg')}}',
+				'{{url('home/user/img/a9.jpg')}}',
+				'{{url('home/user/img/a10.jpg')}}'
+		],//图片集合 必选
+		size : {
+			width : window.innerWidth,
+			height : window.innerHeight
+		},//容器的大小 可选
+		//行数与列数 可选
+		grid : {
+			line : 3,
+			list : 5
+		},
+		index: 0,//图片集合的索引位置 可选
+		type : 1,//切换类型 1 ， 2 可选
+		boxTime : 3000,//小方块来回运动的时长 可选
+		fnTime : 6000//banner切换的时长 可选
+	});
 
 
 </script>
