@@ -61,8 +61,8 @@
 
 					<div class="register-box">
 						<label type="text"  class="other_label" >@lang('user.user_Verification')</label>
-						<input name="code" type="text" style="width: 150px; margin-right: 260px;" >
-						<img style="float: left; margin-left: 330px; margin-top: -46px;" id="safecode" src="{{url('KitController/captcha/1')}}" onclick="this.src='{{url('KitController/captcha/1')}}=' + Math.random();" />
+						<input name="code" type="text" style="width: 180px; margin-right: 230px;" placeholder="@lang('user.user_code')" >
+						<img style="float: left; margin-left: 340px; margin-top: -46px;" id="safecode" src="{{url('KitController/captcha/1')}}" onclick="this.src='{{url('KitController/captcha/1')}}=' + Math.random();" />
 						<div id="userNameMsg" style="width:200px ;height: 15px;" >
 
 						</div>

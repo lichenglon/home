@@ -58,7 +58,7 @@ return [
 	'user_immediately'=>'Register Immediately',
 	'user_Register'=>'Register',
 	'user_Verification'=>'Code',
-
+	'user_code'=>'Please Enter Verify Code',
 
 
 ];
