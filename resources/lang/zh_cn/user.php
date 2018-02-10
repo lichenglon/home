@@ -56,7 +56,9 @@ return [
 	'user_Real'=>'真 实 姓 名',
 	'user_e-mail'=>'邮 箱 地 址',
 	'user_immediately'=>'立 即 注 册',
-	'user_Register'=>'注册'
+	'user_Register'=>'注册',
+	'user_Verification'=>'验 证 码',
+	'user_code'=>'请输入验证码',
 
 
 ];

@@ -24,12 +24,12 @@ return [
 	'user_please'=>'Please enter your login account',
 	'user_password'=>'Login password',
 	'user_enter'=>'Please enter your login password',
-	'user_verification'=>'code',
+	'user_verification'=>'Code',
 	'user_authentication'=>'Please enter your authentication password',
 
 
 	//注册
-	'user_user'=>'User name',
+	'user_user'=>'User Name',
 	'user_register'=>'Welcome to register',
 	"user_been"=>"It's been registered",
 	'user_can'=>'You can register',
@@ -55,8 +55,10 @@ return [
 	'user_set'=>'Setup Password ',
 	'user_e-mail'=>'E-mail Address',
 	'user_Real'=>'Real name',
-	'user_immediately'=>'register immediately',
-	'user_Register'=>'Register'
+	'user_immediately'=>'Register Immediately',
+	'user_Register'=>'Register',
+	'user_Verification'=>'Code',
+	'user_code'=>'Please Enter Verify Code',
 
 
 ];

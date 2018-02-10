@@ -59,6 +59,15 @@
 						</div>
 					</div>
 
+					<div class="register-box">
+						<label type="text"  class="other_label" >@lang('user.user_Verification')</label>
+						<input name="code" type="text" style="width: 180px; margin-right: 230px;" placeholder="@lang('user.user_code')" >
+						<img style="float: left; margin-left: 340px; margin-top: -46px;" id="safecode" src="{{url('KitController/captcha/1')}}" onclick="this.src='{{url('KitController/captcha/1')}}=' + Math.random();" />
+						<div id="userNameMsg" style="width:200px ;height: 15px;" >
+
+						</div>
+					</div>
+
 					<div class="submit_btn">
 						<input type="hidden" id="_token" name="_token" value="{{csrf_token()}}"/>
 						<input type="submit" id="submit_btn" class="refer" value="@lang('user.user_immediately')">
