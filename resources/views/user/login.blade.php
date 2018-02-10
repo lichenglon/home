@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('home/user')}}/css_style/banner.css">
 
 </head>
-
 <body onload="refresh()">
 
 <div id="h" style="margin-top:100px;">
@@ -32,12 +31,13 @@
                 <li style="display:inline-block;width:100%; height: 60px;">
                     @lang('user.user_verification')
                     <input type="text" name="code" id="yzm" placeholder="@lang('user.user_authentication')" style="width: 240px;">
-                    <span style="display:inline-block;float:right"><img style="display:inline-block" onclick="reloadcode();" src="{{url('KitController/captcha/1')}}" id="safecode"/></span>
+                    <span style="display:inline-block;float:right"><img id="safecode" src="{{url('KitController/captcha/1')}}" onclick="this.src='{{url('KitController/captcha/1')}}=' + Math.random();" /></span>
                 </li>
+
 
                 <li>
                     {{csrf_field()}}
-                    <input type="submit" value="@lang('user.user_login')" id="tjbtn">
+                    <input type="submit" value="@lang('user.user_login')" id="tjbtn" class="aaa1">
                     @if (session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
@@ -46,7 +46,6 @@
                 </li>
             </ul>
         </form>
-
     </div>
 </div>
 
@@ -59,22 +58,22 @@
 <script type="text/javascript">
 
     var imgs = [
-                '{{url('home/user/img/a1.jpg')}}',
-                '{{url('home/user/img/a2.jpg')}}',
-                '{{url('home/user/img/a3.jpg')}}',
-                '{{url('home/user/img/a4.jpg')}}',
-                '{{url('home/user/img/a5.png')}}',
-                '{{url('home/user/img/a6.jpg')}}',
-                '{{url('home/user/img/a7.jpg')}}',
-                '{{url('home/user/img/a8.jpg')}}',
-                '{{url('home/user/img/a9.jpg')}}',
-                '{{url('home/user/img/a10.jpg')}}'
+        '{{url('home/user/img/a1.jpg')}}',
+        '{{url('home/user/img/a2.jpg')}}',
+        '{{url('home/user/img/a3.jpg')}}',
+        '{{url('home/user/img/a4.jpg')}}',
+        '{{url('home/user/img/a5.png')}}',
+        '{{url('home/user/img/a6.jpg')}}',
+        '{{url('home/user/img/a7.jpg')}}',
+        '{{url('home/user/img/a8.jpg')}}',
+        '{{url('home/user/img/a9.jpg')}}',
+        '{{url('home/user/img/a10.jpg')}}'
 
     ];
     var caution = false
     function setCookie(name, value, expires, path, domain, secure)
     {
-        var curCookie = name + "=" + escape(value) +       /*声明去哪个值*/
+        var curCookie = name + "=" + escape(value) +
                 ((expires) ? "; expires=" + expires.toGMTString() : "") +
                 ((path) ? "; path=" + path : "") +
                 ((domain) ? "; domain=" + domain : "") +
@@ -119,7 +118,6 @@
         var img = imgs[index];
         document.body.style.backgroundImage="url("+img+")";
     }
-
 </script>
 
 

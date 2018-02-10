@@ -53,22 +53,26 @@ class UserController extends BaseController {
 	}
 	//注册入库
 	public function save (Request $request) {
+		$code = $request->code;
+		$sessionCodeNum = Session::get('milkcaptcha');
 
 		if(isset($request->username)){
 			$data = DB::table('tb_register')->where('uname', $request->username)->first();
 			if($data){
 				return 1;
 			}
-		}else{
+		}else if($code == $sessionCodeNum){
+
 			$arr = Input::all();
 			unset($arr['_token']);
+			unset($arr['code']);
 			$arr['upwd'] = md5($arr['upwd']);
 
 			$re = DB::table('tb_register')->insert($arr);
 			if($re == true){
 				return view('user/login')->with('message', '添加成功');
 			} else{
-				return view('error_page');
+				echo 1;
 			}
 		}
 
