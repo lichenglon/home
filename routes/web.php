@@ -127,6 +127,13 @@ Route::group(['prefix'=>'setting'],function(){
 	Route::any('secu',$controller.'secu');
 });
 
+//评论
+Route::group(['prefix'=>'comment'],function(){
+	#评论提交
+	Route::any('comment','Comment\CommentController@index');
+	#评论登陆
+	Route::any('login','Comment\CommentController@login');
+});
 
 
 
