@@ -5,7 +5,7 @@
 	<title></title>
 	<link rel="stylesheet" href="{{asset('home/user/css_style/enter.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('home/user')}}/css_style/banner.css">
-
+	<link rel="stylesheet" href="{{ asset('home/css/reality-icon.css') }}">
 </head>
 <body>
 	<div class="banner" id="banner1">

@@ -22,7 +22,7 @@
         <li>
 
             @if(Session::get('userId'))
-                <a href="{{url('user/data',['id'=>Session::get('userId')])}}"><i class="icon-icons215"></i>@lang('index.index_setting')</a>&nbsp; &nbsp;
+                <a href=" {{url('setting/account')}}"><i class="icon-icons215"></i>@lang('index.index_setting')</a>&nbsp; &nbsp;
             @else
                 <a href="{{url('user/login')}}"><i class="icon-icons179"></i>@lang('index.index_login')</a>
         </li>
