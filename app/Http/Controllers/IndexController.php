@@ -11,7 +11,7 @@ use App\Models\House_message;
 use App;
 use Illuminate\Support\Facades\Session;
 use DB;
-use App\Models\User_v;
+//use App\Models\User_v;
 
 class IndexController extends BaseController{
 	/**
@@ -41,9 +41,10 @@ class IndexController extends BaseController{
 		$houseObjData = $houseMsg->where('chk_sta','2')->orderBy('msgid', 'desc')->paginate(9);
 
 		//登录记录
-		$user = new user_v();
-		$addr = $user->getCity();
-		$login_add  = $addr['country'].$addr['province'].'省'.$addr['city'].'市';
+//		$user = new user_v();
+//		$addr = $user->getCity();
+//		$login_add  = $addr['country'].$addr['province'].'省'.$addr['city'].'市';
+		$login_add = "中国广东省深圳市";
 		$login_time = time();
 		$login_ip   = $_SERVER["REMOTE_ADDR"];
 		$login_id = $userId;

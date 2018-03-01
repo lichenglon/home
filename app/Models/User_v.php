@@ -1,10 +1,10 @@
-<?php
-/**
+//<?php
+/*/**
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2018/2/2
  * Time: 11:42
- */
+
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
@@ -28,4 +28,4 @@ class user_v extends Base{
 
 		return $data;
 	}
-}
+}*/
